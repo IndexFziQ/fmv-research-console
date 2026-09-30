@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-09-07</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .dl.warn{color:var(--amb)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-09-07</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">50</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">100%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+  <div class="signal-card">
+    <h4>① Steam 周末大清理互动影游刷分评测——头部产品中文评测数集体净减，口碑进入「去水分」阶段</h4>
+    <div class="src">来源：Steam评测API环比(9/4→9/7) · Steam商店页(9/7核实)</div>
+    <ul><li>盛世天下女帝篇 8212→7786 净减426条(-5.2%)，全系列头部缩水最严重</li><li>欢瑞矩阵集体缩水：冰点之下-128、主角-96(-9.0%)、代号三国-86、雪落情书时-64(-9.7%)</li><li>另有花满楼-78、绍宋-24、你好你配吗-16、恶校游戏-9 同向净减</li><li>对照：小体量产品反向正增长(江山北望+12/不心动才有鬼+8/媚娘篇+6/金宵公寓+6)，缩水高度集中在有大厂营销/冲榜动作的头部</li><li>与此前「绍宋刷分争议」(9/1)→「绍宋AI画面争议」(9/4)形成闭环：平台层「挤水分」正式落地</li></ul>
+    <div class="act"><strong>行动建议：</strong>这是互动影游口碑「去水分」的行业级信号：刷分是短期营销手段，Steam 会秋后算账。对自有项目三点启示：① 监测竞品不能只看好评率绝对值，要看「评测总数净变化」——好评率没崩但总数在缩水，说明前期好评有水分，这类竞品的真实口碑要用「净增趋势」重新评估；② 刷分/冲榜的红利窗口在收窄，靠买量冲好评率的打法正被平台反制，自有项目应把资源投到「真实口碑发酵」而非「数据冲榜」；③ 这是继绍宋刷分争议后平台首次大规模动手，若竞品的评测数持续净减，可视为其「真实基本盘」低于表面数据的信号，选题对标时要把这个挤水分因素算进去。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/4148240" target="_blank">来源</a><a class="link-btn" href="https://store.steampowered.com/app/4234260" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>② 官媒定调「互动影游=IP延伸」——《人民日报海外版》明确 AI+漫剧+互动影游出海路径，从「流量生意」走向「IP生意」</h4>
+    <div class="src">来源：人民日报海外版(9/7) · 点点数据《2026中国短剧出海市场研究报告》 · 阅文ToonScroll</div>
+    <ul><li>人民日报海外版 9/7《AI赋能微短剧走向世界》：互动影游被定位为「将原IP世界观进一步延伸，通过玩家参与、多分支剧情和沉浸式体验承接短期流量，有望拉长IP生命周期，拓展商业化空间」</li><li>产业方共识：阅文海外漫剧平台 ToonScroll 计划年内超千部漫剧；点点数据报告提出「AI基建化」与「虚拟演员、文化符号智能替换、跨情感精准适配」</li><li>林启文(产业人士)观点：互动影游让爆款AI漫剧「从流量生意走向IP生意」</li><li>这与此前「绍宋=阅文网文IP改编」「盛世天下=网微剧备案」的案例一脉相承——IP是互动影游立项的第一杠杆</li></ul>
+    <div class="act"><strong>行动建议：</strong>这是官媒对互动影游商业定位的「盖章」：互动影游不只是游戏，是 IP 的延伸变现形态。对自有项目三点启示：① 选题优先选「有 IP 背书」的题材——网文(绍宋)、历史人物(盛世天下)都是已验证的 IP 杠杆，无 IP 的新选题获客成本高得多；② 把「IP 生命周期」作为立项评估维度，互动影游的核心价值之一是「拉长 IP 生命周期」，立项时问一句「这个题材的 IP 生命力够不够长、能不能反哺原著」；③ 出海可借「AI 漫剧 IP」的既有流量——官媒路径是「漫剧带 IP、影游接流量」，自有项目若做海外，可考虑与短剧/漫剧 IP 协同而非孤军作战。</div>
+    <div class="links"><a class="link-btn" href="https://new.qq.com/rain/a/20260907A0369T00?refer=cp_1009" target="_blank">来源</a></div>
+  </div><div class="signal-card">
+    <h4>③ 影游「演员风险」成行业痛点——真人影游高度绑定演员，演员塌房反噬游戏，选角即风控</h4>
+    <div class="src">来源：今日头条(9/5) · 网易新闻影游评论</div>
+    <ul><li>今日头条 9/5：影游博主「帅桃游戏」(玩了300+款影游的老玩家)发《演员塌房，游戏该一起陪葬吗？》，针对「两个三字演员」的离谱行为引发玩家抵制，提出「角色≠演员」的理性区分主张</li><li>结构性痛点：真人影游作品高度绑定真人演员，演员翻车会反噬游戏口碑与销量，且制作方/拍摄方无法预判演员私生活</li><li>对照信号：《不心动才有鬼》被赞「众神归位·影游嘉年华」——顶配熟手卡司是口碑加分项，但也意味着更深的演员绑定</li><li>与 9/4「绍宋真人+AI拼接被骂」形成完整张力：真人依赖有演员风险，全AI有质感争议，选「真人 vs AI」是影游的元问题</li></ul>
+    <div class="act"><strong>行动建议：</strong>这是真人影游「把命脉押在演员身上」的风险警示。对自有项目三点启示：① 选角即风控——立项时评估每位演员的风险敞口(过往争议、合约约束、个人口碑)，把「演员风险」纳入成本与排期，而非事后补救；② 结构上降低单一演员依赖——可通过「多女主/多支线」稀释单人权重，让任一人塌房不致整盘崩，或考虑「AI/虚拟演员」作为风险对冲(但注意全AI的质感争议，需按题材适配)；③ 建立「角色与演员解耦」的运营策略——像帅桃游戏主张的「角色≠演员」那样，把玩家注意力引导到「角色人设」而非「演员本人」，从叙事和宣发层面降低绑定度。</div>
+    <div class="links"><a class="link-btn" href="https://www.toutiao.com/article/7681869065161376265" target="_blank">来源</a></div>
+  </div><div class="signal-card">
+    <h4>④ 海外「选择向互动叙事」持续供给与 FMV 应用形态外延——Choice of Games/互动小说新作 + FMV 融入玩法型游戏</h4>
+    <div class="src">来源：Choice of Games官方(9/3) · Planet IF(9/3) · PC Gamer新游日历 · This Week in Videogames</div>
+    <ul><li>Choice of Games《God of Chaos》9/3 上线 Steam/Android/iOS(30% off至9/10)——海外选择向互动小说头部厂牌稳定产出</li><li>Pop Elephant《Dissolution of My Self》9/3 上架，点选心理恐怖+互动小说，官方支持简中(海外团队开始把简中作首发语言)</li><li>FMV 应用形态外延：Normal Golf Game(9/21,FMV+高尔夫玩法)、Tenebris Somnia(10/16,8-bit+FMV过场)——FMV 从「互动影游专属」变为「玩法型游戏演出外挂」</li><li>intfiction.org 社区持续讨论「选择真正有意义」(机会成本 vs railroad)，Polygon 盘「选择塑造体验而非只改结局」</li><li>对国内启示：互动叙事存在两条成熟路线——海外「纯选择向文字IF」与国内「真人实拍影游」，且 FMV 素材正在「资产化」</li></ul>
+    <div class="act"><strong>行动建议：</strong>这是海外互动叙事「供给侧」与「FMV 形态」的双重信号。对自有项目三点启示：① 关注 Choice of Games 这类「纯选择向文字IF」的商业模式——无演员、无实拍、纯文字，是互动叙事里成本最低、最抗风险的形态，可作自有项目「低成本验证剧情」的入口；② FMV 素材正在「资产化」——被独游用于玩法型游戏，意味着真人影像素材的价值不限于互动影游，自有项目积累的影像素材可探索二次变现；③ 海外团队开始把「简中」作首发语言(如 Dissolution of My Self)，说明中文互动叙事市场对海外团队的吸引力上升，反过来也是国内团队「出海对攻」的压力信号——趁海外作品中文供给还稀疏，先占住中文互动叙事的优质题材位。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/4425880" target="_blank">来源</a><a class="link-btn" href="https://store.steampowered.com/app/4573760" target="_blank">旁证</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 自09-07前快照起）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.3%</span></div><div class="dl ">+12(+0.2%)</div><div class="nt">+12条今日最高，欢瑞主投长尾；TapTap 8.7稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">95.4%</span></div><div class="dl ">+8(+0.6%)</div><div class="nt">+8条，花絮营销带动长尾，95.4%稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">媚娘篇(盛世天下)</span><span class="pct">82.9%</span></div><div class="dl ">+6(+0.1%)</div><div class="nt">+6条，媚娘篇长尾；⚠️ 全语言86.7%高于中文82.9%(差3.8pp)</div></div><div class="review-cell"><div class="rn"><span class="nm">金宵公寓事件</span><span class="pct">58.8%</span></div><div class="dl ">+6(+5.6%)</div><div class="nt">+6条(+5.6%)，8/25新作，中文114条/58.8%Mixed继续缓修复</div></div><div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100.0%</span></div><div class="dl ">+4(+4.0%)</div><div class="nt">+4条，百合AVG 103条保持100%零差评(小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">阴三国谋论:徐州篇</span><span class="pct">93.8%</span></div><div class="dl ">+2(+4.3%)</div><div class="nt">+2条，8/12互动剧情微增</div></div><div class="review-cell"><div class="rn"><span class="nm">对不起我是警察</span><span class="pct">78.0%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">68.3%</span></div><div class="dl ">+1(+2.5%)</div><div class="nt">⚠️ 中文68.3% vs 全语言59.0%(差9.3pp)，口碑最弱</div></div><div class="review-cell"><div class="rn"><span class="nm">天平游戏1:抉择</span><span class="pct">86.1%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">87.1%</span></div><div class="dl ">+1(+3.3%)</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Bloodholic</span><span class="pct">98.1%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文98.1% vs 全语言88.2%(差9.9pp)</div></div><div class="review-cell"><div class="rn"><span class="nm">Cage of Roses</span><span class="pct">89.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Run</span><span class="pct">33.3%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文仅3条(33.3%)与全语言89.1%差55.8pp</div></div><div class="review-cell"><div class="rn"><span class="nm">Five Dates</span><span class="pct">85.7%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文71.4% vs 全语言78.0%(差6.6pp)</div></div><div class="review-cell"><div class="rn"><span class="nm">Libera Nos a Malo</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">⚠️ 全语言3条/66.7%，中文0条(极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">灭寇1939:上川往事</span><span class="pct">83.7%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">退婚后,宗主马甲藏不住</span><span class="pct">26.8%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 免费互动剧情，中文41条/26.8%差评为主，口碑最低警示样本</div></div><div class="review-cell"><div class="rn"><span class="nm">Project DeepWeb</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">1000王子(AI原生乙女)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ AI原生乙女，中文1条差评，全语言6条(33.3%)口碑仍差</div></div><div class="review-cell"><div class="rn"><span class="nm">无言之林(海外一人FMV)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 全语言56条/54.2%Mixed；中文1条差评</div></div><div class="review-cell"><div class="rn"><span class="nm">东北往事</span><span class="pct">83.2%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">末日降临!被美女们关进避难所</span><span class="pct">81.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">夺命邂逅</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">宗门最后的长老</span><span class="pct">97.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.8%</span></div><div class="dl ">-2(-0.2%)</div><div class="nt">净减2条(-0.2%)，基本持平</div></div><div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">93.2%</span></div><div class="dl ">-9(-1.2%)</div><div class="nt">净减9条(-1.2%)，疑似Steam清理刷分；93.2%稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">你好,你配吗?</span><span class="pct">96.9%</span></div><div class="dl ">-16(-3.2%)</div><div class="nt">⚠️ 净减16条(-3.2%)，疑似Steam清理刷分；96.9%好评仍稳</div></div><div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">81.4%</span></div><div class="dl ">-24(-0.9%)</div><div class="nt">⚠️ 净减24条(-0.9%)，AI画面争议叠加评测清理；82.3→81.4%继续微降</div></div><div class="review-cell"><div class="rn"><span class="nm">雪落情书时</span><span class="pct">96.5%</span></div><div class="dl ">-64(-9.7%)</div><div class="nt">⚠️ 净减64条(-9.7%)，疑似Steam清理刷分；96.5%好评仍稳</div></div><div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">97.6%</span></div><div class="dl ">-78(-5.0%)</div><div class="nt">⚠️ 净减78条(-5.0%)，疑似Steam清理刷分；97.6%好评仍稳</div></div><div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.3%</span></div><div class="dl ">-86(-3.1%)</div><div class="nt">⚠️ 净减86条(-3.1%)，疑似Steam清理刷分</div></div><div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.3%</span></div><div class="dl ">-96(-9.0%)</div><div class="nt">⚠️ 净减96条(-9.0%)，疑似Steam清理刷分</div></div><div class="review-cell"><div class="rn"><span class="nm">冰点之下</span><span class="pct">93.5%</span></div><div class="dl ">-128(-4.6%)</div><div class="nt">⚠️ 净减128条(-4.6%)，疑似Steam清理刷分</div></div><div class="review-cell"><div class="rn"><span class="nm">女帝篇(盛世天下)</span><span class="pct">82.5%</span></div><div class="dl ">-426(-5.2%)</div><div class="nt">⚠️ 评测数罕见净减426条(-5.2%)，疑似Steam周末清理刷分/违规评测；全语言82.3%</div></div><div class="review-cell"><div class="rn"><span class="nm">列车怪谈：虚像之境</span><span class="pct">89.7%</span></div><div class="dl ">新增追踪</div><div class="nt">首次纳入评测追踪：中文58条/89.7%好评(9/4手工沉淀，8/31发售AI悬疑恐怖)</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">Steam 周末大清理互动影游刷分评测——头部产品中文评测数集体净减</span><span class="delta">机制·评测清理</span></div>
+    <div class="meta">Steam 评测系统（机制信号） · 2026-09-05~09-07 窗口</div>
+    <div class="note">评测 API 环比(9/4→9/7)出现罕见的大规模净减：盛世天下女帝篇 -426(-5.2%)、冰点之下 -128(-4.6%)、主角 -96(-9.0%)、代号三国 -86(-3.1%)、花满楼 -78(-5.0%)、雪落情书时 -64(-9.7%)、绍宋 -24(-0.9%)、你好你配吗 -16(-3.2%)。缩水高度集中在欢瑞矩阵+盛世天下女帝篇+绍宋这批此前有大厂营销/冲榜动作的头部产品，而小体量产品(江山北望+12/不心动才有鬼+8/媚娘篇+6)反而正增长——指向 Steam 周末清理了疑似刷分/违规评测。这是此前「绍宋刷分争议」(9/1)→「AI画面争议」(9/4)之后，平台层面的「挤水分」落地，标志互动影游口碑进入「去水分」阶段。</div>
+    <div class="tags"><span class="tag tag-p">机制</span><span class="tag tag-p">评测清理</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《Dissolution of My Self》互动小说新供给——点选心理恐怖，官方支持简中</span><span class="delta">新供给·互动小说</span></div>
+    <div class="meta">Pop Elephant Studio · 2026-09-03 发售</div>
+    <div class="note">海外互动小说(FM)新供给：Pop Elephant Studio 的《Dissolution of My Self》9/3 上架 Steam，点选调查+互动小说+视觉小说+心理恐怖+非线性叙事，讲述流亡王子 Hector 在出租屋内借物件触碰记忆、逐步揭开与叔叔 Matvey 之间「依赖-控制-怨恨-情感」的畸形关系。无战斗无怪物，恐怖来自氛围与不可靠记忆。语言：英/简中/日，含日文配音。这是海外互动小说团队开始把「简中」作为首发语言的新样本，代表中文互动叙事市场对海外团队的价值上升。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">互动小说</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Choice of Games《God of Chaos》上线——海外选择向互动小说头部厂牌新作</span><span class="delta">海外·互动小说</span></div>
+    <div class="meta">Choice of Games · 2026-09-03 发布 · 30% off 至 9/10</div>
+    <div class="note">海外 choice-based 互动小说头部厂牌 Choice of Games 最新作《God of Chaos》9/3 上线 Steam/Android/iOS，30% off 至 9/10。玩家扮演世界最后一位幸存的「混沌之神」，选择解放人类还是让世界燃烧——纯文字多分支，是「选择驱动叙事」最原教旨的形态。Choice of Games 多年稳定产出，说明海外「纯选择向互动叙事」是成熟且可持续的品类，与国内「真人实拍互动影游」形成两种并列的方法论路线。</div>
+    <div class="tags"><span class="tag tag-b">海外</span><span class="tag tag-p">互动小说</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《Normal Golf Game》——FMV 与荒诞物理玩法融合，FMV 应用形态外延</span><span class="delta">FMV·玩法融合</span></div>
+    <div class="meta">Luke Muscat（Fruit Ninja / Jetpack Joyride 前设计师） · 2026-09-21 发售 · 免费 demo 已上线</div>
+    <div class="note">独游开发者 Luke Muscat（Fruit Ninja/Jetpack Joyride 设计师）新作《Normal Golf Game》9/21 发售，把 FMV 与荒诞物理、高球玩法、第一人称探索、神秘氛围混搭。这代表 FMV 不再只是「互动影游」的专属——开始作为「玩法型游戏的叙事/演出外挂」被独游开发者采用。对互动影游从业者的启示：FMV 的应用边界在拓宽，真人影像可服务于非叙事玩法，这是「真人影像」作为通用素材资产化的信号。</div>
+    <div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-p">玩法融合</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《Tenebris Somnia》8-bit 恐怖融合 FMV 过场——像素+真人影像混搭趋势</span><span class="delta">FMV·融合趋势</span></div>
+    <div class="meta">独立团队 · 2026-10-16 发售</div>
+    <div class="note">PC Gamer 9月新游日历收录《Tenebris Somnia》(10/16)：8-bit 复古恐怖游戏加入 FMV 过场动画(cutscenes)。像素风格与真人影像的强反差混搭，是 FMV 在独立恐怖品类里「低成本提升演出质感」的新用法，与「全AI影像」「真人实拍」并列成为 FMV 素材的第三种落地路线。</div>
+    <div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-p">融合趋势</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《Sweet Hamster Days》讲谈社真人4K恋爱模拟——「仓鼠视角」猎奇真人影游</span><span class="delta">海外·题材猎奇</span></div>
+    <div class="meta">Kodansha（讲谈社） · 2026-07 PC 发售（Steam Next Fest 有 demo）</div>
+    <div class="note">讲谈社真人实拍 4K 恋爱模拟《Sweet Hamster Days》近期受海外媒体关注：玩家以「仓鼠」的第一视角观察三姐妹、揭开秘密、用互动选择推动剧情。这是真人互动影游在「非常规视角/动物主角」上的猎奇题材探索，与国内恋爱向真人影游形成题材差异化对照——证明真人互动叙事还可以靠「视角设定」而非「题材」制造新奇感。</div>
+    <div class="tags"><span class="tag tag-b">海外</span><span class="tag tag-p">题材猎奇</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望</span><span class="delta">8.7</span></div>
+    <div class="note">TapTap评分8.7稳定(互动电影榜前列)，定价¥58，开发商木焱工作室。周末(9/5-9/6)无新版本更新日志，评分/评价数持平上周，无增量信号；Steam侧评测+12条为今日最高，跨端长尾仍在。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">影游圈「演员风险」讨论发酵</span><span class="delta">2026-09-05</span></div>
+    <div class="note">今日头条 9/5：影游博主「帅桃游戏」(玩了300+款影游的老玩家)发长文《演员塌房，游戏该一起陪葬吗？》，针对近期「两个三字演员」的离谱行为引发部分玩家抵制，提出「角色≠演员」的理性区分主张。这戳中真人影游的结构性风险——作品高度绑定真人演员，演员翻车会反噬游戏口碑与销量。TapTap/影游社区对「演员风险」的讨论持续升温。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《不心动才有鬼》影游交互维度获认可</span><span class="delta">2026-08-14 发售</span></div>
+    <div class="note">网易新闻影游评论：白导(白英雄)团队《不心动才有鬼》凭「表里世界+法术交互」体系+多周目探索空间，被赞「众神归位·影游嘉年华」，与当下大量「分支跳转+素材复用」的同质化竞品拉开差距。核心论点是真人影游「并非只是披着互动外壳的短剧」，视听表现与游戏玩法可以共存。为真人影游的「玩法深度」树立标杆。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">官媒定调「AI+漫剧+互动影游」出海路径</span><span class="delta">2026-09-07</span></div>
+    <div class="note">人民日报海外版 9/7《AI赋能微短剧走向世界》：阅文海外漫剧平台ToonScroll、点点数据《2026中国短剧出海市场研究报告》共同指向「AI+漫剧+互动影游」内容形态——互动影游被定位为「将原IP世界观进一步延伸，通过玩家参与、多分支剧情和沉浸式体验承接短期流量，有望拉长IP生命周期」的形态，从「流量生意」走向「IP生意」。这是官媒对互动影游「IP延伸」商业定位的产业级背书。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">Choice of Games《God of Chaos》——海外互动小说社区头部厂牌新作</span><span class="delta">媒体信号</span></div>
+    <div class="note">Planet IF(海外互动小说聚合站) 9/3 收录 Choice of Games《God of Chaos》发布公告：最新 choice-based 互动小说，Steam/Android/iOS 全平台，30% off 至 9/10。Reddit 直接帖子今日仍被限流(网络安全拦截)，以 IF 社区信号替代。海外「纯选择向互动小说」品类由 Choice of Games 等厂牌稳定供给，与国内真人影游形成方法论对照。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">intfiction.org 社区持续讨论「选择真正有意义」的设计难题</span><span class="delta">媒体信号</span></div>
+    <div class="note">Interactive Fiction Community Forum(intfiction.org)「Zed reviews-a-thon」帖：海外 IF 社区深度讨论「机会成本」与「选择有意义」——当菜单选项全都要做、顺序无关时，玩家是被「railroad」(强制点击)，真正高代理的选择应让「没选的选项」本身产生后果。这是海外互动叙事社区对「分支深度」的持续方法论探讨，与国内影游「网状抉择」设计可对标。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Polygon 盘「选择真正起作用的3款游戏」——海外选择向叙事方法论回归</span><span class="delta">媒体信号</span></div>
+    <div class="note">Polygon 9月文《3 Games Where Your Choices Truly Matter》：借《The Blood of Dawnwalker》(2天100万份,吸血鬼+选择CRPG)谈「选择有意义」的真正含义，聚焦 ZA/UM 新作《Zero Parades》、Black Tabby《Slay the Princess》——它们的「选择」不仅改结局，更改变「玩家的行为方式与自我认知」。海外对「选择与后果」的讨论从「结局数量」转向「选择如何塑造体验」，是互动叙事设计的方法论高地。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">海外对中国「互动影游=IP延伸」出海的关注</span><span class="delta">媒体信号</span></div>
+    <div class="note">人民日报海外版 9/7 + 点点数据《2026中国短剧出海市场研究报告》：互动影游作为「AI漫剧IP延伸形态」承接短期流量、拉长IP生命周期。Reddit 直接帖子被限流，以官媒/报告信号替代。海外社区对中国互动影游「从流量生意到IP生意」的商业化路径保持关注，是中式影游出海的机会窗口。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.11</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · Tech Times/今日头条/游民星空/腾讯新闻/中金在线/Next-Gen Gaming Blog | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

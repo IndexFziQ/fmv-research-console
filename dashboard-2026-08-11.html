@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游产品调研仪表盘 | 2026-08-11</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+
+.chart-timeline-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.chart-panel,.timeline-panel{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px}
+.panel-title{font-size:14px;font-weight:600;margin-bottom:12px}
+.chart-wrap{max-width:220px;margin:0 auto}
+.timeline-list{list-style:none}
+.timeline-list li{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px}
+.timeline-list li:last-child{border-bottom:none}
+.timeline-date{font-weight:600;font-size:11px;color:var(--a);min-width:48px}
+.timeline-name{flex:1}
+.timeline-tag{font-size:10px;color:var(--muted)}
+
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.search-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.search-input{flex:1;min-width:160px;padding:6px 12px;border:1px solid var(--border);border-radius:6px;font-size:12px;outline:none;font-family:inherit;background:var(--card-bg)}
+.search-input:focus{border-color:var(--a)}
+.filter-tag{padding:5px 12px;border:1px solid var(--border);border-radius:6px;font-size:11px;cursor:pointer;background:var(--card-bg);color:var(--s);font-family:inherit;white-space:nowrap;transition:all 0.15s}
+.filter-tag:hover{border-color:var(--a);color:var(--a)}
+.filter-tag.active{background:var(--al);border-color:var(--a);color:var(--a);font-weight:500}
+.result-count{font-size:11px;color:var(--muted);margin-bottom:12px}
+
+/* 2-col card grid */
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card-b{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform 0.15s,box-shadow 0.15s}
+.card-b:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.06)}
+.card-b.hidden{display:none}
+.card-b .cover{position:relative;width:100%;aspect-ratio:1.86/1;line-height:0;overflow:hidden}
+.card-b .cover img{width:100%;height:100%;object-fit:cover;display:block}
+.card-b .cover .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:rgba(255,255,255,0.9);position:relative;text-shadow:0 1px 4px rgba(0,0,0,0.3);letter-spacing:2px}
+.card-b .badge{position:absolute;top:6px;left:6px;background:rgba(0,0,0,0.45);color:#fff;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500}
+.card-b .badge-r{position:absolute;top:6px;right:6px;background:var(--a);color:#fff;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500}
+
+.card-b .body{padding:11px 13px 12px}
+.card-b .body h3{font-size:14px;font-weight:600;margin-bottom:1px}
+.card-b .body .sub{font-size:10px;color:var(--muted);margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-b .body .sub a{color:var(--a);text-decoration:none}
+.card-b .body .meta-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.card-b .body .stats{display:flex;gap:10px}
+.card-b .body .stat{text-align:center;min-width:38px}
+.card-b .body .stat-val{font-size:12px;font-weight:600;line-height:1.1}
+.card-b .body .stat-lbl{font-size:8px;color:var(--muted);text-transform:uppercase}
+.card-b .body .stat.g .stat-val{color:var(--g)}
+.card-b .body .stat.a .stat-val{color:var(--amb)}
+.card-b .body .stat.p .stat-val{color:var(--a)}
+.card-b .body .tags{display:flex;gap:3px;flex-wrap:wrap;flex:1;min-width:0}
+.card-b .body .bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.links{margin-top:6px;display:flex;gap:6px}
+.link-btn{font-size:11px;padding:4px 10px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s;display:inline-flex;align-items:center;gap:3px}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.link-btn.st{background:#1b2838;color:#fff;border-color:#1b2838}.link-btn.st:hover{background:#2a475e;color:#fff}
+.link-btn.tt{background:#1989fa;color:#fff;border-color:#1989fa}.link-btn.tt:hover{background:#4ba6fb;color:#fff}
+
+
+.trend-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.trend-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:14px}
+.trend-card h4{font-size:13px;font-weight:600;margin-bottom:4px}
+.trend-card .trend-sub{font-size:10px;color:var(--muted);margin-bottom:8px}
+.trend-card p{font-size:12px;color:var(--s);line-height:1.6}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.chart-timeline-grid,.trend-row,.cards-grid{grid-template-columns:1fr}.card-b .cover{aspect-ratio:2.2/1}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 产品调研仪表盘</h1>
+  <div class="meta"><span>2026-08-11</span><span>近6个月</span><span>Steam · TapTap</span><span style="color:var(--g)">全部核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">10</div><div class="kpi-label">已核实竞品</div></div>
+  <div class="kpi-card"><div class="kpi-value">$65.2万</div><div class="kpi-label">TOP1 收入</div></div>
+  <div class="kpi-card"><div class="kpi-value">2 个方向</div><div class="kpi-label">男性向+女性向</div></div>
+  </div>
+
+<div class="chart-timeline-grid">
+  <div class="chart-panel">
+    <div class="panel-title">品类分布</div>
+    <div class="chart-wrap"><canvas id="categoryChart"></canvas></div>
+    <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:8px">
+      <span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#534AB7;margin-right:3px"></span>恋爱/情感</span>
+      <span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#378ADD;margin-right:3px"></span>悬疑/谍战</span>
+      <span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#1D9E75;margin-right:3px"></span>历史/架空</span>
+      <span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#BA7517;margin-right:3px"></span>末日/恐怖</span>
+      <span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#D4537E;margin-right:3px"></span>乙女/百合</span>
+    </div>
+  </div>
+  <div class="timeline-panel">
+    <div class="panel-title">发布日历</div>
+    <ul class="timeline-list">
+      <li><span class="timeline-date">02.05</span><span class="timeline-name">The Run</span><span class="timeline-tag">FMV</span></li>
+      <li><span class="timeline-date">03.27</span><span class="timeline-name">心之岛</span><span class="timeline-tag">FMV</span></li>
+      <li><span class="timeline-date">04.27</span><span class="timeline-name">对不起我是警察</span><span class="timeline-tag">港风</span></li>
+      <li><span class="timeline-date">04.28</span><span class="timeline-name">代号三国</span><span class="timeline-tag">★</span></li>
+      <li><span class="timeline-date">05.29</span><span class="timeline-name">冰点之下</span><span class="timeline-tag">末日</span></li>
+      <li><span class="timeline-date">06.09</span><span class="timeline-name">江山北望</span><span class="timeline-tag">三端</span></li>
+      <li><span class="timeline-date">07.15</span><span class="timeline-name">主角</span><span class="timeline-tag">悬疑</span></li>
+      <li><span class="timeline-date">07.23</span><span class="timeline-name">雪落情书时</span><span class="timeline-tag">恋爱</span></li>
+    </ul>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-title">竞品分析</div>
+  <div class="search-bar">
+    <input type="text" class="search-input" id="searchInput" placeholder="搜索产品名、类型...">
+    <button class="filter-tag active" data-filter="all">全部</button>
+    <button class="filter-tag" data-filter="恋爱">恋爱</button>
+    <button class="filter-tag" data-filter="悬疑">悬疑</button>
+    <button class="filter-tag" data-filter="历史">历史</button>
+    <button class="filter-tag" data-filter="末日">末日</button>
+    <button class="filter-tag" data-filter="乙女">乙女/百合</button>
+  </div>
+  <div class="result-count" id="resultCount">10 款</div>
+
+<div class="cards-grid">
+
+  <article class="card-b" data-tags="历史 Steam 标杆">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3412900/231f644e9295928805d168098ba7000c7bf3f13f/capsule_616x353.jpg" alt="代号三国"><span class="badge">Steam</span><span class="badge-r">TOP1</span></div>
+    <div class="body">
+      <h3>代号三国:龙起</h3>
+      <div class="sub">凤麟工作室（欢瑞世纪）· 2026-04-28</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat g"><div class="stat-val">95%</div><div class="stat-lbl">好评</div></div>
+          <div class="stat"><div class="stat-val">2377</div><div class="stat-lbl">评测</div></div>
+          <div class="stat g"><div class="stat-val">$65.2万</div><div class="stat-lbl">10天</div></div>
+          <div class="stat"><div class="stat-val">22区</div><div class="stat-lbl">畅销</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">历史</span><span class="tag tag-b">真人</span><span class="tag tag-a">30+结局</span><span class="tag tag-p">标杆</span></div><div class="links"><a href="https://store.steampowered.com/app/3412900" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="悬疑 Steam">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4234260/8304dfd2458ffffd8ce94ce8e76a12c95f4f6cf5/capsule_616x353.jpg" alt="主角"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>主角</h3>
+      <div class="sub">顶顶阳光 / 凤麟 · 2026-07-15</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat g"><div class="stat-val">97%</div><div class="stat-lbl">好评</div></div>
+          <div class="stat"><div class="stat-val">974</div><div class="stat-lbl">评测</div></div>
+          <div class="stat"><div class="stat-val">¥42</div><div class="stat-lbl">价格</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-r">悬疑</span><span class="tag tag-b">真人</span><span class="tag tag-p">校园</span><span class="tag tag-a">反规训</span></div><div class="links"><a href="https://store.steampowered.com/app/4234260" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="恋爱 Steam">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4740420/2af65d3f87f03692ea5c480287a58e9ff0165722/capsule_616x353.jpg" alt="雪落情书时"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>雪落情书时</h3>
+      <div class="sub">Mountain&Sea · 2026-07-23</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat g"><div class="stat-val">96%</div><div class="stat-lbl">好评</div></div>
+          <div class="stat"><div class="stat-val">678</div><div class="stat-lbl">评测</div></div>
+          <div class="stat"><div class="stat-val">¥42</div><div class="stat-lbl">价格</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-p">恋爱</span><span class="tag tag-b">真人</span><span class="tag tag-a">多结局</span></div><div class="links"><a href="https://store.steampowered.com/app/4740420" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="末日 恐怖 Steam">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3447920/123aa17f56acb1209e393de707600c9396c1dc6f/capsule_616x353.jpg" alt="The Run"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>The Run</h3>
+      <div class="sub">PRM Games · 2026-02-05</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat g"><div class="stat-val">92%</div><div class="stat-lbl">好评</div></div>
+          <div class="stat"><div class="stat-val">$9.99</div><div class="stat-lbl">价格</div></div>
+          <div class="stat"><div class="stat-val">3h</div><div class="stat-lbl">时长</div></div>
+          <div class="stat a"><div class="stat-val">20+5</div><div class="stat-lbl">结局</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-r">末日</span><span class="tag tag-r">恐怖</span><span class="tag tag-b">FMV</span><span class="tag tag-a">高分</span></div><div class="links"><a href="https://store.steampowered.com/app/3447920/The_Run" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="历史 Steam">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" alt="江山北望"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>江山北望</h3>
+      <div class="sub">木焱工作室 · 2025-11-19 Steam · 2026-06-09 移动端</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat g"><div class="stat-val">91%</div><div class="stat-lbl">好评</div></div>
+          <div class="stat"><div class="stat-val">~6000</div><div class="stat-lbl">评测</div></div>
+          <div class="stat a"><div class="stat-val">8.8</div><div class="stat-lbl">TapTap</div></div>
+          <div class="stat p"><div class="stat-val">48</div><div class="stat-lbl">成就</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">历史</span><span class="tag tag-b">真人</span><span class="tag tag-a">三端</span><span class="tag tag-p">隐形守护者原班</span></div><div class="links"><a href="https://store.steampowered.com/app/3831120" target="_blank" class="link-btn st">Steam →</a><a href="https://www.taptap.com/app/784824" target="_blank" class="link-btn tt">TapTap →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="末日 恋爱 Steam">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3711170/9f5c70a0241948bc9c96a4af88a441afdeeabeb9/capsule_616x353.jpg" alt="冰点之下"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>冰点之下</h3>
+      <div class="sub">Joy Media / 凤麟 · 2026-05-29</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat"><div class="stat-val">¥58</div><div class="stat-lbl">价格</div></div>
+          <div class="stat p"><div class="stat-val">骰子</div><div class="stat-lbl">机制</div></div>
+          <div class="stat"><div class="stat-val">30</div><div class="stat-lbl">成就</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-a">末日</span><span class="tag tag-p">恋爱</span><span class="tag tag-b">真人</span></div><div class="links"><a href="https://store.steampowered.com/app/3711170" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="悬疑 Steam">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4104120/16dae4067058e25071f0af97e0b07f2d10829e8a/capsule_616x353.jpg" alt="对不起我是警察"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>对不起我是警察</h3>
+      <div class="sub">intiny · 2026-04-27</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat g"><div class="stat-val">77%</div><div class="stat-lbl">好评</div></div>
+          <div class="stat"><div class="stat-val">657</div><div class="stat-lbl">评测</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-r">谍战</span><span class="tag tag-b">港风</span><span class="tag tag-a">粤语</span><span class="tag tag-a">硬核</span></div><div class="links"><a href="https://store.steampowered.com/app/4104120" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="恋爱 Steam">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3794770/fdc921b966d6cae54eb098a27b722fa1fdfec5b7/capsule_616x353.jpg" alt="心之岛"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>心之岛</h3>
+      <div class="sub">4Divinity / Titan · 2026-03-27</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat"><div class="stat-val">¥45</div><div class="stat-lbl">价格</div></div>
+          <div class="stat"><div class="stat-val">7</div><div class="stat-lbl">演员</div></div>
+          <div class="stat"><div class="stat-val">泰国</div><div class="stat-lbl">实景</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-p">恋爱</span><span class="tag tag-b">FMV</span><span class="tag tag-a">网红</span></div><div class="links"><a href="https://store.steampowered.com/app/3794770" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="乙女 Steam 百合">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2993720/capsule_616x353.jpg" alt="Cage of Roses"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>Cage of Roses</h3>
+      <div class="sub">ebi-hime / Two and a Half Studios · 2025-02-16</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat g"><div class="stat-val">88%</div><div class="stat-lbl">好评</div></div>
+          <div class="stat"><div class="stat-val">185</div><div class="stat-lbl">评测</div></div>
+          <div class="stat"><div class="stat-val">£10.99</div><div class="stat-lbl">价格</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-r">百合向</span><span class="tag tag-b">19世纪哥特</span><span class="tag tag-p">女性主角</span><span class="tag tag-a">情感氛围</span></div><div class="links"><a href="https://store.steampowered.com/app/2993720" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+  <article class="card-b" data-tags="乙女 Steam 百合 免费">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1188710/capsule_616x353.jpg" alt="Bloodholic"><span class="badge">Steam</span><span class="badge-r">免费</span></div>
+    <div class="body">
+      <h3>Bloodholic</h3>
+      <div class="sub">釉里红 · 2019-11-21 · 国产轻百合</div>
+      <div class="meta-row">
+        <div class="stats">
+          <div class="stat g"><div class="stat-val">88%</div><div class="stat-lbl">好评</div></div>
+          <div class="stat"><div class="stat-val">102</div><div class="stat-lbl">评测</div></div>
+          <div class="stat"><div class="stat-val">免费</div><div class="stat-lbl">价格</div></div>
+        </div>
+      </div>
+      <div class="bottom"><div class="tags"><span class="tag tag-r">百合向</span><span class="tag tag-b">国产</span><span class="tag tag-p">大女主悬疑</span><span class="tag tag-a">8万字</span></div><div class="links"><a href="https://store.steampowered.com/app/1188710" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+
+</div>
+</section>
+
+
+<section class="section">
+  <div class="section-title">趋势洞察</div>
+  <div class="trend-row">
+    <div class="trend-card" style="grid-column:1 / -1;border:1px solid var(--a);background:var(--al);"><h4 style="color:var(--a)">★ 关键发现：真人实拍狼人互动影游是市场空白</h4><div class="trend-sub">吸血鬼题材已被做烂，狼人 FMV 无一款已发售成熟产品</div><p>吸血鬼题材供给严重过剩（本次新增的 4 款全是吸血鬼，叠加市面上大量真人恋爱向吸血鬼产品）。而真人实拍（FMV）的狼人互动影游——搜遍 Steam 无一款已发售：找到的 Shadows of the Werewolf、Werewolf: The Inner Beast 都是 3D 建模生存恐怖，唯一的 FMV 狼人项目（Tales from Davidstown: The Werewolf Within）还在靠英国 Games Fund 种子资金做垂直切片，尚未发售。<strong>狼人 + 真人实拍 + 互动叙事 = 空白赛道。</strong>且狼人题材天然适合 FMV——变身、月圆、兽性 vs 人性的抉择，比吸血鬼更适合"你的选择决定命运"的叙事结构。<span class="tag tag-a" style="margin-left:6px">直接关系选题</span></p></div>
+    <div class="trend-card"><h4>定价分化：¥42 锚点被打破</h4><div class="trend-sub">价格带：¥29 ~ ¥100+</div><p>5/8 款在 ¥42-58 区间，但两端分化明显：江山北望移动端 ¥29（Steam 半价拉新）、代号三国 ¥100+（品质溢价成功，10 天 $65.2 万）。互动影游不再是"统一定价品类"，精品可以提价 2.5 倍。</p></div>
+    <div class="trend-card"><h4>头部集中：凤麟占 50% 份额</h4><div class="trend-sub">4/8 款由凤麟工作室发行或联合发行</div><p>凤麟（欢瑞世纪）已覆盖制作→发行→出海全链路，同时占发行权（代号三国、主角、冰点之下、江山北望）。但 intiny、木焱、Mountain&Sea 等独立团队在差异化题材（港风谍战、校园悬疑）找到了生存空间。</p></div>
+    <div class="trend-card"><h4>题材扩散：从 2 赛道到 6 赛道</h4><div class="trend-sub">2025：历史+恋爱 → 2026：历史/恋爱/悬疑/末日/恐怖/谍战</div><p>2025 年仅江山北望(历史)和恋爱品类。2026 上半年密集涌现末日(冰点之下)、恐怖(The Run)、谍战(对不起我是警察)、悬疑(主角)、历史穿越(代号三国)。赛道宽度翻 3 倍，用户群不再局限于恋爱向玩家。</p></div>
+    <div class="trend-card"><h4>好评率悖论：口碑是入场券，不是护城河</h4><div class="trend-sub">8 款最低 77%，7 款 90%+</div><p>全部产品好评率极高，但评测数差异巨大：江山北望 ~6000 vs The Run 92。高好评已不能拉开差距——竞争的核心从"好"转向"被多少人知道"。Tiktok/抖音种草和社区运营将成为关键。</p></div>
+    <div class="trend-card"><h4>真人 100%，AI 0%——但窗口正在关闭</h4><div class="trend-sub">当前市场：全部真人实拍，零 AI 生成内容</div><p>AI-native 互动叙事已处于爆发前夜——当前长程叙事一致性仍不成熟，12-24 个月内可能出现第一批 AI 辅助/原生互动影游。真人实拍的"创意红利期"不会太久。</p></div>
+    <div class="trend-card"><h4>Steam→移动端路径固化</h4><div class="trend-sub">江山北望：Steam 7 个月 → 移动端半价收割</div><p>江山北望已验证路径(Steam ¥58 → TapTap/iOS ¥29)，代号三国 4 个月尚未移动端——可能是品质自信而推迟，也可能是制作成本高导致移动端移植复杂。这个窗口期能多长，取决于谁先复制江山北望的打法。</p></div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">产品调研机器人 v0.6</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam · TapTap · 欢瑞世纪官方 | 仅供内部参考</p></footer>
+</div>
+
+<script>
+(function(){
+  new Chart(document.getElementById('categoryChart').getContext('2d'),{type:'doughnut',data:{labels:['恋爱/情感','悬疑/谍战','历史/架空','末日/恐怖','乙女/百合'],datasets:[{data:[3,2,2,1,2],backgroundColor:['#534AB7','#378ADD','#1D9E75','#BA7517','#D4537E'],borderColor:'#fff',borderWidth:2}]},options:{responsive:1,maintainAspectRatio:1,plugins:{legend:{display:0},tooltip:{callbacks:{label:function(c){return c.label+': '+c.raw+' 款'}}}},cutout:'65%'}});
+  var btns=document.querySelectorAll('.filter-tag'),cards=document.querySelectorAll('.card-b'),input=document.getElementById('searchInput'),rc=document.getElementById('resultCount'),af='all';
+  function update(){var kw=input.value.trim().toLowerCase(),v=0;cards.forEach(function(c){var t=c.dataset.tags.toLowerCase(),tx=c.textContent.toLowerCase(),mf=af==='all'||t.indexOf(af)!==-1,ms=!kw||tx.indexOf(kw)!==-1||t.indexOf(kw)!==-1;(mf&&ms)?(c.classList.remove('hidden'),v++):c.classList.add('hidden')});rc.textContent=v+' / '+cards.length+' 款'}
+  btns.forEach(function(b){b.addEventListener('click',function(){btns.forEach(function(x){x.classList.remove('active')});b.classList.add('active');af=b.dataset.filter;update()})});
+  input.addEventListener('input',update);
+})();
+</script>
+</body>
+</html>

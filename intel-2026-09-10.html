@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-09-10</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .dl.warn{color:var(--amb)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-09-10</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">50</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">100%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+  <div class="signal-card">
+    <h4>① 国产 FMV 出海「本地化短板」集中暴露——Wanderer 同日双 4.5 分（代号三国:龙起 + 迷雾审判）</h4>
+    <div class="src">来源：Wanderer(9/9)×2 · Steam商店页(核实) · SteamDB(核实)</div>
+    <ul><li>Wanderer 9/9 同日发布两篇国产真人 FMV 低分评测：The Three Kingdoms: Rebirth（代号三国:龙起 3412900）4.5/10、Misty Judgment（迷雾审判 3364770）4.5/10</li><li>共同死穴：英文副标题机器翻译到「农民工」「粗俗食物梗」、多语言配音被指 AI 生成质感差、always-online 登录失败锁号</li><li>对照数据：代号三国全语言 94% Very Positive(2513)、中文 91.2%；迷雾审判中文 93%(1203)——中文口碑真实强劲，海外差评集中在本地化工程</li><li>代号三国:龙起为已追踪竞品（今日中文评测 -6，91.2% 持平），迷雾审判为非追踪国产 FMV（次元边界）</li><li>结论：国产 FMV 出海不是产品力问题，是本地化工程问题，且「机器翻译+AI配音」已成海外差评的固定模板</li></ul>
+    <div class="act"><strong>行动建议：</strong>这是国产 FMV 出海的「工程性警示」。对自有项目三点启示：① 本地化是生死线而非附加项——若走 Steam 全球发行，英文翻译必须人工精翻 + 真人配音，机器翻译/AI 配音会直接摧毁海外口碑（代号三国中文 91% 却被英文样本打到 4.5 分）；② 「always-online 单机登录」是海外差评高发点——国产 FMV 习惯的账号/DRM 体系在海外会被当成「锁号缺陷」，若出海应提供纯离线模式；③ 出海前先做「本地化成本预算」——海外用户会自发审计翻译质量（连「农民工」这类官衔误译都被逐字指出），本地化投入不足不如不出海，先把国内基本盘做透。</div>
+    <div class="links"><a class="link-btn" href="https://playwanderer.online/game-reviews/the-three-kingdoms-rebirth" target="_blank">来源</a><a class="link-btn" href="https://playwanderer.online/game-reviews/misty-judgment" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>② Steam 评测「去水分」第二波——绍宋/女帝篇各 -14 领跌但好评率稳定，不心动才有鬼 +8 逆势领涨</h4>
+    <div class="src">来源：Steam评测API环比(9/9→9/10) · Steam商店页(9/10核实)</div>
+    <ul><li>头部集体净减：绍宋 -14、女帝篇 -14、冰点之下 -7、代号三国 -6、天平游戏 -6、花满楼 -4</li><li>好评率基本稳定：女帝篇 82.5% 持平、花满楼 97.6% 持平、绍宋 81.1% 仅降 0.1pp——清理的是刷量评测而非真实口碑崩坏</li><li>逆势领涨：不心动才有鬼 +8(今日最高，连续多日领涨)、江山北望 +4、媚娘篇 +2</li><li>绍宋 81.2→81.1% 连续第四日微降，AI 画面争议余波未平</li><li>无一款达 +30% 爆款阈值，整体仍「真实口碑自然长尾」健康状态</li></ul>
+    <div class="act"><strong>行动建议：</strong>这是「去水分」第二波 + 真实基本盘浮出的关键节点。三点启示：① 「去水分」是持续动作而非一次性——9/7 周末清理 + 今日第二波说明 Steam 在持续清刷量，竞品真实口碑基数已可确认，对标时用「去水分后」数据而非旧峰值；② 「好评率稳定但评测数下降」= 真实口碑牢固——女帝篇/花满楼净减 14/4 条但好评率纹丝不动，说明真实玩家好评是压舱石，自有项目要追求「真实好评率」而非「评测数量」；③ 不心动才有鬼在清理波中 +8 逆势领涨，证明「花絮营销 + 全明星卡司」的长尾口碑是抗清理的——这比「冲量刷分」更可持续。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/4292950" target="_blank">来源</a><a class="link-btn" href="https://store.steampowered.com/app/4855450" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>③ 海外互动叙事「玩法机制化 + 手绘反 AI」供给延续——Backseat 对话即机制 + Tulpa 零 AI 手绘</h4>
+    <div class="src">来源：PixelForge(9/9) · 微博(9/9) · 海外游戏媒体(9/9)</div>
+    <ul><li>Backseat（HOGO Games，9/9 上架 $7.99，1 万愿望单）：妻子被绑架、赎金是「服从」，靠深夜对话套话求生，Steam 标签无 Action——「对话即机制、读人而非反应」</li><li>Tulpa: The Unseen Lover（动画师夫妇工作室）商店页公开：全 Blender 手绘、坚决零生成式 AI，把「反 AI」做成叙事立场与卖点</li><li>延续 9/8 的海外「手工/零 AI」供给主线（Nova-box 手绘转描 + 零 AI 视觉小说节 + IFComp 2026）</li><li>两条线共同指向：海外互动叙事正朝「玩法机制化」和「反 AI 原真性」两个方向分化</li><li>与国内「AI 影像降本 + 全明星卡司」路线形成方法论对照</li></ul>
+    <div class="act"><strong>行动建议：</strong>海外互动叙事正在「机制」和「原真性」上分化，与国内「卡司+AI降本」路线形成对照。三点启示：① 「对话/选择即机制」是互动叙事的差异化抓手——Backseat 把「读人」做成核心玩法而非剧情附属，自有项目可思考「把某种交互动作做成卖点」；② 「反 AI / 手工原真性」已成海外独立叙事的品牌资产——Tulpa 用「零 AI」当营销点，说明海外玩家对「AI 生成内容」的信任度在下探，若自有项目用 AI 影像，海外市场需谨慎；③ 国内「全明星卡司 + 真人实拍」在中文市场仍是强壁垒（代号三国/不心动才有鬼都靠卡司+真人长尾），两条路线的目标市场要分清——国内打卡司、海外打机制/原真性。</div>
+    <div class="links"><a class="link-btn" href="https://pixelforgenetwork.com/backseat-out-on-steam" target="_blank">来源</a><a class="link-btn" href="https://weibo.com/2219124641/5340939369320794" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>④ STORYTACO 下半年 FMV 路线图多源持续发酵——「系列化 + 跨国卡司 + 手游扩盘」供给打法成型</h4>
+    <div class="src">来源：QooApp(9/8) · ourplay(9/8) · 17173(9/8) · tuxDB(9/8)</div>
+    <ul><li>STORYTACO 9/8 公布 2026 下半年 FMV 路线图，今日被 ourplay、17173、QooApp、tuxDB 等多源持续转载</li><li>《阿西,美女室友竟然…?3》10月开商店页（招牌系列已到第三季）、《男性止步!美女公寓的秘密》10月新品节 Demo + 12月 PC+移动双平台</li><li>SHOWBOX 合制《救命!我被困在狗血韩剧里了!》——韩国电影发行巨头（《破墓》《尸速禁区》）首次进军互动影游</li><li>王涵（《完蛋!我被美女包围了!2》演员）首次参演海外影游，成跨国卡司标志性案例</li><li>9月先推两款既有 FMV 手机版——从 PC 向手游扩盘的平台战略</li></ul>
+    <div class="act"><strong>行动建议：</strong>海外厂牌用「系列化 + 跨国卡司 + 手游扩盘」三件套系统性抢滩中文市场（昨日首报、今日多源发酵）。三点启示：① 「系列化」是长线供给核心——《阿西美女》已到第三季，互动影游能靠 IP 系列化建立稳定产能，立项优先考虑「可系列化」题材；② 「跨国卡司」是流量杠杆——王涵从国内影游走向海外项目，说明中文影游演员的粉丝资产正被海外厂牌反向收割，自有项目选角要有跨国视野；③ 「PC→手游」是确定性扩盘路径——海外厂牌已把手机版当作第二增长曲线，自有项目立项时就应预留移动端适配（竖屏/触控/章节化），而非事后移植。</div>
+    <div class="links"><a class="link-btn" href="https://news.qoo-app.com/post/444706" target="_blank">来源</a><a class="link-btn" href="https://www.ourplay.net/news/detail/12594" target="_blank">旁证</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 自09-10前快照起）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">95.3%</span></div><div class="dl ">+8(+0.6%)</div><div class="nt">+8条今日最高，95.3%稳定，花絮营销长尾仍强（「去水分」波中唯一逆势领涨）</div></div><div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.3%</span></div><div class="dl ">+4(+0.1%)</div><div class="nt">+4条，91.3%稳定，江山北望长尾口碑真实（去水分后最扎实样本）</div></div><div class="review-cell"><div class="rn"><span class="nm">媚娘篇(盛世天下)</span><span class="pct">82.9%</span></div><div class="dl ">+2(+0.0%)</div><div class="nt">+2条，媚娘篇82.9%长尾微增</div></div><div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100.0%</span></div><div class="dl ">+1(+1.0%)</div><div class="nt">+1条，光与影之恋100%零差评纪录保持(n=104)</div></div><div class="review-cell"><div class="rn"><span class="nm">金宵公寓事件</span><span class="pct">59.0%</span></div><div class="dl ">+1(+0.9%)</div><div class="nt">+1条，金宵公寓中文59.0% Mixed口碑仍弱(8/25新作修复中)</div></div><div class="review-cell"><div class="rn"><span class="nm">Bloodholic</span><span class="pct">98.1%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文98.1% vs 全语言88.2%(差9.9pp)</div></div><div class="review-cell"><div class="rn"><span class="nm">Cage of Roses</span><span class="pct">89.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Run</span><span class="pct">33.3%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文仅3条(33.3%)与全语言88.2%差54.9pp，极小样本</div></div><div class="review-cell"><div class="rn"><span class="nm">对不起我是警察</span><span class="pct">78.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">68.3%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文68.3% vs 全语言59.0%(差9.3pp)，口碑最弱</div></div><div class="review-cell"><div class="rn"><span class="nm">Five Dates</span><span class="pct">85.7%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文71.4% vs 全语言78.0%(差6.6pp)</div></div><div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">93.2%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Libera Nos a Malo</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">阴三国谋论:徐州篇</span><span class="pct">93.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">退婚后,宗主马甲藏不住</span><span class="pct">26.8%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 免费互动剧情，中文41条/26.8%差评为主，口碑最低警示样本</div></div><div class="review-cell"><div class="rn"><span class="nm">Project DeepWeb</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">87.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">1000王子(AI原生乙女)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ AI原生乙女，中文1条差评，全语言33.3%口碑仍差</div></div><div class="review-cell"><div class="rn"><span class="nm">无言之林(海外一人FMV)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 全语言52.5%Mixed；中文1条差评(极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">你好,你配吗?</span><span class="pct">96.9%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">东北往事</span><span class="pct">83.4%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">末日降临!被美女们关进避难所</span><span class="pct">81.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">夺命邂逅</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0条，夺命邂逅=Demo试玩已排除竞品池</div></div><div class="review-cell"><div class="rn"><span class="nm">宗门最后的长老</span><span class="pct">97.1%</span></div><div class="dl ">持平</div><div class="nt">宗门最后的长老=修仙合成塔防非互动影游，已排除竞品池</div></div><div class="review-cell"><div class="rn"><span class="nm">列车怪谈：虚像之境</span><span class="pct">86.7%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Rescue the Hostages: Misaligned Fate</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">追踪中(9/3上架，中文仅1条，属性存疑待甄别)</div></div><div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.8%</span></div><div class="dl ">-1(-0.1%)</div><div class="nt">-1条，84.8%，盛夏离与合微减</div></div><div class="review-cell"><div class="rn"><span class="nm">灭寇1939:上川往事</span><span class="pct">83.5%</span></div><div class="dl ">-1(-0.2%)</div><div class="nt">-1条，83.5%，灭寇1939微减</div></div><div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.3%</span></div><div class="dl ">-3(-0.3%)</div><div class="nt">-3条，97.3%持平，主角清理刷量评测</div></div><div class="review-cell"><div class="rn"><span class="nm">雪落情书时</span><span class="pct">96.5%</span></div><div class="dl ">-3(-0.5%)</div><div class="nt">-3条，96.5%，雪落情书时清理刷量评测</div></div><div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">97.6%</span></div><div class="dl ">-4(-0.3%)</div><div class="nt">-4条，97.6%持平，花满楼清理刷量评测</div></div><div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.2%</span></div><div class="dl ">-6(-0.2%)</div><div class="nt">-6条，91.2%持平，但Wanderer英文评测4.5/10指海外本地化短板</div></div><div class="review-cell"><div class="rn"><span class="nm">天平游戏1:抉择</span><span class="pct">85.9%</span></div><div class="dl ">-6(-0.6%)</div><div class="nt">-6条，85.9%，天平游戏清理刷量评测</div></div><div class="review-cell"><div class="rn"><span class="nm">冰点之下</span><span class="pct">93.5%</span></div><div class="dl ">-7(-0.3%)</div><div class="nt">-7条，93.5%持平，冰点之下清理刷量评测</div></div><div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">81.1%</span></div><div class="dl ">-14(-0.5%)</div><div class="nt">-14条，81.2→81.1%连续第四日微降，「去水分」第二波(净减刷量好评)</div></div><div class="review-cell"><div class="rn"><span class="nm">女帝篇(盛世天下)</span><span class="pct">82.5%</span></div><div class="dl ">-14(-0.2%)</div><div class="nt">-14条，82.5%持平，「去水分」第二波(清理刷量非口碑崩坏)</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">代号三国:龙起（已追踪竞品）海外评测 4.5/10——Wanderer 直指英文本地化「机器翻译+AI配音+always-online」死穴</span><span class="delta">海外·本地化短板</span></div>
+    <div class="meta">玛奇阿朵互娱科技 · 山与海工作室 · 2026-09-09 评测 · 4/28 发行</div>
+    <div class="note">海外评测站 Wanderer 9/9 发布《The Three Kingdoms: Rebirth review — great drama, broken translation》，给 4.5/10。核心结论：FMV 制作与分支规模获赞（大体积真人影像+多结局+多周目），但英文副标题被多位评测者指为「机器翻译到频繁胡言乱语」——历史大臣官衔被翻成「migrant worker（农民工）」、食物梗被翻成粗俗词；多语言配音（英/泰/越）被指 AI 生成、质感差；always-online 要求致单机登录失败锁号。对照：Steam 全语言 94% Very Positive(2513)、中文 91.2%，说明中文口碑真实强劲，但「出海本地化」是国产 FMV 的第一道生死线。</div>
+    <div class="tags"><span class="tag tag-b">海外</span><span class="tag tag-p">本地化短板</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">迷雾审判（次元边界）同样 4.5/10——国产真人 FMV 出海「本地化短板」第二例</span><span class="delta">海外·本地化短板</span></div>
+    <div class="meta">次元边界 · 2026-09-09 评测 · 2025-09-12 发行</div>
+    <div class="note">Wanderer 9/9 同日发布《Misty Judgment review — 4.5/10》。同为国产真人 FMV 悬疑（主角齐忆失忆查凶案），中文口碑 93% Very Positive(1203)，但英文样本仅 11 条 Mixed——「机器翻译，选择界面有尴尬停顿」「前几分钟根本听不懂在讲什么」，多位评测者首小时内退款。与代号三国:龙起形成「同日双 4.5 分」：国产 FMV 出海不是产品力问题，是本地化工程问题。</div>
+    <div class="tags"><span class="tag tag-b">海外</span><span class="tag tag-p">本地化短板</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Backseat 9/9 上架——「对话即机制」心理惊悚出租车互动叙事，1 万愿望单</span><span class="delta">新供给·对话机制</span></div>
+    <div class="meta">HOGO Games · 2026-09-09 发行 · $7.99（-20%）</div>
+    <div class="note">PixelForge Network 9/9 报道 HOGO Games 新作《Backseat》上线 Steam（AppID 3098050，$7.99，1 万愿望单）。玩法：妻子被绑架，赎金不是钱而是「服从」——玩家深夜载危险乘客、靠对话套话求生，「威胁坐在你身后、不能回头看」的压迫感设计。Steam 标签 Indie/Simulation/Strategy，无 Action——「对话即机制、读人而非反应」。是「选择/对话驱动」互动叙事的新供给样本，印证「玩法机制化」趋势。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">对话机制</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《Tulpa: The Unseen Lover》商店页公开——《蜘蛛侠:纵横宇宙》动画师夫妇手绘反生成式 AI 心理惊悚视觉小说</span><span class="delta">新供给·手绘反AI</span></div>
+    <div class="meta">Horse Position（动画师夫妇工作室） · 2026-09-09 商店页公开</div>
+    <div class="note">微博 9/9 报道：由曾参与《蜘蛛侠:平行宇宙/纵横宇宙》《疯狂动物城2》《守望先锋》过场动画的动画师夫妇创立的工作室 Horse Position，公开心理惊悚视觉小说《Tulpa: The Unseen Lover》。主角用意念具象化出「图尔帕」动漫女孩，日常恋爱+心理恐怖分支。主创承诺全部 CG 用 Blender 手绘、坚决不用生成式 AI。延续 9/8 的海外「手工/零 AI」互动叙事供给主线，也是「反 AI」作为叙事立场本身的市场信号。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">手绘反AI</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Steam 评测「去水分」第二波——绍宋/女帝篇各 -14 领跌，但好评率基本稳定</span><span class="delta">机制·去水分</span></div>
+    <div class="meta">Steam 评测系统（机制信号） · 2026-09-10 窗口</div>
+    <div class="note">评测 API 环比(9/9→9/10)出现「去水分」第二波：绍宋 -14、女帝篇 -14 并列最大净减，冰点之下 -7、代号三国 -6、天平游戏 -6、花满楼 -4、主角 -3、雪落情书时 -3。但好评率基本稳定（女帝篇 82.5% 持平、花满楼 97.6% 持平、绍宋 81.1% 仅降 0.1pp），证明清理的是刷量评测而非真实口碑崩坏。逆势领涨：不心动才有鬼 +8(今日最高)、江山北望 +4。无一款达 +30% 爆款阈值。</div>
+    <div class="tags"><span class="tag tag-p">机制</span><span class="tag tag-p">去水分</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">STORYTACO 下半年 FMV 路线图多源持续发酵——中韩跨国合作仍是供给端焦点</span><span class="delta">海外·供给</span></div>
+    <div class="meta">STORYTACO · 2026-09-08 公布 · 持续发酵</div>
+    <div class="note">STORYTACO 9/8 公布的 2026 下半年 FMV 路线图今日继续被 ourplay.net、17173、QooApp、tuxDB 等多源转载（延续发酵）。核心：《阿西,美女室友竟然…?3》10月开商店页、《男性止步!美女公寓的秘密》10月新品节 Demo + 12月双平台上线、SHOWBOX 合制《救命!我被困在狗血韩剧里了!》。王涵首次参演海外影游成跨国卡司标志性案例。</div>
+    <div class="tags"><span class="tag tag-b">海外</span><span class="tag tag-p">供给</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望</span><span class="delta">8.7</span></div>
+    <div class="note">TapTap 评分 8.7 稳定（互动电影榜前列），开发商木焱工作室，定价 ¥58。Steam 侧今日 +4、91.3% 稳定，「Steam 91.3% + TapTap 8.7」双稳定延续，是「去水分」波中逆势增长的最扎实长尾口碑样本。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">新浪财经 9/9「互动电影游戏排行榜」——「互动电影」作为品类进入财经媒体视野</span><span class="delta">2026-09-09</span></div>
+    <div class="note">新浪财经 9/9 发布《互动电影游戏哪些值得玩 十大必玩互动电影游戏排行榜》，盘点《行尸走肉》《奇异人生》《终结降临》等互动电影游戏。「互动电影/互动影游」从垂类圈层进入大众财经媒体的品类曝光，是赛道认知度抬升的侧面信号（非新增供给，属品类曝光信号）。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">STORYTACO 路线图 TapTap/手游侧发酵——跨国 FMV 抢滩中文手游市场延续</span><span class="delta">2026-09-08</span></div>
+    <div class="note">STORYTACO 9 月先推两款既有 FMV 手机版（《夏日美女:欧巴请和我恋爱吧!》《嘘,美女拍摄中》），《男性止步!美女公寓的秘密》12 月 PC+移动双平台同步上线——海外厂牌从 PC 向手游扩盘的动作，对 TapTap 侧互动影游供给是持续增量信号。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">Wanderer：The Three Kingdoms: Rebirth（代号三国:龙起）评测——海外玩家骂本地化而非产品</span><span class="delta">媒体信号</span></div>
+    <div class="note">Wanderer 9/9 评测（4.5/10）以 61 条英文评测为样本，聚焦「great drama, broken translation」：英文副标题机器翻译到「农民工」「粗俗食物梗」、多语言 AI 配音、always-online 登录失败。Reddit 直接帖子今日仍被限流，以媒体评测信号替代。要点：海外差评集中在本地化工程，而非题材/制作——这是国产 FMV 出海的共同死穴。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Wanderer：Misty Judgment（迷雾审判）评测——国产真人 FMV 出海本地化第二例</span><span class="delta">媒体信号</span></div>
+    <div class="note">Wanderer 9/9 评测（4.5/10）：迷雾审判英文样本仅 11 条 Mixed，机器翻译+选择界面尴尬停顿+失忆开场混乱，多人在首小时退款。与代号三国:龙起同日双 4.5 分，构成「国产 FMV 出海本地化短板」的结构性证据链。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">fullmotionemotion.com（FMV 垂直站）：持续追踪《The Three Kingdoms: Rebirth》发行与卡司</span><span class="delta">媒体信号</span></div>
+    <div class="note">FMV 垂直站 fullmotionemotion 对《Three Kingdoms: Rebirth》（前代号 Three Kingdoms）长期追踪：4/28 发行、与《三国:谋定天下》IP 合作、卡司含《完蛋!我被美女包围了!》原班三位演员（邹佳佳/钟晨瑶/王星辰）+ 山与海工作室协制。海外 FMV 社区对国产三国影游的持续关注，是「IP 联动 + 原班卡司」打法的海外曝光。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Tulpa 手绘反生成式 AI 视觉小说——海外「手工/零 AI」互动叙事供给延续</span><span class="delta">媒体信号</span></div>
+    <div class="note">《Tulpa: The Unseen Lover》由《蜘蛛侠:纵横宇宙》动画师夫妇创立的工作室公开，承诺全 Blender 手绘、零生成式 AI。延续 9/8 的海外「手工/零 AI」供给主线（Nova-box 手绘转描 + 零 AI 视觉小说节 + IFComp 2026），且把「反 AI」本身做成叙事立场与营销点。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.11</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · Tech Times/今日头条/游民星空/腾讯新闻/中金在线/Next-Gen Gaming Blog | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

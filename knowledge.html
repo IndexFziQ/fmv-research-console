@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品调研库 · 知识库总览</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB;--ind:#C2410C;--indl:#FBE9DF}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:980px;margin:0 auto}
+header{text-align:center;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+header h1{font-size:26px;font-weight:600;margin-bottom:6px}
+header p{font-size:13px;color:var(--s)}
+
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.kpi-card .v{font-size:28px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted)}
+.kpi-card .s{font-size:10px;color:var(--muted);margin-top:2px}
+
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al);display:flex;justify-content:space-between;align-items:center}
+.section-title .count{font-size:11px;font-weight:400;color:var(--muted);background:var(--al);padding:2px 10px;border-radius:10px}
+
+.latest-banner{
+  background:linear-gradient(135deg,var(--a),var(--b));color:#fff;
+  border-radius:12px;padding:20px 24px;margin-bottom:20px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.latest-banner .label{font-size:10px;text-transform:uppercase;letter-spacing:1px;opacity:0.85;margin-bottom:4px}
+.latest-banner h2{font-size:18px;font-weight:600;margin-bottom:4px}
+.latest-banner .date{font-size:12px;opacity:0.85}
+.latest-banner .links{display:flex;gap:10px}
+.latest-banner a{background:rgba(255,255,255,0.2);color:#fff;text-decoration:none;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:500;backdrop-filter:blur(8px)}
+.latest-banner a:hover{background:rgba(255,255,255,0.3)}
+
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.t-item{position:relative;padding:12px 0;padding-left:24px}
+.t-item::before{content:"";position:absolute;left:-22px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--card-bg);border:2px solid var(--a)}
+.t-item.papers::before{background:var(--g)}
+.t-item.product::before{background:var(--a)}
+.t-item.player-voice::before{background:var(--amb)}
+.t-item.intel::before{background:var(--b)}
+.t-item.industry::before{background:var(--ind)}
+.t-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px;transition:transform 0.15s}
+.t-card:hover{transform:translateX(2px);box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.t-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
+.t-head h3{font-size:14px;font-weight:600;flex:1}
+.t-head .type{font-size:9px;padding:2px 7px;border-radius:4px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0}
+.t-head .type.papers{background:var(--gl);color:var(--g)}
+.t-head .type.product{background:var(--al);color:var(--a)}
+.t-head .type.player-voice{background:var(--alm);color:var(--amb)}
+.t-head .type.intel{background:var(--bl);color:var(--b)}
+.t-head .type.industry{background:var(--indl);color:var(--ind)}
+.t-meta{font-size:11px;color:var(--muted);margin-bottom:6px}
+.t-desc{font-size:12px;color:var(--s);line-height:1.5;margin-bottom:8px}
+.t-actions{display:flex;gap:8px;flex-wrap:wrap}
+.t-actions a{font-size:11px;padding:4px 10px;border-radius:5px;text-decoration:none;font-weight:500;background:var(--card-bg);border:1px solid var(--border);color:var(--a)}
+.t-actions a:hover{background:var(--al);border-color:var(--a)}
+.t-actions .raw{color:var(--s);border-style:dashed}
+
+.empty-state{text-align:center;padding:40px 20px;color:var(--muted);font-size:13px;border:1px dashed var(--border);border-radius:10px}
+
+.structure{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px 22px}
+.struct-group{margin-bottom:14px}
+.struct-group:last-child{margin-bottom:0}
+.struct-group-title{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.struct-group-title::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--a)}
+.struct-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:6px 8px;border-radius:6px;transition:background 0.1s}
+.struct-row:hover{background:var(--bg)}
+.struct-row code{font-family:ui-monospace,SF Mono,Menlo,Consolas,monospace;font-size:11px;color:var(--a);background:var(--al);padding:3px 8px;border-radius:4px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.struct-desc{color:var(--muted);font-size:11px;flex-shrink:0;text-align:right}
+
+.integrity{background:var(--gl);border:1px solid var(--g);border-radius:8px;padding:12px 16px;margin-top:20px;font-size:12px;color:var(--g);display:flex;align-items:center;gap:6px}
+.integrity.warn{background:var(--rl);border-color:var(--r);color:var(--r)}
+
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.timeline{padding-left:0}.timeline::before{display:none}.t-item{padding-left:0}.t-item::before{display:none}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>产品调研库 · 知识库总览</h1>
+  <p>互动影游方向 · 论文 + 竞品 + 玩家心声 + 情报 + 行业调研 · 每日汇总</p>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">383</div><div class="l">论文总数</div><div class="s">39 个快照 · arXiv 互动叙事</div></div>
+  <div class="kpi-card"><div class="v">38</div><div class="l">竞品总数</div><div class="s">累积池 · Steam/TapTap 已核实</div></div>
+  <div class="kpi-card"><div class="v">30</div><div class="l">玩家心声报告数</div><div class="s">Steam 评测深读</div></div>
+  <div class="kpi-card"><div class="v">35</div><div class="l">情报快照数</div><div class="s">每日增量情报</div></div>
+  <div class="kpi-card"><div class="v">32</div><div class="l">行业调研快照数</div><div class="s">每日深度调研快报</div></div>
+</div>
+
+<div class="latest-banner">
+  <div>
+    <div class="label">最新发布 · 2026-09-30 周三 · 论文日报</div>
+    <h2>互动叙事前沿论文 · 每日精选</h2>
+    <div class="date">10 篇精选 · 累计 383 篇 · 互动叙事前沿</div>
+  </div>
+  <div class="links">
+    <a href="papers-2026-09-30.html">打开论文日报 →</a>
+    <a href="all-papers.html">全量列表（383 篇）→</a>
+    <a href="intel-2026-09-30.html">今日情报快报</a>
+    <a href="dashboard.html">产品仪表盘</a>
+    <a href="index.html">机器人控制台</a>
+  </div>
+</div>
+
+<section class="section">
+<div class="section-title">时间线<span class="count">144 条</span></div>
+
+<div class="timeline">
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-30 周三 · 7 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">单位经济「成本塌方×收益缩水」三源同向定量——AI 降本救不了盈利模型，买量与渠…。</div>
+      <div class="t-actions"><a href="industry-2026-09-30.html">查看快报 →</a><a href="../industry/2026-09-30.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-30 周三 · 10 篇精选 · 累计 383 篇</div>
+      <div class="t-desc">Scaling Long-Form Story Generation、A.D.A.M.O.、EP-Mem、HiThink Turn 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-30.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-30.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-30 周三 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-30.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-30 周三 · 47 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">字节《不问凡尘》AI 互动影游冲进 Steam 畅销…、Steam 秋促 10/2 撞上国庆黄金周——互动影…、Steam 竞品单日环比：盛世天下系列 + 历史题材…。</div>
+      <div class="t-actions"><a href="intel-2026-09-30.html">查看快报 →</a><a href="../intel/2026-09-30.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-29 周二 · 12 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">「风口」定性 24h 内官媒×券商×数据机构三线会师：互动影游从边缘品类升级为 …。</div>
+      <div class="t-actions"><a href="industry-2026-09-29.html">查看快报 →</a><a href="../industry/2026-09-29.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-29 周二 · 10 篇精选 · 累计 373 篇</div>
+      <div class="t-desc">Probing Stability-Plasticity Tradeoffs in、Breaking Homogeneity、Mutable Transcripts、Game Arena 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-29.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-29.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-29 周二 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-29.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-29 周二 · 47 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《名利场2:冒牌富少》定档 10 月中下旬——钟晨瑶…、Steam 竞品单日环比：盛世天下系列 + 历史题材…、《证券日报》定调「AI 互动影游」为短剧下一个风口—…。</div>
+      <div class="t-actions"><a href="intel-2026-09-29.html">查看快报 →</a><a href="../intel/2026-09-29.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-28 周一 · 12 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">「下一代内容」72 小时内工具层—平台层—场景层三线会师：互动影游被大厂正式纳入…。</div>
+      <div class="t-actions"><a href="industry-2026-09-28.html">查看快报 →</a><a href="../industry/2026-09-28.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-28 周一 · 10 篇精选 · 累计 363 篇</div>
+      <div class="t-desc">PUBG Ally、Building Socio-Affective AI for、EnigmaForge、ERRAND 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-28.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-28.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item product">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 产品调研周报</h3>
+        <span class="type product">产品周报</span>
+      </div>
+      <div class="t-meta">2026-09-28 周一 · 累积 38 款竞品 · 6 条交叉洞察 · 本周新增 1 款</div>
+      <div class="t-desc">定价分化；头部集中；题材扩散；好评率悖论 等交叉洞察。</div>
+      <div class="t-actions"><a href="dashboard.html">查看累积仪表盘 →</a><a href="../products/2026-09-28.json" class="raw">周报 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-28 周一 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-28.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-28 周一 · 48 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《新世界:暗影成双》移动端 9/26 更新 v1.8…、Steam 竞品 3 日累计环比：盛世天下系列 + …、国产「轮回/记忆」互动叙事母题供给集群成型——《衍算…。</div>
+      <div class="t-actions"><a href="intel-2026-09-28.html">查看快报 →</a><a href="../intel/2026-09-28.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-25 周五 · 12 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">供给侧「正规军」整建制进场：《完蛋》核心团队 200 人 All in 纯 AI…。</div>
+      <div class="t-actions"><a href="industry-2026-09-25.html">查看快报 →</a><a href="../industry/2026-09-25.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-25 周五 · 10 篇精选 · 累计 353 篇</div>
+      <div class="t-desc">Emergi-PersonaOS、Listening and Mirroring、Neither Silence nor Overlap、Agent-Editing World Model: Rethinking 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-25.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-25.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-25 周五 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-25.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-25 周五 · 48 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《新世界:暗影成双》上线进入官方级发酵期——上影集团…、《有这么一个家伙》9/24 正式全球多平台上线——「…、Steam 竞品 2 日累计环比：盛世天下系列继续领…。</div>
+      <div class="t-actions"><a href="intel-2026-09-25.html">查看快报 →</a><a href="../intel/2026-09-25.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-23 周三 · 12 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">高盛定调「无限供给 vs 有限注意力」：价值向 IP 与平台两头集中，「动态互动…。</div>
+      <div class="t-actions"><a href="industry-2026-09-23.html">查看快报 →</a><a href="../industry/2026-09-23.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-23 周三 · 10 篇精选 · 累计 343 篇</div>
+      <div class="t-desc">World State Generator、Synthesizing Reactive Character Behaviors、AI Persona, Service Consumption,、Prompting Against Persona Drift: 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-23.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-23.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-23 周三 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-23.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-23 周三 · 48 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《盛世天下》全系列销量突破 600 万套——国产互动…、《新世界:暗影成双》今日发售——全球首款双人联机互动…、Steam 竞品 5 日累计环比：女帝 +25/绍宋…。</div>
+      <div class="t-actions"><a href="intel-2026-09-23.html">查看快报 →</a><a href="../intel/2026-09-23.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-22 周二 · 13 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">字节补齐互动内容全链路：剪映 ICG Studio 内测 + 互动空间分发 + …。</div>
+      <div class="t-actions"><a href="industry-2026-09-22.html">查看快报 →</a><a href="../industry/2026-09-22.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-21 周一 · 14 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">「持证 + 真金白银」双轨落地：AI 与真人的扶持位次被官方彻底锁定，行业进入按…。</div>
+      <div class="t-actions"><a href="industry-2026-09-21.html">查看快报 →</a><a href="../industry/2026-09-21.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-21 周一 · 10 篇精选 · 累计 333 篇</div>
+      <div class="t-desc">JustMem、What Parents Can See、Stereotypically Yours、Learning from Success and 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-21.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-21.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item product">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 产品调研周报</h3>
+        <span class="type product">产品周报</span>
+      </div>
+      <div class="t-meta">2026-09-21 周一 · 累积 36 款竞品 · 6 条交叉洞察</div>
+      <div class="t-desc">定价分化；头部集中；题材扩散；好评率悖论 等交叉洞察。</div>
+      <div class="t-actions"><a href="dashboard-2026-09-21.html">查看累积仪表盘 →</a><a href="../products/2026-09-21.json" class="raw">周报 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-18 周五 · 13 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">官方正式给「真人」与「AI」划出扶持位次——「真人剧是精品创作的主力」成为微短剧…。</div>
+      <div class="t-actions"><a href="industry-2026-09-18.html">查看快报 →</a><a href="../industry/2026-09-18.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-18 周五 · 10 篇精选 · 累计 323 篇</div>
+      <div class="t-desc">Long-Lived Characters, Local Inference:、TalkMatrix、Disentangling Long-Term Memory via、Cognitive Extensions for Dual-Process 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-18.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-18.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-18 周五 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-18.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-18 周五 · 47 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《列车怪谈》开发商「司命互动影游工作室」官宣产品线—…、《盛世天下》IP 化运营深度拆解 + 中国 FMV …、AKIBA LOST 正式版发售次日 Steam 评…。</div>
+      <div class="t-actions"><a href="intel-2026-09-18.html">查看快报 →</a><a href="../intel/2026-09-18.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-17 周四 · 12 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">「降本 90% ≠ 盈利」剪刀差在 9/16 一日四源同向坐实：制作成本打到地板…。</div>
+      <div class="t-actions"><a href="industry-2026-09-17.html">查看快报 →</a><a href="../industry/2026-09-17.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-17 周四 · 10 篇精选 · 累计 313 篇</div>
+      <div class="t-desc">AI for Games in、ANIMASK、RoleBreak、Interactive Memory Learning for 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-17.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-17.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-17 周四 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-17.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-17 周四 · 47 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《AKIBA LOST 秋叶原迷踪》9/17 正式发…、海外互动叙事「机制+世界观授权」双轮驱动——Choi…、Steam 评测周四自然微增、8正增长/1净减/28…。</div>
+      <div class="t-actions"><a href="intel-2026-09-17.html">查看快报 →</a><a href="../intel/2026-09-17.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-16 周三 · 10 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">字节一日两牌：即梦片场（内容供给端厂牌化）+抖音 AI 工坊兴趣卡（交互形态端信…。</div>
+      <div class="t-actions"><a href="industry-2026-09-16.html">查看快报 →</a><a href="../industry/2026-09-16.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-16 周三 · 10 篇精选 · 累计 303 篇</div>
+      <div class="t-desc">MUSE、What Can I Do for You、When AI Companions Disappear:、Mind2Dialogue 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-16.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-16.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-16 周三 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-16.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-16 周三 · 45 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《AKIBA LOST 秋叶原迷踪》评测解禁、口碑分…、Steam 评测周三自然微增、零净减、头部全线稳定—…、海外互动叙事「机制+世界观授权」双轮驱动持续——Ch…。</div>
+      <div class="t-actions"><a href="intel-2026-09-16.html">查看快报 →</a><a href="../intel/2026-09-16.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-15 周二 · 9 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">平台「红利回收」获双信源同日坐实：红果 AI 剧本保底整体降 75%（S+ 4 …。</div>
+      <div class="t-actions"><a href="industry-2026-09-15.html">查看快报 →</a><a href="../industry/2026-09-15.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-15 周二 · 10 篇精选 · 累计 293 篇</div>
+      <div class="t-desc">The House with a、DuplexDrama、Toward Robust Personalized Alignment、SteerDuplex 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-15.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-15.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-15 周二 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-15.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-15 周二 · 46 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《AKIBA LOST 秋叶原迷踪》本周 9/17 …、Storytaco《Five Hearts Unde…、《幸存者笔记》升格「国内首款大体量 AI 互动影游」…。</div>
+      <div class="t-actions"><a href="intel-2026-09-15.html">查看快报 →</a><a href="../intel/2026-09-15.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-14 周一 · 9 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">真人回潮获官方数据定论+学界处方：协会 Q2 指引显示真人剧占比从 &lt;5% 回升…。</div>
+      <div class="t-actions"><a href="industry-2026-09-14.html">查看快报 →</a><a href="../industry/2026-09-14.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-14 周一 · 10 篇精选 · 累计 283 篇</div>
+      <div class="t-desc">But How Would AI、K/V-Cache Interventions Dissociate Representation、Using Semantic Uncertainty to、Artificial Id 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-14.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-14.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item product">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 产品调研周报</h3>
+        <span class="type product">产品周报</span>
+      </div>
+      <div class="t-meta">2026-09-14 周一 · 累积 36 款竞品 · 6 条交叉洞察</div>
+      <div class="t-desc">定价分化；头部集中；题材扩散；好评率悖论 等交叉洞察。</div>
+      <div class="t-actions"><a href="dashboard-2026-09-14.html">查看累积仪表盘 →</a><a href="../products/2026-09-14.json" class="raw">周报 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-14 周一 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-14.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-14 周一 · 48 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《幸存者笔记》上线首周 93% 特别好评——「AI …、VRChat《Uncanny Alley》获艾美奖「…、韩系 FMV 供给集群再添两员 + AI 影像基建获…。</div>
+      <div class="t-actions"><a href="intel-2026-09-14.html">查看快报 →</a><a href="../intel/2026-09-14.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-11 周五 · 9 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">新规施行进入「执行深读期」：法治日报拆解算法治理入分发端+官媒评论定调「精品化唯…。</div>
+      <div class="t-actions"><a href="industry-2026-09-11.html">查看快报 →</a><a href="../industry/2026-09-11.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-11 周五 · 10 篇精选 · 累计 273 篇</div>
+      <div class="t-desc">Fortunate Recall、What Should an Agent、ROAM、SocialRL 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-11.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-11.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-11 周五 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-11.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-11 周五 · 50 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">韩国 FMV 恋爱模拟《老师,要不要更进一步?》上架…、Steam 评测「去水分第二波」结束、头部恢复自然增…、影游 IP 反哺影视资本市场 + 传统电影厂入局——…。</div>
+      <div class="t-actions"><a href="intel-2026-09-11.html">查看快报 →</a><a href="../intel/2026-09-11.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-10 周四 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">平台补贴时代终结落定：红果取消保底+万次收益 100→5 元+公募 Q2 撤离（…。</div>
+      <div class="t-actions"><a href="industry-2026-09-10.html">查看快报 →</a><a href="../industry/2026-09-10.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-10 周四 · 10 篇精选 · 累计 263 篇</div>
+      <div class="t-desc">Better Call CineCrew、Humans Introduce, Models Elaborate:、The Failure Happens Before、A Three-Tier Persona Vector 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-10.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-10.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-10 周四 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-10.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-10 周四 · 50 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">国产 FMV 出海「本地化短板」集中暴露——Wand…、Steam 评测「去水分」第二波——绍宋/女帝篇各 …、海外互动叙事「玩法机制化 + 手绘反 AI」供给延续…。</div>
+      <div class="t-actions"><a href="intel-2026-09-10.html">查看快报 →</a><a href="../intel/2026-09-10.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-09 周三 · 11 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">「互动影游工业化临界点」首次获得券商 + 一线创业者双重背书：600-700 万…。</div>
+      <div class="t-actions"><a href="industry-2026-09-09.html">查看快报 →</a><a href="../industry/2026-09-09.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-09 周三 · 8 篇精选 · 累计 253 篇</div>
+      <div class="t-desc">How do LLMs Evaluate、How a Chatbot's Response、CC-Mediation、Adapting from Downturns 等 8 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-09.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-09.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-09 周三 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-09.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-09 周三 · 50 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">AI 视频游戏形态进化——Yoroll《丧尸清道夫》…、海外 FMV 机制创新持续——Lilith Cunn…、Steam 评测「去水分」后稳定微增 + 绍宋 81…。</div>
+      <div class="t-actions"><a href="intel-2026-09-09.html">查看快报 →</a><a href="../intel/2026-09-09.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-08 周二 · 11 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">「实时互动世界」24 小时内获三重加注：字节创始人挂帅+阿里 API 开放+图形…。</div>
+      <div class="t-actions"><a href="industry-2026-09-08.html">查看快报 →</a><a href="../industry/2026-09-08.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-08 周二 · 10 篇精选 · 累计 245 篇</div>
+      <div class="t-desc">Controlling and Assessing Appropriate、Generating Constructive Feedback on、Does Your Agent's Memory、Compact-Memory LLM Agents via 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-08.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-08.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-08 周二 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-08.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-08 周二 · 50 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">STORYTACO 公布下半年路线图——中韩跨国合作…、《绍宋:还我河山》历史题材方法论沉淀 + IP 反哺…、海外「手工/零 AI」互动叙事供给集中——Nova-…。</div>
+      <div class="t-actions"><a href="intel-2026-09-08.html">查看快报 →</a><a href="../intel/2026-09-08.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-07 周一 · 12 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">新规首周监管执行「三连发」后落地细则齐备：分级额度（AI 30/80 万）与 U…。</div>
+      <div class="t-actions"><a href="industry-2026-09-07.html">查看快报 →</a><a href="../industry/2026-09-07.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-07 周一 · 10 篇精选 · 累计 235 篇</div>
+      <div class="t-desc">Classic AI Scaffolding for、LLM-Guided Reinforcement Learning for、RuleMem、When Users Don't Ask 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-07.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-07.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item product">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 产品调研周报</h3>
+        <span class="type product">产品周报</span>
+      </div>
+      <div class="t-meta">2026-09-07 周一 · 累积 35 款竞品 · 6 条交叉洞察 · 本周新增 1 款</div>
+      <div class="t-desc">定价分化；头部集中；题材扩散；好评率悖论 等交叉洞察。</div>
+      <div class="t-actions"><a href="dashboard-2026-09-07.html">查看累积仪表盘 →</a><a href="../products/2026-09-07.json" class="raw">周报 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-07 周一 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-07.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-07 周一 · 50 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">Steam 周末大清理互动影游刷分评测——头部产品中…、官媒定调「互动影游=IP延伸」——《人民日报海外版》…、影游「演员风险」成行业痛点——真人影游高度绑定演员，…。</div>
+      <div class="t-actions"><a href="intel-2026-09-07.html">查看快报 →</a><a href="../intel/2026-09-07.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-04 周五 · 9 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">互动影游的「身份」正式落地：归广电网络微短剧体系（非游戏版号），合规路径清晰化 …。</div>
+      <div class="t-actions"><a href="industry-2026-09-04.html">查看快报 →</a><a href="../industry/2026-09-04.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-04 周五 · 10 篇精选 · 累计 225 篇</div>
+      <div class="t-desc">How LLMs Build Fictional、CivBench、EmoStance、PragAlign 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-04.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-04.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-04 周五 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-04.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-04 周五 · 49 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《绍宋》差评焦点从「刷分」升级为「AI画面争议」——…、AI影游「双样本」对峙成型——《民国诡事》、产业合规与营收量级抬升——《盛世天下》绕开版号500…。</div>
+      <div class="t-actions"><a href="intel-2026-09-04.html">查看快报 →</a><a href="../intel/2026-09-04.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-03 周四 · 9 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">大厂发行政策 + 平台官方定位共振：互动影游从「Steam 小众品类」升级为平台…。</div>
+      <div class="t-actions"><a href="industry-2026-09-03.html">查看快报 →</a><a href="../industry/2026-09-03.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-03 周四 · 10 篇精选 · 累计 215 篇</div>
+      <div class="t-desc">AniMaster、CHARM、Disclosure-Gated User Simulation for、Measuring the Behavioral Fidelity 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-03.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-03.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-03 周四 · 49 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《Lilith Cunningham》官宣——真人F…、民国主旋律互动影游「密集上新」——《流火》第一人称上…、评测环比继续降温。</div>
+      <div class="t-actions"><a href="intel-2026-09-03.html">查看快报 →</a><a href="../intel/2026-09-03.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-02 周三 · 10 篇精选 · 累计 205 篇</div>
+      <div class="t-desc">SocialReasonBench、UTILMEM、Lies We Can See、Mind the Gap 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-02.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-02.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-02 周三 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-02.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-02 周三 · 49 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《天坑追匪》定档Steam 10月新品节——天下霸唱…、《秋叶原迷踪》9/17登陆Switch——真人实拍F…、《隐藏真探》Demo 97%好评持续，但「试玩内容偏…。</div>
+      <div class="t-actions"><a href="intel-2026-09-02.html">查看快报 →</a><a href="../intel/2026-09-02.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-09-01 周二 · 9 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">9/1《微短剧发展管理办法》正式施行，互动影游被正式纳入「备案分级 + AI 标…。</div>
+      <div class="t-actions"><a href="industry-2026-09-01.html">查看快报 →</a><a href="../industry/2026-09-01.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-09-01 周二 · 10 篇精选 · 累计 195 篇</div>
+      <div class="t-desc">Acquire, Repair, Preserve: A、Stranger, Fan, or Peer?、The Shape of Power、First Make It Playable, 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-09-01.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-09-01.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-09-01 周二 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-09-01.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-09-01 周二 · 49 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《隐藏真探》Demo 97%好评——「隐形守护者」原…、绍宋「一夜暴涨上千好评」刷分争议 + 口碑两极——大…、欢瑞世纪半年报坐实「矩阵化布局」——互动影游工业化从…。</div>
+      <div class="t-actions"><a href="intel-2026-09-01.html">查看快报 →</a><a href="../intel/2026-09-01.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item product">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 产品调研周报</h3>
+        <span class="type product">产品周报</span>
+      </div>
+      <div class="t-meta">2026-08-31 周一 · 累积 27 款竞品 · 6 条交叉洞察 · 本周新增 1 款</div>
+      <div class="t-desc">定价分化；头部集中；题材扩散；好评率悖论 等交叉洞察。</div>
+      <div class="t-actions"><a href="dashboard-2026-08-31.html">查看累积仪表盘 →</a><a href="../products/2026-08-31.json" class="raw">周报 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-29 周六 · 9 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">9/1 新规前夜人民日报刊文点名「虚火」（36 万部产量·九成亏损）党媒接力完成「去产能化」舆论定调、上市公司半年报「互动影游/AI 漫剧单列」密集兑现（德才股份 AI 漫剧 400 亿 +138%·互动影视 18-20 亿、百纳千成出海 60 亿美元）、世界模型/实时交互/「卖铲子」资本密集加注但「杀手级应用缺失 + IP 才是壁垒」成共识风险。</div>
+      <div class="t-actions"><a href="industry-2026-08-29.html">查看快报 →</a><a href="../industry/2026-08-29.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-29 周六 · 10 篇精选 · 累计 185 篇</div>
+      <div class="t-desc">人格保真度评测框架重构（Persona Fidelity 结构化评测）、GameWAM 游戏世界动作模型、MoR 混合角色单一智能体解锁多智能体协同、机器人人格切换提示指南、音频对话不一致推理、EmoSay 文本情感语音 + SpeechGym 语音智能体 RL 训练场、AffectOmni 可验证情感推理等 10 篇，聚焦「人格/角色保真度评测 + 世界动作模型 + 语音情感交互智能体」。</div>
+      <div class="t-actions"><a href="papers-2026-08-29.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-29.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-29 周六 · 绍宋恶性 bug 第九日未修（档案第五日）+ 水军指控持续 · 主角模板好评第九日 70%→65% 首次回落</div>
+      <div class="t-desc">绍宋恶性 bug 第九日未修（档案第五日）、水军指控持续高频；主角模板好评第九日 70%→65% 首次回落（触线后继续下探）；女帝 +11 连续第二日全库第一增量但新世界线反噬发酵；花满楼 +13 第二增量、工程债三线并发第九日；江山北望联网故障已修复但追评保留——售后修复缺位成为口碑分水岭。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-29.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-29 周六 · 45 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">艺画开天《凡应》二测开启（动画工业跨界互动影游第二技术路线·UE5 对标黑神话·「好看 vs 好玩」成口碑命题）、PixVerse R2 世界模型 AI 影游落地+爱诗科技秘交招股书（「视频生成第一股」·交互自由度天花板超预制 FMV）、绍宋「影游→原著」IP 反哺闭环跑通（某幻君 240 万播放·峰值在线 12933）、盛世天下系列 500 万套+女性向榜第 9+云游戏「双账本」付费争议、儒意《晨昏线》缉毒互动影像 Steam 预约（上市公司再入局）。</div>
+      <div class="t-actions"><a href="intel-2026-08-29.html">查看快报 →</a><a href="../intel/2026-08-29.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-28 周五 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">9/1 新规前夜官方党媒集中「点名虚火」（上半年新上线超 36 万部·约九成亏损）+ AI 短剧侵权全国首例刑案落地（复制发行超 500 件即入罪）——立项进入「精品化 + 全版权合规」双门槛；互动影游成本锚点首次出现「万元级」（AI 把 FMV 从数百万级拉到 300 分钟约 1.5 万元）；世界模型工具/游戏引擎/创作工具获资本密集加注（腾讯领投 Godot 商业层 W4 Games 1800 万美元、Stability AI 获索尼/Coatue 押注）——工具链成新卡位。</div>
+      <div class="t-actions"><a href="industry-2026-08-28.html">查看快报 →</a><a href="../industry/2026-08-28.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-28 周五 · 10 篇精选 · 累计 175 篇</div>
+      <div class="t-desc">VoiceMem 流式双脑记忆 + Super Star 流式实时数字人智能体（实时互动）、4DStreamCtrl 交互视频在线 4D 控制 + Code World Model 编码智能体世界大脑、AffectSim 具身情感感知 3D 仿真基准 + TurnBench 口语话轮切换评测、ClueWeaver 文学长文本双智能体证据推理、对话落地「选择性信念修正」等 10 篇，聚焦「实时语音交互数字人 + 世界模型 + 对话记忆/话轮/落地评测」。</div>
+      <div class="t-actions"><a href="papers-2026-08-28.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-28.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-28 周五 · 绍宋 bug 八日未修 + 增量断崖第五级 · 主角模板好评第八日 70% 持平 · 口碑真实性波及 8 款</div>
+      <div class="t-desc">绍宋恶性 bug 第八日未修、增量断崖第五级（+313→+227→+45→+26→+16）；主角模板好评第八日 70% 持平（14/20）无回落；女帝 +11 全库第一增量但新世界线口碑反噬；1000 王子中文评测池归零、俄语猎奇好评首现——「口碑真实性」议题从单款争议扩展为波及 8 款的系统性议题。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-28.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-28 周五 · 44 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">周星驰比高集团投资互动之星（明星资本入局·供给侧资本化从「上市公司」延伸到「明星资本」）、绍宋发售一周口碑两极分化显性化（「互动剧 vs 游戏」定位之争）、欢瑞世纪「增收不增利」（互动影游矩阵仍在投入期·资本入局≠已验证盈利）、8月新作红利期第 9 次坐实 + 海外 Spirit Ritual「3D FMV+MR」供给升级。</div>
+      <div class="t-actions"><a href="intel-2026-08-28.html">查看快报 →</a><a href="../intel/2026-08-28.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-27 周四 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">DataEye 首次定档互动影游市场规模（2025 约 15 亿→2026 有望 18 亿 +20%、开发度&lt;10%）、欢瑞世纪半年报首次单列「互动影游业务」（矩阵化打法进财报）、AI 原生游戏「成本-体验悖论」被实证（崇祯 Token 收费好评率跌至 54%、蔡浩宇 Anuttacon 收缩）、PixVerse R2 三段互动影游 Demo（世界模型跨进「可玩」）、9/1 新规官方最终确认 AI 标识。</div>
+      <div class="t-actions"><a href="industry-2026-08-27.html">查看快报 →</a><a href="../industry/2026-08-27.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-27 周四 · 10 篇精选 · 累计 165 篇</div>
+      <div class="t-desc">MemUse 把角色记忆评测从「问答准确率」转到「融入自然度」（4 个月真实部署 40 用户 1872 会话）、NV-CER 让 TTS 稳定「演出」笑声/叹气等非语言声音、创意评测实证 LLM 法官系统性偏袒 AI 文本、模型发布口碑「期待→反弹→恢复→兴奋」动态曲线、8B 量化模型跑通消费级显卡社会模拟（Agentopia）、Recuris 递归记忆进化等 10 篇，聚焦「角色记忆与语音情感 + 口碑/创意评测 + 消费级 NPC 模拟」。</div>
+      <div class="t-actions"><a href="papers-2026-08-27.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-27.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-27 周四 · 主角模板好评第七日触线 70% · 全库首个「刷评实锤」档案案例 + 绍宋 bug 七连未修</div>
+      <div class="t-desc">主角模板好评第七日触线 70%（14/20）成全库首个「刷评实锤」档案级案例；绍宋恶性 bug 第七日未修、增量断崖加深（+313→+227→+45→+26）；花满楼 +38 全库第一却持续失血差评；1000 王子跌至 25%——口碑真实性从「质疑」升级为「可追溯档案」，售后修复缺位成为新品留存分水岭。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-27.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-27 周四 · 44 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">欢瑞世纪半年报首次系统披露互动影游矩阵（A股上市公司入局·竞品格局从「单款爆款」升级为「公司矩阵」）、绍宋进 Steam 国区销量榜第 11（评测增速回落≠销量回落·红利期规律重要修正）、隐藏真探=隐藏侦探出品方纠偏（半年报戳破媒体洗稿）、湖南电广传媒跟进——供给侧「上市公司化」加速。</div>
+      <div class="t-actions"><a href="intel-2026-08-27.html">查看快报 →</a><a href="../intel/2026-08-27.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-26 周三 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">世界模型「从看到玩」获阿里 29.8 亿重仓实锤（互动影游成其首选落地场与数据飞轮）、出海升级为地方政策抓手（上海十五五规划 + 中泰 60 亿美元定档双轮驱动）、9/1 新规执行细则深度落地（互动微短剧「参照执行」+ AI 80 万红线 + 出海第 52 条「境内拍摄境外播出也要备案」）。</div>
+      <div class="t-actions"><a href="industry-2026-08-26.html">查看快报 →</a><a href="../industry/2026-08-26.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-26 周三 · 10 篇精选 · 累计 155 篇</div>
+      <div class="t-desc">专业剪辑师评测 AI 生成电影视频质量、历史真实度比例（Historical Grounding Ratio）作为设计参数、互动对话游戏跨任务知识迁移、EmoTra-TTS 句内情感平滑过渡、审计合成回忆录的场景级幻觉、创作者风格「配方人格」表征与生成、Aura 动态情绪感知、SENSESHIFT 情感可控文本生成、LLM 博弈决策「自信失准」、AgentWorld 人格感知可靠性评测等 10 篇，聚焦「电影化视频评测 + 情感语音/情绪控制 + 叙事幻觉审计 + 游戏决策可靠性」。</div>
+      <div class="t-actions"><a href="papers-2026-08-26.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-26.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-26 周三 · 不心动粉丝盘拐点 + 绍宋增量断崖 · 首发事故进入「热度退潮、修复缺位」阶段</div>
+      <div class="t-desc">不心动才有鬼粉丝盘拐点确认（五日 +880 → 今日 +12）、绍宋增量断崖（+313→+227→+45）而恶性 bug 第六日仍未修——两起首发事故同日进入「热度退潮、修复缺位」阶段，首发口碑工程与售后修复成为新品留存分水岭。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-26.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-26 周三 · 45 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">《名利场2:冒牌富少》8/25 Steam 商店页上线（好莱坞班底·钟晨瑶/田诗雨领衔恋爱赛道头部续作）、隐藏真探 Demo 97% 特别好评持续发酵（隐形守护者原班谍战 IP 口碑坐实）、8 月新作首发红利期第 7 次坐实（绍宋增速五连降 +1.7% 首次跌破 2%）、供给侧两端分化（头部好莱坞化/原班 IP vs 一人 FMV/AI 原生低质内卷口碑挣扎）。</div>
+      <div class="t-actions"><a href="intel-2026-08-26.html">查看快报 →</a><a href="../intel/2026-08-26.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-25 周二 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">「交互式 AI 角色」被传统 IP 巨头正式资本化（IP 下一变现层是「可对话角色」而非静态授权）、世界模型「从看到玩」进入落地拐点（互动影游成其早期最合适训练场与数据飞轮）、9/1 新规最后一周 + 沪 8 条极速审核（合规门槛与地方扶持双落地）。</div>
+      <div class="t-actions"><a href="industry-2026-08-25.html">查看快报 →</a><a href="../industry/2026-08-25.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-25 周二 · 10 篇精选 · 累计 145 篇</div>
+      <div class="t-desc">交互式世界模型从像素重构到状态（From Pixels to States）、OPEN-THEATRE 开源 LLM 交互戏剧工具包、FreeStory 训练无关角色一致 + SlotMem 角色可寻址记忆、MCSC-Bench 多模态剧本生成评测、AI 共创游戏叙事质量评测、NPC 打破玩家预期、CausalCine 多镜头实时自回归、LLM 游戏开发综述等 10 篇，聚焦「交互式世界模型 + 角色一致性与记忆 + 剧本/多镜头生成」。</div>
+      <div class="t-actions"><a href="papers-2026-08-25.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-25.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-25 周二 · 44 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">隐藏真探 Demo 97% 特别好评（隐形守护者原班谍战新作口碑验证）、刷评质疑连续第 3 天发酵（GGAMen 社区综述接续新浪财经点名绍宋+花满楼）、8 月新作首发红利期全线熄火（绍宋 +9.6%→花满楼 +2.9%→不心动 +0.6%，无一达 +30% 阈值）、新供给两极分化（海外一人 FMV Wordless Forest 47.8% Mixed + AI 乙女 1000 王子 33.3% 口碑转差）。</div>
+      <div class="t-actions"><a href="intel-2026-08-25.html">查看快报 →</a><a href="../intel/2026-08-25.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-24 周一 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">上市公司+资本密集切入 AI 短剧·互动影游工业化，赛道从「内容生意」变「资本+…。</div>
+      <div class="t-actions"><a href="industry-2026-08-24.html">查看快报 →</a><a href="../industry/2026-08-24.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-24 周一 · 10 篇精选 · 累计 135 篇</div>
+      <div class="t-desc">Fixed-Persona SLMs with Modular、Lights, Camera, Consistency: A、TextQuests、GenQuest 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-08-24.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-24.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item product">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 产品调研周报</h3>
+        <span class="type product">产品周报</span>
+      </div>
+      <div class="t-meta">2026-08-24 周一 · 累积 25 款竞品 · 6 条交叉洞察 · 本周新增 2 款</div>
+      <div class="t-desc">定价分化；头部集中；题材扩散；好评率悖论 等交叉洞察。</div>
+      <div class="t-actions"><a href="dashboard-2026-08-24.html">查看累积仪表盘 →</a><a href="../products/2026-08-24.json" class="raw">周报 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-24 周一 · Steam 评测深读</div>
+      <div class="t-desc">Steam 评测深读。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-24.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-24 周一 · 44 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">刷评质疑从单点升级为综合财经媒体议题、绍宋首发红利期三连降：增速+83%→+25.7%→+…、花满楼口碑口径厘清：全语言98.2%恢复获取、与中文…。</div>
+      <div class="t-actions"><a href="intel-2026-08-24.html">查看快报 →</a><a href="../intel/2026-08-24.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-23 周日 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">AI 漫剧成本结构二次分化（上游算力 500 元→1.5 万/小时 vs 新一代模型整剧算力 -30~40%）、合规进入「双重通行证」落地期（番茄 8/17 新规 + 光明日报 AI 换脸拟声须单独同意+全链条标识）、世界模型 + AI 3D 资本加速点名「互动文娱」——AI 原生互动影游产品形态窗口打开。</div>
+      <div class="t-actions"><a href="industry-2026-08-23.html">查看快报 →</a><a href="../industry/2026-08-23.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-23 周日 · 10 篇精选 · 累计 125 篇</div>
+      <div class="t-desc">SNAP 计划驱动可控互动叙事生成、CineAGI 角色一致电影创作（LLM 编排多模态）、StoryVerse 角色仿真协同编剧、GENEVA 分支叙事可视化、STORY2GAME 互动小说全要素生成、ArcANE 角色扮演智能体「入戏时机」实证、DreamShot 个性化分镜、EvoTale 持续角色定制、Character-Centered 场景级对话生成、Deflanderization 游戏对话去模板化等 10 篇，聚焦「可控叙事生成 + 角色一致性 + 电影化创作工具」。</div>
+      <div class="t-actions"><a href="papers-2026-08-23.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-23.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-23 周日 · 花满楼 98.6% vs 绍宋 84.2% · 同日发售历史向新作口碑极端分化 · 首发工程质检成分水岭</div>
+      <div class="t-desc">花满楼 98.6% vs 绍宋 84.2%：同日发售的历史向新作口碑极端分化，「首发工程质检」取代题材成为口碑分水岭——花满楼以稳定首发与零崩溃拿下好评如潮，绍宋被「AI 素材 / 强制联网 / 原创角色」三连钉住，刷评质疑首次从单款蔓延到同日双雄。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-23.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-23 周日 · 42 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">绍宋/花满楼「短时爆发式好评」遭 ZOL/游民星空/腾讯新闻三源刷评质疑（口碑真实性风险升温）、绍宋首日成绩官方发布（Steam 热门新品全球 TOP1·畅销 TOP15·愿望单 9 万）、女帝篇微信小程序商业化落地（交易 +300%·销售额数百万）、隐藏真探 Demo 上线（隐形守护者原班）+ AI 互动影游工具链出海。</div>
+      <div class="t-actions"><a href="intel-2026-08-23.html">查看快报 →</a><a href="../intel/2026-08-23.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-22 周六 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">互动影游监管边界首次划清（8/18《分类分层管理提示》互动微短剧单列、按核心内容真人/AI 划分备案类别）、平台端「从看到玩」进入实质卡位期（抖快B红集体入局+海外 Loopit/Yoroll 跑通形态）、行业精品化出清深水区（真人影游 750 万投 48h 仅售 1.2 万份、AI 短剧破亿率 0.47%、回本率 1.3%）。</div>
+      <div class="t-actions"><a href="industry-2026-08-22.html">查看快报 →</a><a href="../industry/2026-08-22.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-22 周六 · 10 篇精选 · 累计 115 篇</div>
+      <div class="t-desc">DramaDirector 几何引导短剧生成、LogiShot 跨镜头逻辑连贯、Beyond Direct Generation 分解式编剧、Planning Beyond Text 图推理叙事规划、Spoiler Alert 用叙事预测当张力指标、DREAM 事件感知记忆图角色扮演、AttriStory 细粒度属性视觉叙事、StoryAlign 故事奖励模型评测等 10 篇，聚焦「视频短剧生成 + 图/记忆增强叙事 + 故事评测」。</div>
+      <div class="t-actions"><a href="papers-2026-08-22.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-22.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-22 周六 · 绍宋首发 24h 深读 · +742 条评测把 77% 拉到 83% · 差评三连钉 AI 素材/强制联网/原创角色</div>
+      <div class="t-desc">绍宋首发 24h 深读：+742 条评测把好评率从 77% 拉到 83%，但差评三连集中钉上「AI 素材 / 强制联网 / 原创角色」——口碑修复与三大硬伤并存，首发口碑走向成为新品观察样本。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-22.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-22 周六 · 42 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">花满楼 8/20 首日爆发「好评如潮」99%（两天1153篇评测·口碑全面碾压同期绍宋）、绍宋持续爆发中文 888→1625（好评率 77.1%→83.5% 口碑修复）、女帝篇销量破 500 万套创真人互动影游全球纪录（Steam 国区第一）、恶校游戏解散持续发酵（750 万成本/48h 销量 1.2 万套/亏损 550 万）——赛道盈利困境警钟。</div>
+      <div class="t-actions"><a href="intel-2026-08-22.html">查看快报 →</a><a href="../intel/2026-08-22.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-21 周五 · 9 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">《微短剧发展管理办法》9/1施行（AI微短剧三级分类备案+AI标识溯源·投资门槛翻三倍）、昆仑万维AI短剧单月流水6500万美元登顶海外第一、腾讯TDream+抖音/红果加码可玩内容、世界模型元年点名互动影游、DataEye判绍宋开启男性向/IP改编第二增长曲线。</div>
+      <div class="t-actions"><a href="industry-2026-08-21.html">查看快报 →</a><a href="../industry/2026-08-21.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-21 周五 · 10 篇精选 · 累计 105 篇</div>
+      <div class="t-desc">视频生成走向电影化与流式交互（One Sentence One Drama 多智能体短剧、Camera Artist 电影化镜头语言、ShotStream 下一镜流式生成）、长故事一致性评测（Lost in Stories 穿帮率）、角色表演模型 LPM 1.0 + SkyReels-V3、One Policy Infinite NPCs 规模化智能体、叙事理论驱动综述 + ConWriter 神经符号一致性控制等 10 篇，聚焦「视频生成 + 长故事一致性 + NPC 规模化 + 叙事理论」。</div>
+      <div class="t-actions"><a href="papers-2026-08-21.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-21.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-21 周五 · 全量深读 · P0+P1 建议 · 刷评质疑首次蔓延到高分作品</div>
+      <div class="t-desc">模板好评升级为「两大家族」，刷评质疑首次从新作蔓延到高分老作品——测评维度从内容质量转向「口碑真实性」交叉验证，高分≠可信成为新共识。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-21.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-21 周五 · 42 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">绍宋 8/20 首发爆发（中文888条/77.1%·周星驰彩蛋刷屏·愿望单7万→9万）、恶校制作组上线一周解散（750万成本/亏损550万·赛道盈利警钟）、不心动二次起量 +41.1%（宣发二次引爆坐实）、花满楼今日上线 + 隐藏真探试玩 + 华策《代号:迷失》开机，古风双雄对打与新供给密集落地。</div>
+      <div class="t-actions"><a href="intel-2026-08-21.html">查看快报 →</a><a href="../intel/2026-08-21.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-20 周四 · 8 条行业动态 · 3 个重点信号</div>
+      <div class="t-desc">AI漫剧集体停更潮=行业出清拐点（价值向精品+合规+IP迁移）、AI互动内容平台成资本新宠但尚无一家造血、AI短剧转影游产业位移已发生（市场400亿+138%）、瓶颈在互动叙事+算力转移+互动悖论。</div>
+      <div class="t-actions"><a href="industry-2026-08-20.html">查看快报 →</a><a href="../industry/2026-08-20.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-20 周四 · 10 篇精选 · 累计 95 篇</div>
+      <div class="t-desc">SAGE、Procedural Content Metageneration via、ArborMem、Multi-turn Conversational AI from 等 10 篇，聚焦互动叙事前沿。</div>
+      <div class="t-actions"><a href="papers-2026-08-20.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-20.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-20 周四 · 全量深读 · P0×15 + P1×14 · 口碑真实性升级为可观测数据</div>
+      <div class="t-desc">「口碑真实性」从玩家指控升级为可观测数据——云存档/键位/成就死循环/音量/崩溃/进度条/配音等 P0×15 硬伤密集，基础体验缺陷成为比题材更致命的第一杀手。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-20.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-20 周四 · 42 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">绍宋:还我河山 8/20 正式上线、不心动才有鬼 二次起量 +60.4%、AI短剧→互动影游产业位移加速。</div>
+      <div class="t-actions"><a href="intel-2026-08-20.html">查看快报 →</a><a href="../intel/2026-08-20.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-19 周三 · 11 条行业动态 · 4 个重点信号</div>
+      <div class="t-desc">互动微短剧首次纳入广电分类分层监管(9/1施行·AI≥80万进一类)、供给完全AI化(上半年22.19万部·破亿率0.47%)+成本涨收益跌、出海12.7亿美元成最强增量、奇想互动影游Agent+元象Castloop集体卡位互动影游。</div>
+      <div class="t-actions"><a href="industry-2026-08-19.html">查看快报 →</a><a href="../industry/2026-08-19.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-19 周三 · 10 篇精选 · 累计 85 篇</div>
+      <div class="t-desc">WSE-bench 把叙事评测从成品延伸到生成过程（一致性≠丰富度、规模只涨续写长度）、Beyond Asking 用行为读玩家做个性化、50.8 万条 Steam 评测实证「玩家反感 AI 是因为觉得你偷懒」、AI 原生游戏三层兜底、AffectLoop 双向情感回路 + FTA-Mem 情境记忆 + MicroVerse 身份漂移、人机浪漫关系三阶段模型等 10 篇，聚焦「叙事过程评测 + 玩家行为/舆情实证 + NPC 情感与记忆」。</div>
+      <div class="t-actions"><a href="papers-2026-08-19.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-19.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-19 周三 · 全量深读 · 25 条 actionable（P0×14 + P1×11）· 女王双部曲首次入库</div>
+      <div class="t-desc">「假自由度」取代信任危机成为本周第一信号——女王的游戏双部曲 83% 高分之下差评高频出现「单线+死亡惩罚」，宣发「选择决定命运」与实际「单线」割裂；恶校暂停键/媚娘等5秒/雪落进度条等均为当天可修项。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-19.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-19 周三 · 41 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">绍宋 8/20 上线倒计时(历史权谋大IP ¥59/首发¥47.2)、女帝篇首次进入腾讯国民级 IP 生态(王者万象棋联动·全球500万套)、AI 互动影游工具链加速(奇想Agent+Seedance2.5+字节/MPA版权协议)、8/13双雄深长尾确认+百合新品《光与影之恋》100%好评上新。</div>
+      <div class="t-actions"><a href="intel-2026-08-19.html">查看快报 →</a><a href="../intel/2026-08-19.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item industry">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>AI 互动影游 · 行业深度调研</h3>
+        <span class="type industry">行业调研</span>
+      </div>
+      <div class="t-meta">2026-08-18 周二 · 3 条行业动态 · 1 个重点信号</div>
+      <div class="t-desc">AI 把互动影游从「一次性爆款」变「可批量消费品」但仍是现金流生意（投流 ROI 1.1、净利率 &lt;10%）；单分钟成本 1000–2500 元、周期 7–14 天；行业正从「爆款叙事」切换到「AI 基础设施驱动的规模化」，缺一部可复制商业模型的标杆。</div>
+      <div class="t-actions"><a href="industry-2026-08-18.html">查看快报 →</a><a href="../industry/2026-08-18.json" class="raw">原始 JSON</a><a href="industry-report.html">深度报告精编 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-18 周二 · 10 篇精选 · 累计 75 篇</div>
+      <div class="t-desc">叙事先验主导行为（故事框架解释力是人设 5-31 倍）、Forking Garden 叙事弧线引导分支生成、CraftAlign 304 特征去 AI 味、EC-Script 情绪动力学三层控制、GraphStory 事件节点编辑等 10 篇，聚焦「叙事框架 &gt; 人设 + 可落地创作/质检工具」。</div>
+      <div class="t-actions"><a href="papers-2026-08-18.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-18.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-18 周二 · 35 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">绍宋 8/20 上线倒计时+定价公开(¥59/首发¥47.2)、花满楼 8/20-21 连续双角色预告(黑神话萍萍脸模)、8/13 发售双雄(不心动+恶校)48h 增量减半进入长尾拐点、女帝篇全球 500 万套创真人互动影游销量纪录。</div>
+      <div class="t-actions"><a href="intel-2026-08-18.html">查看快报 →</a><a href="../intel/2026-08-18.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-17 周一 · 10 篇精选 · 累计 65 篇</div>
+      <div class="t-desc">世界模型成主线（文本世界建模×2 + 知识图谱世界模型）、互动叙事疗法与狼人杀对话生成落地、情感单说话人语料 EMNS、LLM 与电子游戏综述等 10 篇，聚焦「世界模型 + 叙事应用落地 + 玩家实证」。</div>
+      <div class="t-actions"><a href="papers-2026-08-17.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-17.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item product">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 产品调研周报</h3>
+        <span class="type product">产品周报</span>
+      </div>
+      <div class="t-meta">2026-08-17 周一 · 累积 18 款竞品 · 6 条交叉洞察 · 本周新增 2 款</div>
+      <div class="t-desc">本周新增《女王的游戏》媚娘/女帝两篇，池内 18 款。核心洞察：定价分层固化（精品上探 ¥74/尾部降价换量）、New One Studio 两款吃掉 51% 评测量、宫廷权谋成 2026 最大爆款池、真人 83% + AI 披露落地、Steam→移动端升级为全球同步首发。</div>
+      <div class="t-actions"><a href="dashboard-2026-08-17.html">查看累积仪表盘 →</a><a href="../products/2026-08-17.json" class="raw">周报 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-17 周一 · 16 款产品 · 275 条评测 · 13 条 P0+P1 建议 · 4 个交叉模式</div>
+      <div class="t-desc">信任危机取代内容问题，成为新品第一杀手——雪落情书时/盛夏离与合/不心动才有鬼宣发与体量信任坍塌，冰点之下近期好评率仅 29% 口碑崩塌。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-17.html">查看报告 →</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-17 周一 · 33 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">不心动才有鬼中文评测 +50.5% 持续加速(88.3% 口碑修复)、恶校游戏进长尾+周淑怡直播封禁审核争议、花满楼 8/21 借黑神话脸模营销、绍宋 8/20 全球同步+帝皇今「市场开发&lt;10%」行业判断。</div>
+      <div class="t-actions"><a href="intel-2026-08-17.html">查看快报 →</a><a href="../intel/2026-08-17.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-16 周日 · 10 篇精选 · 累计 55 篇</div>
+      <div class="t-desc">LETGAMES 认知训练游戏化、反思式叙事智能体、玩家动机实证对比、自动驾驶伦理多视角叙事等 10 篇，聚焦互动叙事在医疗/教育/严肃场景的落地。</div>
+      <div class="t-actions"><a href="papers-2026-08-16.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-16.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-16 周日 · 29 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">恶校游戏持续爆量(+119条/24h·96.5%中文好评)、不心动才有鬼口碑反转+起量加速(+75条/24h·+58%)、绍宋 8/19-20 历史权谋大IP宣发密集、谍战/民国题材升温(灭寇1939+花满楼 8/20)。</div>
+      <div class="t-actions"><a href="intel-2026-08-16.html">查看快报 →</a><a href="../intel/2026-08-16.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-15 周六 · 10 篇精选 · 累计 45 篇</div>
+      <div class="t-desc">StorySpark 故事立意模块级进化搜索、Narrative Keyframing 叙事关键帧、VeriForge 知识缺口混合主动写作、Social Gym 多智能体社交推理评测等 10 篇，聚焦「故事立意生成 + 作者可控创作工具 + 多智能体社会仿真」。</div>
+      <div class="t-actions"><a href="papers-2026-08-15.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-15.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-15 周六 · 24 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">恶校游戏 48h 内 393 条评测 98% 好评成「反霸凌复仇」黑马、不心动才有鬼起量快但口碑分化、绍宋 8/20 全球上线、下周命运石之门重启 + 绍宋 + 花满楼密集窗口，品类声量显著抬升。</div>
+      <div class="t-actions"><a href="intel-2026-08-15.html">查看快报 →</a><a href="../intel/2026-08-15.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-14 周五 · 10 篇精选 · 累计 35 篇</div>
+      <div class="t-desc">HAMLET 分层自适应多智能体叙事、Drama Llama 基于 Storylets 的 LLM 叙事框架、WhatELSE 可配置叙事空间等 10 篇，聚焦 storylet 作者工具与多智能体叙事。</div>
+      <div class="t-actions"><a href="papers-2026-08-14.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-14.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item intel">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 每日情报快报</h3>
+        <span class="type intel">情报快报</span>
+      </div>
+      <div class="t-meta">2026-08-14 周五 · 21 条情报 · 4 个爆款信号</div>
+      <div class="t-desc">FMV 密集发售潮（8/13 双发 + 8/19-20 双定档）、绍宋大 IP 定档（帝皇今导演 + 榴弹怕水原著）、恶校游戏反霸凌复仇新题材、AI 互动叙事 2D→3D 具身加速落地。</div>
+      <div class="t-actions"><a href="intel-2026-08-14.html">查看快报 →</a><a href="../intel/2026-08-14.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-13 周四 · 10 篇精选 · 累计 25 篇</div>
+      <div class="t-desc">AdaMARP 多智能体沉浸式角色扮演（显式 Scene Manager 导演调度）、NARRA-Gym 互动叙事可执行评测环境、Elsewise 可能性空间可视化编剧工具、EBM-RL「看-想-说」视频角色扮演、130 人 LLM-NPC 认知负荷对照实验等 10 篇，含 3 个可商用评测/调研方案。</div>
+      <div class="t-actions"><a href="papers-2026-08-13.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-13.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-12 周三 · 10 篇精选 · 累计 15 篇</div>
+      <div class="t-desc">MAGNET 多智能体长故事生成、REVERIEMEM 角色记忆视角隔离、DeepMind Fabula 分层写作工具、Rushes 微软 4.4 万偏好数据集、CPM 动态情绪演化等 10 篇，含 3 个可商用方案。</div>
+      <div class="t-actions"><a href="papers-2026-08-12.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-12.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item papers">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动叙事前沿论文 · 每日精选</h3>
+        <span class="type papers">论文日报</span>
+      </div>
+      <div class="t-meta">2026-08-11 周二 · 5 篇精选 · 累计 5 篇</div>
+      <div class="t-desc">AI 原生游戏综述与路线图、神经符号互动小说生成、持久世界重建、LLM 游戏世界模拟（POMDP 架构）、叙事一致性评测（NCP-Bench，GPT-5.2 存活率仅 42%）。</div>
+      <div class="t-actions"><a href="papers-2026-08-11.html">查看日报 →</a><a href="all-papers.html">全量列表 →</a><a href="../papers/2026-08-11.json" class="raw">原始 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item product">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>互动影游 · 产品调研周报</h3>
+        <span class="type product">产品周报</span>
+      </div>
+      <div class="t-meta">2026-08-11 周二 · 累积 11 款竞品 · 6 条交叉洞察</div>
+      <div class="t-desc">建库 11 款（后随每日情报沉淀累积）。核心洞察：定价分化、头部集中（凤麟 50%）、题材扩散（2→6 赛道）、好评率悖论、真人 100% vs AI 窗口关闭、Steam→移动端路径固化。</div>
+      <div class="t-actions"><a href="dashboard-2026-08-11.html">查看累积仪表盘 →</a><a href="../products/2026-08-11.json" class="raw">周报 JSON</a></div>
+    </div>
+  </div>
+
+  <div class="t-item player_voice">
+    <div class="t-card">
+      <div class="t-head">
+        <h3>玩家心声报告 · Steam 评测深读</h3>
+        <span class="type player_voice">玩家心声</span>
+      </div>
+      <div class="t-meta">2026-08-11 周二 · 首批试点 3 款 · 17 条抱怨标签 · 7 条建议 · 2 个 P0</div>
+      <div class="t-desc">定位模糊是互动影游最贵的 bug——代号三国「你到底想让我玩什么」被 25% 评测反复提及。The Run 定位清晰但交付崩了，主角数据异常待验证。</div>
+      <div class="t-actions"><a href="player-voice-2026-08-11.html">查看报告 →</a></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">完整性检查</div>
+<div class="integrity">
+  ✅ 五方面归档完整性检查通过 — 论文 39 快照、竞品累积池 38 款、玩家心声 30、情报 35 快照、行业调研 32 快照均有对应渲染文件，无缺失。
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">库结构说明</div>
+<div class="structure">
+  <div class="struct-group">
+    <div class="struct-group-title">五个方面</div>
+    <div class="struct-row"><code>/library/papers/YYYY-MM-DD.json</code><span class="struct-desc">论文日报</span></div>
+    <div class="struct-row"><code>/library/products/_pool.json</code><span class="struct-desc">竞品累积池</span></div>
+    <div class="struct-row"><code>/library/rendered/player-voice-YYYY-MM-DD.html</code><span class="struct-desc">玩家心声报告</span></div>
+    <div class="struct-row"><code>/library/intel/YYYY-MM-DD.json</code><span class="struct-desc">情报快照</span></div>
+    <div class="struct-row"><code>/library/industry/YYYY-MM-DD.json</code><span class="struct-desc">行业深度调研快报</span></div>
+  </div>
+  <div class="struct-group">
+    <div class="struct-group-title">渲染页面</div>
+    <div class="struct-row"><code>/library/rendered/index.html</code><span class="struct-desc">机器人控制台（默认入口）</span></div>
+    <div class="struct-row"><code>/library/rendered/knowledge.html</code><span class="struct-desc">本页（知识库总览）</span></div>
+    <div class="struct-row"><code>/library/rendered/papers-YYYY-MM-DD.html</code><span class="struct-desc">每日论文网页</span></div>
+    <div class="struct-row"><code>/library/rendered/dashboard.html</code><span class="struct-desc">累积产品仪表盘</span></div>
+    <div class="struct-row"><code>/library/rendered/intel-YYYY-MM-DD.html</code><span class="struct-desc">每日情报快报</span></div>
+    <div class="struct-row"><code>/library/rendered/industry-YYYY-MM-DD.html</code><span class="struct-desc">每日行业快报</span></div>
+    <div class="struct-row"><code>/library/rendered/industry-report.html</code><span class="struct-desc">行业深度报告精编库</span></div>
+  </div>
+  <div class="struct-group">
+    <div class="struct-group-title">主索引</div>
+    <div class="struct-row"><code>/library/{papers,products,intel}/_index.json</code><span class="struct-desc">各类型快照索引</span></div>
+    <div class="struct-row"><code>/library/rendered/_manifest.json</code><span class="struct-desc">控制台报告清单</span></div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>由 <span class="rn">产品调研机器人</span> 维护 · 最后更新 2026-09-30</p>
+  <p style="margin-top:4px">情报 · 论文 · 玩家心声 · 行业调研 08:00 · 归档维护 08:40 · 汇总推送 09:00 · 产品周报 每周一</p>
+</footer>
+
+</div>
+</body>
+</html>

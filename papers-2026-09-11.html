@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动叙事前沿论文 · 2026-09-11</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+header .meta a{color:var(--a);text-decoration:none}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .v{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted)}
+.kpi-card .s{font-size:10px;color:var(--muted);margin-top:2px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.paper-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.paper-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.paper-card h3{font-size:14px;font-weight:600;color:var(--a);flex:1;min-width:0}
+.paper-card .head-meta{display:flex;gap:6px;flex-shrink:0}
+.tag{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.paper-card .authors{font-size:11px;color:var(--muted);margin-bottom:8px}
+.paper-card .authors .pdf{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--r);color:#fff;text-decoration:none;margin-left:8px;font-weight:500}
+.paper-card .authors .pdf:hover{background:#a32d34}
+.paper-card .abstract{font-size:12px;color:var(--s);line-height:1.55;margin-bottom:8px;padding:8px 10px;background:var(--al);border-radius:6px}
+.paper-card .line{font-size:12px;line-height:1.6;margin-bottom:6px;padding-left:10px;border-left:3px solid var(--border)}
+.paper-card .line.r{border-left-color:var(--r);color:var(--s)}
+.paper-card .line.b{border-left-color:var(--b);color:var(--s)}
+.paper-card .line.g{border-left-color:var(--g);background:var(--gl);padding:8px 10px;border-radius:0 6px 6px 0;color:var(--text)}
+.paper-card .line strong{color:var(--text)}
+.paper-card .footer-line{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.relevance-bar{display:flex;gap:1px;align-items:center}
+.relevance-bar .seg{width:6px;height:10px;background:var(--border);border-radius:1px}
+.relevance-bar .seg.on{background:var(--a)}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+footer a{color:var(--a);text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>互动叙事前沿论文 · 每日 Top 10</h1>
+  <div class="meta">
+    <span>2026-09-11 周五</span>
+    <span>从 arXiv 精选</span>
+    <a href="https://arxiv.org/list/cs.AI/recent">arXiv 源</a>
+    <a href="index.html">返回归档</a>
+  </div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">10</div><div class="l">今日收录</div></div>
+  <div class="kpi-card"><div class="v">272</div><div class="l">累计论文</div></div>
+  <div class="kpi-card"><div class="v">10/10</div><div class="l">PDF 完整率</div><div class="s">实际可访问</div></div>
+</div>
+
+<div class="section-title">今日精选</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Fortunate Recall: Ontology-Driven Memory Lifecycle Management for Persistent Coherence in LLMs</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">架构</span>
+      <span class="tag tag-p">角色记忆</span>
+    </div>
+  </div>
+  <div class="authors">Ansuman Mullick, Eray Tüzün
+    <a href="https://arxiv.org/pdf/2609.10413.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Current LLM memory systems treat all personal facts identically, so stores grow without bound while retrieval precision degrades. The core challenge is lifecycle management: which memories should persist, which should be replaced, and at what rate, conditioned on the behavioral type of each fact. Fortunate Recall (FR) is a composable policy layer that classifies personal facts into a 10+1 behavioral ontology and applies category-specific lifecycle policies (differential temporal decay, slot-key supersession, event-time validity, category-aware retrieval routing) as deterministic functions over LLM-extracted metadata. FR-Bank reaches a 76.9% pass rate on LifecycleBench (516 questions), ahead of Mem0, A-MEM, Memory-R1, and MemoryOS (61-70.5%); end-to-end it cuts confabulation from Mem0's 45.1% to 22.4% while answering more correctly. The ontology, benchmark, and code are released.</div>
+  <div class="line r"><strong>核心问题：</strong>角色记忆系统把所有人的事实一视同仁地存，结果记忆无上限膨胀、检索精度一路下滑。核心难题是「生命周期管理」：哪些记忆该留、哪些该换、以什么速率衰减——这些都应取决于每条事实的「行为类型」，而不是一刀切。</div>
+  <div class="line b"><strong>解决方案：</strong>Fortunate Recall 把个人事实分进「10+1 行为本体」，按类别施加差异化的生命周期策略（差异时间衰减、slot-key 顶替、事件时点有效性、类别感知检索路由），全部作为 LLM 提取元数据上的确定性函数。FR-Bank 在 516 题 LifecycleBench 上达 76.9%，超越 Mem0/A-MEM/Memory-R1/MemoryOS；端到端把「胡说八道」率从 Mem0 的 45.1% 砍到 22.4%，同时答对更多。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游角色记忆别「全存着」——要像这篇一样给记忆分类型、配不同的保鲜策略（哪些会过期、哪些被顶替、哪些只在特定事件窗口有效）。这能同时解决「记忆膨胀」和「角色穿帮」两个老问题。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.10413 · 2026-09-09</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>What Should an Agent Forget? Separating What Is Stored from What Is Used</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">架构</span>
+      <span class="tag tag-p">记忆遗忘</span>
+    </div>
+  </div>
+  <div class="authors">Yuhang Li, Yuchen Li
+    <a href="https://arxiv.org/pdf/2609.10263.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Persistent language agents need stored experience to remain available across time, while each answer requires evidence suited to a particular question — a superseded fact can mislead a current-state answer yet remain essential for a historical query. The authors present RD-Forget, a training-free framework that separates what an agent stores from what it uses: a retained source archive preserves observations, while a query-conditioned memory view controls their influence on the current answer. A frozen LLM curator extracts relevant evidence, groups facts into semantic slots, and preserves the relations needed for multi-hop reasoning; same-slot replacement links suppress superseded values in current-state contexts, while intent-aware retrieval makes earlier evidence eligible again. Experiments span conversational memory, knowledge updating, fact consolidation, and personalization.</div>
+  <div class="line r"><strong>核心问题：</strong>持久 agent 既要让历史经验随时可查，又要让每次回答只用到「对当前问题有用」的证据——一个被推翻的旧事实，回答「现在状态」时会误导，回答「历史查询」时却又必不可少。「该存什么」和「该用什么」其实是两回事，混在一起就出事。</div>
+  <div class="line b"><strong>解决方案：</strong>RD-Forget 是免训练框架，把「存储」和「使用」拆开：保留一份源归档存全部观察，再用一个「查询条件化的记忆视图」控制它们对当前回答的影响。冻结的 LLM 策展器提取证据、把事实归进语义 slot、保留多跳推理所需的关系；同 slot 替换链接压制已过时值，意图感知检索又能让早期证据重新生效。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游角色「记错事」常是因为把「存」和「用」混了——旧设定被新剧情推翻后，该在「当下对话」里失效、却在「回忆往事」里继续存在。学 RD-Forget 拆两层：存储层保留全量，使用层按当前场景做查询条件化的过滤。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.10263 · 2026-09-09</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>ROAM: Robust Organization of Atomic Memories for Agents through Semantic Relations</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">架构</span>
+      <span class="tag tag-p">记忆组织</span>
+    </div>
+  </div>
+  <div class="authors">Jianjie Zheng, Peng Lai, Sijie Cheng, Jiehui Zhao, Lei Yang, Guanhua Chen
+    <a href="https://arxiv.org/pdf/2609.09778.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Atomic memories are useful for agents — their fine-grained semantic boundaries enable precise retrieval — yet accumulating atoms inevitably become redundant, overlapping, or conflicting. Existing methods ask an LLM manager to add, update, delete, or rewrite memories directly, coupling semantic interpretation, storage decisions, and content generation in one error-prone operation. ROAM is a relation-guided framework that classifies incoming-stored atom pairs as independent, equivalent, directionally subsuming, or conflicting, then organizes observations into active Primary and supporting Evidence roles and fuses complementary details and temporal changes into compact views. Only Primary views are retrieved for answering, improving accuracy by up to 29.8pp, with 15.6-point higher answer-critical source recall and 11.5-point lower confounder-token share.</div>
+  <div class="line r"><strong>核心问题：</strong>细粒度的「原子记忆」边界清晰、检索精准，但攒多了必然冗余、重叠、冲突。现有做法是让一个 LLM 经理直接增删改重写记忆，把「语义判断」「存储决策」「内容生成」三件事揉进一个易错操作里。</div>
+  <div class="line b"><strong>解决方案：</strong>ROAM 用「关系引导」替代直改：把新进记忆与已存原子的关系分类为独立/等价/单向包含/冲突四类，再把观察组织成「活跃主记忆(Primary)+支撑证据(Evidence)」两种角色，用融合把互补细节和时间变化压成紧凑视图；只检索 Primary 视图回答问题，避免冗余/过时原子互相打架。答对率最高提升 29.8pp。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游角色记忆别让 LLM「想到啥改啥」。学 ROAM 的思路：先判新旧记忆的关系（重复？被包含？冲突？），再分层组织（主记忆+证据），检索时只取主记忆。这样角色既记得全、又不会被旧信息带偏。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.09778 · 2026-09-09</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>SocialRL: Refining LLMs' Social Intelligence through Multi-turn Reinforcement Learning and Reward Design</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-p">角色社交</span>
+    </div>
+  </div>
+  <div class="authors">Jianing Wang, Xintao Wang, Aili Chen, Jie Shi, Hongcheng Guo, Jun Gao, Wenxuan Zhao, Chengkun Lang, Yuanli Guo, Yanghua Xiao
+    <a href="https://arxiv.org/pdf/2609.09764.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Social intelligence enables agents to read social context, infer intent, and adapt over sustained dialogue. Existing RL methods optimize single-turn utterances and sparse outcome rewards, producing short-sighted policies that struggle with goal-relationship tensions across multi-turn interactions. SocialRL is a multi-turn RL framework addressing both: it applies PPO to propagate delayed outcome rewards back to each turn for long-horizon planning, and designs six process reward dimensions capturing the goal-relationship trade-off (goal advancement, relational attunement, contextual coherence, etc.) with a reward model generating fine-grained scoring criteria and a stage-aware weight schedule prioritizing relationship-building early, goal advancement mid-way, and balanced closure late. Across social-dialogue benchmarks, SocialRL improves Goal Achievement by an average of 9.2pp.</div>
+  <div class="line r"><strong>核心问题：</strong>社交智能要 agent 会读语境、猜意图、在长对话里持续调整——但现有 RL 只优化单轮发言、奖励稀疏滞后，练出「短视」策略，处理不了「既想达成目标、又想维护关系」的跨轮张力。</div>
+  <div class="line b"><strong>解决方案：</strong>SocialRL 做多轮 RL：用 PPO 把延迟的结果奖励回传到每一轮实现长程规划；再设计 6 个过程奖励维度刻画「目标-关系」权衡（目标推进、关系调谐、语境连贯等），奖励模型动态生成细粒度评分，阶段感知权重调度让「前期重关系、中期重目标、后期平衡收尾」。社交对话基准上 Goal Achievement 平均提升 9.2pp。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游 NPC 社交不是「每句话答对」就够，而是「多轮里既推进剧情目标、又不崩人设关系」。这篇的「目标-关系双目标 + 阶段权重」思路可直接套到角色微调上：前期讨好建立关系、中期推进剧情、后期平衡收尾。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.09764 · 2026-09-09</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Who Are They to Each Other? Multi-Agent Reasoning for Speaker Relationship Inference</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">角色关系</span>
+    </div>
+  </div>
+  <div class="authors">Yaohan Guan, Yen-Ju Lu, Yuzhe Wang, Junhyeok Lee, Jesus Villalba, Laureano Moro Velazquez, Thomas Thebaud, Najim Dehak
+    <a href="https://arxiv.org/pdf/2609.09628.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Inferring speaker relationships from spoken conversations is a step toward socially aware speech understanding, yet supervised modeling is costly to scale and existing inference-time LLM approaches provide limited structure for subtle, distributed, multimodal relational cues. The authors introduce a training-free multi-agent reasoning framework that organizes inference through structured interaction among LLM agents: Multi-Role Multi-Agent Debate assigns agents complementary, social-theory-grounded roles, while Multi-Agent Compete uses pairwise adjudication that eliminates weaker candidates and retains the most defensible one. Evaluated on the Seamless Interaction dataset across modality settings, they improve over zero-shot and existing multi-agent baselines; human evaluation shows LLMs can outperform annotators in text-included settings but lag in audio-only, suggesting acoustic relational cues are not yet fully captured.</div>
+  <div class="line r"><strong>核心问题：</strong>从对话语音里推断「说话人之间是什么关系」，是让语音理解有社交意识的关键一步——但有监督建模又贵又难扩，现有 LLM 推理法又没结构去处理「微妙、分散、多模态」的关系线索。</div>
+  <div class="line b"><strong>解决方案：</strong>免训练的多智能体推理框架：让多个 LLM agent 结构化互动来下判断——「多角色辩论」给 agent 分配互补的、基于社会理论的角色视角；「多智能体竞赛」两两裁决、淘汰弱者、留下最有据的那个。在 Seamless Interaction 数据集上多模态设置下优于零样本和现有多智能体基线；文本场景可超人类标注者，纯音频仍偏弱。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游做「语音对话 + 角色关系」时，判断「这俩人什么关系」可以用多 agent 辩论/竞赛来提精度。但要认清：纯音频的关系线索现在模型还抓不稳，别指望语音模型自动懂人物关系，得靠文本+上下文兜底。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.09628 · 2026-09-09</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>RESCUE-BENCH: Towards Relation-Aware Multi-Party Emotional Support Conversation Systems</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">情感支持对话</span>
+    </div>
+  </div>
+  <div class="authors">Haichuan Hu, Yang Xiao, Mingni Tang, Jiawen Duan, Quanjun Zhang, Congqing He, Hao Zhang, Jiashuo Wang, Johan F. Hoorn, Wenjie Li
+    <a href="https://arxiv.org/pdf/2609.09657.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Existing emotional support conversation systems focus on one-on-one seeker-supporter interactions and individual emotional states, leaving interpersonal relations in multi-party scenarios underexplored. The authors introduce relation-aware emotional support conversation, evaluating whether LLMs can capture and utilize evolving relationship dynamics to offer more effective support. RESCUE is built from real couple and family interview conversations (191 samples, 7,079 annotated turns, 1,064.8 minutes of video), defining six tasks across Relational Understanding and Relation-Sensitive Support. Ten LLMs perform well on local emotional/intervention cues but struggle with relation-intensive tasks (relation pattern prediction, viewpoint prediction, support strategy prediction), revealing limits in modeling interpersonal relations.</div>
+  <div class="line r"><strong>核心问题：</strong>现有情感支持对话系统只做「一对一、单人情绪」，忽略了多人场景里的「人际动态」——谁和谁是什么关系、关系怎么演化、该如何按关系给出支持。影游的多角色情感戏正是这种多人关系场景。</div>
+  <div class="line b"><strong>解决方案：</strong>RESCUE 基准从真实情侣/家庭访谈对话构建（191 样本、7,079 标注轮次、1,064.8 分钟视频），定义 6 个任务覆盖「关系理解」和「关系敏感支持」两大能力。10 个 LLM 测试显示：局部情绪/干预线索表现尚可，但关系密集任务（关系模式预测、观点预测、支持策略预测）普遍拉胯。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游要做「多角色情感互动」要注意：现有模型处理单点情绪还行，一旦涉及「人物关系网 + 关系敏感的回应」就崩。做多角色情感戏时，要把「关系图谱」作为显式输入喂给角色，别指望模型自己从对话里悟出关系。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.09657 · 2026-09-09</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>MOONWALK: Mediating Operations with Intent-Evidence-Action Alignment Across Junior-Supervisor Review Workflows in Animation/VFX Pre-Production</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">落地</span>
+      <span class="tag tag-p">影游影片生产</span>
+    </div>
+  </div>
+  <div class="authors">Shih-Yu Lai, Wen-Fan Wang, Sai Ling, Shaune Jan, Bing-Yu Chen, Xiang Anthony Chen
+    <a href="https://arxiv.org/pdf/2609.10385.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Animation and VFX pre-production review requires translating loosely specified creative intent (briefs, evolving specs, heterogeneous references, verbal decisions) into revisions junior artists can execute without repeated clarification — yet criteria drift across iterations, review judgments lose their evidential basis, and reasoning rarely survives the senior-junior handoff. The authors contribute a design framework for intent-evidence-action alignment and instantiate it in MOONWALK, a professional review system with a shared intent record, reference/specification anchoring, structured work-in-progress comparison, and supervisor-authorized action planning. AI handles administrative coordination (flagging missing context, organizing notes) while artists retain full creative direction; an in-studio study shows stronger intent alignment, decision traceability, and checklist executability than a chat-only interface.</div>
+  <div class="line r"><strong>核心问题：</strong>动画/VFX 前期评审要把「模糊的创意意图」转成初级画师能直接执行、无需反复追问的修改项——但实际中标准随迭代漂移、评审判断丢失证据依据、背后的理由在「资深-初级」交接中就丢了。</div>
+  <div class="line b"><strong>解决方案：</strong>提出「意图-证据-行动对齐」设计框架，落地为 MOONWALK 专业评审系统：共享意图记录 + 参考/规格锚定 + 结构化在制品对比 + 主管授权的行动计划。AI 只做行政协调（标记缺失上下文、整理笔记），画师保留全部创意主导权。工作室实测意图对齐、决策可追溯、清单可执行性均优于纯聊天界面。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游做「文字剧本→动画/真人分镜」的前期协作时，别用聊天式 AI 传创意。学 MOONWALK：把创意意图落成共享结构化记录，每处判断锚定到具体参考/规格，让 AI 做协调、人做创意决策——决策要能追溯、理由要能传承。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.10385 · 2026-09-09</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Valerant: An Automatic Navigable Game Map Generator via Action-Conditioned World Model Exploration</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">落地</span>
+      <span class="tag tag-p">游戏AI</span>
+    </div>
+  </div>
+  <div class="authors">Yiran Qiao, Feng Wang, Jing Ma
+    <a href="https://arxiv.org/pdf/2609.09418.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">World Action Models (WAMs) couple predictive world modeling with action generation, but general-purpose counterparts remain largely unexplored in games — existing approaches stay in 2D visual observation space and do not instantiate persistent 3D geometry. Valerant is a training-free framework that transforms a pretrained action-conditioned world model into a WAM for exploring and constructing 3D game maps: by coupling predictive visual rollouts with SLAM-based spatial reconstruction and exploration-driven action selection, it progressively turns a single image into a persistent 3D game map. This extends WAM-based interaction beyond 2D visual simulation and offers a new approach to reducing manual effort in 3D game-map creation.</div>
+  <div class="line r"><strong>核心问题：</strong>世界动作模型(WAM)能预测未来画面并据此生成动作，但它在游戏里的通用用法几乎空白——现有方案只停在 2D 视觉观察空间，没有实例化「可走、可交互」的持久 3D 几何。</div>
+  <div class="line b"><strong>解决方案：</strong>Valerant 是免训练框架，把一个预训练的动作条件世界模型变成能做 3D 游戏地图的 WAM：把预测性视觉 rollout 和 SLAM 空间重建、探索驱动的动作选择耦合，从单张图逐步生成持久 3D 游戏地图。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游要做 3D 场景/关卡时，这篇给了「单图→自动生成可走 3D 地图」的新路子，能省大量手工搭场景的功夫。虽然当前偏向关卡地形而非叙事空间，但世界模型探索的思路可迁移到「让 AI 自动生成影游的 3D 场景骨架」。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.09418 · 2026-09-08</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Shifting Relational Paradigms for Affective Computing: Affective Resonance, Vitality Affects, and Vocal Interaction Fields</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">情感语音</span>
+    </div>
+  </div>
+  <div class="authors">Cy Gorman, Yihang Yao
+    <a href="https://arxiv.org/pdf/2609.09864.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Affective computing has largely followed an individual-state paradigm, extracting discrete emotion labels or arousal/valence from isolated speakers — incomplete for interaction. Drawing on affective resonance and vitality-contour accounts, the authors propose a relational framework where the primary unit of affective analysis is the interactional field constituted within vocal dynamics. A preliminary study uses continuous self-supervised speech representations to detect directional expressive coupling in multi-party conversation, finding coupling is regime-specific, concentrated at sub-second timescales, and collapses under exclusive-speech controls. They introduce design frameworks for Artificial Affective Resonance Intelligence grounded in Affective Resonance Dynamic Ontologies. Accepted at Interspeech 2026.</div>
+  <div class="line r"><strong>核心问题：</strong>情感计算一直走「单个体状态」路线——从孤立的说话人身上抽情绪标签或唤醒度/效价。但这对「互动」是不完整的：对话里的情感是两个人共同建构的「场」，不是各自独立的标签。</div>
+  <div class="line b"><strong>解决方案：</strong>提出关系式情感框架：把分析单位从「个体」换成「语音动态中构成的互动场」。用连续自监督语音表征检测多人对话中的方向性表达耦合，发现耦合是「语境特异」的、集中在亚秒级时标、在独占语音负对照下崩塌。提出「人工情感共鸣智能」设计框架。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游做「语音情感」别只给每个角色贴情绪标签。真正有代入感的情感来自角色之间语音的「共鸣耦合」——A 说话的语气会带动 B 的语气。做配音/情感语音时，考虑把「互动场」而非「个体情绪」作为建模单位。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.09864 · 2026-09-09</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Where Does the Human End? Creative Agency with Generative AI across Five Years of Chinese Digital Painting</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">市场洞察</span>
+      <span class="tag tag-p">创意能动性</span>
+    </div>
+  </div>
+  <div class="authors">Yibo Meng, Ruiqi Chen, Shuheng Cao, Weijia Zhang, Chengxi Zang
+    <a href="https://arxiv.org/pdf/2609.09333.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">As generative AI enters creative work, practitioners must decide where AI assistance ends and human authorship begins. The authors report a five-year interview study with 17 Chinese digital painters (annual semi-structured interviews, 2021-2025), documenting recurring but non-uniform patterns of protective resistance, pragmatic task delegation, and reflective agency repartitioning. Early resistance protected observation, originality, signature, and ownership from AI; later delegation placed AI in bounded tasks (references, backgrounds, rough sketches, client-facing drafts); by 2025 some built hybrid human-only zones while others described fatigue, precarity, or difficulty locating a remaining human role. Copyright, authorship, and creative labor remained recurring limits on delegation. They frame these accounts as longitudinal agency partitioning.</div>
+  <div class="line r"><strong>核心问题：</strong>生成式 AI 进入创作后，创作者必须决定「AI 辅助到哪为止、人的作者身份从哪开始」。这个边界不是静态的——随 AI 能力变强、普及、嵌入经济，角色会不断被重划。</div>
+  <div class="line b"><strong>解决方案：</strong>对 17 位中国数字画师做五年纵向访谈(2021-2025 每年一次)，记录下反复出现但非均匀的模式：保护性抵抗(护住观察/原创/署名/所有权)、务实的任务外包(参考图、背景、草图、对客初稿)、以及反思性的能动性重划。到 2025 年，有人搭出「纯人工区域」的混合工作流，有人则陷入疲惫与不安全感。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游团队引入 AI 时最该想清的是「人机分工的边界」：哪些环节必须纯人工护住（创意核心、署名、所有权），哪些可以外包给 AI（参考、草图、初稿）。这篇给了中国创作者真实的五年心路——AI 能减负，但「人的位置」要靠明确的边界设计来保住。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.09333 · 2026-09-08</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">互动叙事论文机器人 v1.0</span> 生成 · 2026-09-11</p>
+  <p style="margin-top:4px">数据源：arXiv · 关键词：memory lifecycle / agent forgetting / atomic memory organization / social intelligence / speaker relationship inference / emotional support / animation pre-production / game map generation / affective resonance / creative agency</p>
+  <p style="margin-top:8px">
+    <a href="index.html">← 归档首页</a>
+  </p>
+</footer>
+</div>
+</body>
+</html>

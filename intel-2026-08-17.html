@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游每日情报 | 2026-08-17</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.section-note{font-size:11px;color:var(--muted);margin-bottom:12px;margin-top:-6px}
+
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.signal-card .sig-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.signal-card .rank{background:var(--a);color:#fff;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px}
+.signal-card h4{font-size:14px;font-weight:600}
+.signal-card .sig-src{font-size:10px;color:var(--muted)}
+.signal-card .evi{font-size:12px;color:var(--s);margin:4px 0}
+.signal-card .evi li{margin-left:16px;margin-bottom:2px}
+.signal-card .sig-action{font-size:12px;background:var(--al);border-radius:6px;padding:6px 10px;margin-top:8px;color:var(--text)}
+.signal-card .sig-action b{color:var(--a)}
+.signal-card .sig-links{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap}
+
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card-b{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:13px 14px}
+.card-b h3{font-size:14px;font-weight:600;margin-bottom:2px}
+.card-b .sub{font-size:10px;color:var(--muted);margin-bottom:8px}
+.card-b .desc{font-size:12px;color:var(--s);margin-bottom:8px;line-height:1.6}
+.card-b .meta-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.card-b .tags{display:flex;gap:4px;flex-wrap:wrap}
+.tag{font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.link-btn{font-size:11px;padding:3px 10px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s;display:inline-flex;align-items:center;gap:3px}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.link-btn.st{background:#1b2838;color:#fff;border-color:#1b2838}.link-btn.st:hover{background:#2a475e;color:#fff}
+.link-btn.tt{background:#1989fa;color:#fff;border-color:#1989fa}.link-btn.tt:hover{background:#4ba6fb;color:#fff}
+.link-btn.rd{background:#ff4500;color:#fff;border-color:#ff4500}.link-btn.rd:hover{background:#ff6a33;color:#fff}
+
+.rev-table{width:100%;border-collapse:collapse;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.rev-table th{background:var(--al);color:var(--a);font-size:11px;font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid var(--border)}
+.rev-table td{font-size:12px;color:var(--s);padding:7px 10px;border-bottom:1px solid var(--border)}
+.rev-table tr:last-child td{border-bottom:none}
+.rev-table .g-name{font-weight:600;color:var(--text)}
+.rev-table .pct{font-weight:600}
+.rev-table .warn{color:var(--r);font-size:11px}
+.rev-table .hot{color:var(--r);font-weight:600}
+
+.feed-item{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:13px 14px;margin-bottom:10px}
+.feed-item h4{font-size:13px;font-weight:600;margin-bottom:4px}
+.feed-item .fd-sub{font-size:10px;color:var(--muted);margin-bottom:6px}
+.feed-item p{font-size:12px;color:var(--s);line-height:1.6;margin-bottom:6px}
+.feed-item .links{display:flex;gap:6px;flex-wrap:wrap}
+
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(3,1fr)}.cards-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 每日情报</h1>
+  <div class="meta"><span>2026-08-17</span><span>近 24-48h 增量</span><span>Steam · TapTap · 社区</span><span style="color:var(--g)">来源已标注</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">33</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">97%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+  <div class="section-note">≥2 源同时出现、或高价值单一信号 · 每条附行动建议</div>
+
+  <div class="signal-card">
+    <div class="sig-top"><span class="rank">TOP 1</span><h4>不心动才有鬼起量持续加速 + 口碑继续修复（中文 +103 条/24h · +50.5%）</h4><span class="sig-src">Steam评测API · 腾讯新闻 · 新浪财经 · 游民星空</span></div>
+    <ul class="evi">
+      <li>中文评测 204→307 条，环比 +50.5%，48h 176 条，是当前唯一仍在加速的新作</li>
+      <li>中文好评率 84.8%→88.3%，口碑从首发「宣发/画符/演员」争议持续修复</li>
+      <li>媒体持续正面叙事；⚠️ 17173 热点预告却出现「8/19 发售」信息混乱（实为 8/13 已发售）</li>
+    </ul>
+    <div class="sig-action"><b>对你有什么用：</b>验证「灵异+五行+画符」差异化玩法的口碑自愈能力——首发争议被持续正面叙事覆盖后起量反而加速，说明该题材争议点可运营而非硬伤；媒体信息混乱也提示宣发口径需统一。</div>
+    <div class="sig-links"><a class="link-btn st" href="https://store.steampowered.com/app/4855450" target="_blank">Steam →</a><a class="link-btn rd" href="https://new.qq.com/rain/a/20260815A0AG1J00" target="_blank">腾讯新闻 →</a><a class="link-btn rd" href="https://finance.sina.com.cn/roll/2026-08-15/doc-ininkfht2303891.shtml" target="_blank">新浪财经 →</a></div>
+  </div>
+
+  <div class="signal-card">
+    <div class="sig-top"><span class="rank">TOP 2</span><h4>恶校游戏进入长尾 + 直播封禁审核争议（增速回落 +8.2% · 周淑怡直播被封）</h4><span class="sig-src">Steam评测API · 游民星空 · 腾讯新闻 · 快手动态</span></div>
+    <ul class="evi">
+      <li>中文评测 512→554 条，环比 +8.2%（较 48h 内 393 条大幅回落），题材红利期收敛</li>
+      <li>8/16 主播周淑怡直播该作遭快手强制关停、账号 ID 异常，对未达三次警告即关停表示不服</li>
+      <li>反校园霸凌/复仇题材虽验证差异化选题价值，但内容尺度已触及直播平台审核红线</li>
+    </ul>
+    <div class="sig-action"><b>对你有什么用：</b>反霸凌复仇题材「红利期」约 4 天见顶（8/13 发售→8/17 长尾），做同类选题要预期短周期爆发而非长尾；直播/短视频分发的审核风险必须前置评估——内容尺度与平台规则需在立项阶段对齐。</div>
+    <div class="sig-links"><a class="link-btn st" href="https://store.steampowered.com/app/3818020" target="_blank">Steam →</a><a class="link-btn rd" href="https://www.gamersky.com/news/202608/2189927.shtml" target="_blank">游民星空 →</a><a class="link-btn rd" href="https://new.qq.com/rain/a/20260816A06JHI00" target="_blank">游戏快讯 →</a></div>
+  </div>
+
+  <div class="signal-card">
+    <div class="sig-top"><span class="rank">TOP 3</span><h4>花满楼 8/21 定档 + 借「黑神话:悟空」萍萍脸模做营销（女间谍谍战 FMV）</h4><span class="sig-src">Steam · 游民星空 · 17173 · TapTap</span></div>
+    <ul class="evi">
+      <li>8/16 发布角色「苏英」预告，苏英由《黑神话:悟空》「萍萍」脸模钱思怡饰演</li>
+      <li>发售日 8/21（媒体口径）/ 8/20（Steam 商店页），40 多种结局，6 女暗探谍战</li>
+      <li>继绍宋（历史大IP）、对不起我是警察（港风）后，谍战/民国 FMV 密集赛道再添一员</li>
+    </ul>
+    <div class="sig-action"><b>对你有什么用：</b>「黑神话萍萍脸模」营销是低成本借势的典型打法——用已有 IP 视觉记忆点撬动首发关注，可复用到自有项目的选角/宣发；跟踪 8/21 首周评测验证「女间谍+谍战」细分方向转化率。</div>
+    <div class="sig-links"><a class="link-btn st" href="https://store.steampowered.com/app/3749320" target="_blank">Steam →</a><a class="link-btn rd" href="https://www.gamersky.com/news/202608/2189929.shtml" target="_blank">苏英预告 →</a><a class="link-btn rd" href="https://news.17173.com/content/08172026/001342548.shtml" target="_blank">17173 →</a></div>
+  </div>
+
+  <div class="signal-card">
+    <div class="sig-top"><span class="rank">TOP 4</span><h4>绍宋 8/20 全球同步上线 + 帝皇今「真人互动影游市场开发&lt;10%」行业判断</h4><span class="sig-src">Steam · TapTap moment · 17173 · 网易 · 喜马拉雅</span></div>
+    <ul class="evi">
+      <li>历史权谋大IP，帝皇今导演 + 榴弹怕水总策划，全实景 10h+ 主线，QTE+战棋+隐藏结局</li>
+      <li>帝皇今深度专访：「500 万拍 600 分钟互动影游，真人互动影游市场最多只开发了 10%」</li>
+      <li>与花满楼（8/21）、命运石之门重启（8/20）形成下周互动叙事品类密集窗口</li>
+    </ul>
+    <div class="sig-action"><b>对你有什么用：</b>8/20 紧盯绍宋首周评测与销量，作为自有历史题材选题的基准参照；帝皇今「市场&lt;10%」判断为赛道长期空间背书——历史权谋+大IP 仍是当前验证度最高、天花板最高的方向。</div>
+    <div class="sig-links"><a class="link-btn st" href="https://store.steampowered.com/app/4292950" target="_blank">Steam →</a><a class="link-btn rd" href="https://news.17173.com/content/08152026/153610686.shtml" target="_blank">PV →</a><a class="link-btn rd" href="https://m.ximalaya.com/sound/939571539" target="_blank">帝皇今专访 →</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 新上线 / 定档</div>
+  <div class="section-note">近 24-48h 新发售 + 下周定档 · 均来自 Steam 商店页</div>
+  <div class="cards-grid">
+    <div class="card-b">
+      <h3>不心动才有鬼 / Dating a Ghost</h3>
+      <div class="sub">SP Studio / PLSS · 2026-08-13 · $6.29(-10%)</div>
+      <div class="desc">情感互动悬疑 FMV，6 女主；王星辰（浩浩妈）主演。中文 307 条/88.3%，48h +176 条仍在加速，口碑持续修复。</div>
+      <div class="meta-row"><div class="tags"><span class="tag tag-p">恋爱</span><span class="tag tag-b">FMV</span><span class="tag tag-g">+50.5%</span><span class="tag tag-a">口碑修复</span></div></div>
+      <div class="tags"><a class="link-btn st" href="https://store.steampowered.com/app/4855450" target="_blank">Steam →</a></div>
+    </div>
+    <div class="card-b">
+      <h3>恶校游戏 / Evil School</h3>
+      <div class="sub">CineGame Interactive · 2026-08-13 · $7.19(-10%)</div>
+      <div class="desc">反校园霸凌复仇 FMV，中文 554 条/95.3%，增速回落至 +8.2% 进入长尾。8/16 周淑怡直播遭封禁引发审核争议。</div>
+      <div class="meta-row"><div class="tags"><span class="tag tag-r">反霸凌</span><span class="tag tag-b">FMV</span><span class="tag tag-a">进入长尾</span><span class="tag tag-r">审核争议</span></div></div>
+      <div class="tags"><a class="link-btn st" href="https://store.steampowered.com/app/3818020" target="_blank">Steam →</a></div>
+    </div>
+    <div class="card-b">
+      <h3>花满楼 / Hua Man Lou</h3>
+      <div class="sub">初域游戏 · 2026-08-21 定档（Steam 8/20）</div>
+      <div class="desc">女间谍谍战 FMV，8/16 发角色「苏英」预告——由《黑神话:悟空》萍萍脸模钱思怡饰演，40 多种结局。</div>
+      <div class="meta-row"><div class="tags"><span class="tag tag-r">谍战</span><span class="tag tag-b">FMV</span><span class="tag tag-a">黑神话脸模</span><span class="tag tag-p">女暗探</span></div></div>
+      <div class="tags"><a class="link-btn st" href="https://store.steampowered.com/app/3749320" target="_blank">Steam →</a></div>
+    </div>
+    <div class="card-b">
+      <h3>绍宋:还我河山 / Shao Song I</h3>
+      <div class="sub">互动之星 · 猫眼娱乐 · 万维猫 · 三花猫 · 8/20 全球同步</div>
+      <div class="desc">历史权谋大IP，帝皇今导演 + 榴弹怕水总策划。8/16-17 帝皇今专访「市场开发&lt;10%」，全实景 10h+ 主线，QTE+战棋。</div>
+      <div class="meta-row"><div class="tags"><span class="tag tag-g">历史</span><span class="tag tag-b">真人</span><span class="tag tag-a">大IP</span><span class="tag tag-p">帝皇今</span></div></div>
+      <div class="tags"><a class="link-btn st" href="https://store.steampowered.com/app/4292950" target="_blank">Steam →</a></div>
+    </div>
+    <div class="card-b">
+      <h3>阴三国谋论:徐州篇</h3>
+      <div class="sub">鹏砚 · 2026-08-12 新上架 · $6.29</div>
+      <div class="desc">三国题材互动剧情（文字互动叙事，非真人 FMV），累计 32 条全语言评测/93.8%，小体量高口碑。</div>
+      <div class="meta-row"><div class="tags"><span class="tag tag-g">三国</span><span class="tag tag-a">互动剧情</span><span class="tag tag-p">93.8%</span></div></div>
+      <div class="tags"><a class="link-btn st" href="https://store.steampowered.com/app/3155310" target="_blank">Steam →</a></div>
+    </div>
+    <div class="card-b">
+      <h3>小小吸血姬</h3>
+      <div class="sub">Studio Ubai Trans / Kagami Games · 2026-08-14 · $11.99</div>
+      <div class="desc">乙女向吸血姬互动小说（视觉小说，非真人 FMV），累计 40 条/75%，口碑中等——乙女/吸血鬼供给仍在但难以出圈。</div>
+      <div class="meta-row"><div class="tags"><span class="tag tag-r">乙女向</span><span class="tag tag-a">吸血姬</span><span class="tag tag-p">75%</span></div></div>
+      <div class="tags"><a class="link-btn st" href="https://store.steampowered.com/app/4838470" target="_blank">Steam →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 评测信号（已追踪竞品 + 新发现 · 近 7 天）</div>
+  <div class="section-note">评测 API（中文抽样）环比 8/16 基线 · 好评率注明来源（API 中文抽样 vs 商店页全语言）</div>
+  <table class="rev-table">
+    <thead><tr><th>游戏</th><th>7天评测</th><th>好评率(中文API)</th><th>商店页(全语言)</th><th>环比</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td class="g-name">不心动才有鬼 ★</td><td class="hot">306</td><td class="pct">88.3%</td><td>85.0%</td><td class="hot">+103</td><td>★爆款：环比+50.5%起量加速，口碑84.8%→88.3%修复</td></tr>
+      <tr><td class="g-name">恶校游戏</td><td class="hot">554</td><td class="pct">95.3%</td><td>94.8%</td><td>+42</td><td>环比+8.2%回落进入长尾；48h 161条(较393条大降)</td></tr>
+      <tr><td class="g-name">灭寇1939:上川往事</td><td>119</td><td class="pct">85.1%</td><td>85.3%</td><td>窗口滑动</td><td>8/6发售，中文累计503条，7天窗口滑动致计数下降</td></tr>
+      <tr><td class="g-name">阴三国谋论:徐州篇</td><td>32</td><td class="pct">—</td><td>93.8%</td><td>首测</td><td>8/12新发互动剧情，全语言32条(中文未单测)</td></tr>
+      <tr><td class="g-name">小小吸血姬</td><td>40</td><td class="pct">—</td><td>75.0%</td><td>首测</td><td>8/14新发乙女互动小说，全语言40条(中文未单测)</td></tr>
+      <tr><td class="g-name">江山北望</td><td>19</td><td class="pct">91.4%</td><td>91.1%</td><td>-1</td><td>老竞品最活跃，48h 6条，长尾稳健</td></tr>
+      <tr><td class="g-name">主角</td><td>16</td><td class="pct">97.7%</td><td>97.7%</td><td>持平</td><td>好评率最高，热度持平</td></tr>
+      <tr><td class="g-name">天平游戏1:抉择</td><td>10</td><td class="pct">87.5%</td><td>86.1%</td><td>-6</td><td>7/25发售密闭囚笼FMV，长尾低活跃</td></tr>
+      <tr><td class="g-name">代号三国:龙起</td><td>5</td><td class="pct">91.8%</td><td>90.7%</td><td>持平</td><td>—</td></tr>
+      <tr><td class="g-name">雪落情书时</td><td>3</td><td class="pct">96.8%</td><td>96.0%</td><td>持平</td><td>热度回落</td></tr>
+      <tr><td class="g-name">盛夏离与合</td><td>3</td><td class="pct">85.1%</td><td>85.0%</td><td>+1</td><td>intiny，长尾微增</td></tr>
+      <tr><td class="g-name">冰点之下</td><td>1</td><td class="pct">93.9%</td><td>92.5%</td><td>持平</td><td>长尾</td></tr>
+      <tr><td class="g-name">The Complex</td><td>1</td><td class="pct">71.4%</td><td>78.0%</td><td>持平</td><td>Wales Interactive(2020)，低活跃</td></tr>
+      <tr><td class="g-name">对不起我是警察</td><td>0</td><td class="pct">77.9%</td><td>78.5%</td><td>持平</td><td>长尾</td></tr>
+      <tr><td class="g-name">心之岛</td><td>0</td><td class="pct" style="color:var(--r)">67.5%</td><td>57.7%</td><td>持平</td><td><span class="warn">⚠️ Mixed，全语言57.7%口碑最弱</span></td></tr>
+      <tr><td class="g-name">The Run</td><td>0</td><td class="pct" style="color:var(--r)">33.3%</td><td>89.7%</td><td>持平</td><td><span class="warn">⚠️ 中文仅3条，样本过小(偏差56pp)</span></td></tr>
+      <tr><td class="g-name">Cage of Roses</td><td>0</td><td class="pct">88.2%</td><td>88.7%</td><td>持平</td><td>长尾</td></tr>
+      <tr><td class="g-name">Bloodholic</td><td>0</td><td class="pct">98.1%</td><td>88.1%</td><td>持平</td><td><span class="warn">⚠️ 中文54条98.1% vs 全语言88.1%偏差约10pp</span></td></tr>
+      <tr><td class="g-name">Five Dates</td><td>0</td><td class="pct">85.7%</td><td>85.1%</td><td>持平</td><td>Wales Interactive(2020)，低活跃</td></tr>
+      <tr><td class="g-name">Nocturne Hollow</td><td>0</td><td class="pct">—</td><td>—</td><td>首测</td><td>8/16新上架EA互动小说，尚未起量</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="feed-item">
+    <h4>江山北望</h4>
+    <div class="fd-sub">8.8 分 · 6.3 万关注 · 移动端 2026-06-09 上线</div>
+    <p>TapTap 高分互动电影榜第 3 位（8.8 分），关注稳定 6.3 万。近 24-48h 无新版本/公告。</p>
+    <div class="links"><a class="link-btn tt" href="https://www.taptap.cn/app/784824" target="_blank">TapTap →</a></div>
+  </div>
+  <div class="feed-item">
+    <h4>绍宋:还我河山 · 官方定档</h4>
+    <div class="fd-sub">2026-08-20 · 全球同步上线</div>
+    <p>官方 moment 定档，帝皇今导演 + 榴弹怕水总策划。8/16-17 帝皇今专访「真人互动影游市场开发&lt;10%」印证赛道长期信心。</p>
+    <div class="links"><a class="link-btn tt" href="https://www.taptap.cn/moment/829779935756288903" target="_blank">TapTap moment →</a></div>
+  </div>
+  <div class="feed-item">
+    <h4>花满楼定档 + 互动电影高分榜</h4>
+    <div class="fd-sub">花满楼 8/21 发售 · 女间谍谍战</div>
+    <p>花满楼 8/21 发售（游民星空/17173 口径），发布角色苏英预告（黑神话萍萍脸模钱思怡）；互动电影高分榜仍由隐形守护者 9.4 领跑。</p>
+    <div class="links"><a class="link-btn tt" href="https://m.taptap.cn/games/%E5%89%A7%E6%83%85%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%94%B5%E5%BD%B1%E9%AB%98%E5%88%86%E6%B8%B8%E6%88%8F-101428552245" target="_blank">榜单 →</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">社区讨论（Reddit / 媒体）</div>
+  <div class="section-note">Reddit 直接帖子被限流，改用媒体/社区间接信号</div>
+  <div class="feed-item">
+    <h4>周淑怡直播《恶校游戏》遭平台封禁（8/16）</h4>
+    <div class="fd-sub">游民星空 · 腾讯新闻 · 快手动态</div>
+    <p>主播周淑怡直播反校园霸凌 FMV《恶校游戏》时直播间被快手强制关停、账号 ID 异常，其对未达三次警告即关停表示不服——校园霸凌/复仇题材引发直播平台审核争议。</p>
+    <div class="links"><a class="link-btn rd" href="https://www.gamersky.com/news/202608/2189927.shtml" target="_blank">游民星空 →</a><a class="link-btn rd" href="https://new.qq.com/rain/a/20260816A06JHI00" target="_blank">游戏快讯 →</a></div>
+  </div>
+  <div class="feed-item">
+    <h4>Reddit r/gaming 对「互动电影硬塞RPG元素」的负面声音（8/15）</h4>
+    <div class="fd-sub">r/gaming 热帖（近 300 评论）· 腾讯新闻转载</div>
+    <p>玩家在「游戏倦怠」热帖中直言「不像现在的互动电影硬塞 RPG 元素」——海外玩家对互动电影品类存在「过场动画过多 + 开放世界支线」疲劳，是出海需警惕的口碑风险。</p>
+    <div class="links"><a class="link-btn rd" href="https://new.qq.com/rain/a/20260816A06KII00" target="_blank">腾讯新闻 →</a></div>
+  </div>
+  <div class="feed-item">
+    <h4>命运石之门:重启 8/20 上线（互动叙事品类风向标）</h4>
+    <div class="fd-sub">RPGFan · 17173 · 网易</div>
+    <p>Steins;Gate Re:Boot 8/20 多平台上线，全语音重录 + BGM 重编 + 新路线。虽非 FMV，但作为互动叙事头部 IP 的节点事件，反映「选择导向叙事」大盘热度。</p>
+    <div class="links"><a class="link-btn rd" href="https://www.rpgfan.com/2026/08/16/rpgs-coming-this-week-august-16-22-2026" target="_blank">RPGFan →</a></div>
+  </div>
+  <div class="feed-item">
+    <h4>r/interactivefiction / r/FMV / r/visualnovels 直接帖子</h4>
+    <div class="fd-sub">Reddit · 未获取</div>
+    <p>Reddit JSON API 与网页均被网络策略拦截（Blocked），本次仍无直接帖子数据（upvotes/评论数未获取）。</p>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">产品调研机器人 v1.0</span> 生成 · 全部链接已核实 · 评测好评率注明来源（Steam 商店页全语言 vs API 中文抽样）</p><p style="margin-top:4px">数据源：Steam · TapTap · 游民星空 · 腾讯新闻 · 新浪财经 · 网易 · 17173 · 喜马拉雅 | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

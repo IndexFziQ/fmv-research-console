@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动叙事前沿论文 · 2026-08-16</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+header .meta a{color:var(--a);text-decoration:none}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .v{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted)}
+.kpi-card .s{font-size:10px;color:var(--muted);margin-top:2px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.paper-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.paper-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.paper-card h3{font-size:14px;font-weight:600;color:var(--a);flex:1;min-width:0}
+.paper-card .head-meta{display:flex;gap:6px;flex-shrink:0}
+.tag{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.paper-card .authors{font-size:11px;color:var(--muted);margin-bottom:8px}
+.paper-card .authors .pdf{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--r);color:#fff;text-decoration:none;margin-left:8px;font-weight:500}
+.paper-card .authors .pdf:hover{background:#a32d34}
+.paper-card .abstract{font-size:12px;color:var(--text-secondary);line-height:1.55;margin-bottom:8px;padding:8px 10px;background:var(--al);border-radius:6px}
+.paper-card .line{font-size:12px;line-height:1.6;margin-bottom:6px;padding-left:10px;border-left:3px solid var(--border)}
+.paper-card .line.r{border-left-color:var(--r);color:var(--s)}
+.paper-card .line.b{border-left-color:var(--b);color:var(--s)}
+.paper-card .line.g{border-left-color:var(--g);background:var(--gl);padding:8px 10px;border-radius:0 6px 6px 0;color:var(--text)}
+.paper-card .line strong{color:var(--text)}
+.paper-card .footer-line{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.relevance-bar{display:flex;gap:1px;align-items:center}
+.relevance-bar .seg{width:6px;height:10px;background:var(--border);border-radius:1px}
+.relevance-bar .seg.on{background:var(--a)}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+footer a{color:var(--a);text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>互动叙事前沿论文 · 每日 Top 10</h1>
+  <div class="meta">
+    <span>2026-08-16 周日</span>
+    <span>从 arXiv 精选</span>
+    <a href="https://arxiv.org/list/cs.AI/recent">arXiv 源</a>
+    <a href="index.html">返回归档</a>
+  </div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">10</div><div class="l">今日收录</div></div>
+  <div class="kpi-card"><div class="v">10/10</div><div class="l">PDF 完整率</div></div>
+  <div class="kpi-card"><div class="v">55</div><div class="l">累计论文</div></div>
+</div>
+
+<div class="section-title">今日精选</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>LETGAMES：LLM 驱动的互动叙事认知训练游戏</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-g">可复用</span>
+    </div>
+  </div>
+  <div class="authors">Jingwei Shi, Shengyu Tao, Xinxiang Yin, Chen Huang, Wenqiang Lei, See-Kiong Ng
+    <a href="https://arxiv.org/pdf/2604.09566.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">受 D&amp;D 启发的 LLM 开放世界互动叙事游戏生成方法，自动为认知障碍患者设计个性化治疗游戏，配套心理学评估协议 LETGAMESEVAL。</div>
+  <div class="line r"><strong>核心问题：</strong>针对单个患者设计有效的认知训练游戏成本极高、难以规模化。</div>
+  <div class="line b"><strong>解决方案：</strong>LLM 驱动的 LETGAMES 自动生成开放世界互动叙事游戏，按患者认知域定制场景与挑战，并用对话策略提供陪伴引导。</div>
+  <div class="line g"><strong>对你有什么用：</strong>互动叙事不只是娱乐——把「剧情+任务」当可定制训练载体，你的影游引擎也能横向复用到教育、康复等严肃场景。</div>
+  <div class="footer-line">
+    <span>arXiv:2604.09566 · 2026-02-18</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>反思式叙事智能体：知识图谱 + 论证挖掘</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">抗幻觉</span>
+    </div>
+  </div>
+  <div class="authors">Jayalakshmi Baskar, Vera C. Kaelin, Kaan Kilic, Helena Lindgren
+    <a href="https://arxiv.org/pdf/2605.10531.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">知识图谱 + 用户建模 + 论证理论 + 论证挖掘融合的「反思式」叙事智能体，为老年人健康场景生成个性化叙事并计算幻觉风险指标。</div>
+  <div class="line r"><strong>核心问题：</strong>LLM 叙事存在幻觉与不透明问题，生成内容难以被信任与审查。</div>
+  <div class="line b"><strong>解决方案：</strong>用知识图谱接地 + 论证挖掘做反思检查，把叙事生成与「幻觉风险指标」绑定，让系统能自我审查。</div>
+  <div class="line g"><strong>对你有什么用：</strong>给影游分支剧情加一道「论证/事实校验层」，可量化控制 LLM 胡编，比纯 prompt 更可控。</div>
+  <div class="footer-line">
+    <span>arXiv:2605.10531 · 2026-05-11</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>静态 vs 动态互动叙事的玩家动机实证</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-r">动机</span>
+    </div>
+  </div>
+  <div class="authors">Daeun Hwang, Samuel Shields, Alex Calderwood, Shi Johnson-Bey, Michael Mateas, Noah Wardrip-Fruin, Edward F. Melcer
+    <a href="https://arxiv.org/pdf/2505.08891.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">对比静态手写分支叙事与动态 AI 排序叙事的玩家动机差异（教育互动叙事游戏 Academical），发现响应式内容与选项多样性对玩家投入最关键。</div>
+  <div class="line r"><strong>核心问题：</strong>动态叙事 vs 静态叙事，到底哪个更能留住玩家？此前缺乏实证对比。</div>
+  <div class="line b"><strong>解决方案：</strong>控制变量对比两版教育互动叙事游戏，测量玩家动机与投入，量化动态叙事的增量价值。</div>
+  <div class="line g"><strong>对你有什么用：</strong>玩家买账的不是「动态」标签，而是「内容响应我 + 选项够多」。影游设计优先保证分支丰富度与即时反馈。</div>
+  <div class="footer-line">
+    <span>arXiv:2505.08891 · 2025-05-13</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>为科技从业者搭建地缘政治反思的互动叙事</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">应用参考</span>
+    </div>
+  </div>
+  <div class="authors">Sydney Reis
+    <a href="https://arxiv.org/pdf/2607.28904.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">面向科技从业者的 AI 互动叙事系统设计提案，通过叙事交互、原型角色分配、工作坊反思，激发对技术、权力与地缘政治的批判性思考。</div>
+  <div class="line r"><strong>核心问题：</strong>现有负责任 AI 方法很少触及驱动 AI 发展的地缘政治叙事与想象。</div>
+  <div class="line b"><strong>解决方案：</strong>用 AI 互动叙事 + 角色原型 + 社会化工作坊反思的推测性系统，引导用户审视自身假设与立场。</div>
+  <div class="line g"><strong>对你有什么用：</strong>互动叙事的「代入式反思」能力可用于严肃议题传播——影游内容形态可承载价值观议题，不只是娱乐。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.28904 · 2026-07-31</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>红灯灰区：自动驾驶伦理的多视角互动叙事</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">应用参考</span>
+      <span class="tag tag-p">多视角</span>
+    </div>
+  </div>
+  <div class="authors">Mengyi Wei, Nianhua Liu, Chenyu Zuo, Liqiu Meng
+    <a href="https://arxiv.org/pdf/2607.15888.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">基于真实自动驾驶事故的网页多视角互动叙事原型，让参与者比较利益相关方视角、审查现场材料并作出责任判断（探索性用户研究 N=12）。</div>
+  <div class="line r"><strong>核心问题：</strong>非专家难以理解自动驾驶伦理中的分布式责任问题。</div>
+  <div class="line b"><strong>解决方案：</strong>多视角互动叙事原型，通过视角切换与责任判断引导公众对伦理困境的具身反思。</div>
+  <div class="line g"><strong>对你有什么用：</strong>「多视角叙事」是影游做公共议题/剧情张力的成熟手法——同一事件多角色视角切换天然制造戏剧冲突。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.15888 · 2026-07-17</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>AI 互动叙事赋能视障用户探索视觉媒体</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">技术参考</span>
+      <span class="tag tag-p">叙事范式</span>
+    </div>
+  </div>
+  <div class="authors">Shuchang Xu
+    <a href="https://arxiv.org/pdf/2508.03061.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">提出 AI 驱动互动叙事范式，用层次化叙事、平行叙事、分支叙事三种技术，让视障用户能在连贯叙事体验中探索视觉媒体。</div>
+  <div class="line r"><strong>核心问题：</strong>现有工具把「探索」和「叙事」割裂，打断叙事流、增加认知负担。</div>
+  <div class="line b"><strong>解决方案：</strong>三种叙事范式——层次化（多粒度探索）、平行（时间同步评论）、分支（360° 视频沉浸导航），在用户代理与叙事连贯间平衡。</div>
+  <div class="line g"><strong>对你有什么用：</strong>层次化/平行/分支三种叙事结构是可复用的设计语言，影游的多线剧情与探索玩法可借鉴这套范式划分。</div>
+  <div class="footer-line">
+    <span>arXiv:2508.03061 · 2025-08-05</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>互动叙事分析：计算叙事抽取 × 人类感知</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">综述</span>
+    </div>
+  </div>
+  <div class="authors">Brian Keith
+    <a href="https://arxiv.org/pdf/2601.11459.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">定义「互动叙事分析（INA）」这一新兴领域，将计算叙事抽取与交互式可视分析结合，支持人类对叙事结构的理解与探索。</div>
+  <div class="line r"><strong>核心问题：</strong>信息过载下，从海量文本中抽取有意义叙事困难，且缺乏系统性方法。</div>
+  <div class="line b"><strong>解决方案：</strong>INA 框架把计算叙事抽取与交互式可视化结合，让人机协同理解叙事结构，并指出可扩展性、交互性、知识整合等挑战。</div>
+  <div class="line g"><strong>对你有什么用：</strong>「叙事抽取 + 可视化」可用于竞品/用户反馈分析——自动从玩家评论里抽取剧情共鸣点。</div>
+  <div class="footer-line">
+    <span>arXiv:2601.11459 · 2026-01-16</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>故事与系统：教媒介素养与系统思维的教育 IDN</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">应用参考</span>
+      <span class="tag tag-a">框架</span>
+    </div>
+  </div>
+  <div class="authors">Christian Roth, Rahmin Bender-Salazar, Breanne Pitt
+    <a href="https://arxiv.org/pdf/2508.11059.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">提出「系统学习 IDN」概念与 CLASS 框架（系统思维 + 设计思维 + 讲故事），用互动数字叙事教媒介素养与系统思维。</div>
+  <div class="line r"><strong>核心问题：</strong>面对气候、疫情等「棘手问题」，传统数字技术反而加剧信息过载与过度简化。</div>
+  <div class="line b"><strong>解决方案：</strong>CLASS 框架整合系统思维、设计思维与叙事，把互动叙事用于复杂系统的探索与反思教学。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游做「世界观/多线因果」时，CLASS 框架帮你把系统复杂度装进可玩的叙事结构。</div>
+  <div class="footer-line">
+    <span>arXiv:2508.11059 · 2025-08-14</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>ConnectVR：无代码创作 VR 互动故事</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-g">无代码</span>
+    </div>
+  </div>
+  <div class="authors">Mengyu Chen, Marko Peljhan, Misha Sra
+    <a href="https://arxiv.org/pdf/2406.15889.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">面向非编程创作者的触发-动作式无代码接口，用于创作基于智能体的 VR 互动故事，支持因果链式行为触发。</div>
+  <div class="line r"><strong>核心问题：</strong>没有编程经验的故事创作者难以编排 VR 互动叙事的事件触发链。</div>
+  <div class="line b"><strong>解决方案：</strong>触发-动作（Trigger-Action）无代码接口，让创作者用因果链设计角色与物体的链式行为。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游的剧情分支工具要做「无代码 + 因果链触发」，降低编剧门槛，加速内容生产。</div>
+  <div class="footer-line">
+    <span>arXiv:2406.15889 · 2024-06-22</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>叙事地图感知中的语义交互：基于洞察的评估</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+    </div>
+  </div>
+  <div class="authors">Brian Felipe Keith-Norambuena, Fausto German, Eric Krokos, Sarah Joseph, Chris North
+    <a href="https://arxiv.org/pdf/2603.29651.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">33 人用户研究评估语义交互在「叙事地图感知」中的作用，发现地图式表征显著优于时间线基线，归纳出纠正式/增量式两种叙事精化路径。</div>
+  <div class="line r"><strong>核心问题：</strong>语义交互对叙事抽取的实证有效性缺乏系统评估。</div>
+  <div class="line b"><strong>解决方案：</strong>对比时间线 vs 基础叙事地图 vs 带 SI 的互动叙事地图，量化洞察产出差异并归纳两种 SI 策略。</div>
+  <div class="line g"><strong>对你有什么用：</strong>用「叙事地图」而非时间线呈现剧情/世界观，能显著提升用户洞察——影游剧情结构可视化同理。</div>
+  <div class="footer-line">
+    <span>arXiv:2603.29651 · 2026-03-31</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">互动叙事论文机器人 v1.0</span> 生成 · 2026-08-16</p>
+  <p style="margin-top:4px">数据源：arXiv API · 关键词：interactive narrative / game AI / procedural generation / LLM storytelling</p>
+  <p style="margin-top:8px">
+    <a href="index.html">← 归档首页</a> ·
+    <a href="dashboard-2026-08-16.html">本周产品调研 →</a>
+  </p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游产品调研仪表盘 · 累积</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:960px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+
+.kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:24px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.kpi-card .kpi-sub{font-size:9px;color:var(--muted);margin-top:2px}
+
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al);display:flex;justify-content:space-between;align-items:center}
+.section-title .count{font-size:11px;font-weight:400;color:var(--muted);background:var(--al);padding:2px 10px;border-radius:10px}
+
+.daily-line{position:relative;padding-left:20px}
+.daily-line::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.daily-item{position:relative;padding:10px 0}
+.daily-item::before{content:"";position:absolute;left:-17px;top:16px;width:10px;height:10px;border-radius:50%;background:var(--a);border:2px solid #fff;box-shadow:0 0 0 2px var(--al)}
+.daily-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.daily-date{font-weight:600;font-size:13px;color:var(--a)}
+.daily-tag{font-size:10px;background:var(--gl);color:var(--g);padding:2px 8px;border-radius:4px;font-weight:600}
+.daily-chips{display:flex;gap:8px;flex-wrap:wrap}
+.daily-chip{display:flex;align-items:center;gap:8px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:12px}
+.daily-chip .dc-name{font-weight:600}
+.daily-chip .dc-meta{color:var(--muted);font-size:10px}
+.daily-chip img{width:60px;height:32px;object-fit:cover;border-radius:3px}
+
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat-panel{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px}
+.stat-panel .pt{font-size:13px;font-weight:600;margin-bottom:10px;color:var(--s)}
+.stat-bar{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.stat-bar .sb-label{font-size:11px;color:var(--s);min-width:88px;text-align:right}
+.stat-bar .sb-track{flex:1;height:12px;background:var(--bg);border-radius:6px;overflow:hidden}
+.stat-bar .sb-fill{display:block;height:100%;border-radius:6px;background:var(--a)}
+.stat-bar .sb-val{font-size:11px;color:var(--muted);min-width:30px}
+.stat-panel .canvas-wrap{max-width:200px;margin:0 auto}
+
+.search-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.search-input{flex:1;min-width:160px;padding:6px 12px;border:1px solid var(--border);border-radius:6px;font-size:12px;outline:none;font-family:inherit;background:var(--card-bg)}
+.search-input:focus{border-color:var(--a)}
+.filter-tag{padding:5px 12px;border:1px solid var(--border);border-radius:6px;font-size:11px;cursor:pointer;background:var(--card-bg);color:var(--s);font-family:inherit;white-space:nowrap;transition:all 0.15s}
+.filter-tag:hover{border-color:var(--a);color:var(--a)}
+.filter-tag.active{background:var(--al);border-color:var(--a);color:var(--a);font-weight:500}
+.result-count{font-size:11px;color:var(--muted);margin-bottom:12px}
+
+.cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card-b{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform 0.15s,box-shadow 0.15s}
+.card-b:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.06)}
+.card-b.hidden{display:none}
+.card-b .cover{position:relative;width:100%;aspect-ratio:1.86/1;line-height:0;overflow:hidden;background:var(--al)}
+.card-b .cover img{width:100%;height:100%;object-fit:cover;display:block}
+.card-b .cover .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:var(--a)}
+.card-b .badge{position:absolute;top:6px;left:6px;background:rgba(0,0,0,0.45);color:#fff;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500}
+.card-b .badge-r{position:absolute;top:6px;right:6px;background:var(--a);color:#fff;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500}
+.card-b .badge-new{position:absolute;top:6px;right:6px;background:var(--g);color:#fff;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500}
+.card-b .body{padding:11px 13px 12px}
+.card-b .body h3{font-size:14px;font-weight:600;margin-bottom:1px}
+.card-b .body .sub{font-size:10px;color:var(--muted);margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-b .body .meta-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.card-b .body .stats{display:flex;gap:10px}
+.card-b .body .stat{text-align:center;min-width:38px}
+.card-b .body .stat-val{font-size:12px;font-weight:600;line-height:1.1}
+.card-b .body .stat-lbl{font-size:8px;color:var(--muted);text-transform:uppercase}
+.card-b .body .stat.g .stat-val{color:var(--g)}
+.card-b .body .stat.a .stat-val{color:var(--amb)}
+.card-b .body .stat.p .stat-val{color:var(--a)}
+.card-b .body .bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.links{margin-top:6px;display:flex;gap:6px}
+.link-btn{font-size:11px;padding:4px 10px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s;display:inline-flex;align-items:center;gap:3px}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.link-btn.st{background:#1b2838;color:#fff;border-color:#1b2838}.link-btn.st:hover{background:#2a475e;color:#fff}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.stat-grid,.cards-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 产品调研仪表盘</h1>
+  <div class="meta"><span>累积追踪</span><span>最后更新 2026-09-07</span><span>Steam · TapTap</span><span style="color:var(--g)">数据可检索</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">35</div><div class="kpi-label">累积竞品</div><div class="kpi-sub">已核实去重</div></div>
+  <div class="kpi-card"><div class="kpi-value">3</div><div class="kpi-label">覆盖平台</div><div class="kpi-sub">Steam/TapTap/移动端</div></div>
+  <div class="kpi-card"><div class="kpi-value">5</div><div class="kpi-label">题材赛道</div><div class="kpi-sub">恋爱/悬疑/历史/末日/百合</div></div>
+  <div class="kpi-card"><div class="kpi-value">1</div><div class="kpi-label">今日新增</div><div class="kpi-sub">09-07</div></div>
+  <div class="kpi-card"><div class="kpi-value">82.6%</div><div class="kpi-label">平均好评率</div><div class="kpi-sub">35 款有数据</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">每日新增<span class="count">35 款累积 · 14 个沉淀日</span></div>
+  <div class="daily-line">
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-09-07</span><span class="daily-tag">今日新增</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4619230/e0b1707f6489e76aeac996f9e9b0ebe7494c0b40/capsule_616x353.jpg?t=1788451229" loading="lazy"><span><span class="dc-name">Rescue the Hostages: Misaligned Fate</span><br><span class="dc-meta">steam · 恐怖</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-09-04</span><span class="daily-tag">+1 款</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4920100/aecf4db2323a4eebc76013235e0091fd07a600a2/header_schinese.jpg?t=1788225078" loading="lazy"><span><span class="dc-name">列车怪谈：虚像之境</span><br><span class="dc-meta">steam · 恐怖</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-09-02</span><span class="daily-tag">+6 款</span><span style="font-size:11px;color:var(--muted)">新增 6 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4699920/f66f671768b02c66edbdae30743c5a5f6cad208c/header_schinese.jpg?t=1785634781" loading="lazy"><span><span class="dc-name">天平游戏1:抉择</span><br><span class="dc-meta">steam · 悬疑</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4384120/b1a75e132ae87533c6cb8a64206bc9eec0104676/header_schinese.jpg?t=1776751332" loading="lazy"><span><span class="dc-name">你好，你配吗？</span><br><span class="dc-meta">steam · 恋爱</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108460/1fccc7802715bb0a98a0e303382b1762abb71e16/header_schinese.jpg?t=1785990990" loading="lazy"><span><span class="dc-name">灭寇1939：上川往事</span><br><span class="dc-meta">steam · 谍战</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4056810/109610e006a4fb067c8f5a5633a6146f64e18790/header.jpg?t=1782190689" loading="lazy"><span><span class="dc-name">东北往事</span><br><span class="dc-meta">steam · 历史</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3828610/98f74e2d4d0720fecb23d506b3f69574ad20e368/header_schinese.jpg?t=1787101417" loading="lazy"><span><span class="dc-name">末日降临！被美女们关进避难所!?</span><br><span class="dc-meta">steam · 末日</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3155310/cd5e94356d1beb03d49a7446efceedf0a72c7008/header_schinese.jpg?t=1787804515" loading="lazy"><span><span class="dc-name">阴三国谋论: 徐州篇</span><br><span class="dc-meta">steam · 历史</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-31</span><span class="daily-tag">+1 款</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4143220/4925056509db1533da002335787556f640ac1a2e/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">金宵公寓事件</span><br><span class="dc-meta">steam · 悬疑</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-25</span><span class="daily-tag">+1 款</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3978240/08eb60ff49ea804e40f693b5a3183cf3df39cb2a/header.jpg?t=1787587217" loading="lazy"><span><span class="dc-name">无言之林</span><br><span class="dc-meta">steam · 恐怖</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-24</span><span class="daily-tag">+2 款</span><span style="font-size:11px;color:var(--muted)">新增 2 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4734650/c0e32760686baa7aa3ec93ea4142514a66e3428e/capsule_616x353_schinese.jpg" loading="lazy"><span><span class="dc-name">请去Bar，恋爱吧！</span><br><span class="dc-meta">steam · 恋爱</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4846800/d19723e92c8b0a5ab0905a9a5261643abeea1eaa/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">1000王子: ChouChou Condo (甜心公寓)</span><br><span class="dc-meta">steam · 乙女</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-22</span><span class="daily-tag">+1 款</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3749320/912e382a3edc1ccd8f6f71e05317b0ff312b84af/header_schinese.jpg?t=1787291920" loading="lazy"><span><span class="dc-name">花满楼</span><br><span class="dc-meta">steam · 谍战</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-21</span><span class="daily-tag">+1 款</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4292950/dfd52caf6453e43b4d613a662064aca4924a7858/header.jpg?t=1787201131" loading="lazy"><span><span class="dc-name">绍宋：还我河山</span><br><span class="dc-meta">steam · 历史</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-20</span><span class="daily-tag">+1 款</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4412960/3432e6210f9eed1a09d9e58024cf5c88079b3faf/header.jpg?t=1787018357" loading="lazy"><span><span class="dc-name">光与影之恋</span><br><span class="dc-meta">steam · 百合向</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-19</span><span class="daily-tag">+1 款</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3756870/572dcbf1c182bfa9d65bfe51bb2b359841f0d70e/header.jpg?t=1787077015" loading="lazy"><span><span class="dc-name">Project DeepWeb: Eternal Nightmare</span><br><span class="dc-meta">steam · 恐怖</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-17</span><span class="daily-tag">+3 款</span><span style="font-size:11px;color:var(--muted)">新增 3 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3478050/0e3d390564332c03dd980d0b295cb533d0ecb7a7/capsule_616x353_schinese.jpg" loading="lazy"><span><span class="dc-name">女王的游戏：盛世天下 媚娘篇</span><br><span class="dc-meta">steam+taptap+ios · 历史</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4148240/ad47878cf250027da631c4678102b8167fd166c1/capsule_616x353_schinese.jpg" loading="lazy"><span><span class="dc-name">女王的游戏：盛世天下 女帝篇</span><br><span class="dc-meta">steam+taptap+ios · 历史</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2816920/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">退婚后，宗主马甲藏不住</span><br><span class="dc-meta">steam · 竖屏FMV/龙王赘婿</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-16</span><span class="daily-tag">+1 款</span><span style="font-size:11px;color:var(--muted)">新增 1 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4902060/b7fdd85c1c1f2afc8229abe24876bff8af20c216/header.jpg?t=1786815678" loading="lazy"><span><span class="dc-name">Libera Nos a Malo</span><br><span class="dc-meta">steam · 恐怖</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-14</span><span class="daily-tag">+5 款</span><span style="font-size:11px;color:var(--muted)">新增 5 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3987560/faeffae4a00fde7027c6a1124e88565156e7fdf0/header_schinese.jpg?t=1782476929" loading="lazy"><span><span class="dc-name">盛夏离与合</span><br><span class="dc-meta">steam+wegame+taptap+mobile · 恋爱</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1353270/header_schinese.jpg?t=1780395695" loading="lazy"><span><span class="dc-name">Five Dates</span><br><span class="dc-meta">steam · 悬疑</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1107790/header_schinese.jpg?t=1780398865" loading="lazy"><span><span class="dc-name">The Complex</span><br><span class="dc-meta">steam · 悬疑</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3818020/f463d6f2fe1ab48704011f38680bdd02a8f2d6d5/header_schinese.jpg?t=1786676383" loading="lazy"><span><span class="dc-name">恶校游戏</span><br><span class="dc-meta">steam · 悬疑</span></span></span><span class="daily-chip"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4855450/32b18b2fd0dc505d38dd91500dfc359b771c37d0/header_schinese.jpg?t=1786671930" loading="lazy"><span><span class="dc-name">不心动才有鬼</span><br><span class="dc-meta">steam · 恋爱</span></span></span></div>
+  </div>
+  <div class="daily-item">
+    <div class="daily-head"><span class="daily-date">2026-08-11</span><span class="daily-tag">+10 款</span><span style="font-size:11px;color:var(--muted)">新增 10 款</span></div>
+    <div class="daily-chips"><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1188710/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">Bloodholic</span><br><span class="dc-meta">steam · 百合向/吸血鬼</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2993720/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">Cage of Roses</span><br><span class="dc-meta">steam · 百合向/吸血鬼</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3447920/123aa17f56acb1209e393de707600c9396c1dc6f/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">The Run</span><br><span class="dc-meta">steam · 末日/恐怖</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4234260/8304dfd2458ffffd8ce94ce8e76a12c95f4f6cf5/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">主角</span><br><span class="dc-meta">steam · 悬疑</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3412900/231f644e9295928805d168098ba7000c7bf3f13f/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">代号三国:龙起</span><br><span class="dc-meta">steam · 历史</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3711170/9f5c70a0241948bc9c96a4af88a441afdeeabeb9/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">冰点之下</span><br><span class="dc-meta">steam · 末日</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4104120/16dae4067058e25071f0af97e0b07f2d10829e8a/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">对不起，我是警察</span><br><span class="dc-meta">steam · 悬疑</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3794770/fdc921b966d6cae54eb098a27b722fa1fdfec5b7/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">心之岛</span><br><span class="dc-meta">steam · 恋爱</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">江山北望</span><br><span class="dc-meta">steam+taptap+ios · 历史</span></span></span><span class="daily-chip"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4740420/2af65d3f87f03692ea5c480287a58e9ff0165722/capsule_616x353.jpg" loading="lazy"><span><span class="dc-name">雪落情书时</span><br><span class="dc-meta">steam · 恋爱</span></span></span></div>
+  </div></div>
+</section>
+
+<section class="section">
+  <div class="section-title">累积统计</div>
+  <div class="stat-grid">
+    <div class="stat-panel">
+      <div class="pt">品类分布</div>
+      <div class="canvas-wrap"><canvas id="categoryChart"></canvas></div>
+<div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:8px">
+<span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#534AB7;margin-right:3px"></span>恋爱/情感</span><span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#378ADD;margin-right:3px"></span>悬疑/谍战</span><span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#1D9E75;margin-right:3px"></span>历史/架空</span><span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#BA7517;margin-right:3px"></span>末日/恐怖</span><span style="font-size:11px;color:var(--s)"><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#D4537E;margin-right:3px"></span>乙女/百合</span>
+</div>
+    </div>
+    <div class="stat-panel">
+      <div class="pt">好评率分布</div>
+      <div class="stat-bar"><span class="sb-label">90%+</span><span class="sb-track"><span class="sb-fill" style="width:40%;background:var(--g)"></span></span><span class="sb-val">14</span></div><div class="stat-bar"><span class="sb-label">85-89%</span><span class="sb-track"><span class="sb-fill" style="width:14%;background:var(--g)"></span></span><span class="sb-val">5</span></div><div class="stat-bar"><span class="sb-label">80-84%</span><span class="sb-track"><span class="sb-fill" style="width:20%;background:var(--g)"></span></span><span class="sb-val">7</span></div><div class="stat-bar"><span class="sb-label"><80%</span><span class="sb-track"><span class="sb-fill" style="width:25%;background:var(--g)"></span></span><span class="sb-val">9</span></div>
+      <div class="pt" style="margin-top:16px">好评率 TOP5</div>
+      <div class="stat-bar"><span class="sb-label" style="text-align:left;min-width:0;flex:1">光与影之恋</span><span class="sb-val">100.0%</span></div><div class="stat-bar"><span class="sb-label" style="text-align:left;min-width:0;flex:1">Rescue the Hostages: Misaligned Fate</span><span class="sb-val">100.0%</span></div><div class="stat-bar"><span class="sb-label" style="text-align:left;min-width:0;flex:1">花满楼</span><span class="sb-val">97.5%</span></div><div class="stat-bar"><span class="sb-label" style="text-align:left;min-width:0;flex:1">主角</span><span class="sb-val">97.3%</span></div><div class="stat-bar"><span class="sb-label" style="text-align:left;min-width:0;flex:1">你好，你配吗？</span><span class="sb-val">95.9%</span></div>
+    </div>
+    <div class="stat-panel">
+      <div class="pt">价格带分布</div>
+      <div class="stat-bar"><span class="sb-label">免费/未标</span><span class="sb-track"><span class="sb-fill" style="width:5%;background:var(--amb)"></span></span><span class="sb-val">2</span></div><div class="stat-bar"><span class="sb-label">¥29-45</span><span class="sb-track"><span class="sb-fill" style="width:82%;background:var(--amb)"></span></span><span class="sb-val">29</span></div><div class="stat-bar"><span class="sb-label">¥46-100</span><span class="sb-track"><span class="sb-fill" style="width:11%;background:var(--amb)"></span></span><span class="sb-val">4</span></div>
+    </div>
+    <div class="stat-panel">
+      <div class="pt">平台覆盖</div>
+      <div class="stat-bar"><span class="sb-label">Steam</span><span class="sb-track"><span class="sb-fill" style="width:100%;background:var(--b)"></span></span><span class="sb-val">35</span></div><div class="stat-bar"><span class="sb-label">TapTap</span><span class="sb-track"><span class="sb-fill" style="width:11%;background:var(--g)"></span></span><span class="sb-val">4</span></div><div class="stat-bar"><span class="sb-label">移动端/WeGame</span><span class="sb-track"><span class="sb-fill" style="width:11%;background:var(--a)"></span></span><span class="sb-val">4</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">全部竞品<span class="count" id="totalCount">35 款</span></div>
+  <div class="search-bar">
+    <input type="text" class="search-input" id="searchInput" placeholder="搜索产品名、类型、标签...">
+    <button class="filter-tag active" data-filter="all">全部</button>
+    <button class="filter-tag" data-filter="恋爱">恋爱</button>
+    <button class="filter-tag" data-filter="悬疑">悬疑</button>
+    <button class="filter-tag" data-filter="历史">历史</button>
+    <button class="filter-tag" data-filter="末日">末日</button>
+    <button class="filter-tag" data-filter="百合">乙女/百合</button>
+  </div>
+  <div class="result-count" id="resultCount">35 款</div>
+  <div class="cards-grid">
+  <article class="card-b" data-tags="恐怖 steam FMV 恐怖解谜 限时拆弹 独立">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4619230/e0b1707f6489e76aeac996f9e9b0ebe7494c0b40/capsule_616x353.jpg?t=1788451229" alt="Rescue the Hostages: Misaligned Fate" loading="lazy"><span class="badge">Steam</span><span class="badge-new">NEW</span></div>
+    <div class="body">
+      <h3>Rescue the Hostages: Misaligned Fate</h3>
+      <div class="sub">rescuethehostages.com · 2026-09-03</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">100.0%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">1</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 18.70 (Steam 国区·首发-15%)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">恐怖解谜</span><span class="tag tag-g">限时拆弹</span><span class="tag tag-g">独立</span></div><div class="links"><a href="https://store.steampowered.com/app/4619230" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恐怖 steam FMV AI生成 悬疑恐怖 互动影游 解密生存">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4920100/aecf4db2323a4eebc76013235e0091fd07a600a2/header_schinese.jpg?t=1788225078" alt="列车怪谈：虚像之境" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>列车怪谈：虚像之境</h3>
+      <div class="sub">司命工作室 · 2026-08-30</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">90.3%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">62</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 8.91 (Steam 国区·当前-10%)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">AI生成</span><span class="tag tag-g">悬疑恐怖</span><span class="tag tag-g">互动影游</span></div><div class="links"><a href="https://store.steampowered.com/app/4920100" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="历史 steam 策略 三国 互动剧情 经营">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3155310/cd5e94356d1beb03d49a7446efceedf0a72c7008/header_schinese.jpg?t=1787804515" alt="阴三国谋论: 徐州篇" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>阴三国谋论: 徐州篇</h3>
+      <div class="sub">鹏砚 · 2026-08-12</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">94.4%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">54</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 29.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">策略</span><span class="tag tag-g">三国</span><span class="tag tag-g">互动剧情</span><span class="tag tag-g">经营</span></div><div class="links"><a href="https://store.steampowered.com/app/3155310" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="谍战 steam 互动叙事 谍战 潜伏 历史">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108460/1fccc7802715bb0a98a0e303382b1762abb71e16/header_schinese.jpg?t=1785990990" alt="灭寇1939：上川往事" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>灭寇1939：上川往事</h3>
+      <div class="sub">KARMAGAME HK LIMITED · 2026-08-05</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">83.8%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">594</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 57.33 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">互动叙事</span><span class="tag tag-g">谍战</span><span class="tag tag-g">潜伏</span><span class="tag tag-g">历史</span></div><div class="links"><a href="https://store.steampowered.com/app/4108460" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="末日 steam FMV 恋爱 末日 多女主">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3828610/98f74e2d4d0720fecb23d506b3f69574ad20e368/header_schinese.jpg?t=1787101417" alt="末日降临！被美女们关进避难所!?" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>末日降临！被美女们关进避难所!?</h3>
+      <div class="sub">storytaco · 2026-06-14</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">79.7%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">182</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 63.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">恋爱</span><span class="tag tag-g">末日</span><span class="tag tag-g">多女主</span></div><div class="links"><a href="https://store.steampowered.com/app/3828610" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="悬疑 steam FMV 真人实拍 密闭囚笼 多结局">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4699920/f66f671768b02c66edbdae30743c5a5f6cad208c/header_schinese.jpg?t=1785634781" alt="天平游戏1:抉择" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>天平游戏1:抉择</h3>
+      <div class="sub">MYSTERY CROWN · 2026-07-25</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">84.3%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">1012</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 29.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">真人实拍</span><span class="tag tag-g">密闭囚笼</span><span class="tag tag-a">多结局</span></div><div class="links"><a href="https://store.steampowered.com/app/4699920" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恋爱 steam FMV 全动态影像 婚介模拟 多结局">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4384120/b1a75e132ae87533c6cb8a64206bc9eec0104676/header_schinese.jpg?t=1776751332" alt="你好，你配吗？" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>你好，你配吗？</h3>
+      <div class="sub">MYSTERY CROWN · 2026-04-18</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">95.9%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">493</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 29.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">全动态影像</span><span class="tag tag-g">婚介模拟</span><span class="tag tag-a">多结局</span></div><div class="links"><a href="https://store.steampowered.com/app/4384120" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="历史 steam IP改编 互动剧情 江湖 年代">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4056810/109610e006a4fb067c8f5a5633a6146f64e18790/header.jpg?t=1782190689" alt="东北往事" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>东北往事</h3>
+      <div class="sub">二狗科技 · 2026-06-22</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">84.1%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">182</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 55.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">IP改编</span><span class="tag tag-g">互动剧情</span><span class="tag tag-g">江湖</span><span class="tag tag-g">年代</span></div><div class="links"><a href="https://store.steampowered.com/app/4056810" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="悬疑 steam 真人实拍 监控推理 连环命案 第一人称">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4143220/4925056509db1533da002335787556f640ac1a2e/capsule_616x353.jpg" alt="金宵公寓事件" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>金宵公寓事件</h3>
+      <div class="sub">Buddy Studio · 2026-08-25</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">60.5%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">119</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 42.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">真人实拍</span><span class="tag tag-g">监控推理</span><span class="tag tag-g">连环命案</span><span class="tag tag-g">第一人称</span></div><div class="links"><a href="https://store.steampowered.com/app/4143220" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恐怖 steam FMV 真人实拍 生存惊悚 独立 无对白叙事">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3978240/08eb60ff49ea804e40f693b5a3183cf3df39cb2a/header.jpg?t=1787587217" alt="无言之林" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>无言之林</h3>
+      <div class="sub">Dogus Cagrici · 2026-08-24 Steam 发售</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">54.2%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">59</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 37.80 (Steam 国区·当前-10%)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">真人实拍</span><span class="tag tag-g">生存惊悚</span><span class="tag tag-g">独立</span></div><div class="links"><a href="https://store.steampowered.com/app/3978240" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恋爱 steam 真人互动影像 酒吧恋爱 新发售">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4734650/c0e32760686baa7aa3ec93ea4142514a66e3428e/capsule_616x353_schinese.jpg" alt="请去Bar，恋爱吧！" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>请去Bar，恋爱吧！</h3>
+      <div class="sub">画往时文化 · 2026-08-21</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">84.8%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">33</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 29.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">真人互动影像</span><span class="tag tag-g">酒吧恋爱</span><span class="tag tag-g">新发售</span></div><div class="links"><a href="https://store.steampowered.com/app/4734650" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="乙女 steam AI原生 乙女 AI真人风格 免费">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4846800/d19723e92c8b0a5ab0905a9a5261643abeea1eaa/capsule_616x353.jpg" alt="1000王子: ChouChou Condo (甜心公寓)" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>1000王子: ChouChou Condo (甜心公寓)</h3>
+      <div class="sub">琴研 Ginyan · 2026-08-21</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">33.3%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">6</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">免费(AI驱动·需联网)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">AI原生</span><span class="tag tag-g">乙女</span><span class="tag tag-g">AI真人风格</span><span class="tag tag-g">免费</span></div><div class="links"><a href="https://store.steampowered.com/app/4846800" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="谍战 steam FMV 女间谍谍战 40+结局 经营养成">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3749320/912e382a3edc1ccd8f6f71e05317b0ff312b84af/header_schinese.jpg?t=1787291920" alt="花满楼" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>花满楼</h3>
+      <div class="sub">初域游戏 · 2026-08-20</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">97.5%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">1541</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 46.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">女间谍谍战</span><span class="tag tag-g">40+结局</span><span class="tag tag-g">经营养成</span></div><div class="links"><a href="https://store.steampowered.com/app/3749320" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="历史 steam 真人实拍 历史权谋 IP改编 周星驰投资">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4292950/dfd52caf6453e43b4d613a662064aca4924a7858/header.jpg?t=1787201131" alt="绍宋：还我河山" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>绍宋：还我河山</h3>
+      <div class="sub">互动之星、猫眼娱乐 · 2026-08-20</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">80.6%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">2783</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 59.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">真人实拍</span><span class="tag tag-g">历史权谋</span><span class="tag tag-g">IP改编</span><span class="tag tag-g">周星驰投资</span></div><div class="links"><a href="https://store.steampowered.com/app/4292950" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="百合向 steam 百合AVG 女性向 多结局 新发售">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4412960/3432e6210f9eed1a09d9e58024cf5c88079b3faf/header.jpg?t=1787018357" alt="光与影之恋" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>光与影之恋</h3>
+      <div class="sub">琉璃花糖制作组 · 2026-08-17</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">100.0%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">105</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 26.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">百合AVG</span><span class="tag tag-g">女性向</span><span class="tag tag-a">多结局</span><span class="tag tag-g">新发售</span></div><div class="links"><a href="https://store.steampowered.com/app/4412960" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恐怖 steam FMV 桌面模拟 深网探索 恐怖">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3756870/572dcbf1c182bfa9d65bfe51bb2b359841f0d70e/header.jpg?t=1787077015" alt="Project DeepWeb: Eternal Nightmare" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>Project DeepWeb: Eternal Nightmare</h3>
+      <div class="sub">NightCat Studios · 2026-08-17</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">93.8%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">16</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 42.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">桌面模拟</span><span class="tag tag-g">深网探索</span><span class="tag tag-g">恐怖</span></div><div class="links"><a href="https://store.steampowered.com/app/3756870" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="竖屏FMV/龙王赘婿 steam 真人出演 竖屏 F2P章节内购 修仙爽剧">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2816920/capsule_616x353.jpg" alt="退婚后，宗主马甲藏不住" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>退婚后，宗主马甲藏不住</h3>
+      <div class="sub">LoongCharm · 2024-03-14</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">33.9%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">59</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">F2P + 章节内购（1章免费/2-6章各6元/前传12元，全解锁约42元）</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">真人出演</span><span class="tag tag-g">竖屏</span><span class="tag tag-g">F2P章节内购</span><span class="tag tag-g">修仙爽剧</span></div><div class="links"><a href="https://store.steampowered.com/app/2816920" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="历史 steam+taptap+ios 真人实拍 宫廷权谋 隐形守护者团队 系列销量500万">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3478050/0e3d390564332c03dd980d0b295cb533d0ecb7a7/capsule_616x353_schinese.jpg" alt="女王的游戏：盛世天下 媚娘篇" loading="lazy"><span class="badge">多端</span></div>
+    <div class="body">
+      <h3>女王的游戏：盛世天下 媚娘篇</h3>
+      <div class="sub">New One Studio · 2025-09-08</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">86.7%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">13290</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥49(Steam) / 移动端内购解锁</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">真人实拍</span><span class="tag tag-g">宫廷权谋</span><span class="tag tag-g">隐形守护者团队</span><span class="tag tag-g">系列销量500万</span></div><div class="links"><a href="https://store.steampowered.com/app/3478050" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="历史 steam+taptap+ios 真人实拍 宫廷权谋 全球多端同步首发 5天销量破百万">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4148240/ad47878cf250027da631c4678102b8167fd166c1/capsule_616x353_schinese.jpg" alt="女王的游戏：盛世天下 女帝篇" loading="lazy"><span class="badge">多端</span></div>
+    <div class="body">
+      <h3>女王的游戏：盛世天下 女帝篇</h3>
+      <div class="sub">New One Studio · 2026-06-08</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">82.3%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">9095</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 74.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">真人实拍</span><span class="tag tag-g">宫廷权谋</span><span class="tag tag-g">全球多端同步首发</span><span class="tag tag-g">5天销量破百万</span></div><div class="links"><a href="https://store.steampowered.com/app/4148240" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恐怖 steam ">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4902060/b7fdd85c1c1f2afc8229abe24876bff8af20c216/header.jpg?t=1786815678" alt="Libera Nos a Malo" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>Libera Nos a Malo</h3>
+      <div class="sub">Necronomicon Games · 2026-08-15</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">66.7%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">3</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 11.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"></div><div class="links"><a href="https://store.steampowered.com/app/4902060" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恋爱 steam+wegame+taptap+mobile 完蛋IP新作 真人FMV 毕业季 全平台">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3987560/faeffae4a00fde7027c6a1124e88565156e7fdf0/header_schinese.jpg?t=1782476929" alt="盛夏离与合" loading="lazy"><span class="badge">多端</span></div>
+    <div class="body">
+      <h3>盛夏离与合</h3>
+      <div class="sub">intiny · 2026-06-24</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">84.6%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">876</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 37.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-r">完蛋IP新作</span><span class="tag tag-g">真人FMV</span><span class="tag tag-a">毕业季</span><span class="tag tag-p">全平台</span></div><div class="links"><a href="https://store.steampowered.com/app/3987560" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="悬疑 steam ">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3818020/f463d6f2fe1ab48704011f38680bdd02a8f2d6d5/header_schinese.jpg?t=1786676383" alt="恶校游戏" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>恶校游戏</h3>
+      <div class="sub">CineGame Interactive · 2026-08-13</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">92.7%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">1102</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 33.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"></div><div class="links"><a href="https://store.steampowered.com/app/3818020" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恋爱 steam ">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4855450/32b18b2fd0dc505d38dd91500dfc359b771c37d0/header_schinese.jpg?t=1786671930" alt="不心动才有鬼" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>不心动才有鬼</h3>
+      <div class="sub">SP Studio · 2026-08-13</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">95.7%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">1529</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 39.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"></div><div class="links"><a href="https://store.steampowered.com/app/4855450" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="悬疑 steam FMV标杆 科幻惊悚 Wales Interactive 8结局">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1107790/header_schinese.jpg?t=1780398865" alt="The Complex" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>The Complex</h3>
+      <div class="sub">Wales Interactive / Good Gate Media / Little Jade Productions · 2020-03-31</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">78.0%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">3564</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 58.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">FMV标杆</span><span class="tag tag-g">科幻惊悚</span><span class="tag tag-g">Wales Interactive</span><span class="tag tag-g">8结局</span></div><div class="links"><a href="https://store.steampowered.com/app/1107790" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="悬疑 steam FMV标杆 真人约会 Wales Interactive 多结局">
+    <div class="cover"><img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1353270/header_schinese.jpg?t=1780395695" alt="Five Dates" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>Five Dates</h3>
+      <div class="sub">Wales Interactive / Good Gate Media · 2020-11-17</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">85.1%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">2831</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 58.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">FMV标杆</span><span class="tag tag-g">真人约会</span><span class="tag tag-g">Wales Interactive</span><span class="tag tag-a">多结局</span></div><div class="links"><a href="https://store.steampowered.com/app/1353270" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恋爱 steam 真人 多结局">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4740420/2af65d3f87f03692ea5c480287a58e9ff0165722/capsule_616x353.jpg" alt="雪落情书时" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>雪落情书时</h3>
+      <div class="sub">Mountain&amp;Sea Studio · 2026-07-23</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">95.3%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">656</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 19.99 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">真人</span><span class="tag tag-a">多结局</span></div><div class="links"><a href="https://store.steampowered.com/app/4740420" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="历史 steam+taptap+ios 真人 三端齐发 隐形守护者原班">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" alt="江山北望" loading="lazy"><span class="badge">多端</span></div>
+    <div class="body">
+      <h3>江山北望</h3>
+      <div class="sub">木焱工作室 · 2025-11-19</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">91.0%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">6638</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥29(Steam国区·当前-50%) / ¥29(移动端)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">真人</span><span class="tag tag-g">三端齐发</span><span class="tag tag-g">隐形守护者原班</span></div><div class="links"><a href="https://store.steampowered.com/app/3831120" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="恋爱 steam FMV 网红主演 泰国实景">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3794770/fdc921b966d6cae54eb098a27b722fa1fdfec5b7/capsule_616x353.jpg" alt="心之岛" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>心之岛</h3>
+      <div class="sub">Titan Digital Media · 2026-03-27</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">59.0%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">100</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 45.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">网红主演</span><span class="tag tag-g">泰国实景</span></div><div class="links"><a href="https://store.steampowered.com/app/3794770" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="悬疑 steam 港风 粤语 硬核">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4104120/16dae4067058e25071f0af97e0b07f2d10829e8a/capsule_616x353.jpg" alt="对不起，我是警察" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>对不起，我是警察</h3>
+      <div class="sub">intiny · 2026-04-27</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">78.6%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">830</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 49.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">港风</span><span class="tag tag-g">粤语</span><span class="tag tag-g">硬核</span></div><div class="links"><a href="https://store.steampowered.com/app/4104120" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="末日 steam 真人 恋爱 骰子机制">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3711170/9f5c70a0241948bc9c96a4af88a441afdeeabeb9/capsule_616x353.jpg" alt="冰点之下" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>冰点之下</h3>
+      <div class="sub">Joy Media Limited · 2026-05-29</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">92.1%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">2801</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 42.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">真人</span><span class="tag tag-g">恋爱</span><span class="tag tag-g">骰子机制</span></div><div class="links"><a href="https://store.steampowered.com/app/3711170" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="历史 steam 真人实拍 30+结局 标杆">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3412900/231f644e9295928805d168098ba7000c7bf3f13f/capsule_616x353.jpg" alt="代号三国:龙起" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>代号三国:龙起</h3>
+      <div class="sub">玛奇阿朵互娱科技, 山与海工作室 · 2026-04-28</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">90.1%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">2918</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 58.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">真人实拍</span><span class="tag tag-g">30+结局</span><span class="tag tag-p">标杆</span></div><div class="links"><a href="https://store.steampowered.com/app/3412900" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="悬疑 steam 真人 校园 反规训">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4234260/8304dfd2458ffffd8ce94ce8e76a12c95f4f6cf5/capsule_616x353.jpg" alt="主角" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>主角</h3>
+      <div class="sub">顶顶阳光 · 2026-07-15</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">97.3%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">1033</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 42.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">真人</span><span class="tag tag-g">校园</span><span class="tag tag-g">反规训</span></div><div class="links"><a href="https://store.steampowered.com/app/4234260" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="末日/恐怖 steam FMV 高分">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3447920/123aa17f56acb1209e393de707600c9396c1dc6f/capsule_616x353.jpg" alt="The Run" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>The Run</h3>
+      <div class="sub">PRM Games · 2026-02-05</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">89.1%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">110</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 42.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-g">高分</span></div><div class="links"><a href="https://store.steampowered.com/app/3447920/The_Run" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="百合向/吸血鬼 steam 19世纪哥特 女性主角 风格化动漫 情感氛围">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2993720/capsule_616x353.jpg" alt="Cage of Roses" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>Cage of Roses</h3>
+      <div class="sub">ebi-hime · 2025-02-16</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">88.5%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">209</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">¥ 52.00 (Steam 国区)</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">19世纪哥特</span><span class="tag tag-g">女性主角</span><span class="tag tag-g">风格化动漫</span><span class="tag tag-g">情感氛围</span></div><div class="links"><a href="https://store.steampowered.com/app/2993720" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article>
+  <article class="card-b" data-tags="百合向/吸血鬼 steam 国产轻百合 狼人+血族+女巫 大女主悬疑 动漫风">
+    <div class="cover"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1188710/capsule_616x353.jpg" alt="Bloodholic" loading="lazy"><span class="badge">Steam</span></div>
+    <div class="body">
+      <h3>Bloodholic</h3>
+      <div class="sub">釉里红 · 2019-11-21</div>
+      <div class="meta-row"><div class="stats"><div class="stat g"><div class="stat-val">88.2%</div><div class="stat-lbl">好评</div></div><div class="stat"><div class="stat-val">102</div><div class="stat-lbl">评测</div></div><div class="stat"><div class="stat-val">免费</div><div class="stat-lbl">价格</div></div></div></div>
+      <div class="bottom"><div class="tags"><span class="tag tag-g">国产轻百合</span><span class="tag tag-g">狼人+血族+女巫</span><span class="tag tag-g">大女主悬疑</span><span class="tag tag-g">动漫风</span></div><div class="links"><a href="https://store.steampowered.com/app/1188710" target="_blank" class="link-btn st">Steam →</a></div></div>
+    </div>
+  </article></div>
+</section>
+
+<footer><p>由 <span class="rn">产品调研机器人</span> 维护 · 累积仪表盘 · 最后更新 2026-09-07</p><p style="margin-top:4px">每日情报抓取(00:30) → 竞品沉淀(08:30) → 仪表盘刷新 · 数据源 Steam · TapTap</p></footer>
+</div>
+<script>
+(function(){
+  new Chart(document.getElementById('categoryChart').getContext('2d'),{type:'doughnut',data:{labels:["恋爱/情感", "悬疑/谍战", "历史/架空", "末日/恐怖", "乙女/百合"],datasets:[{data:[6, 9, 7, 8, 3],backgroundColor:["#534AB7", "#378ADD", "#1D9E75", "#BA7517", "#D4537E"],borderColor:'#fff',borderWidth:2}]},options:{responsive:1,maintainAspectRatio:1,plugins:{legend:{display:0}},cutout:'62%'}});
+  var btns=document.querySelectorAll('.filter-tag'),cards=document.querySelectorAll('.card-b'),input=document.getElementById('searchInput'),rc=document.getElementById('resultCount'),af='all';
+  function update(){var kw=input.value.trim().toLowerCase(),v=0;cards.forEach(function(c){var t=c.dataset.tags.toLowerCase(),tx=c.textContent.toLowerCase(),mf=af==='all'||t.indexOf(af)!==-1,ms=!kw||tx.indexOf(kw)!==-1||t.indexOf(kw)!==-1;(mf&&ms)?(c.classList.remove('hidden'),v++):c.classList.add('hidden')});rc.textContent=v+' / '+cards.length+' 款'}
+  btns.forEach(function(b){b.addEventListener('click',function(){btns.forEach(function(x){x.classList.remove('active')});b.classList.add('active');af=b.dataset.filter;update()})});
+  input.addEventListener('input',update);
+})();
+</script>
+</body>
+</html>

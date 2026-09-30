@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-09-17</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .dl.warn{color:var(--amb)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-09-17</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">47</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">100%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+  <div class="signal-card">
+    <h4>① 《AKIBA LOST 秋叶原迷踪》9/17 正式发售、玩家评测密集落地——「重制作救不了剧本」从媒体预判转为玩家侧印证</h4>
+    <div class="src">来源：网易深度稿(9/16) · 搜狐游戏/A9VG简评(9/17) · 3DM评测(9/16) · A9VG评测(9/15) · Steam商店页/Demo</div>
+    <ul><li>发售日当天中文媒体+玩家评测密集落地，昨日媒体「重制作救不了剧本」判断被玩家侧印证</li><li>新披露核心设定：主角新城大辉患「难病、寿命只剩1年左右」，为救失踪妹妹、在发表会当场改公布《AKIBA LOST》引发「炎上」；工作室「白泽游戏」出道作《WHITE CRASH》曾热后低迷</li><li>⚠️ 玩家侧负面与媒体一致且更具体：10万静态照片与真人影像频繁切换、照片段落无配音「像翻PPT」；文字轻小说信息密度低、台词打磨一般，「4K日剧画面 vs 轻小说文本」割裂感强；结局从都市阴谋收在个人恩怨(日剧套路)玩家觉得可惜；内置词典过宽显累赘</li><li>正面：日剧班底颜值/演技在线(田边桃子演技最抓人)、秋叶原亚文化氛围、6支线互相影响的多视角机制(类《428》)、免费 Demo 92.3% 好评</li><li>⚠️ Steam 正式版今日仍「即将推出」0评测，玩家评测主要来自 Demo/主机版/日媒，明日(9/18)是正式版评测爬升的关键观测窗口</li></ul>
+    <div class="act"><strong>行动建议：</strong>AKIBA LOST 从「评测解禁」走到「正式发售」，是「重制作+日剧班底」路线能否扛住口碑的最终揭晓，也是自有项目「立项决策」的对照实验。三点启示：① 「制作体量 ≠ 口碑」在玩家侧再次验证——10万静帧/20h素材/日剧班底换不来「剧本+交互」的说服力，玩家与媒体同批「照片切PPT」「文字轻小说割裂」，自有项目务必把「图文叙事节奏的一致性」放在素材体量之前——不是素材越多越好，是「真人影像+静态图+文本」三者如何无缝衔接；② 「真人互动影游」与「视觉小说」的产品定义之争在玩家侧也有回声——玩家明确「想要靠选项改写故事、追求强交互的会达不到预期」，自有项目要明确自己卖的是「情感代入/好感度」还是「悬疑叙事/多视角」，两者核心逻辑不同，别做成四不像；③ 网易稿披露的「主角寿命1年+炎上」设定是值得盯的叙事钩子——用「身患绝症的创作者赌上一切做游戏」做情感杠杆，比纯「悬疑失踪」更有代入感，自有项目可借鉴「人物困境先行」而非「事件先行」的叙事思路。</div>
+    <div class="links"><a class="link-btn" href="https://www.163.com/dy/article/L6UGG4MA05561FY5.html" target="_blank">来源</a><a class="link-btn" href="https://game.sohu.com/a/1076925777_100274826" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>② 海外互动叙事「机制+世界观授权」双轮驱动——Choice of Games《Hunter》百万字 9/17 发售，与 AKIBA LOST 同日对垒</h4>
+    <div class="src">来源：Planet IF/Choice of Games官方(9/14) · intfiction.org(IFComp 2026)</div>
+    <ul><li>Choice of Games《Hunter: The Reckoning — Day for Night》9/17 发售：100 万字互动小说，World of Darkness(黑暗世界)官方授权，主题「猎杀好莱坞怪物 vs 自身怪物化」</li><li>与 AKIBA LOST(真人FMV)同日(9/17)发售，形成「百万字纯文字 IF vs 真人实拍 FMV」两条叙事技术路线同日对垒</li><li>海外文字互动叙事社区(intfiction.org)IFComp 2026 评测讨论持续活跃——参赛作质量参差、「定时文本过慢+循环重玩」「无存档+突然死亡」被批，是「机制与体验细节」的真实反馈样本</li><li>共同趋势：「叙事机制化+世界观授权」成为互动叙事的差异化核心，与国内「真人IP+短剧演员」路线形成镜像对照</li></ul>
+    <div class="act"><strong>行动建议：</strong>海外互动叙事「机制化+世界观授权」双轮驱动持续，是自有项目做「叙事差异化」的方法论富矿。三点启示：① 「世界观授权」是强力杠杆——Hunter 靠《黑暗世界》官方授权自带粉丝基本盘，与国内「网文/影视 IP 授权」镜像(绍宋已验证)，自有项目可优先考虑「IP 授权」而非从零造世界观；② 「把叙事结构做成玩法」是趋势——AKIBA LOST 多视角互连 vs Hunter 世界观选择，比「单线程分支+堆真人影像」更高阶；③ IFComp 社区反馈点破「纯文字 IF」的真实痛点(定时文本过慢、无存档、突然死亡劝退)，自有项目做互动叙事务必把「文本节奏可跳、存档友好、失败不惩罚」当硬性体验指标，别让「机制炫技」压过「体验顺滑」。</div>
+    <div class="links"><a class="link-btn" href="http://planet-if.com/" target="_blank">来源</a><a class="link-btn" href="https://intfiction.org/t/victors-if-comp-2026-reviews/82051" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>③ Steam 评测周四自然微增、8正增长/1净减/28持平、头部全线稳定——金宵公寓 56.6% 持平企稳</h4>
+    <div class="src">来源：Steam评测API环比(9/16→9/17)</div>
+    <ul><li>单日环比(周四)：8 款正增长、1 款净减、28 款持平，全线温和、无去水分、无爆款激增</li><li>领涨：女帝篇 +4、媚娘篇 +4、绍宋 +2、列车怪谈/不心动才有鬼/天平游戏/主角/恶校游戏各 +1（无一款达 +30% 爆款阈值）</li><li>唯一净减：对不起我是警察 -1（78.0%→77.9% 微降，正常波动）</li><li>头部好评率全线稳定：女帝 82.5%、媚娘篇 82.9%、绍宋 80.9%、江山北望 91.3% 持平、花满楼 97.5% 持平</li><li>金宵公寓 56.6% 持平（昨日 57.0→56.6 微降后今日企稳），仍是唯一差评风险样本</li><li>新增追踪：AKIBA LOST 正式版(4131220，今日发售但 Steam 仍「即将推出」0评测) + Demo(4441050，13中文评测 92.3%)</li></ul>
+    <div class="act"><strong>行动建议：</strong>头部竞品进入「自然长尾增长 + 零去水分」的健康态，是可靠的对标基准。三点启示：① 「女帝篇/媚娘篇 +4 领涨、绍宋止跌 +2」说明盛世天下两篇与绍宋仍是长尾口碑的压舱石，自有项目监测竞品应盯「持续正增长的老竞品」而非「单日脉冲的新品」；② 金宵公寓 56.6% 从「微降」到「持平企稳」——但企稳不代表翻身，56.6% 的好评率仍是「新上线竞品前72h口碑管理失守」的警示样本，自有项目推新作上线首周务必盯紧差评焦点；③ 今日开始追踪 AKIBA LOST 正式版(0评测)，明日(9/18)是「日系FMV正式版评测爬升」的关键观测窗口，自有项目可借此观察「媒体负面判断 vs 正式版玩家真实评分」是否收敛。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/3831120" target="_blank">来源</a><a class="link-btn" href="https://store.steampowered.com/app/4143220" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>④ TGS2026 今日开幕（史上最大 1138 家/53 国）——韩系厂商大规模参展，五心合辑 Happinet 展台试玩启动，FMV 主机化出海进入展会主战场</h4>
+    <div class="src">来源：FnNews(9/16) · Beebom/Xbox TGS(9/17) · GoNintendo(9/15)</div>
+    <ul><li>TGS2026 今日(9/17)开幕，规模史上最大：1138 家/53 国，海外 598 家超过日本本土 540 家</li><li>韩系 Nexon/NCSoft/Netmarble/Smilegate 大规模参展，瞄准日本亚文化市场</li><li>与本赛道相关：韩系 FMV《Five Hearts Under One Roof: Paradise Edition》今日起在 Happinet 展台(Hall 6, 06-N04)试玩，简繁中语言支持</li><li>TGS 是 FMV/互动影游「主机化+出海」宣发主战场，本周可关注有无新的互动影游官宣</li></ul>
+    <div class="act"><strong>行动建议：</strong>TGS2026 是本周 FMV/互动影游「主机化+出海」的宣发主战场，自有项目可借机观察海外厂商的出海打法。三点启示：① 韩系厂商把 TGS 当「新游首发舞台」——Nexon/NCSoft/Smilegate 都在 TGS 首曝新作，说明「展会首发」仍是亚文化赛道的有效宣发杠杆，自有项目若做出海可规划「TGS/Gamescom 首发」节奏；② 五心合辑「TGS 展台试玩+限定周边+等身立牌」是完整 IP 运营闭环，自有项目长尾期可考虑「主机移植+实体周边」做第二曲线；③ 简繁中语言支持说明中文市场已被韩系 FMV 当明确目标盘，自有项目有主场优势但窗口在收窄，宜早不宜迟。</div>
+    <div class="links"><a class="link-btn" href="https://en.fnnews.com/news/202609161418297555" target="_blank">来源</a><a class="link-btn" href="https://gonintendo.com/contents/64951-fmv-romance-series-five-hearts-under-one-roof-paradise-edition-heads-to-switch-early" target="_blank">旁证</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 自09-17前快照起）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">媚娘篇(盛世天下)</span><span class="pct">82.9%</span></div><div class="dl ">+4(+0.0%)</div><div class="nt">媚娘篇 +4（今日领涨），82.9% 稳定，盛世天下两篇合计仍领跑大盘</div></div><div class="review-cell"><div class="rn"><span class="nm">女帝篇(盛世天下)</span><span class="pct">82.5%</span></div><div class="dl ">+4(+0.1%)</div><div class="nt">女帝篇 +4（今日领涨），82.5% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">80.9%</span></div><div class="dl ">+2(+0.1%)</div><div class="nt">绍宋 +2，80.9% 稳定（止跌回升）</div></div><div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.3%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">主角 +1，97.3% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">93.0%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">恶校游戏 +1，93.0% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">95.0%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">不心动才有鬼 +1，95.0% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">天平游戏1:抉择</span><span class="pct">85.5%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">天平游戏1:抉择 +1，85.5%（85.6→85.5 微降0.1pp）</div></div><div class="review-cell"><div class="rn"><span class="nm">列车怪谈：虚像之境</span><span class="pct">86.8%</span></div><div class="dl ">+1(+1.5%)</div><div class="nt">列车怪谈 +1，86.8%（86.6→86.8 微升）</div></div><div class="review-cell"><div class="rn"><span class="nm">Bloodholic</span><span class="pct">98.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Cage of Roses</span><span class="pct">89.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Run</span><span class="pct">33.3%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文33.3% vs 全语言88.3%(差55.0pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.2%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">冰点之下</span><span class="pct">93.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">66.7%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.3%</span></div><div class="dl ">持平</div><div class="nt">江山北望持平，91.3% 稳定（小而稳长尾标杆）</div></div><div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.7%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">雪落情书时</span><span class="pct">96.4%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Five Dates</span><span class="pct">85.6%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Libera Nos a Malo</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">灭寇1939:上川往事</span><span class="pct">83.2%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">97.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">阴三国谋论:徐州篇</span><span class="pct">91.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">退婚后,宗主马甲藏不住</span><span class="pct">26.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Project DeepWeb</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">87.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">1000王子(AI原生乙女)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0.0% vs 全语言22.2%(差22.2pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">无言之林(海外一人FMV)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0.0% vs 全语言51.6%(差51.6pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">金宵公寓事件</span><span class="pct">56.6%</span></div><div class="dl ">持平</div><div class="nt">金宵公寓 56.6% 持平（不再下跌，仍是唯一差评风险样本）</div></div><div class="review-cell"><div class="rn"><span class="nm">你好,你配吗?</span><span class="pct">96.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">东北往事</span><span class="pct">83.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">末日降临!被美女们关进避难所</span><span class="pct">81.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">夺命邂逅</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0条，夺命邂逅=Demo试玩已排除竞品池</div></div><div class="review-cell"><div class="rn"><span class="nm">宗门最后的长老</span><span class="pct">97.1%</span></div><div class="dl ">持平</div><div class="nt">宗门最后的长老=修仙合成塔防非互动影游，已排除竞品池</div></div><div class="review-cell"><div class="rn"><span class="nm">Rescue the Hostages: Misaligned Fate</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">追踪中(9/3上架，中文仅1条，属性存疑待甄别)</div></div><div class="review-cell"><div class="rn"><span class="nm">对不起我是警察</span><span class="pct">77.9%</span></div><div class="dl ">-1(-0.1%)</div><div class="nt">对不起我是警察 -1，77.9%（78.0→77.9 微降0.1pp，唯一净减样本）</div></div><div class="review-cell"><div class="rn"><span class="nm">AKIBA LOST (秋叶原迷踪)</span><span class="pct">—</span></div><div class="dl ">新增追踪</div><div class="nt">AKIBA LOST 正式版：今日9/17发售但 Steam 仍「即将推出」、0评测（发售后评测将爬升，明日重点追踪）</div></div><div class="review-cell"><div class="rn"><span class="nm">AKIBA LOST (秋叶原迷踪) 试玩版</span><span class="pct">92.3%</span></div><div class="dl ">新增追踪</div><div class="nt">AKIBA LOST 试玩版(Demo)：13中文评测 92.3%（Demo 好评 vs 媒体负面形成对照）</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">《AKIBA LOST 秋叶原迷踪》9/17 正式发售——玩家评测密集落地，媒体「重制作救不了剧本」判断开始被印证</span><span class="delta">新供给·日系FMV</span></div>
+    <div class="meta">IzanagiGames（企划·发行）· 日本电视台(NTV) · AX-ON 共同制作 · 2026-09-17 发售（Steam/PS5/NS/NS2）· 简中/繁中/日/英/韩</div>
+    <div class="note">发售日当天，中文媒体/玩家评测密集落地，昨日媒体评测的「重制作救不了剧本」判断开始被玩家侧印证。新增关键信息：① 网易深度稿(9/16)披露此前未公开的核心剧情设定——主角新城大辉患「难病、寿命只剩1年左右」，为救失踪的妹妹、在发表会当场改公布以「秋叶原神隐」为题材的《AKIBA LOST》，引发社交平台「炎上」；所在工作室「白泽游戏」出道作《WHITE CRASH》曾是热门但长期低迷；② 选角设定「去秋叶原找现实中真做女仆/主播/coser/巫女这些工作的人来演」——制作思路「实拍真实感」延续。⚠️ 玩家侧负面与媒体一致且更具体：实拍影像与10万静态照片频繁切换、照片段落无配音「像翻PPT」；文字是轻小说写法信息密度低、台词打磨一般，「4K日剧画面 vs 轻小说文本」割裂感强；结局从都市阴谋收在个人恩怨（日剧常见套路），玩家觉得可惜；内置词典收录过宽显累赘。正面：日剧班底颜值/演技在线（田边桃子演技最抓人、松村沙友理/宇垣美里颜值担当）、秋叶原亚文化氛围、6支线互相影响的多视角机制(类《428》)、免费 Demo 好评。⚠️ Steam 正式版今日尚未切换为可购买状态（0评测），玩家评测主要来自 Demo 与主机版/日媒，明日(9/18)是正式版评测爬升的关键观测窗口。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">日系FMV</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">海外互动叙事新供给：Choice of Games《Hunter: The Reckoning — Day for Night》9/17 发售（百万字互动小说·黑暗世界授权）</span><span class="delta">新供给·互动小说</span></div>
+    <div class="meta">Josh Labelle（作者） · 2026-09-17 发售（与 AKIBA LOST 同日）· Steam 可愿望单</div>
+    <div class="note">Planet Interactive Fiction 确认 Choice of Games《Hunter: The Reckoning — Day for Night》本周四 9/17 发售，100 万字互动小说，World of Darkness(黑暗世界)官方授权，主题「猎杀好莱坞吸血鬼/狼人 vs 自身怪物化」。与 AKIBA LOST(真人FMV)同日发售，形成「百万字纯文字 IF vs 真人实拍 FMV」两条叙事技术路线同日对垒。要点：海外互动叙事「世界观授权+机制化」双轮驱动持续，与国内「真人IP+短剧演员」路线对照。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">互动小说</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">TGS2026 今日(9/17)开幕——史上最大规模(1138家/53国)，韩系厂商大规模参展，五心合辑 Happinet 展台试玩启动</span><span class="delta">机制·展会</span></div>
+    <div class="meta">CESA / 千叶幕张展览馆 · 2026-09-17~21（公众日 9/19~21）</div>
+    <div class="note">东京电玩展 TGS2026 今日开幕，规模史上最大（1138 家/53 国，其中海外 598 家超过日本本土 540 家）。韩系厂商 Nexon/NCSoft/Netmarble/Smilegate 大规模参展瞄准日本亚文化市场。与本赛道相关：韩系 FMV《Five Hearts Under One Roof: Paradise Edition》今日起在 Happinet 展台(Hall 6, 06-N04)提供试玩（昨日已确证），简繁中语言支持。TGS 是 FMV/互动影游「主机化+出海」宣发的主战场，本周可关注有无新的互动影游官宣。</div>
+    <div class="tags"><span class="tag tag-p">机制</span><span class="tag tag-p">展会</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Steam 评测单日环比（9/16→9/17）——见下方「Steam 竞品评测环比」明细</span><span class="delta">机制·单日环比</span></div>
+    <div class="meta">Steam 评测系统（机制信号） · 2026-09-17 窗口</div>
+    <div class="note">本周四单日环比，自然微增、8正增长/1净减/28持平、无去水分、无爆款激增。新增追踪 AKIBA LOST 正式版(4131220)+Demo(4441050)。核心观察：头部好评率是否稳定、金宵公寓是否企稳、有无单款达 +30% 爆款阈值。</div>
+    <div class="tags"><span class="tag tag-p">机制</span><span class="tag tag-p">单日环比</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望（木焱工作室）</span><span class="delta">v1.3.4</span></div>
+    <div class="note">TapTap PC 端修复更新仍在推进（v1.3.4 修「结局视频无法播放/黑屏」）。Steam 侧 9/17 单日持平，91.3% 稳定，TapTap 与 Steam 双端「小而稳」长尾口碑持续互证。开发商木焱工作室(上海木焱网络，前作《名利游戏》)。今日无新增 TapTap 评分/讨论异动，标「无新增量」。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">网易深度稿：构想6年、全篇实拍——AKIBA LOST「到底玩什么」正反两说，新披露主角「寿命1年」设定</span><span class="delta">媒体信号</span></div>
+    <div class="note">网易(9/16) 发布《构想6年、全篇实拍:这款秋叶原群像悬疑游戏到底玩什么?》深度稿，披露此前媒体评测未提及的核心剧情设定：主角新城大辉患「难病、寿命只剩1年左右」，为救失踪的妹妹、在发表会当场改公布以「秋叶原神隐」为题材的游戏，引发社交平台「炎上」；所在工作室「白泽游戏」出道作《WHITE CRASH》曾是热门但长期低迷；选角设定「去秋叶原找现实中真做女仆/主播/coser/巫女的人来演」。这是「实拍真实感」制作思路的延续印证。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">搜狐游戏/A9VG 简评：AKIBA LOST「日剧规格，视觉小说的新壳与旧核」——画面天花板，但本质非「真人互动影游」</span><span class="delta">媒体信号</span></div>
+    <div class="note">搜狐游戏(9/17) 转载 A9VG 简评：国内真人互动影游以好感度/恋爱模拟为核心，而 AKIBA LOST 更像「新世代画面进化的日式视觉小说」。亮点=日剧规格画面天花板(北山宏光+松村沙友理/田边桃子/宇垣美里/小栗有以/大原梓/MINA 日剧班底)；⚠️ 负面=10万静态照片与真人影像频繁穿插且无配音「像翻PPT」、文字轻小说信息密度低、图文处理简单粗暴有割裂感。玩家侧印证媒体「重制作救不了剧本」的判断。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">intfiction.org：IFComp 2026 社区评测讨论活跃——海外文字互动叙事社区持续产出（Victor's IF Comp 2026 reviews）</span><span class="delta">媒体信号</span></div>
+    <div class="note">The Interactive Fiction Community Forum(intfiction.org) 近期持续有 IFComp 2026 参赛作评测讨论（如「Victor's IF Comp 2026 reviews」帖）。讨论焦点：参赛作质量参差(「Everyone's Invited」文字利落/「Gambler's Quest」未完成未测试)、「定时文本过慢+循环重玩」劝退、以及「无存档+突然死亡」设计被批「不友善」。这是海外文字互动叙事社区「机制与体验细节」的真实反馈样本，可作为自有项目「多结局/存档/文本节奏」设计的对照参考。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.11</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · Tech Times/今日头条/游民星空/腾讯新闻/中金在线/Next-Gen Gaming Blog | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

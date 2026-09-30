@@ -1,0 +1,61 @@
+{
+  "updated_at": "2026-09-30",
+  "tabs": [
+    {
+      "id": "papers",
+      "label": "论文日报",
+      "color": "#1D9E75",
+      "latest": "papers-2026-09-30.html",
+      "date": "2026-09-30",
+      "kind": "dated"
+    },
+    {
+      "id": "all_papers",
+      "label": "论文全库",
+      "color": "#1D9E75",
+      "latest": "all-papers.html",
+      "date": "2026-09-30",
+      "kind": "live"
+    },
+    {
+      "id": "product",
+      "label": "产品仪表盘",
+      "color": "#534AB7",
+      "latest": "dashboard.html",
+      "date": "2026-09-30",
+      "kind": "live"
+    },
+    {
+      "id": "player_voice",
+      "label": "玩家心声",
+      "color": "#BA7517",
+      "latest": "player-voice-2026-09-30.html",
+      "date": "2026-09-30",
+      "kind": "dated"
+    },
+    {
+      "id": "intel",
+      "label": "情报快报",
+      "color": "#378ADD",
+      "latest": "intel-2026-09-30.html",
+      "date": "2026-09-30",
+      "kind": "dated"
+    },
+    {
+      "id": "industry",
+      "label": "行业调研",
+      "color": "#C2410C",
+      "latest": "industry-2026-09-30.html",
+      "date": "2026-09-30",
+      "kind": "dated"
+    },
+    {
+      "id": "index",
+      "label": "知识库总览",
+      "color": "#8A8790",
+      "latest": "knowledge.html",
+      "date": "2026-09-30",
+      "kind": "live"
+    }
+  ]
+}

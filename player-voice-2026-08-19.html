@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玩家心声报告 v0.4 | 2026-08-19</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.c{max-width:920px;margin:0 auto}
+
+header{text-align:center;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .sub{font-size:12px;color:var(--s)}
+
+/* ─── Hero Banner ─── */
+.hero{background:linear-gradient(135deg,var(--a),#3C3489);color:#fff;border-radius:14px;padding:28px 28px 20px;margin-bottom:24px}
+.hero-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.18);margin-bottom:10px;letter-spacing:0.5px}
+.hero h2{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
+.hero .lead{font-size:13px;opacity:0.85;line-height:1.6;max-width:680px;margin-bottom:16px}
+.hero-stats{display:flex;gap:20px;flex-wrap:wrap}
+.hero-stat{display:flex;flex-direction:column;background:rgba(255,255,255,0.12);border-radius:8px;padding:10px 16px;min-width:90px}
+.hero-stat .hsv{font-size:26px;font-weight:700;line-height:1}
+.hero-stat .hsl{font-size:10px;opacity:0.7;margin-top:2px;white-space:nowrap}
+
+/* ─── Quick Strip ─── */
+.quick-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.qcard{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px;transition:box-shadow 0.15s}
+.qcard:hover{box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.qcard-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.qcard .qicon{width:28px;height:28px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--border)}
+.qcard .qname{font-size:12px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qcard .qrating{font-size:18px;font-weight:700;line-height:1}
+.qcard .qrating.ok{color:var(--g)}.qcard .qrating.warn{color:var(--amb)}.qcard .qrating.bad{color:var(--r)}
+.qcard .qbar{display:flex;height:4px;border-radius:2px;overflow:hidden;margin-bottom:6px}
+.qcard .qbar .pos{background:var(--g)}.qcard .qbar .neg{background:var(--r)}
+.qcard .qtag{font-size:10px;color:var(--muted);line-height:1.4}
+
+/* ─── Section ─── */
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:14px;padding-bottom:6px;border-bottom:2px solid var(--al);display:flex;align-items:center;gap:8px}
+.section-title .st-num{font-size:10px;color:var(--muted);font-weight:400}
+
+/* ─── Product Card ─── */
+.pcard{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;margin-bottom:18px;overflow:hidden;display:flex;flex-direction:column}
+.pcard-header{display:flex;gap:16px;padding:16px 20px;background:var(--bg);border-bottom:1px solid var(--border);align-items:center}
+.pcard-header .pcover{width:120px;height:68px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--border)}
+.pcard-header .pinfo{flex:1;min-width:0}
+.pcard-header .pinfo .ptitle{font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+.pcard-header .pinfo .pmeta{font-size:11px;color:var(--muted);margin-bottom:6px;display:flex;gap:12px;flex-wrap:wrap}
+.pcard-header .pinfo .pmeter{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:4px}
+.pcard-header .pinfo .pmeter .pos{background:var(--g)}.pmeter .neg{background:var(--r)}
+.pcard-header .pinfo .pmeter-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+
+.pcard-body{padding:18px 20px}
+.pcard-body .pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.pcard-body .pb-grid{grid-template-columns:1fr}.quick-strip{grid-template-columns:repeat(2,1fr)}}
+.pb-block{margin-bottom:2px}
+.pb-block h4{font-size:11px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.pb-block h4 .hdot{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.pb-block h4 .hdot.neg{background:var(--r)}.pb-block h4 .hdot.pos{background:var(--g)}
+.pb-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pb-list li{font-size:12px;color:var(--s);line-height:1.5;padding:4px 10px;border-radius:6px;transition:background 0.1s}
+.pb-list li:hover{background:var(--bg)}
+.pb-list .cnt{font-size:10px;color:var(--muted);background:var(--bg);padding:1px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.pb-list .q{display:block;font-size:10px;color:var(--muted);font-style:italic;margin-top:2px;line-height:1.4}
+
+.pcard-actions{padding:0 20px 18px}
+.act-item{background:var(--al);border:1px solid var(--a);border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.act-item:last-child{margin-bottom:0}
+.act-item .prio{display:inline-block;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:700;flex-shrink:0;margin-top:1px}
+.prio.p0{background:var(--r);color:#fff}.prio.p1{background:var(--amb);color:#fff}.prio.p2{background:var(--b);color:#fff}
+.act-item .act-text{flex:1;min-width:0}
+.act-item h4{font-size:12px;font-weight:600;margin-bottom:2px;color:var(--a)}
+.act-item p{font-size:11px;color:var(--s);line-height:1.5}
+
+/* ─── Cross Patterns ─── */
+.pattern-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.pattern-grid{grid-template-columns:1fr}}
+.pat-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px;position:relative;overflow:hidden}
+.pat-card::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;border-radius:2px 0 0 2px}
+.pat-card:nth-child(1)::before{background:var(--a)}
+.pat-card:nth-child(2)::before{background:var(--g)}
+.pat-card:nth-child(3)::before{background:var(--amb)}
+.pat-card:nth-child(4)::before{background:var(--r)}
+.pat-card:nth-child(5)::before{background:var(--b)}
+.pat-num{font-size:36px;font-weight:700;color:var(--border);line-height:1;margin-bottom:-10px}
+.pat-card h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.pat-card p{font-size:12px;color:var(--s);line-height:1.5;margin-bottom:8px}
+.pat-card .pat-tags{display:flex;gap:6px;flex-wrap:wrap}
+.pat-card .pat-tags .tag{font-size:9px;padding:1px 7px;border-radius:3px;font-weight:600}
+.tag.from{background:var(--rl);color:var(--r)}.tag.fix{background:var(--gl);color:var(--g)}
+
+/* ─── Self Eval ─── */
+.self-eval{background:var(--card-bg);border:1px solid var(--amb);border-radius:10px;padding:18px;margin-top:24px}
+.self-eval h4{font-size:14px;font-weight:600;color:var(--amb);margin-bottom:10px}
+.se-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px}
+@media(max-width:700px){.se-grid{grid-template-columns:1fr}}
+.se-item{text-align:center;padding:10px 8px;border-radius:8px;background:var(--bg)}
+.se-item .score{font-size:30px;font-weight:700;line-height:1}
+.se-item .score.r{color:var(--r)}.se-item .score.g{color:var(--g)}.se-item .score.a{color:var(--a)}
+.se-item .lbl{font-size:10px;color:var(--muted);margin-top:4px}
+.se-item .note{font-size:10px;color:var(--s);margin-top:6px;line-height:1.4}
+
+/* ─── Next Steps ─── */
+.next-steps{margin-top:12px;padding:12px 16px;background:var(--bl);border:1px solid var(--b);border-radius:8px;font-size:12px;color:var(--b);line-height:1.6}
+.next-steps strong{display:block;margin-bottom:2px}
+
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+</style>
+</head>
+<body>
+<div class="c">
+
+<header>
+  <h1>玩家心声报告 v0.4</h1>
+  <div class="sub">互动影游竞品 · Steam 评测深读 · 2026-08-19 · 全量 19 款 · 368 条去重评测 · 新入库：女王的游戏双部曲</div>
+</header>
+
+<!-- ═══ Hero ═══ -->
+<div class="hero">
+  <div class="hero-tag">⚡ CORE FINDING</div>
+  <h2>“假自由度”取代信任危机，成为本周第一信号</h2>
+  <p class="lead">女王的游戏双部曲（合计 1.74 万条评测）首次入库：83% 的高分之下，“只有一条标准线、选错就是死”在两部 40 条差评抽样中出现 12 次——宣发话术“选择决定命运”与实际“单线 + 死亡惩罚”的落差，是 2026 年玩家最敏感的神经。恶校游戏 48 小时新增 68 条评测成为本周最大增量，但“强制救孔鸢”单一剧情节点贡献 5/20 差评，被玩家类比“美末二强行共情艾比”。同时信任危机进入第二周并常态化：不心动才有鬼签名照事故仍在发酵（差评区出现行业檄文长评），退婚后宗主 18 条中文评测悄然消失（59→41），已挂数据盯守。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hsv">19</span><span class="hsl">分析产品</span></div>
+    <div class="hero-stat"><span class="hsv">368</span><span class="hsl">今日评测</span></div>
+    <div class="hero-stat"><span class="hsv">25</span><span class="hsl">P0+P1 建议</span></div>
+    <div class="hero-stat"><span class="hsv">5</span><span class="hsl">交叉模式</span></div>
+  </div>
+</div>
+
+<!-- ═══ Quick Strip ═══ -->
+<div class="quick-strip">
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3818020/f463d6f2fe1ab48704011f38f80bdd02a8f2d6d5/header_schinese.jpg?t=1786676383" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">恶校游戏</span><span class="qrating ok">95%</span></div>
+    <div class="qbar"><div class="pos" style="width:95%"></div><div class="neg" style="width:5%"></div></div>
+    <div class="qtag">🔴 本周+68条 · 救孔鸢争议爆发</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4855450/32b18b2fd0dc505d38dd91500dfc359b771c37d0/header_schinese.jpg?t=1786671930" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">不心动才有鬼</span><span class="qrating ok">89%</span></div>
+    <div class="qbar"><div class="pos" style="width:89%"></div><div class="neg" style="width:11%"></div></div>
+    <div class="qtag">🔴 本周+53条 · 信任危机第二周</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4148240/ad47878cf250027da631c4678102b8167fd166c1/capsule_616x353_schinese.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">女王的游戏 女帝篇</span><span class="qrating ok">83%</span></div>
+    <div class="qbar"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+    <div class="qtag">🆕 首次入库 · 8042条 · 假自由度重灾区</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3478050/0e3d390564332c03dd980d0b295cb533d0ecb7a7/capsule_616x353_schinese.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">女王的游戏 媚娘篇</span><span class="qrating ok">83%</span></div>
+    <div class="qbar"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+    <div class="qtag">🆕 首次入库 · 9374条 · 拆分销售争议</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4740420/2af65d3f87f03692ea5c480287a58e9ff0165722/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">雪落情书时</span><span class="qrating ok">97%</span></div>
+    <div class="qbar"><div class="pos" style="width:97%"></div><div class="neg" style="width:3%"></div></div>
+    <div class="qtag">⚠️ 30天差评20条 · 文旅片 · 男主配音</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4234260/8304dfd2458ffffd8ce94ce8e76a12c95f4f6cf5/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">主角</span><span class="qrating ok">98%</span></div>
+    <div class="qbar"><div class="pos" style="width:98%"></div><div class="neg" style="width:2%"></div></div>
+    <div class="qtag">⚠️ 云存档缺失 · QTE卡关 · 刷好评质疑</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">江山北望</span><span class="qrating ok">91%</span></div>
+    <div class="qbar"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+    <div class="qtag">⚠️ 强制联网DRM · 读档重走</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3987560/faeffae4a00fde7027c6a1124e88565156e7fdf0/header_schinese.jpg?t=1782476929" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">盛夏离与合</span><span class="qrating ok">85%</span></div>
+    <div class="qbar"><div class="pos" style="width:85%"></div><div class="neg" style="width:15%"></div></div>
+    <div class="qtag">⚠️ 成就进度bug · 体量缩水</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3412900/231f644e9295928805d168098ba7000c7bf3f13f/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">代号三国:龙起</span><span class="qrating ok">92%</span></div>
+    <div class="qbar"><div class="pos" style="width:92%"></div><div class="neg" style="width:8%"></div></div>
+    <div class="qtag">🔴 RB bug 第三周未修 · 定位四不像</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3711170/9f5c70a0241948bc9c96a4af88a441afdeeabeb9/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">冰点之下</span><span class="qrating ok">94%</span></div>
+    <div class="qbar"><div class="pos" style="width:94%"></div><div class="neg" style="width:6%"></div></div>
+    <div class="qtag">⚠️ 成就点死循环bug</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2816920/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">退婚后，宗主马甲藏不住</span><span class="qrating bad">27%</span></div>
+    <div class="qbar"><div class="pos" style="width:27%"></div><div class="neg" style="width:73%"></div></div>
+    <div class="qtag">🔴 ⚠️ 18条中文评测消失(59→41) · 数据异常盯守</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3794770/fdc921b966d6cae54eb098a27b722fa1fdfec5b7/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">心之岛</span><span class="qrating bad">68%</span></div>
+    <div class="qbar"><div class="pos" style="width:68%"></div><div class="neg" style="width:32%"></div></div>
+    <div class="qtag">⚠️ 偏差+10pp · 第三章崩溃bug</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4104120/16dae4067058e25071f0af97e0b07f2d10829e8a/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">对不起，我是警察</span><span class="qrating warn">78%</span></div>
+    <div class="qbar"><div class="pos" style="width:78%"></div><div class="neg" style="width:22%"></div></div>
+    <div class="qtag">✅ 快进功能补齐后获点名表扬</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3447920/123aa17f56acb1209e393de707600c9396c1dc6f/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">The Run</span><span class="qrating ok">91%</span></div>
+    <div class="qbar"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+    <div class="qtag">⚠️ 结局突兀+无章节跳转（第二周）</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2993720/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">Cage of Roses</span><span class="qrating ok">88%</span></div>
+    <div class="qbar"><div class="pos" style="width:88%"></div><div class="neg" style="width:12%"></div></div>
+    <div class="qtag">⚠️ 中文区翻译灾难（“半月板”）</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1353270/header_schinese.jpg?t=1780395695" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">Five Dates</span><span class="qrating warn">80%</span></div>
+    <div class="qbar"><div class="pos" style="width:80%"></div><div class="neg" style="width:20%"></div></div>
+    <div class="qtag">“必须撒谎才能被喜欢”机制争议</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1107790/header_schinese.jpg?t=1780398865" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">The Complex</span><span class="qrating warn">78%</span></div>
+    <div class="qbar"><div class="pos" style="width:78%"></div><div class="neg" style="width:22%"></div></div>
+    <div class="qtag">⚠️ 不能回档 · 偏短（第二周）</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1188710/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">Bloodholic</span><span class="qrating ok">98%</span></div>
+    <div class="qbar"><div class="pos" style="width:98%"></div><div class="neg" style="width:2%"></div></div>
+    <div class="qtag">⚠️ 偏差+10pp · 样本3条</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4902060/b7fdd85c1c1f2afc8229abe24876bff8af20c216/header.jpg?t=1786815678" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">Libera Nos a Malo</span><span class="qrating warn">67%</span></div>
+    <div class="qbar"><div class="pos" style="width:67%"></div><div class="neg" style="width:33%"></div></div>
+    <div class="qtag">⚠️ n=3 不可信 · 首条“AI slop”指控</div>
+  </div>
+</div>
+
+<!-- ═══ 逐款分析 ═══ -->
+<div class="section-title">逐款分析 <span class="st-num">19 款 · 按信号强度排序 · 好评率为 API 抽样（已与商店页基线比对）</span></div>
+
+<!-- ─── 恶校游戏 ─── -->
+<div class="pcard" style="border-left:4px solid var(--r)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3818020/f463d6f2fe1ab48704011f38f80bdd02a8f2d6d5/header_schinese.jpg?t=1786676383" alt="恶校游戏" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">恶校游戏 <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">🔴 本周最大增量 +68 条评测（08-17 以来）</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 95% / 商店 93%（+2 ✓）· 基线已补齐</span></div>
+      <div class="pmeta"><span>CineGame Interactive · 2026-08-13</span><span>去重评测 35</span><span>30天差评 20</span></div>
+      <div class="pmeter"><div class="pos" style="width:95%"></div><div class="neg" style="width:5%"></div></div>
+      <div class="pmeter-labels"><span>好评 95%（API 全量口径 591/622）</span><span>差评 5%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>强制救孔鸢：要求玩家共情霸凌者，无铺垫无动机 <span class="cnt">×5</span><span class="q">“我就想不通为什么非得救孔鸢，她是什么好人吗我请问？”/“堪比美末二强行让玩家共情艾比环节……没有任何充足的理由和动机，就硬救”/“当我主线非得要去救她的时候，你游就该拿差评！”</span></li>
+          <li>配音毫无情绪、女主表演僵硬 <span class="cnt">×4</span><span class="q">“姐姐的日记独白这段配音毫无情绪，像是被人按着头在念别人的作文……声音却像广播一样，完全无法代入”/“从女主的脸上看不到任何的情绪……平静的像一个专业杀手一样”</span></li>
+          <li>剧情逻辑硬伤：刑侦零细节 <span class="cnt">×5</span><span class="q">“一个成年人藏进餐车，那重量、那体积，餐车推起来能没数吗？”/“把张瑶杀了还用她手机下单，一查不就是有其他人在犯罪现场”/“2周内连续作案，当年的同犯没起一点疑心，警察一点作为都没有”</span></li>
+          <li>高开低走：后两章赶工、节奏突变 <span class="cnt">×3</span><span class="q">“后两章节奏明显赶了，逻辑开始放飞”/“后半段明显节奏太快，有种着急下班的感觉，导致整体像个虎头蛇尾的半成品”</span></li>
+          <li>“好评怎么刷的”质疑 <span class="cnt">×2</span><span class="q">“这游戏好评是怎么刷的？”/“不知道哪来这么多好评骗我买了这个游戏”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>题材稀缺：非恋爱影游的精神续作 <span class="cnt">×3</span><span class="q">“在满大街恋爱影游里面终于有继承《飞越13号房》这类的非恋爱影游精神反击复仇剧了”</span></li>
+          <li>复仇爽感、节奏紧凑无尿点 <span class="cnt">×3</span><span class="q">“妹妹复仇的桥段让我非常爽，非常沉浸，物超所值的一部作品”</span></li>
+          <li>拍摄质感是院线班底 + BGM 品味 <span class="cnt">×2</span><span class="q">“拍摄质感明显是院线班底，校园场景够真实”/“BGM非常好听，今年最好听的影游BGM了”</span></li>
+          <li>反霸凌立意引发真实共鸣 <span class="cnt">×2</span><span class="q">“面对霸凌，沉默并不是自保的方式，而是纵容”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>强制救援节点必须前置铺垫，不能“硬救”</h4><p>“救孔鸢”5/20 差评聚集说明：让玩家为一个未洗白的加害者冒险，需要提前 2 章以上埋“非她不可”的理由（情报源/人质/血缘）。对自家产品的输入：任何违背玩家道德直觉的强制行为，都要给“剧情上非做不可”的解释，否则就是差评核弹。</p></div></div>
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>暂停键显示 bug（显示暂停但视频仍在播）</h4><p>玩家原文：“界面显示暂停键，但视频实际还在播放”。UX 级 bug，官方以“维护速度还挺快”著称，这条应进当周修复清单。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>后段刑侦合理性打磨</h4><p>“餐车藏人”“用死者手机点餐”这类一眼假桥段，可低成本修复：给警察一条“查了但被权势压下”的支线解释即可自洽。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 不心动才有鬼 ─── -->
+<div class="pcard" style="border-left:4px solid var(--r)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4855450/32b18b2fd0dc505d38dd91500dfc359b771c37d0/header_schinese.jpg?t=1786671930" alt="不心动才有鬼" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">不心动才有鬼 <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">🔴 +53 条评测 · 签名照事故进入第二周仍在燃烧</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 89% / 商店 88%（+1 ✓）· 基线已补齐</span></div>
+      <div class="pmeta"><span>SP Studio · 2026-08-13</span><span>去重评测 31</span><span>30天差评 20</span></div>
+      <div class="pmeter"><div class="pos" style="width:89%"></div><div class="neg" style="width:11%"></div></div>
+      <div class="pmeter-labels"><span>好评 89%（API 全量口径 319/360）</span><span>差评 11%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>签名照宣发事故持续发酵：黑箱抽奖+小群特权+装死 <span class="cnt">×7</span><span class="q">“抽取规则朝令夕改、全程黑箱……竟然想出‘补偿内部小群每人一张指定签名照’的神经决策……令人作呕。之后更是躺平装死至今”/“多份号一人一张自选签名照是什么操作，普通玩家就是抽30个CDK”</span></li>
+          <li>剧情前后不连贯、转场突兀 <span class="cnt">×6</span><span class="q">“主线剧情没头没尾，前后逻辑完全对不上，完全是想到哪拍到哪”/“绝大多数转场都十分突兀，镜头连贯性基本没有”/“第五章……几秒钟说一声挤，就又跳到下一段”</span></li>
+          <li>台词生硬、人物缺乏铺垫 <span class="cnt">×3</span><span class="q">“台词就更是要命。矫揉造作，一点活人感都没有”</span></li>
+          <li>抄袭/融梗指控（宣传图、UI、人设） <span class="cnt">×1</span><span class="q">“宣传图是偷别人用ai改的，ui是偷的，剧本人设照着学习成仙抄和融的”</span></li>
+          <li>完美结局好感门槛过高 <span class="cnt">×1</span><span class="q">“末了都没70点，给我看个坏结局是真的无力”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>演员阵容豪华、“影游幻神大集结” <span class="cnt">×6</span><span class="q">“演员阵容基本都是老朋友了，马老师这波主C不错”/“浩浩妈和欧阳老师这种熟面孔一出来就亲切”</span></li>
+          <li>马倩倩演技突飞猛进 <span class="cnt">×2</span><span class="q">“饰演幽魂肖倩，收放自如，真的给人一种谈恋爱的感觉”</span></li>
+          <li>官方响应速度（修复闭环正面样本） <span class="cnt">×1</span><span class="q">“画符他还有时间限制……后来官方回复我说会加跳过功能，8月17日的更新就真的有跳过功能了，谢谢官方的帮助”</span></li>
+          <li>福利到位、法术改选项的小创新 <span class="cnt">×2</span><span class="q">“法术可以改变选项，还有读心术是真能读心，算是影游选项的小创新了”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>运营事故需要全盘澄清+道歉，而非装死</h4><p>第二周了，差评区已出现系统性“行业檄文”长评（论述营销失范、舆情处置错位），说明事故已从“抽奖不满”升级为“行业观察样本”。对自家的输入：任何福利活动规则必须公开可追溯、抽奖录屏留档、舆情 24 小时内正面回应——装死只会让内容好评（89%）也救不回信任。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>转场连贯性是内容层第一欠账</h4><p>“镜头连贯性基本没有”是本周内容差评的最大公约数。剪辑层面的问题（场景跳切、人物凭空出现消失）比重拍便宜得多，可优先修。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>欲念值系统透明化</h4><p>“有的选择界面也没提示出这个欲念到底加没加”——新增数值系统必须即时反馈，否则等于不存在。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 女帝篇 ─── -->
+<div class="pcard" style="border-left:4px solid var(--a)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4148240/ad47878cf250027da631c4678102b8167fd166c1/capsule_616x353_schinese.jpg" alt="女王的游戏：盛世天下 女帝篇" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">女王的游戏：盛世天下 女帝篇 <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">🆕 首次入库 · 2026 现象级（上线5天销量破百万）</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 83% / 商店 83%（偏差 0 ✓）</span></div>
+      <div class="pmeta"><span>New One Studio（隐形守护者团队）· 2026-06-08</span><span>去重评测 34</span><span>30天差评 20</span><span>评测池 8042 条</span></div>
+      <div class="pmeter"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+      <div class="pmeter-labels"><span>好评 83%（API 全量口径 6695/8042）</span><span>差评 17%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>假自由度：三选一只有一条活路，选择=猜谜 <span class="cnt">×6</span><span class="q">“三个选项选不对就是死，各种死法，一点博弈的余地都没有……其实就一条线，只有一个选项能走下去”/“小选择带来的失败不会让玩家恍然大悟，而是只觉因果混乱”/“偏执度阈值是0吗，合着我剧情看到最后了，你告诉我从头再刷吧”</span></li>
+          <li>新世界线（李泰线）敷衍、高开低走 <span class="cnt">×5</span><span class="q">“新世界线……做得特别敷衍”/“李泰线是披着创新外衣的粗制滥造：剧情逻辑崩塌……到最后依旧BE”/“如果保持媚娘篇的水準，說不定還真有影游甄嬛傳的歷史地位。女帝篇就是一坨”</span></li>
+          <li>登录/音量/进程残留技术 bug 三连 <span class="cnt">×3</span><span class="q">“就这个显示steam是离线状态，但是steam正常在线”/“我在设置里把音量调低了……一进游戏就是拉满的，根本没法戴耳机玩”/“1点关的游戏，结果5点发现自己steam状态还在游戏里……是不给我退款的机会？”</span></li>
+          <li>登基后内容用 AI 视频替代实拍 <span class="cnt">×2</span><span class="q">“现在的玩家已经大度到可以接受剧游中用AI视频了吗？要看AI我自己做不就好了”/“登基后内容本来就少得可怜还全是AI制作真是给我气笑了”</span></li>
+          <li>战败 CG 素材复用且不能跳过 <span class="cnt">×1</span><span class="q">“每次选错都会有一个超长的素材复用的战败CG还不能跳过，气死我了”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>服化道顶级、网大以上质感 <span class="cnt">×5</span><span class="q">“服化道精美细致，让人沉浸入局”/“电影级的拍摄水准”</span></li>
+          <li>反派不降智、博弈张力足 <span class="cnt">×2</span><span class="q">“很多宫斗游戏为了爽感把对手写得很蠢，但女帝篇里王皇后、萧淑妃、长孙无忌这些对手都有各自的逻辑和手段”</span></li>
+          <li>女性向情感细腻，吸引非传统玩家 <span class="cnt">×3</span><span class="q">“这是男朋友送我的第一款游戏，也是我第一个Steam游戏，为了它注册账号”/“小伍和礼治并肩批奏折的场景，比任何亲亲抱抱都让人心动”</span></li>
+          <li>配角群像出彩（袭心/高阳/王皇后） <span class="cnt">×3</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>登录超时 / 音量失控 / 进程残留三连 bug</h4><p>百万销量级产品出现“Steam 状态挂 5 小时不退出”这种会被玩家解读为“卡退款窗口”的 bug，伤害信任。三件均为工程级修复，应进当周热修。自家教训单：上线前必须跑“设置持久化”“退出清理”“弱网登录”三条冒烟用例。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>AI 替代实拍的内容必须显著披露</h4><p>玩家对“付费买真人影游却看到 AI 片段”的容忍度极低。若用 AI 补量，需在商店页与章节内双披露，并把 AI 片段与实拍视觉拉平，否则等于在 83% 的好评池里埋雷。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>战败 CG 可跳过 + 死亡节点快速重试</h4><p>“超长素材复用战败 CG 不能跳过”直接放大了假自由度的挫败感：失败惩罚应该短、快、可重试。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>新世界线差评的口碑修复：删减剧情做成 DLC 放出</h4><p>玩家主动提议“把你们那些删掉的剧情做成DLC放出来”——被砍 40% 的李泰线有现成的付费补偿路径。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 媚娘篇 ─── -->
+<div class="pcard" style="border-left:4px solid var(--a)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3478050/0e3d390564332c03dd980d0b295cb533d0ecb7a7/capsule_616x353_schinese.jpg" alt="女王的游戏：盛世天下 媚娘篇" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">女王的游戏：盛世天下 媚娘篇 <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">🆕 首次入库 · 上部</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 83% / 商店 87%（-4 ✓）</span></div>
+      <div class="pmeta"><span>New One Studio · 2025-09-08</span><span>去重评测 31</span><span>30天差评 20</span><span>评测池 9374 条</span></div>
+      <div class="pmeter"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+      <div class="pmeter-labels"><span>好评 83%（API 全量口径 7774/9374）</span><span>差评 17%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>假自由度：选错即死，支线结局“只有一行字” <span class="cnt">×6</span><span class="q">“根本没有自由度，只有一条‘标准’的线性主线，其他的任何选择结局都是死”/“玩家的选择对于剧情的发展似乎没有任何的帮助……支线结局都非常的潦草，有些甚至只有一行字”/“选错不是直接挂，就是放个文字播片直接结局”</span></li>
+          <li>拆分销售：上部半成品必须买下部才完整 <span class="cnt">×5</span><span class="q">“这个媚娘篇就是个半成品必须买女帝篇才能完整，一个垃圾游戏还要拆开卖赚两次钱”/“49块钱，买一个4小时的上部，还有一个原价79的下部等着你”/“把一部未打磨好的作品拆成两半来卖”</span></li>
+          <li>“认命/不认命”隐藏交互：要等5秒才出选项 <span class="cnt">×1</span><span class="q">“第十六集那个认命和不认命，要等五秒！给我逼的，找了半天没找到不认命……最后搜攻略才知道要等五秒”</span></li>
+          <li>换装后同一剧情强制重看两遍 <span class="cnt">×2</span><span class="q">“最搞笑的就是那个换装，一模一样的剧情，还得过两次！”</span></li>
+          <li>买断制里塞打榜/内购 <span class="cnt">×2</span><span class="q">“一个买断制游戏为什么还搞打榜这一说，还搞饭圈这一套圈钱，很败好感”</span></li>
+          <li>登录超时进不去 <span class="cnt">×2</span><span class="q">“一直显示游戏登陆超时，进不去，steam登录是正常的”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>服化道精美，“比某些电视剧都强” <span class="cnt">×5</span><span class="q">“服化道是真不错啊，剧组真的很用心，太精致了，比某些电视剧都强”</span></li>
+          <li>隐形守护者团队的叙事传承 <span class="cnt">×2</span><span class="q">“个人觉得是继隐形守护者后最高质的影游了”</span></li>
+          <li>非恋爱主线：主仆情/友情/亲情刻画 <span class="cnt">×2</span><span class="q">“终于有个不用怎么谈恋爱的影游了……刻画的主仆情、友情、亲情这些都很深刻”</span></li>
+          <li>中国风 UI 精美 <span class="cnt">×1</span><span class="q">“最惊艳我的就是这款游戏的美术设计，传统中国风ui界面真的很不错”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>“等5秒出选项”式隐藏交互必须配视觉提示</h4><p>玩家因找不到“不认命”重玩 2-3 遍最后去搜攻略——一个本想营造“沉默的决心”的交互，变成了卡关点。修复只需一个倒计时/呼吸动画，5 分钟工作量。教训：任何“不点 = 默认”的静默等待都需要可发现性设计。</p></div></div>
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>拆分销售要给“总价锚点”与合并包</h4><p>“看不到总价”“买上部才发现下部要 79”是转化+口碑双杀。上架时即提供上下部 bundle 与总价说明，把“拆开卖赚两次钱”的叙事消灭在购买决策前。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>死亡结局至少给短实拍，不要“一行字”</h4><p>文字播片结局让玩家的失败显得廉价。死亡结局用 10-15 秒实拍反应镜头即可保住“选择有分量”的感知。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 雪落情书时 ─── -->
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4740420/2af65d3f87f03692ea5c480287a58e9ff0165722/capsule_616x353.jpg" alt="雪落情书时" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">雪落情书时 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">API 97% / 商店 96%（+1 ✓）· 但 30 天差评密度全池第一（20条）</span></div>
+      <div class="pmeta"><span>Mountain&Sea Studio · 2026-07-23</span><span>去重评测 34</span><span>30天差评 20</span></div>
+      <div class="pmeter"><div class="pos" style="width:97%"></div><div class="neg" style="width:3%"></div></div>
+      <div class="pmeter-labels"><span>好评 97%（API 全量口径 637/658）</span><span>差评 3%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>文旅宣传片：18 元看 2 小时景点软广 <span class="cnt">×7</span><span class="q">“名字起的不对，改为浙江衢州常山县文旅宣传片……18元看2小时宣传片，拜托大家都很忙的”/“剧情里各种旅游景点特产介绍，生怕你不知道这是哪个城市的软广”</span></li>
+          <li>男主配音灾难：口齿不清+疑似单声道 <span class="cnt">×5</span><span class="q">“男主配音是最大的败笔，说话含含糊糊像含着东西，口齿不清还带点大舌头，这简直是致命伤”/“最神的是丫的居然能是单声道……代入感都毁完了”</span></li>
+          <li>无进度条、不能跳过、剧情树纯数字 <span class="cnt">×3</span><span class="q">“系统体验也极其糟糕，连个进度条百分比都没有”/“遇到不喜欢的剧情无法跳过，剧情还故意慢速拖时长”/“故事线没文字纯数字难绷”</span></li>
+          <li>山与海制作组口碑连坐（品牌资产为负） <span class="cnt">×3</span><span class="q">“萌新们听好了，如果开发者里面只有山与海，扭头就走”/“垃圾的产品就该被市场扫地出门”</span></li>
+          <li>“好评如潮”引发戒备（信任危机信号） <span class="cnt">×2</span><span class="q">“头一次吃了‘好评如潮’的亏”/“第一次让我对好评如潮有了戒备心！”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>女主自然耐看、有烟火气 <span class="cnt">×6</span><span class="q">“女主焦雪睿是科班出身，演技自然不端着，笑起来很有感染力”/“越玩越耐看，初遇可能感觉平平无奇，但是在相处中我对她也会暗生情愫”</span></li>
+          <li>单女主纯爱定位稀缺 <span class="cnt">×4</span><span class="q">“难得在遍地后宫的影游市场里碰到一款单女主纯爱作。没有倒贴没有修罗场”</span></li>
+          <li>BGM 氛围感与江南取景 <span class="cnt">×4</span><span class="q">“雪景配情书的意境搭配上悠扬的配乐，整体氛围营造得相当到位”</span></li>
+          <li>定价亲民 <span class="cnt">×2</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>补进度条 + 播放器级跳过 + 剧情树命名</h4><p>三个纯 UX 缺陷（无进度百分比、不能跳过、剧情树只有数字序号）是差评区“态度问题”指控的放大器，全部是当天可修的工程项。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>男主配音重录或提供“关闭男主语音”开关</h4><p>配音被 5 条差评独立点名且疑似单声道——音频质量直接对冲了女主的表演优势。短期先上开关止损。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>文旅内容改成可选支线/彩蛋</h4><p>把“打卡景点”从主线里拆出来做成可选分支，主线保恋爱密度，文旅合作方也保曝光——两边都不挨骂。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 主角 ─── -->
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4234260/8304dfd2458ffffd8ce94ce8e76a12c95f4f6cf5/capsule_616x353.jpg" alt="主角" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">主角 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 98% / 商店 98%（偏差 0 ✓ · 上周偏差问题保持修复）</span></div>
+      <div class="pmeta"><span>顶顶阳光 · 2026-07-15</span><span>去重评测 31</span><span>30天差评 16</span></div>
+      <div class="pmeter"><div class="pos" style="width:98%"></div><div class="neg" style="width:2%"></div></div>
+      <div class="pmeter-labels"><span>好评 98%（API 全量口径 1042/1066）</span><span>差评 2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>刷好评质疑（连坐发行商） <span class="cnt">×3</span><span class="q">“原来又是一款刷好评的影游吗？这是继冰点之下的第二款了，足以记住这个发行商了”/“完全是刷出来的好评吧，太离谱了”</span></li>
+          <li>第五章 QTE 过难，卡住玩家进 BE 线 <span class="cnt">×3</span><span class="q">“最后还是给第五章的QTE打败了”/“第五章的qte又太难了，很影响体验”/“竟然能让临结束的QTE卡住玩家去BE线，太过奇妙了”</span></li>
+          <li>演技台词差、收音不好 <span class="cnt">×4</span><span class="q">“演员台词功底都太差了，完全代入不了”/“像草台班子，玩不下去，收音也不好”</span></li>
+          <li>伏笔不回收、关键选择不影响结局 <span class="cnt">×4</span><span class="q">“所有的伏笔几乎都没有回收，前几章里所有做出的‘关键选择’似乎对最后结局完全没有影响”</span></li>
+          <li>技术问题：播片卡顿 + 无云存档 <span class="cnt">×2</span><span class="q">“明明是一个播片游戏，但却能卡得笔记本跑得卡顿，甚至每20分钟卡死强退一次”/“笔记本上的存档竟然无法上传到云？换PC登录得从头再来？！”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>题材新颖：反规训、跳出恋爱框架 <span class="cnt">×5</span><span class="q">“题材感觉挺新颖的，跳出了传统恋爱题材，另辟捷径”/“反PUA抗洗脑神器，一步步教你用真诚打碎套路”</span></li>
+          <li>章节节点切换便捷、故事树好用 <span class="cnt">×2</span><span class="q">“节点切换，穿越各章剧情十分便捷”</span></li>
+          <li>影院模式/章节 UI 有仪式感 <span class="cnt">×2</span><span class="q">“每切换一次章节，人物都会切换到不一样的座位上……这一点还是蛮震撼的”</span></li>
+          <li>“回声计划”立意打动人 <span class="cnt">×3</span><span class="q">“‘回声计划’的设定很打动人，唯有发声才有回声的立意有意义”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>开启 Steam Cloud 云存档</h4><p>“换 PC 登录得从头再来”对全成就玩家（46 个成就）是毁灭性体验，且是平台级开关配置，修复成本极低。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>第五章 QTE 判定宽容化或加“剧情模式”</h4><p>终章 QTE 卡 BE 是情绪最高点的差评触发器（与江山北望/恶校同构）。判定曲线调整或一键剧情模式都能解。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>结局前跑一遍“伏笔回收 checklist”</h4><p>“监控摄像头之谜也没有解释”式的悬置伏笔清单化，交付前逐条回收或明示留给续作。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 江山北望 ─── -->
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" alt="江山北望" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">江山北望 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 91% / 商店 91%（偏差 0 ✓）</span> <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">强制联网 DRM 差评持续</span></div>
+      <div class="pmeta"><span>木焱工作室 · 2025-11-19</span><span>去重评测 35</span><span>30天差评 17</span></div>
+      <div class="pmeter"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+      <div class="pmeter-labels"><span>好评 91%（API 全量口径 5606/6135）</span><span>差评 9%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>强制联网/掉线自动退出 <span class="cnt">×3</span><span class="q">“打开以后，突然提示无法连接网络，然后给我自动退出了。重启和开加速器根本无效”/“单机游戏全程联网必给差评……什么时候改掉就换回好评（追评：貌似当天网络问题就修好了，但这个机制还在）”/“怎么疯狂掉线，掉线一次就得重开一次”</span></li>
+          <li>读档机制折磨：改选择须重走完整分支 <span class="cnt">×2</span><span class="q">“每回读档都必须让这个章节随着这个分支走完，这也是最让我便秘的一个点”/“改选择会出现明显的游戏卡顿现象”</span></li>
+          <li>剧情杀强行喂刀、配角无善终 <span class="cnt">×2</span><span class="q">“草饲编剧的马，女主纯为了死而死，非要给大伙喂刀是吧”</span></li>
+          <li>关键选项藏太深，不看攻略卡关 <span class="cnt">×2</span><span class="q">“但凡一个选项错误主线就过不去……只能找攻略，一个选项一个选项重选”</span></li>
+          <li>权谋深度不足、战争场面穷 <span class="cnt">×2</span><span class="q">“作为权谋游戏，权谋大概只有小学生水平”/“打仗没有把万军对打的气势打出来”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>剧情不降智、逻辑完整 <span class="cnt">×4</span><span class="q">“故事线逻辑完整，剧情不降智已经打败绝大多数影游了”/“文化人写的剧本，就是不一样”</span></li>
+          <li>演员台词功底、配音口型匹配 <span class="cnt">×5</span><span class="q">“所有演员的演技都十分在线。少有的配音和口型匹配度达到90%以上”</span></li>
+          <li>两难抉择有交互感、选择有后果 <span class="cnt">×3</span><span class="q">“抉择过后，需要承担不同的后果；带来了很强的交互感”/“需要决定是一起杀死被迫接近城墙的流民还是心软放过他们……还是会有一些挣扎”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>根治强制联网：DRM 移除或离线模式</h4><p>玩家追评显示网络故障“当天修好了”——说明是服务器单点问题，玩家随时可能再中招。差评者明确给出转化条件：“什么时候改掉就换回好评”。自家输入：单机买断 + 全程联网 = 把发行风险押在自家服务器 SLA 上。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>读档直接定位节点，不强制重走分支</h4><p>“从那个点全部重新看一遍”在读档密集的影游里是重复劳动。支持节点级快进/直达，全成就体验会质变。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 盛夏离与合 ─── -->
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3987560/faeffae4a00fde7027c6a1124e88565156e7fdf0/header_schinese.jpg?t=1782476929" alt="盛夏离与合" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">盛夏离与合 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 85% / 商店 85%（偏差 0 ✓）</span></div>
+      <div class="pmeta"><span>intiny · 2026-06-24</span><span>去重评测 30</span><span>30天差评 19</span></div>
+      <div class="pmeter"><div class="pos" style="width:85%"></div><div class="neg" style="width:15%"></div></div>
+      <div class="pmeter-labels"><span>好评 85%（API 全量口径 679/799）</span><span>差评 15%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>体量缩水：不如一代 DLC，4 小时全成就 <span class="cnt">×6</span><span class="q">“体量甚至不如1的DLC‘房间里的心跳’”/“4小时就能100%全成就，内容体量根本撑不起一部独立游戏”/“全篇只有三章、两位女主”</span></li>
+          <li>编剧/剧情质量（“神人编剧”） <span class="cnt">×8</span><span class="q">“神人编剧，要不是爻爻和雨翎根本玩不下去”/“剧情垃圾，各种水剧情，逻辑都不通”</span></li>
+          <li>时间线硬伤：与前传设定矛盾 <span class="cnt">×1</span><span class="q">“前传里开场老六根本不认识元柒，怎么到了这一部，又变成刚开学一起去接她……只能确认是剧本自己忘了”</span></li>
+          <li>成就进度 bug：颜佳宁结局卡 1% <span class="cnt">×1</span><span class="q">“颜佳宁结局GOGOGO 完整听完歌 完整看完mv多次 依旧不给算进度，目前第三章就卡在这1%无法达成全部成就”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>季颜语线补完“白月光”遗憾 <span class="cnt">×4</span><span class="q">“给了两个季颜语完美结局，必须好评。终于不用在哭了”/“作为想给季颜语一个交代的心态的玩家还是可以试试”</span></li>
+          <li>完蛋系列情怀收官 <span class="cnt">×3</span><span class="q">“为《完蛋》系列画了一个圆满的句号，主页面的bgm一出来立马泪崩”</span></li>
+          <li>Tina/元柒的表演真诚 <span class="cnt">×2</span><span class="q">“每一个眼神、每一次欲言又止，都让人想起青春里那些没说出口的话”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>颜佳宁结局成就进度不计数 bug</h4><p>听歌/看 MV 完整播放多次仍不计数，玩家卡在 99% 无法全成就——成就党差评的标配触发器，属当天可修的计数逻辑 bug。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>IP 续作的体量预期管理</h4><p>“和前几作价格相近、内容大幅缩水”是本作差评的根因。同价更短的内容要么降定价、要么明示体量，把“消费陷阱”叙事掐灭在购买页。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>跨作品时间线校对流程</h4><p>与前传角色关系的矛盾说明系列作品缺一份“设定圣经”，续作写作前应跑交叉校对。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 代号三国:龙起 ─── -->
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3412900/231f644e9295928805d168098ba7000c7bf3f13f/capsule_616x353.jpg" alt="代号三国:龙起" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">代号三国:龙起 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 92% / 商店 91%（+1 ✓）</span> <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">RB 按键 bug 第三周未修</span></div>
+      <div class="pmeta"><span>玛奇阿朵互娱 · 2026-04-28</span><span>去重评测 20</span><span>30天差评 11</span></div>
+      <div class="pmeter"><div class="pos" style="width:92%"></div><div class="neg" style="width:8%"></div></div>
+      <div class="pmeter-labels"><span>好评 92%（API 全量口径 2531/2758）</span><span>差评 8%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>PC 端只显示手柄 RB 按键提示（第三周） <span class="cnt">×2</span><span class="q">“pc游戏居然只显示RB按键提示，我他妈找了半天键盘代替键，硬是没找到”/“RB是s，剧情不太行”</span></li>
+          <li>剧情降智、题材四不像 <span class="cnt">×5</span><span class="q">“当剧情向去玩的话，剧情又极度降智……最后搞得四不像”/“论数值没有完蛋2的硬，论剧情不如江山北望盛世天下这些能看”/“建议改个名字大话三国，纯无厘头，无逻辑，而且不搞笑”</span></li>
+          <li>恋爱占比与三国题材错位 <span class="cnt">×2</span><span class="q">“奔着恋爱向来的，一直在跟男的聊，跟女士交集少之又少”/“最后的成功竟然不靠多少军事政治上的运筹和谋算……靠的竟是攻略女人”</span></li>
+          <li>粉丝向劝退路人 <span class="cnt">×2</span><span class="q">“不是完蛋粉没必要入，三国迷慎入”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>妆造在线（大乔/甄宓/蔡昭姬） <span class="cnt">×3</span><span class="q">“大乔，那种寡妇的清冷和神女的仙气体现得很好”</span></li>
+          <li>修罗场压迫感、诗词典故引用 <span class="cnt">×2</span><span class="q">“小乔、蔡昭姬、甄宓她们之间的修罗场，挺有压迫感的”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>RB 按键映射 bug 已挂三周——升级为发行商响应能力档案</h4><p>同一个“PC 显示手柄按键”bug 连续三周出现在差评区，2997 条评测的头部产品却无热修。这不是技术问题，是响应流程问题。对自家输入：差评区高频 UX bug 应有 7 天修复 SLA。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>题材定位做减法</h4><p>“什么都缝，结果到头来四不像”。历史策略与恋爱爽剧二选一做深，比全都要更能守住各自受众。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 退婚后（紧凑卡） ─── -->
+<div class="pcard" style="border-left:4px solid var(--r)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2816920/capsule_616x353.jpg" alt="退婚后，宗主马甲藏不住" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">退婚后，宗主马甲藏不住 <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">🔴 数据异常：中文评测 59→41，18 条消失</span> <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">⚠️ API 27%（schinese 41条）/ 商店 34%（-7pp）</span></div>
+      <div class="pmeta"><span>LoongCharm · 2024-03-14 · 竖屏 F2P 章节内购</span><span>去重评测 21</span><span>30天差评 20</span></div>
+      <div class="pmeter"><div class="pos" style="width:27%"></div><div class="neg" style="width:73%"></div></div>
+      <div class="pmeter-labels"><span>好评 27%（中文区抽样）</span><span>差评 73%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨（与上周同构，持续）</h4>
+        <ul class="pb-list">
+          <li>章节内购吃相：免费1章后 6 元/章，总价不透明 <span class="cnt">×7</span><span class="q">“免费的第二章开始收费6元”/“大几十的东西玩下一章还需要付费，妥妥骗钱游戏”/“每一章几分钟都要收费，吃相是真难看呀”</span></li>
+          <li>竖屏直搬 PC <span class="cnt">×5</span><span class="q">“进游戏竖屏把我惊呆了，我还以为设置错误！”/“如果是正常全屏，我会考虑买接下来的章节”</span></li>
+          <li>网剧套路尬演 <span class="cnt">×2</span><span class="q">“剧情直接照搬歪嘴龙王的剧情！要演技没演技”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>女主颜值能打 <span class="cnt">×2</span></li>
+          <li>当免费短剧看有娱乐价值 <span class="cnt">×1</span><span class="q">“本来把这种网络短剧改编成游戏的创意还是不错的，很有新意”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>数据盯守：18 条中文评测消失（59→41）</h4><p>两天内中文评测净减 18 条，可能的解释包括官方举报清理、Steam 折叠疑似刷量评测、或评测者自行删除。无论哪种，都值得连续追踪一周：若为官方清理，将坐实“差评被控”叙事，比差评本身更伤。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 冰点之下（紧凑卡） ─── -->
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3711170/9f5c70a0241948bc9c96a4af88a441afdeeabeb9/capsule_616x353.jpg" alt="冰点之下" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">冰点之下 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 94% / 商店 93%（+1 ✓）</span></div>
+      <div class="pmeta"><span>Joy Media · 2026-05-29</span><span>去重评测 7</span><span>30天差评 5</span></div>
+      <div class="pmeter"><div class="pos" style="width:94%"></div><div class="neg" style="width:6%"></div></div>
+      <div class="pmeter-labels"><span>好评 94%（API 全量口径 2600/2769）</span><span>差评 6%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>成就点死循环：解锁顺序错=永久卡死 <span class="cnt">×1</span><span class="q">“如果在解锁完所有女主的技能之前先解锁了主角光环……成就点不够了，获得成就点需要解锁全部女主技能，而解锁女主技能需要成就点，死循环”</span></li>
+          <li>刷好评质疑 <span class="cnt">×1</span><span class="q">“买的时候一堆刷的好评，STEAM上也要做成买量游戏”</span></li>
+          <li>流程 3 小时不完整、剧情弱智 <span class="cnt">×2</span><span class="q">“3小时的游戏流程，根本不完整，半成品也拿出来卖”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>题材新颖 <span class="cnt">×1</span><span class="q">“优点题材新颖，角色不错”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>成就点死循环 bug：数值依赖图审查</h4><p>互为前置的解锁条件等于给成就党埋雷。任何“货币解锁”系统都要跑一遍依赖图测试，确认不存在不可达状态。对自家产品的直接 QA 输入。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>“半成品+骰子机制”定位持续观察</h4><p>内容层差评（3 小时流程）无法用补丁修，等待官方是否以下篇/DLC 兑现承诺。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 心之岛（紧凑卡） ─── -->
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3794770/fdc921b966d6cae54eb098a27b722fa1fdfec5b7/capsule_616x353.jpg" alt="心之岛" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">心之岛 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">⚠️ API 68% / 商店 58%（偏差+10pp）</span></div>
+      <div class="pmeta"><span>Titan Digital Media · 2026-03-27</span><span>去重评测 4</span><span>30天差评 3</span></div>
+      <div class="pmeter"><div class="pos" style="width:68%"></div><div class="neg" style="width:32%"></div></div>
+      <div class="pmeter-labels"><span>好评 68%（API 中文区抽样 27/40）</span><span>差评 32%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>第三章任务后卡死崩溃 <span class="cnt">×1</span><span class="q">“第三章，索菲娅穿衣任务完成后，卡住，程序崩溃，不知道怎么破？”</span></li>
+          <li>音画不同步 + 汉化一般 <span class="cnt">×1</span><span class="q">“整体体验并不算好，汉化一般，多处音画不同步”</span></li>
+          <li>全成就强制多周目、不友好 <span class="cnt">×1</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>擦边尺度本身就是卖点 <span class="cnt">×1</span><span class="q">“这是截至目前，我在国区能玩到的最大尺度的影游……推荐兄弟们去试试”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>第三章崩溃 bug（任务完成即卡死）</h4><p>剧情节点级崩溃 = 玩家当场弃游+差评。QA 冒烟用例必须覆盖“任务完成回调”路径。</p></div></div>
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>音画同步与汉化质量修复</h4><p>进口内容本地化的两大基础项，中文区口碑的最低门槛。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 对不起，我是警察（紧凑卡） ─── -->
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4104120/16dae4067058e25071f0af97e0b07f2d10829e8a/capsule_616x353.jpg" alt="对不起，我是警察" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">对不起，我是警察 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 78% / 商店 78%（偏差 0 ✓）· 快进功能修复闭环获表扬</span></div>
+      <div class="pmeta"><span>intiny · 2026-04-27</span><span>去重评测 11</span><span>30天差评 4</span></div>
+      <div class="pmeter"><div class="pos" style="width:78%"></div><div class="neg" style="width:22%"></div></div>
+      <div class="pmeter-labels"><span>好评 78%（API 全量口径 586/753）</span><span>差评 22%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>幕与幕衔接不连贯、转折生硬 <span class="cnt">×2</span><span class="q">“越往后越感觉上一幕和下一幕之间衔接不连贯……很多剧情发展都是为了迎合选项做的”</span></li>
+          <li>时长太短 <span class="cnt">×1</span><span class="q">“时长太短了”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>TVB 演技底蕴 <span class="cnt">×2</span><span class="q">“剧情，演员全都在线，TVB的底蕴果然名不虚传”/“大只虎像吴彦祖！！！！！！帅”</span></li>
+          <li>快进功能补齐后被点名表扬 <span class="cnt">×1</span><span class="q">“快进功能终于有了”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>转场衔接打磨（长线）</h4><p>修复闭环正面样本：上周报的“无快进”本周收获表扬。内容层“为选项而选项”的衔接问题需要二创剪辑级返工，优先级放低。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── The Run / Cage of Roses（紧凑卡） ─── -->
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3447920/123aa17f56acb1209e393de707600c9396c1dc6f/capsule_616x353.jpg" alt="The Run" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">The Run <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 91% / 商店 90%（+1 ✓）· abrupt ending 第二周</span></div>
+      <div class="pmeta"><span>PRM Games · 2026-02-05</span><span>去重评测 6</span><span>30天差评 1</span></div>
+      <div class="pmeter"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+      <div class="pmeter-labels"><span>好评 91%（API 英文区 41/45）</span><span>差评 9%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>结局突兀 + 无章节跳转（连续两周同一差评结构） <span class="cnt">×1</span><span class="q">“The ending is extremely abrupt and takes away all of the momentum…… If you want to go back and experience other branching paths, you have no choice but to make a new save and start over. In its current state, I would recommend this for $5.”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>真演员、电影级画质、top 3 FMV <span class="cnt">×3</span><span class="q">“They hired actual actors and it shows (the priest from Vikings for instance). It's movie theater visual quality.”/“It's fun to replay for all the alternate sequences.”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>章节跳转功能（连续第二周提交）</h4><p>同一玩家结构（abrupt ending + forced restart）连续两周占据差评首位。多结局 FMV 不给跳转工具，等于把重玩价值锁死——这条已是跨产品模式 #4 的英文区实证。</p></div></div>
+  </div>
+</div>
+
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2993720/capsule_616x353.jpg" alt="Cage of Roses" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Cage of Roses <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 88% / 商店 89%（-1 ✓）· 中文区翻译是最大差评源</span></div>
+      <div class="pmeta"><span>ebi-hime · 2025-02-16</span><span>去重评测 12</span><span>30天差评 2（en）+2（cn）</span></div>
+      <div class="pmeter"><div class="pos" style="width:88%"></div><div class="neg" style="width:12%"></div></div>
+      <div class="pmeter-labels"><span>好评 88%（API 英文区 149/169）</span><span>差评 12%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>【中文区】官中翻译严重不合格 <span class="cnt">×1</span><span class="q">“官中翻译严重不合格，古风得像ai生成的一般……‘她家小姐用舌头舔舐梅珂血液聚集的颤动的半月板’这个半月板是什么意思呢？”</span></li>
+          <li>【英文区】节奏拖沓、说明文轰炸 <span class="cnt">×2</span><span class="q">“Magdelena's exposition dumps at the beginning of the game are one of the worst writing crimes I've read this year”/“it's way too dull…… Could be better if it was shorter”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>美术与角色设计 breathtaking <span class="cnt">×3</span><span class="q">“Sumptuous, passionate, bloody, and intoxicating: this is peak vampire yuri.”</span></li>
+          <li>酷儿/跨性别题材的寓言深度 <span class="cnt">×1</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>官中翻译返修（“半月板”级硬伤）</h4><p>“半月板”这种解剖学错译直接劝退中文区长评玩家。出海作品的翻译 QA 应含母语者全文通读，而不是机翻+抽查。</p></div></div>
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>side characters 篇幅删减（内容长线）</h4><p>英文区“配角戏份过多、主CP铺垫不足”与中文区“节奏拖沓”同构，是结构层问题。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── Five Dates / The Complex / Bloodholic / Libera（紧凑卡） ─── -->
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1353270/header_schinese.jpg?t=1780395695" alt="Five Dates" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Five Dates <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 80% / 商店 84%（-4 ✓）</span></div>
+      <div class="pmeta"><span>Wales Interactive · 2020-11-17</span><span>去重评测 10</span><span>30天差评 4（en）+1（cn）</span></div>
+      <div class="pmeter"><div class="pos" style="width:80%"></div><div class="neg" style="width:20%"></div></div>
+      <div class="pmeter-labels"><span>好评 80%（API 英文区 705/882）</span><span>差评 20%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>“必须撒谎才能被喜欢”的机制道德不适 <span class="cnt">×2</span><span class="q">“Moral of the game.....you need to lie to be desired. Tell the truth and women will get mad and leave.”/“it gives the impression that you have to pretend to like stuff you don't actually like to connect with girls”</span></li>
+          <li>【中文区】形式糙、场景单一 <span class="cnt">×1</span><span class="q">“太糙了，没什么场景变换，就来回视频聊天……就是猜答案推好感”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>对话自然、情境线索设计（啤酒罐暗示） <span class="cnt">×2</span><span class="q">“the game provides a whole range of subtle hints and clues within the context”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>诚实回答也应设计“有技巧的诚实”通路</h4><p>好结局全绑“选对方喜欢的答案”让玩家总结出“游戏教我撒谎”。给诚实选项设计幽默/坦率变体，价值观差评可消解。</p></div></div>
+  </div>
+</div>
+
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1107790/header_schinese.jpg?t=1780398865" alt="The Complex" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">The Complex <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 78% / 商店 78%（偏差 0 ✓）· 与 The Run 中文区抱怨同构</span></div>
+      <div class="pmeta"><span>Wales Interactive · 2020-03-31</span><span>去重评测 10</span><span>30天差评 3（en）+2（cn）</span></div>
+      <div class="pmeter"><div class="pos" style="width:78%"></div><div class="neg" style="width:22%"></div></div>
+      <div class="pmeter-labels"><span>好评 78%（API 英文区 819/1053）</span><span>差评 22%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>【中文区】不能回档 + 二周目重复不能跳 <span class="cnt">×1</span><span class="q">“不能回档，即使二周目，依然有许多重复片段无法跳过，实在没耐心玩下去”</span></li>
+          <li>【英文区】rushed / too short / 无张力 <span class="cnt">×2</span><span class="q">“Lacks tension and character development…… it just felt rushed and was way too short”/“I was bored to tears”</span></li>
+          <li>Steam Deck 反复冻结 <span class="cnt">×1</span><span class="q">“it froze 4 times on my Deck making me replay the same 15 minutes 3 times”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>分支真实追踪关系与后果（非装饰选项） <span class="cnt">×2</span><span class="q">“a branching structure that actually tracks relationships and consequences instead of just cosmetic dialogue options”</span></li>
+          <li>cinematic 制作与正邪张力 <span class="cnt">×1</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>“已看跳过”是 Wales 系老作的共同欠账（第二周提交）</h4><p>8 个结局却不给跳过工具，等于用 UX 阻止玩家体验最大卖点。与 The Run 章节跳转是同一笔技术债，已列入跨产品模式 #4。</p></div></div>
+  </div>
+</div>
+
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1188710/capsule_616x353.jpg" alt="Bloodholic" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Bloodholic <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">⚠️ API 98% / 商店 88%（偏差+10pp，基数仅54条，倾向不可信）</span></div>
+      <div class="pmeta"><span>釉里红 · 2019-11-21 · 免费</span><span>去重评测 3</span><span>样本不足</span></div>
+      <div class="pmeter"><div class="pos" style="width:98%"></div><div class="neg" style="width:2%"></div></div>
+      <div class="pmeter-labels"><span>好评 98%（API 中文区抽样）</span><span>差评 2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 负评信号（样本少，不聚类）</h4>
+        <ul class="pb-list">
+          <li>无语音、剧情带入失败 <span class="q">“没有语音，剧情没有将我带入，不推荐，虽然免费”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 正评信号</h4>
+        <ul class="pb-list">
+          <li>剧情有深意、世界观完整 <span class="cnt">×2</span><span class="q">“剧情非常有深意，世界观塑造的也很完美，能看出来是用心做的”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p2">P2</span><div class="act-text"><h4>持续观察，不行动</h4><p>2019 年免费老游戏。价值在基准数据：偏差 +10pp 连续第二周出现，判定为小基数噪音，不作决策依据。</p></div></div>
+  </div>
+</div>
+
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4902060/b7fdd85c1c1f2afc8229abe24876bff8af20c216/header.jpg?t=1786815678" alt="Libera Nos a Malo" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Libera Nos a Malo <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">⚠️ API 67%（n=3）/ 商店 100%（-33pp，样本过小判定不可信）· 首条“AI slop”指控</span></div>
+      <div class="pmeta"><span>Necronomicon Games · 2026-08-15 · ¥11</span><span>去重评测 3</span><span>30天差评 0</span></div>
+      <div class="pmeter"><div class="pos" style="width:67%"></div><div class="neg" style="width:33%"></div></div>
+      <div class="pmeter-labels"><span>好评 67%（n=3）</span><span>差评 33%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 关键差评信号</h4>
+        <ul class="pb-list">
+          <li>AI 生成内容指控（全池首例明确点名） <span class="cnt">×1</span><span class="q">“For $1.99, it's an AI video slop fest lasting less than 15 minutes…… zero life or care to the content, and possibly the worst set-up for QTEs imaginable. Avoid at all costs.”</span></li>
+          <li>限时事件不可感知（第二周重复验证） <span class="cnt">×1</span><span class="q">“the sound to signal the timed event sounds like its part of the music. Timed event is way to fast on normal, with no clue of what you are supposed to be doing”</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 正评信号</h4>
+        <ul class="pb-list">
+          <li>70 年代驱魔恐怖片风格有人买账 <span class="cnt">×1</span><span class="q">“very good movie game enjoyed it alot :)”</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>AI 内容 + timed event 双预警输入</h4><p>两条直接输入：①“AI slop”指控在低价位段最先爆发——AI 生成内容不披露正在成为新的信任雷区（与女帝篇“登基后全是AI”差评同周出现，见模式 #1）；②timed-event 三件套（独立音效通道/视觉锚点/首次减速教学）第二周被独立样本验证。</p></div></div>
+  </div>
+</div>
+
+<!-- ═══ 交叉模式 ═══ -->
+<div class="section-title">跨产品交叉模式 <span class="st-num">2 款以上产品同时出现的结构性问题</span></div>
+<div class="pattern-grid">
+  <div class="pat-card">
+    <div class="pat-num">01</div>
+    <h4>信任危机进入第二周：从宣发事故泛化为品类默认怀疑</h4>
+    <p>不心动才有鬼签名照事故仍在燃烧（差评区已出现系统性“行业檄文”长评）；主角差评区点名发行商“继冰点之下第二款刷好评”；雪落情书时出现“头一次吃了好评如潮的亏”；恶校游戏新增“好评怎么刷的”质疑；Libera Nos 出现全池首条“AI slop”指控。更值得警惕的是退婚后宗主 18 条中文评测两天内消失（59→41）——无论原因为何，都在给“差评被控”的品类叙事添柴。AI 内容披露将成为信任议题的下一个引爆点。</p>
+    <div class="pat-tags"><span class="tag from">来源: 不心动+主角+雪落+恶校+冰点+Libera</span><span class="tag fix">修复: 运营SOP+AI披露政策+评测异常盯守</span></div>
+  </div>
+  <div class="pat-card">
+    <div class="pat-num">02</div>
+    <h4>“假自由度”：选择即死亡的单线幻觉（本周第一模式）</h4>
+    <p>女王的游戏双部曲把这个问题放大到极致：两部合计 12 次“选错就是死/只有一条线”差评——“三个选项选不对就是死，一点博弈的余地都没有”“支线结局都非常的潦草，有些甚至只有一行字”。恶校游戏“选错基本都是直接结束，没有其他线”、代号三国“拿下女人就拿下了天下的钥匙”同构。宣发话术“选择决定命运”与实际“单线+死亡惩罚”的落差，是玩家对影游的第一敏感神经：要么让选择真正分岔，要么把宣发改成“生存挑战”。</p>
+    <div class="pat-tags"><span class="tag from">来源: 女帝篇+媚娘篇+恶校+三国</span><span class="tag fix">修复: 死亡结局实拍化+选择有回响</span></div>
+  </div>
+  <div class="pat-card">
+    <div class="pat-num">03</div>
+    <h4>单机买断 + 强制联网：正版玩家的惩罚机制</h4>
+    <p>江山北望“掉线一次就得重开一次”（追评显示当天修好但机制仍在）；媚娘篇“一直显示游戏登陆超时，进不去”；女帝篇“显示steam是离线状态”+进程残留挂 5 小时被质疑“卡退款窗口”。百万销量级产品也没有扛住服务器单点故障。DRM 保护的是发行商的 paranoid，惩罚的是付费玩家——玩家已经明确给出差评转化条件：“什么时候改掉就换回好评”。</p>
+    <div class="pat-tags"><span class="tag from">来源: 江山北望+媚娘篇+女帝篇</span><span class="tag fix">修复: 移除DRM或一次性验证+离线模式</span></div>
+  </div>
+  <div class="pat-card">
+    <div class="pat-num">04</div>
+    <h4>“不能跳过”正在系统性废掉 replayability（第二周持续）</h4>
+    <p>本周样本从 3 款扩大到 6 款：女帝篇“超长素材复用的战败CG还不能跳过”、媚娘篇“换装后一模一样的剧情还得过两次”、The Run“想看其他分支只能重开存档”、The Complex“二周目重复片段无法跳过”、雪落情书时“不能跳过+无进度条”、江山北望“读档必须让章节随分支走完”。FMV 的多结局卖点与强制重看直接互斥。反例依然有效：对不起我是警察补快进后被玩家点名表扬，不心动画符限时补跳过后收到感谢评测——修复闭环正在被市场正向确认。</p>
+    <div class="pat-tags"><span class="tag from">来源: 女帝+媚娘+Run+Complex+雪落+江山</span><span class="tag fix">修复: 已看跳过+节点跳转+死亡快进</span></div>
+  </div>
+  <div class="pat-card">
+    <div class="pat-num">05</div>
+    <h4>音频质量是隐形短板：配音与翻译直接对冲表演优势</h4>
+    <p>恶校游戏“配音毫无情绪，像是被人按着头在念别人的作文”（4 条聚集）；雪落情书时男主配音“口齿不清+疑似单声道”（5 条聚集）；媚娘篇“配音痕迹很重，旁白有点人机感”；Cage of Roses 官中翻译“半月板”级错译直接产出中文区最长差评。影游卖的是代入感，而声音是代入感的第一通道——美术/服化道的投入经常被一个拉胯的音轨或翻译拖垮。低成本止损方案：配音开关 + 音轨修复优先级前置。</p>
+    <div class="pat-tags"><span class="tag from">来源: 恶校+雪落+媚娘篇+Cage of Roses</span><span class="tag fix">修复: 配音开关+母语译者通读+现场收音QC</span></div>
+  </div>
+</div>
+
+<!-- ═══ 自评 ═══ -->
+<div class="self-eval">
+  <h4>自评：v0.4 质量评估（2026-08-19）</h4>
+  <div class="se-grid">
+    <div class="se-item"><div class="score g">5/5</div><div class="lbl">可行动性</div><div class="note">P0×14 + P1×11 = 25 条 actionable（≥3 合格线）· 恶校暂停键/媚娘等5秒/雪落进度条/主角云存档/盛夏成就计数 均为当天可修</div></div>
+    <div class="se-item"><div class="score g">4/5</div><div class="lbl">数据完整性</div><div class="note">19/19 款全部采集成功 · 368 条去重 · 偏差标注率 4/19（心之岛+10pp⚠️、Bloodholic+10pp⚠️、Libera-33pp⚠️判n=3不可信、退婚后-7pp⚠️附18条评测消失异常）· 无 ≥15pp 可信数据偏差</div></div>
+    <div class="se-item"><div class="score g">5/5</div><div class="lbl">交互设计价值</div><div class="note">交叉模式 5 条（≥2 合格线）· 新增"假自由度"与"音频质量"两个维度 · 修复闭环正反馈样本×2（警察快进/不心动画符跳过）</div></div>
+    <div class="se-item"><div class="score a">368</div><div class="lbl">今日评测覆盖</div><div class="note">较 08-17 新增约 133 条（恶校+68、不心动+53 为主要增量）· 新入库女王的游戏双部曲（合计 1.74 万条评测池）· 中文游戏 schinese / 英文游戏 english 分轨统计</div></div>
+  </div>
+  <div class="next-steps">
+    <strong>v0.5 改进方向</strong>
+    盯守退婚后评测消失是否持续（若为官方清理将升级为信任事件）· 追踪恶校“救孔鸢”争议的二周演化与三国 RB bug 第三周（未修则计入发行商响应能力档案）· 补充女王的游戏系列 TapTap/移动端交叉验证 · 尝试引入 30 天近期好评率口径（当前 API 汇总为全量口径，与近期口碑可能有滞后）
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">玩家心声机器人 v0.4</span> 生成 · 368 条去重评测 · 19 款竞品 · 2026-08-19</p>
+</footer>
+
+</div>
+</body>
+</html>

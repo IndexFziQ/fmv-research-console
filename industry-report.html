@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 互动影游 · 行业深度调研</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#C2410C;--alm:#FBE9DF;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:980px;margin:0 auto}
+header{text-align:center;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:6px}
+header p{font-size:13px;color:var(--s)}
+.tag{display:inline-block;background:var(--alm);color:var(--amb);font-size:11px;font-weight:600;padding:3px 12px;border-radius:12px;margin-bottom:10px}
+
+.banner{background:linear-gradient(135deg,var(--amb),#7C2D12);color:#fff;border-radius:12px;padding:20px 24px;margin-bottom:22px}
+.banner .label{font-size:10px;text-transform:uppercase;letter-spacing:1px;opacity:0.85;margin-bottom:4px}
+.banner h2{font-size:17px;font-weight:600;margin-bottom:8px;line-height:1.5}
+.banner p{font-size:13px;opacity:0.95;line-height:1.6}
+
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .v{font-size:24px;font-weight:600;color:var(--amb);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted);line-height:1.4}
+.kpi-card .s{font-size:10px;color:var(--muted);margin-top:2px;line-height:1.4}
+
+.section{margin-bottom:26px}
+.section-title{font-size:16px;font-weight:600;color:var(--amb);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--alm);display:flex;justify-content:space-between;align-items:center}
+.section-title .count{font-size:11px;font-weight:400;color:var(--muted);background:var(--alm);padding:2px 10px;border-radius:10px}
+
+.report{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:14px}
+.report .r-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+.report .r-head h3{font-size:15px;font-weight:600;line-height:1.4;flex:1}
+.report .r-src{font-size:10px;color:var(--muted);flex-shrink:0;text-align:right;line-height:1.5}
+.report .r-src b{display:block;color:var(--amb);font-size:11px}
+.report .r-thesis{font-size:13px;color:var(--s);background:var(--alm);border-left:3px solid var(--amb);padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:10px}
+.report ul{list-style:none;margin-bottom:8px}
+.report ul li{font-size:12.5px;color:var(--s);padding:3px 0 3px 18px;position:relative;line-height:1.55}
+.report ul li::before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--amb)}
+.report a{color:var(--amb);font-size:12px;text-decoration:none;font-weight:500}
+.report a:hover{text-decoration:underline}
+
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:12px}
+table th,table td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top}
+table th{background:var(--alm);color:var(--amb);font-weight:600;font-size:11px}
+table td{color:var(--s)}
+table td.hl{font-weight:600;color:var(--amb)}
+
+.insight{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:10px}
+.insight .i-num{display:inline-block;background:var(--a);color:#fff;font-size:10px;font-weight:600;width:20px;height:20px;border-radius:50%;text-align:center;line-height:20px;margin-right:8px;flex-shrink:0}
+.insight h4{font-size:13.5px;font-weight:600;margin-bottom:4px;display:flex;align-items:center}
+.insight p{font-size:12.5px;color:var(--s);line-height:1.6}
+
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--border)}
+.t-item{position:relative;padding:8px 0;padding-left:24px}
+.t-item::before{content:"";position:absolute;left:-21px;top:14px;width:11px;height:11px;border-radius:50%;background:var(--card-bg);border:2px solid var(--amb)}
+.t-item .d{font-size:12px;font-weight:600;color:var(--amb)}
+.t-item .x{font-size:12.5px;color:var(--s)}
+
+footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--muted)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="tag">行业深度调研 · 外部报告吸纳</div>
+  <h1>AI 互动影游 · 行业深度调研</h1>
+  <p>吸纳 3 份外部深度报告（2026-04 ~ 2026-06）· 聚焦成本结构、商业化、监管与终局判断</p>
+</header>
+
+<div class="banner">
+  <div class="label">核心结论</div>
+  <h2>AI 把互动影游从「一次性爆款产品」变成「可批量复制的消费品」，但仍是现金流生意而非暴利生意——行业正从「爆款叙事」切换到「AI 基础设施驱动的规模化」逻辑。</h2>
+  <p>成本断崖下降释放了题材（古装/科幻/怪谈），却未解决留存；价值链极不均衡，算力层与平台层旱涝保收，制作方赚辛苦钱（净利率 &lt;10%）。行业缺的不是爆款，是一部「大众平台首发 + 可复制商业模型」的标杆。</p>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">240 亿</div><div class="l">2026 中国 AI 漫剧市场预计（2025 为 168 亿，2030 预测 500 亿+）</div></div>
+  <div class="kpi-card"><div class="v">1000–2500 元</div><div class="l">AI 漫剧单分钟成本（传统真人 FMV 几千~几万元）</div></div>
+  <div class="kpi-card"><div class="v">7–14 天</div><div class="l">AI 制作周期（传统真人 FMV 6–12 个月）</div></div>
+  <div class="kpi-card"><div class="v">1.1 倍</div><div class="l">AI 漫剧投流 ROI（净利率 &lt;10%，现金流生意）</div></div>
+</div>
+
+<section class="section">
+<div class="section-title">三份外部调研<span class="count">3 篇</span></div>
+
+<div class="report">
+  <div class="r-head">
+    <h3>《AI 互动影游全球深度报告》</h3>
+    <div class="r-src"><b>SimonAKing</b>2026-06-02 · 全球行业调研</div>
+  </div>
+  <div class="r-thesis">AI 正在根本改变互动影游的成本结构与经济模型，使这一存在了 59 年的小众品类首次具备规模化、可批量复制的商业可能。</div>
+  <ul>
+    <li><b>四个子赛道：</b>AI 漫剧互动派（芒果/番茄/拼多多/ReelShort）、AI Native 游戏派（Anuttacon/Character.AI/Replika）、AI NPC 引擎派（Inworld/Convai）、世界模型派（Decart/Genie 3/混元 World）。</li>
+    <li><b>四条算法策略：</b>AI 生成视频+预制分支（本质仍是树状，只是砍了拍摄成本）→ LLM 实时对话+预生成视觉（边际成本低 3–4 个数量级）→ LLM+实时视频生成+世界模型（算力黑洞，离跑通差 3–5 年）→ AI Agent 驱动 UGC 平台。</li>
+    <li><b>六条商业化路径：</b>买断制（40–60 元）、剧情分支付费（0.1–1 元/分支）、会员订阅独占（月卡 15–25 元）、广告+社交裂变、订阅制情感付费（10–20 美元/月）、B2B 技术授权。</li>
+    <li><b>价值链捕获：</b>算力层（字节/快手）旱涝保收，平台层（抖音/红果/番茄）赚过路费，制作方（酱油/友和）赚辛苦钱，议价权最弱。</li>
+    <li><b>五种真护城河：</b>数据飞轮、分发流量、模型与算力、IP 版权库、工程全栈；<b>三种伪壁垒：</b>纯 AI 漫剧制作能力、单个爆款、补贴换规模。</li>
+  </ul>
+  <a href="https://simonaking.com/blog/ai-interactive-film-game-report/" target="_blank">阅读原文 →</a>
+</div>
+
+<div class="report">
+  <div class="r-head">
+    <h3>《互动影游 2026：离开「爆款叙事」，AI 接力新逻辑》</h3>
+    <div class="r-src"><b>澎湃新闻 · 东西文娱</b>2026-06-07 · 行业研讨会调研</div>
+  </div>
+  <div class="r-thesis">爆款出了好几部，行业始终没形成规模——爆款之间的间隔长、无规律，多方玩家观望下场，离场也快。真正的变量是 AI 基础设施。</div>
+  <ul>
+    <li><b>多方入局：</b>6/1 周星驰旗下比高集团战略入股互动之星；腾讯天美助《盛世天下》、字节游戏孵化《不问凡尘》、腾讯探梦 DreamNow 曝光。</li>
+    <li><b>影视公司入场两面性：</b>带来 IP/演员/制作能力，但也把成本水位从 200–300 万拉高到 400–600 万（甚至超千万），回本压力陡增。</li>
+    <li><b>AI 生产端降本：</b>千万级真人实拍项目 AI 介入后降至 600–700 万，制作周期可从 8 个月压到 4 个月。</li>
+    <li><b>底层病：定位模糊</b>——互动影游「是游戏还是剧」至今摇摆，传导到渠道/定价/用户获取全部跟着乱；Steam「两小时可退」倒逼内容体验优先。</li>
+    <li><b>关键临界点：</b>「当 Token 价格低于 CDN 价格时，AI 互动影游才真正成立，而临界点正在逼近。」</li>
+    <li><b>线下新场景：</b>互动影游搬进电影院，200 人厅一天 5 场单日收入可达 3.5 万；腾讯光子「造化工坊」、上头蛙等布局 UGC 生态。</li>
+  </ul>
+  <a href="https://www.thepaper.cn/newsDetail_forward_33325329" target="_blank">阅读原文 →</a>
+</div>
+
+<div class="report">
+  <div class="r-head">
+    <h3>《字节、腾讯加码、初创公司发力：AI 互动影游能否成为内容行业下一个春天？》</h3>
+    <div class="r-src"><b>腾讯新闻 · 扬帆出海</b>2026-04-09 · 行业脉络梳理</div>
+  </div>
+  <div class="r-thesis">从文字文游到真人互动影游再到互动短剧，互动影游始终在「影视质感」与「生产效率」间摇摆；AI 首次让「多分支 + 高产出」同时成立。</div>
+  <ul>
+    <li><b>历史脉络：</b>2005 66RPG → 2012 橙光（女性向互动文字）→ 2019《隐形守护者》（140 万份）→ 2023《完蛋！》（500 万成本撬 190 万套/8000 万销售额）→ 2025《盛世天下》（<1 个月破 100 万套，填补女性向空白）。</li>
+    <li><b>AI 案例：</b>番茄《诡舍》（多人 AI 仿真+实时互动分支，打磨 2.5 个月，全角色场景 AI 生成）、芒果《公主请自重》/《马上来财》（春节 1 元解锁，播放破 1500 万、单日峰值 33 万访客）、拼多多《重生归来》（内容互动+电商转化无缝衔接）。</li>
+    <li><b>平台工具化：</b>橙光「橙戏 Agent」（输入设定自动生成场景/立绘/配音/分支）、腾讯「探梦 DreamNow」、LinearGame「Yoroll」（AI 快速生成+互动逻辑自动适配，无需编程）。</li>
+    <li><b>痛点未解：</b>互动短剧「重流量、轻内容」，用户留存率与付费深度不及传统高品质真人影游。</li>
+  </ul>
+  <a href="https://news.qq.com/rain/a/20260408A07UCH00" target="_blank">阅读原文 →</a>
+</div>
+</section>
+
+<section class="section">
+<div class="section-title">成本结构对比（核心拐点）</div>
+<table>
+  <tr><th>维度</th><th>传统真人 FMV</th><th class="hl">AI 漫剧 / 互动</th></tr>
+  <tr><td>单分钟成本</td><td>几千到几万元</td><td class="hl">1000–2500 元</td></tr>
+  <tr><td>制作周期</td><td>6–12 个月</td><td class="hl">7–14 天</td></tr>
+  <tr><td>团队规模</td><td>50–200 人</td><td class="hl">3–30 人</td></tr>
+  <tr><td>分支数上限</td><td>十几条（硬约束）</td><td class="hl">数十到上百条</td></tr>
+  <tr><td>多语言适配</td><td>重配音重译制</td><td class="hl">AI 一键多语言，边际成本趋零</td></tr>
+</table>
+</section>
+
+<section class="section">
+<div class="section-title">交叉洞察（三篇共识 · 对选题立项有直接指导）<span class="count">6 条</span></div>
+<div class="insight"><h4><span class="i-num">1</span>AI 降的是「生产端」，不是「留存端」</h4><p>「一轮游」诅咒未解：AI 只让做一部更便宜，没让用户留下来。差异化最终仍回到剧本——「互动影游的剧本最难，要同时兼备文科生的审美和理科生的逻辑。」</p></div>
+<div class="insight"><h4><span class="i-num">2</span>爆款 ≠ 规模化</h4><p>《隐形守护者》→《完蛋》→《盛世天下》每隔一段爆一次，但间隔长、无规律，行业没因爆款迎来规模化增长。缺一部「大众平台首发 + 普世故事 + 可复制模型」的标杆。</p></div>
+<div class="insight"><h4><span class="i-num">3</span>价值链极不均衡</h4><p>算力层、平台层旱涝保收，制作方赚辛苦钱（净利率 &lt;10%）。真护城河只有：数据飞轮、分发流量、模型算力、IP 版权库、工程全栈。</p></div>
+<div class="insight"><h4><span class="i-num">4</span>监管是洗牌器不是杀手</h4><p>2026.4.1《网络微短剧分类分级管理规定》洗掉第一波套利玩家，中长期利好精品化；竞争力从「快/便宜」转向「质/稳」。</p></div>
+<div class="insight"><h4><span class="i-num">5</span>终局四派递进</h4><p>短期（2–3 年）赚 AI 漫剧的钱 → 中期看 AI Native 游戏（LLM 实时驱动）→ AI NPC 引擎稳健增长 → 世界模型是终局但差 3–5 年。</p></div>
+<div class="insight"><h4><span class="i-num">6</span>定位模糊是底层病</h4><p>「是游戏还是剧」不先定死，渠道/定价/用户获取全跟着摇摆。Steam 买断制 + 两小时可退，倒逼「内容体验优先」。</p></div>
+</section>
+
+<section class="section">
+<div class="section-title">监管与关键时间线<span class="count">2026</span></div>
+<div class="timeline">
+  <div class="t-item"><div class="d">2026.4.1</div><div class="x">《网络微短剧分类分级管理规定》实施：三级分层审核、AI 内容必须显著标识、未备案存量作品下线；约 4 万部未备案 AI 短剧下架。</div></div>
+  <div class="t-item"><div class="d">2026.4.7</div><div class="x">抖音大幅提升漫剧审核标准；快手发布违规治理公告，抖音集团发布 5 亿元真人短剧扶持计划。</div></div>
+  <div class="t-item"><div class="d">2026.4.14</div><div class="x">New One Studio 开放《女帝篇》预约（1000 分钟 4K，腾讯代理移动端）。</div></div>
+  <div class="t-item"><div class="d">2026.4.26</div><div class="x">OpenAI 关停 Sora app（「AI 视频 + 社交分发」消费级模式被验证走不通）。</div></div>
+  <div class="t-item"><div class="d">2026.6.1</div><div class="x">周星驰旗下比高集团战略入股互动之星，围绕 AI 剧集/互动影游/IP 全产业链合作。</div></div>
+</div>
+</section>
+
+<footer>
+  <p>由 <b>产品调研机器人</b> 维护 · 行业调研吸纳于 2026-08-18 · 原文版权归原作者所有</p>
+</footer>
+
+</div>
+</body>
+</html>

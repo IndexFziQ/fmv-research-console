@@ -1,0 +1,529 @@
+{
+ "3749320": {
+  "title": "花满楼",
+  "zh": {
+   "total_reviews": 1276,
+   "total_positive": 1258,
+   "total_negative": 18,
+   "review_score_desc": "Overwhelmingly Positive",
+   "cnt_7d": 1276,
+   "cnt_48h": 1276
+  },
+  "all": {
+   "error": "Remote end closed connection without response"
+  }
+ },
+ "4292950": {
+  "title": "绍宋:还我河山",
+  "zh": {
+   "total_reviews": 2043,
+   "total_positive": 1721,
+   "total_negative": 322,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 2000,
+   "cnt_48h": 1152
+  },
+  "all": {
+   "total_reviews": 2066,
+   "total_positive": 1726,
+   "total_negative": 340,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 2000,
+   "cnt_48h": 1165
+  }
+ },
+ "4855450": {
+  "title": "不心动才有鬼",
+  "zh": {
+   "total_reviews": 1118,
+   "total_positive": 1070,
+   "total_negative": 48,
+   "review_score_desc": "Overwhelmingly Positive",
+   "cnt_7d": 911,
+   "cnt_48h": 299
+  },
+  "all": {
+   "total_reviews": 1328,
+   "total_positive": 1276,
+   "total_negative": 52,
+   "review_score_desc": "Overwhelmingly Positive",
+   "cnt_7d": 1111,
+   "cnt_48h": 352
+  }
+ },
+ "3818020": {
+  "title": "恶校游戏",
+  "zh": {
+   "total_reviews": 686,
+   "total_positive": 649,
+   "total_negative": 37,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 172,
+   "cnt_48h": 31
+  },
+  "all": {
+   "total_reviews": 929,
+   "total_positive": 866,
+   "total_negative": 63,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 326,
+   "cnt_48h": 60
+  }
+ },
+ "4412960": {
+  "title": "光与影之恋",
+  "zh": {
+   "total_reviews": 69,
+   "total_positive": 69,
+   "total_negative": 0,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 60,
+   "cnt_48h": 6
+  },
+  "all": {
+   "total_reviews": 70,
+   "total_positive": 70,
+   "total_negative": 0,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 70,
+   "cnt_48h": 15
+  }
+ },
+ "4838470": {
+  "title": "小小吸血姬",
+  "zh": {
+   "total_reviews": 81,
+   "total_positive": 68,
+   "total_negative": 13,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 48,
+   "cnt_48h": 12
+  },
+  "all": {
+   "total_reviews": 90,
+   "total_positive": 74,
+   "total_negative": 16,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 59,
+   "cnt_48h": 18
+  }
+ },
+ "4108460": {
+  "title": "灭寇1939:上川往事",
+  "zh": {
+   "total_reviews": 547,
+   "total_positive": 462,
+   "total_negative": 85,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 47,
+   "cnt_48h": 7
+  },
+  "all": {
+   "total_reviews": 573,
+   "total_positive": 486,
+   "total_negative": 87,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 55,
+   "cnt_48h": 9
+  }
+ },
+ "3831120": {
+  "title": "江山北望",
+  "zh": {
+   "total_reviews": 6157,
+   "total_positive": 5625,
+   "total_negative": 532,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 25,
+   "cnt_48h": 6
+  },
+  "all": {
+   "total_reviews": 6564,
+   "total_positive": 5979,
+   "total_negative": 585,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 33,
+   "cnt_48h": 11
+  }
+ },
+ "4148240": {
+  "title": "女帝篇(女王的游戏)",
+  "zh": {
+   "total_reviews": 8089,
+   "total_positive": 6740,
+   "total_negative": 1349,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 75,
+   "cnt_48h": 23
+  },
+  "all": {
+   "total_reviews": 9349,
+   "total_positive": 7766,
+   "total_negative": 1583,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 93,
+   "cnt_48h": 27
+  }
+ },
+ "3478050": {
+  "title": "媚娘篇(女王的游戏)",
+  "zh": {
+   "total_reviews": 9390,
+   "total_positive": 7787,
+   "total_negative": 1603,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 29,
+   "cnt_48h": 2
+  },
+  "all": {
+   "total_reviews": 13200,
+   "total_positive": 11439,
+   "total_negative": 1761,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 62,
+   "cnt_48h": 14
+  }
+ },
+ "3155310": {
+  "title": "阴三国谋论:徐州篇",
+  "zh": {
+   "total_reviews": 41,
+   "total_positive": 38,
+   "total_negative": 3,
+   "review_score_desc": "Positive",
+   "cnt_7d": 14,
+   "cnt_48h": 1
+  },
+  "all": {
+   "total_reviews": 46,
+   "total_positive": 43,
+   "total_negative": 3,
+   "review_score_desc": "Positive",
+   "cnt_7d": 18,
+   "cnt_48h": 3
+  }
+ },
+ "4234260": {
+  "title": "主角",
+  "zh": {
+   "total_reviews": 1065,
+   "total_positive": 1041,
+   "total_negative": 24,
+   "review_score_desc": "Overwhelmingly Positive",
+   "cnt_7d": 1,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 1125,
+   "total_positive": 1099,
+   "total_negative": 26,
+   "review_score_desc": "Overwhelmingly Positive",
+   "cnt_7d": 4,
+   "cnt_48h": 0
+  }
+ },
+ "4699920": {
+  "title": "天平游戏1:抉择",
+  "zh": {
+   "total_reviews": 930,
+   "total_positive": 809,
+   "total_negative": 121,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 11,
+   "cnt_48h": 2
+  },
+  "all": {
+   "total_reviews": 993,
+   "total_positive": 846,
+   "total_negative": 147,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 17,
+   "cnt_48h": 4
+  }
+ },
+ "3412900": {
+  "title": "代号三国:龙起",
+  "zh": {
+   "total_reviews": 2759,
+   "total_positive": 2532,
+   "total_negative": 227,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 6,
+   "cnt_48h": 1
+  },
+  "all": {
+   "total_reviews": 3003,
+   "total_positive": 2723,
+   "total_negative": 280,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 8,
+   "cnt_48h": 2
+  }
+ },
+ "3711170": {
+  "title": "冰点之下",
+  "zh": {
+   "total_reviews": 2769,
+   "total_positive": 2598,
+   "total_negative": 171,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 2,
+   "cnt_48h": 1
+  },
+  "all": {
+   "total_reviews": 2946,
+   "total_positive": 2724,
+   "total_negative": 222,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 3,
+   "cnt_48h": 2
+  }
+ },
+ "3987560": {
+  "title": "盛夏离与合",
+  "zh": {
+   "total_reviews": 799,
+   "total_positive": 678,
+   "total_negative": 121,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 4,
+   "cnt_48h": 1
+  },
+  "all": {
+   "total_reviews": 863,
+   "total_positive": 730,
+   "total_negative": 133,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 5,
+   "cnt_48h": 1
+  }
+ },
+ "4740420": {
+  "title": "雪落情书时",
+  "zh": {
+   "total_reviews": 660,
+   "total_positive": 639,
+   "total_negative": 21,
+   "review_score_desc": "Overwhelmingly Positive",
+   "cnt_7d": 3,
+   "cnt_48h": 1
+  },
+  "all": {
+   "total_reviews": 727,
+   "total_positive": 697,
+   "total_negative": 30,
+   "review_score_desc": "Overwhelmingly Positive",
+   "cnt_7d": 6,
+   "cnt_48h": 2
+  }
+ },
+ "4104120": {
+  "title": "对不起我是警察",
+  "zh": {
+   "total_reviews": 754,
+   "total_positive": 587,
+   "total_negative": 167,
+   "review_score_desc": "Mostly Positive",
+   "cnt_7d": 2,
+   "cnt_48h": 1
+  },
+  "all": {
+   "total_reviews": 824,
+   "total_positive": 646,
+   "total_negative": 178,
+   "review_score_desc": "Mostly Positive",
+   "cnt_7d": 2,
+   "cnt_48h": 1
+  }
+ },
+ "3794770": {
+  "title": "心之岛",
+  "zh": {
+   "total_reviews": 40,
+   "total_positive": 27,
+   "total_negative": 13,
+   "review_score_desc": "Mixed",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 98,
+   "total_positive": 57,
+   "total_negative": 41,
+   "review_score_desc": "Mixed",
+   "cnt_7d": 1,
+   "cnt_48h": 0
+  }
+ },
+ "3447920": {
+  "title": "The Run",
+  "zh": {
+   "total_reviews": 3,
+   "total_positive": 1,
+   "total_negative": 2,
+   "review_score_desc": "3 user reviews",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 108,
+   "total_positive": 97,
+   "total_negative": 11,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 1,
+   "cnt_48h": 0
+  }
+ },
+ "2993720": {
+  "title": "Cage of Roses",
+  "zh": {
+   "total_reviews": 18,
+   "total_positive": 16,
+   "total_negative": 2,
+   "review_score_desc": "Positive",
+   "cnt_7d": 1,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 205,
+   "total_positive": 182,
+   "total_negative": 23,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 1,
+   "cnt_48h": 0
+  }
+ },
+ "1188710": {
+  "title": "Bloodholic",
+  "zh": {
+   "total_reviews": 54,
+   "total_positive": 53,
+   "total_negative": 1,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 101,
+   "total_positive": 89,
+   "total_negative": 12,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  }
+ },
+ "1353270": {
+  "title": "Five Dates",
+  "zh": {
+   "total_reviews": 538,
+   "total_positive": 461,
+   "total_negative": 77,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 2824,
+   "total_positive": 2404,
+   "total_negative": 420,
+   "review_score_desc": "Very Positive",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  }
+ },
+ "1107790": {
+  "title": "The Complex",
+  "zh": {
+   "total_reviews": 927,
+   "total_positive": 662,
+   "total_negative": 265,
+   "review_score_desc": "Mostly Positive",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 3555,
+   "total_positive": 2774,
+   "total_negative": 781,
+   "review_score_desc": "Mostly Positive",
+   "cnt_7d": 2,
+   "cnt_48h": 2
+  }
+ },
+ "4868070": {
+  "title": "Nocturne Hollow",
+  "zh": {
+   "total_reviews": 0,
+   "total_positive": 0,
+   "total_negative": 0,
+   "review_score_desc": "No user reviews",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 0,
+   "total_positive": 0,
+   "total_negative": 0,
+   "review_score_desc": "No user reviews",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  }
+ },
+ "4902060": {
+  "title": "Libera Nos a Malo",
+  "zh": {
+   "total_reviews": 0,
+   "total_positive": 0,
+   "total_negative": 0,
+   "review_score_desc": "No user reviews",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 3,
+   "total_positive": 2,
+   "total_negative": 1,
+   "review_score_desc": "3 user reviews",
+   "cnt_7d": 2,
+   "cnt_48h": 0
+  }
+ },
+ "2816920": {
+  "title": "退婚后，宗主马甲藏不住",
+  "zh": {
+   "total_reviews": 41,
+   "total_positive": 11,
+   "total_negative": 30,
+   "review_score_desc": "Mostly Negative",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  },
+  "all": {
+   "total_reviews": 59,
+   "total_positive": 20,
+   "total_negative": 39,
+   "review_score_desc": "Mostly Negative",
+   "cnt_7d": 0,
+   "cnt_48h": 0
+  }
+ },
+ "3756870": {
+  "title": "Project DeepWeb: Eternal Nightmare",
+  "zh": {
+   "total_reviews": 1,
+   "total_positive": 1,
+   "total_negative": 0,
+   "review_score_desc": "1 user reviews",
+   "cnt_7d": 1,
+   "cnt_48h": 1
+  },
+  "all": {
+   "total_reviews": 11,
+   "total_positive": 11,
+   "total_negative": 0,
+   "review_score_desc": "Positive",
+   "cnt_7d": 11,
+   "cnt_48h": 3
+  }
+ }
+}

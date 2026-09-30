@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-09-25</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .dl.warn{color:var(--amb)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-09-25</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">48</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">100%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+  <div class="signal-card">
+    <h4>① 《新世界:暗影成双》上线进入官方级发酵期——上影集团背书 + 新华财经定调「电影+科技+互动文旅」三业态融合</h4>
+    <div class="src">来源：新华财经(9/24) · 中国金融信息网(9/24) · 游民星空(9/23) · 新浪财经(9/24)</div>
+    <ul><li>9/23 双端同步发售，全球首款双人联机互动影游：双视角信息差解谜、25 种双人玩法、130+ 分支、近百种结局</li><li>9/24 新华财经官方通稿：上影集团「电影+」创新融合标杆，出品方升格为上影集团牵头（上影电影制作+互影数字科技+霍洛维兹+光彩影业+上影元）</li><li>10/2-10/6 亮相 REDLAND2026，双人协作延伸至线下实景</li><li>⚠️ 口径纠偏：Steam 国区实际 ¥36.8（首发 ¥29.8），非 09-23 快照记录的 ¥128（应为移动端全章节档位）</li><li>「新世界庄园」IP 宇宙：线下戏剧《破笼之宴》(25个月满座) + VR电影《浮城暗涌》(2027春节档) + 双人互动影游三线联动</li></ul>
+    <div class="act"><strong>行动建议：</strong>「双人联机」是互动影游从「单人看剧」走向「社交化」的确定性切口，且已获官方媒体背书，说明赛道获主流认可。三点启示：① 双人「信息差解谜」把「和搭子一起玩」变成玩法本身，自有项目评估双人/协作叙事时要看清「社交裂变」红利——情侣/好友双人场景天然自带传播；② 上影把同一个 IP 拆成「戏剧+VR+影游」三形态，验证了「IP 一次投入、多形态变现」，自有原创 IP 应从立项就规划多形态授权；③ 「定价口径」要当心——官方通稿与商店页、移动端与 PC 端价格易混，做竞品监测务必以「商店页实际到手价」为准，别被通稿数字带偏。</div>
+    <div class="links"><a class="link-btn" href="https://www.cnfin.com/gs-lb/detail/20260924/4474561_1.html" target="_blank">来源</a><a class="link-btn" href="https://www.163.com/dy/article/L7GRUD1F0526K1KN.html" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>② 《有这么一个家伙》9/24 正式全球多平台上线——「真人互动 + 模拟经营」复合形态完成主机/PC/WeGame 齐发</h4>
+    <div class="src">来源：搜狐(9/24) · 网易(9/24 英文评测侧) · 游民星空(9/20-22)</div>
+    <ul><li>9/24 正式登陆 Switch/PS5(含国行)/Xbox/Windows/WeGame/蒸汽平台，支持简中/繁中/英/日/韩五语言</li><li>形态创新：真人互动剧情 + 模拟经营（改造民宿 + 情感养成双线），近 1000 分钟剧情、数百决策点、20+ 结局、六位女主</li><li>网易英文侧：NiuGamer 前作 Love Is All Around 获 4/5 分，「不是看片偶尔按一下」——数百决策点影响人物关系与事件走向</li><li>温岭实地取景 + 盘尼西林片尾曲 + 王啸坤出演，城市文旅 IP 植入路径</li><li>⚠️ 2025/10 已先上 Steam，此次为「存量 IP 扩平台」而非全新作</li></ul>
+    <div class="act"><strong>行动建议：</strong>「真人互动 + 模拟经营」是跳出「纯看剧选选项」的差异化方向，说明品类正在从「恋爱幻想」向「玩法融合」演化。三点启示：① 复合形态提升可玩性与复玩率——「看剧情」叠加「经营养成」让玩家有持续目标，自有项目做互动影游可考虑「叙事 + 轻玩法」而非纯选项；② 「城市文旅植入」是变现新路径——《有这么一个家伙》把温岭城市文旅写进剧情，自有项目可评估「城市/景区 IP 联名」的 B 端变现可能；③ 「存量 IP 扩平台」提醒我们监测竞品时区分「新作」与「扩平台」——后者商业验证已过，前者才是真新供给信号。</div>
+    <div class="links"><a class="link-btn" href="https://www.sohu.com/a/1080601073_121106994" target="_blank">来源</a><a class="link-btn" href="https://www.163.com/dy/article/L7K9D1Q305561FY3.html" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>③ Steam 竞品 2 日累计环比：盛世天下系列继续领涨（媚娘+7/女帝+5），金宵公寓企稳，AKIBA LOST 正式版 8 天仍 0 评测</h4>
+    <div class="src">来源：Steam评测API环比(9/23→9/25) · Steam商店页(4131220) · 证券日报(9/23)</div>
+    <ul><li>2 日累计环比（周三→周四，09-24 缺失）：11 款正增长、1 款净减（恶校游戏-1）、27 款持平，无一款达 +30% 阈值</li><li>领涨：媚娘篇 +7、女帝篇 +5、绍宋 +3（盛世天下 600 万套里程碑余温 + 系列化头部虹吸）</li><li>金宵公寓 56.0%（55.6→56.0 微升 0.4pp）企稳，但仍是全池唯一差评风险样本</li><li>⚠️ AKIBA LOST 正式版(4131220) 9/17 发售已 8 天仍 0 评测（Steam 商店页评测未解锁），口碑窗口持续延后</li><li>头部好评率全线稳定：女帝 82.5%/媚娘 82.9%/江山北望 91.3%/花满楼 97.4%/绍宋 80.9%</li></ul>
+    <div class="act"><strong>行动建议：</strong>竞品池进入「系列化头部领涨 + 长尾自然沉淀」的稳态，两个风险样本持续暴露。三点启示：① 「系列化头部」是评测增量的绝对主力——盛世天下（媚娘+女帝）连续领涨印证「大 IP 续作」才是口碑增量引擎，自有项目监测应把「系列化头部」与「长尾新作」分开建模，别被长尾单日脉冲误导；② 金宵公寓「56.0% 企稳」仍不可掉以轻心——好评率低于 60% 且长期徘徊，说明差评根因（剧情/人物）未修，企稳只是「没人新增骂」而非「口碑转好」，自有项目务必「修根因」而非「冷处理差评」；③ AKIBA LOST 8 天 0 评测再证「日系 FMV 商店页/评测就绪节奏」的摩擦，出海项目务必「发售日 = 商店页 + 评测就绪」三对齐，避免口碑空窗被媒体负面先入为主。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/4131220" target="_blank">来源</a><a class="link-btn" href="https://store.steampowered.com/app/4148240" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>④ 韩系 FMV 供给节奏路标：Storytaco 年末 3 新作 + 王涵出演，国产恋爱向空窗期预警</h4>
+    <div class="src">来源：17173盘点(9/25) · 游民星空(9/24 底特律DLSS5)</div>
+    <ul><li>17173(9/25) 十三款韩国互动影游盘点：Storytaco 已发售 6 款，仅正传 1/2 部「值得入手」，其余制作水准参差</li><li>关键路标：韩国互动影游高光期在 10-12 月，Storytaco 一口气推 3 款新作（含王涵出演）+ 办公室/老师题材另 2 款，共 5 部</li><li>反衬：今年国产恋爱向互动影游新作数量偏少，海外作品获得空窗窗口</li><li>底特律 DLSS5 纯享版电影获 Quantic Dream 官方感谢——互动电影 3A 标杆的长尾二创传播</li></ul>
+    <div class="act"><strong>行动建议：</strong>韩系 FMV 的「年末供给集中」是明确的竞争路标，而「国产恋爱向空窗」是自有项目的档期机会。三点启示：① 「档期错位」是确定性策略——海外 10-12 月集中上新、国产恋爱向偏少，自有恋爱向项目若能在空窗期卡位，能避开正面竞争；② 「艺人出演」是韩系供给的差异化武器（王涵出演）——明星/艺人背书对恋爱向影游的获客加成显著，自有项目应评估「艺人/短剧演员」资源；③ 韩系「定价偏高 + 缺中文配音」是长期短板，国产项目可用「中文原生配音 + 合理定价」做差异化反打，而非跟风高定价。</div>
+    <div class="links"><a class="link-btn" href="https://news.17173.com/content/09252026/070007450.shtml" target="_blank">来源</a><a class="link-btn" href="https://wap.gamersky.com/news/Content-2215466.html" target="_blank">旁证</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 自09-25前快照起）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">媚娘篇(盛世天下)</span><span class="pct">82.9%</span></div><div class="dl ">+7(+0.1%)</div><div class="nt">媚娘篇 +7（2日累计领涨），82.9% 稳定（盛世天下 600 万套里程碑余温持续）</div></div><div class="review-cell"><div class="rn"><span class="nm">女帝篇(盛世天下)</span><span class="pct">82.5%</span></div><div class="dl ">+5(+0.1%)</div><div class="nt">女帝篇 +5，82.5% 稳定（盛世天下系列头部领涨）</div></div><div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">80.9%</span></div><div class="dl ">+3(+0.1%)</div><div class="nt">绍宋 +3，80.9%（80.8→80.9 微升0.1pp，连续多日正增长）</div></div><div class="review-cell"><div class="rn"><span class="nm">冰点之下</span><span class="pct">93.4%</span></div><div class="dl ">+1(+0.0%)</div><div class="nt">冰点之下 +1，93.4% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.3%</span></div><div class="dl ">+1(+0.0%)</div><div class="nt">江山北望 +1，91.3% 稳定（小而稳长尾标杆）</div></div><div class="review-cell"><div class="rn"><span class="nm">雪落情书时</span><span class="pct">96.1%</span></div><div class="dl ">+1(+0.2%)</div><div class="nt">雪落情书时 +1，96.1%（96.3→96.1 微降0.2pp，样本小波动）</div></div><div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">94.9%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">不心动才有鬼 +1，94.9%（95.0→94.9 微降0.1pp）</div></div><div class="review-cell"><div class="rn"><span class="nm">灭寇1939:上川往事</span><span class="pct">83.0%</span></div><div class="dl ">+1(+0.2%)</div><div class="nt">灭寇1939 +1，83.0%（83.1→83.0 微降0.1pp）</div></div><div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">97.4%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">花满楼 +1，97.4% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">阴三国谋论:徐州篇</span><span class="pct">92.2%</span></div><div class="dl ">+1(+2.0%)</div><div class="nt">阴三国谋论 +1，92.2%（92.0→92.2 微升0.2pp）</div></div><div class="review-cell"><div class="rn"><span class="nm">金宵公寓事件</span><span class="pct">56.0%</span></div><div class="dl ">+1(+0.8%)</div><div class="nt">金宵公寓 +1，56.0%（55.6→56.0 微升0.4pp 企稳，但仍是全池唯一差评风险样本）</div></div><div class="review-cell"><div class="rn"><span class="nm">Bloodholic</span><span class="pct">98.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Cage of Roses</span><span class="pct">89.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Run</span><span class="pct">33.3%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文33.3% vs 全语言88.3%(差55.0pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.3%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.2%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">对不起我是警察</span><span class="pct">77.9%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">66.7%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.6%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Five Dates</span><span class="pct">85.6%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Libera Nos a Malo</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">天平游戏1:抉择</span><span class="pct">85.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">退婚后,宗主马甲藏不住</span><span class="pct">26.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Project DeepWeb</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">87.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">1000王子(AI原生乙女)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0.0% vs 全语言22.2%(差22.2pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">无言之林(海外一人FMV)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0.0% vs 全语言52.3%(差52.3pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">你好,你配吗?</span><span class="pct">96.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">东北往事</span><span class="pct">83.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">末日降临!被美女们关进避难所</span><span class="pct">81.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">夺命邂逅</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0条，夺命邂逅=Demo试玩已排除竞品池</div></div><div class="review-cell"><div class="rn"><span class="nm">宗门最后的长老</span><span class="pct">97.1%</span></div><div class="dl ">持平</div><div class="nt">宗门最后的长老=修仙合成塔防非互动影游，已排除竞品池</div></div><div class="review-cell"><div class="rn"><span class="nm">列车怪谈：虚像之境</span><span class="pct">86.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Rescue the Hostages: Misaligned Fate</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">追踪中(9/3上架，中文仅1条，属性存疑待甄别)</div></div><div class="review-cell"><div class="rn"><span class="nm">AKIBA LOST (秋叶原迷踪)</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">AKIBA LOST 正式版：9/17 发售已 8 天仍 0 评测（Steam 商店页评测未解锁），口碑窗口持续延后</div></div><div class="review-cell"><div class="rn"><span class="nm">AKIBA LOST (秋叶原迷踪) 试玩版</span><span class="pct">92.9%</span></div><div class="dl ">持平</div><div class="nt">AKIBA LOST 试玩版(Demo)：14 中文评测 92.9%（持平，Demo 好评 vs 媒体负面形成对照）</div></div><div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">93.1%</span></div><div class="dl ">-1(-0.1%)</div><div class="nt">恶校游戏 -1，93.1% 稳定（正常波动）</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">《新世界:暗影成双》9/23 上线后持续发酵——上影集团官方背书 + 新华财经报道，双人联机互动影游进入宣发期</span><span class="delta">新供给·双人互动影游</span></div>
+    <div class="meta">互影科技 × 上影制作 × 上海霍洛维兹（ALT Lab /《飞越13号房》团队同源） · 2026-09-23 双端同步发售（PC/移动端）</div>
+    <div class="note">9/23 发售的全球首款双人联机互动影游《新世界:暗影成双》进入持续发酵期。9/24 新华财经/中国金融信息网/新浪财经发布官方通稿：上影集团把本作定位为「电影+」创新融合的标杆实践，9 大章节、130+ 分支、近百种结局、25 种双人玩法、十余种视觉风格（皮影/纪实/默片）。⚠️ 关键口径纠偏（相对 09-23 快照）：Steam 国区实际定价为 ¥36.8（首发 ¥29.8），而非此前记录的 ¥128（¥128 可能为移动端全章节档位）。项目还将于 10/2-10/6 亮相 REDLAND2026，把双人协作延伸到线下实景。出品方从「互影科技」升格为上影集团牵头（上影电影制作+互影数字科技+霍洛维兹+光彩影业+上影元联合出品），是「电影+科技+互动文旅」三业态融合的官方级样本。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">双人互动影游</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《有这么一个家伙》9/24 正式全球多平台上线——真人互动影视 + 模拟经营，主机/PC/WeGame 齐发</span><span class="delta">新供给·多平台拓张</span></div>
+    <div class="meta">SUCH ONE（北京有这么一个互动娱乐科技有限公司） · 2026-09-24 正式多平台发售（Switch/PS5含国行/Xbox/Windows/WeGame/蒸汽平台）</div>
+    <div class="note">9/24（昨日）《有这么一个家伙》(Such A Guy) 正式全球多平台上线，此前 09-23 快照记录的是「9/24 发售预告」，今日确认已落地。搜狐(9/24) 官方稿：SUCH ONE 研发、NiuGamer 发行，温岭实地取景，融合真人互动剧情 + 模拟经营（改造临海房屋经营民宿 + 情感养成双线），近 1000 分钟剧情、数百个选择节点、20+ 种结局、六位女主、盘尼西林《美丽如你》片尾曲、王啸坤友情出演。支持简中/繁中/英/日/韩五语言全球同步。网易(9/24) 英文评测侧补充：NiuGamer 前作《Love Is All Around》获 4/5 分，「不是看片偶尔按一下」——数百决策点影响人物关系与事件走向。⚠️ 该作 2025/10/15 已先上 Steam，此次为「主机 + WeGame + 蒸汽平台」多平台拓张，属「存量 IP 扩平台」。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">多平台拓张</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">韩系 FMV 十三款盘点出炉——Storytaco 年末 3 新作 + 王涵出演，国产恋爱向新作偏少留出空窗</span><span class="delta">海外·韩系FMV供给</span></div>
+    <div class="meta">Storytaco（阿西团队）等韩系厂牌 · 17173 2026-09-25 发布盘点</div>
+    <div class="note">17173(9/25 今日) 发布「十三款韩国互动影游回顾盘点」，核心增量信号：① Storytaco（阿西团队）已发售 6 款，其中《阿西,美女室友竟然...?》正传 1/2 部是唯二「值得入手」的，其余四款（嘘美女拍摄中/不要欺负大小姐们/夏日美女/末日降临避难所）制作水准与正传相差一截；② 另有五款（恋爱大师/杂技游戏/禁止过分投入2/命中注定就是你/单身狗）问题更多；③ 关键判断：韩国互动影游高光期将出现在 10-12 月，Storytaco 一口气推出 3 款新作（含知名艺人王涵出演），叠加办公室/老师题材另 2 款，共 5 部有望改写国内恋爱互动影游偏好；④ 今年国产恋爱向互动影游新作数量偏少，给海外作品留出空窗。这是韩系 FMV 供给节奏的明确路标，也是「国产恋爱向空窗期」的竞争预警。</div>
+    <div class="tags"><span class="tag tag-b">海外</span><span class="tag tag-p">韩系FMV供给</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Steam 评测 2 日累计环比（9/23→9/25）——见下方「Steam 竞品评测环比」明细</span><span class="delta">机制·2日累计环比</span></div>
+    <div class="meta">Steam 评测系统（机制信号） · 2026-09-25 窗口</div>
+    <div class="note">本次为周三(9/23)→周四(9/25) 2 日累计环比（09-24 快照缺失）。11 款正增长（媚娘+7/女帝+5/绍宋+3 领涨）、1 款净减（恶校游戏-1）、27 款持平。无一款达 +30% 阈值。核心观察：盛世天下系列（媚娘+7/女帝+5）继续领涨，600 万套里程碑余温持续；金宵公寓 56.0%（55.6→56.0 微升 0.4pp）企稳，但仍是唯一差评风险样本；AKIBA LOST 正式版 8 天仍 0 评测。头部好评率全线稳定（女帝82.5%/媚娘82.9%/江山北望91.3%/花满楼97.4%/绍宋80.9%）。</div>
+    <div class="tags"><span class="tag tag-p">机制</span><span class="tag tag-p">2日累计环比</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望（木焱工作室）</span><span class="delta">91.3% Steam</span></div>
+    <div class="note">TapTap 侧今日无新增评分/讨论异动，标「无新增量」。Steam 侧 2 日累计 +1（6276→6277），91.3% 稳定，TapTap 与 Steam 双端「小而稳」长尾口碑持续互证。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">审判者（北京水思维科技 / 联通5G发行）</span><span class="delta">8.7</span></div>
+    <div class="note">TapTap 互动电影新供给：《审判者》真人演绎、电影+交互玩法推进剧情，北京水思维科技开发、联通5G发行。TapTap 8.7 分（181 条评价，官方入驻），但仍在预约/待上线阶段，玩家评论多为「期待、快点上线」。属「待上线互动电影」赛道供给信号，尚未形成口碑样本。今日无新增量，延续 09-23 记录。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">新华财经/中国金融信息网：《新世界:暗影成双》上线——上影集团「电影+科技+互动文旅」三业态融合的官方定调</span><span class="delta">媒体信号</span></div>
+    <div class="note">新华财经(9/24) 官方通稿将《新世界:暗影成双》定位为上影集团「电影+」创新融合标杆：9 大章节、130+ 分支、近百种结局、25 种双人玩法、皮影/纪实/默片等十余种视觉风格；10/2-10/6 亮相 REDLAND2026 线下实景；出品方升格为上影集团牵头（上影电影制作+互影数字科技+霍洛维兹+光彩影业+上影元联合出品）。从沉浸式戏剧《新世界:破笼之宴》到双人互动影游《新世界:暗影成双》，「新世界庄园」IP 宇宙完成「线下实景→线上数字」的边界拓展。这是官方媒体对「互动影游 + VR 电影 + 线下戏剧」矩阵化路径的又一次背书。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">游民星空：《底特律:化身为人》DLSS5 纯享版电影——B站UP主重制 6 小时，Quantic Dream 官方下场感谢</span><span class="delta">媒体信号</span></div>
+    <div class="note">游民星空(9/24 前后) 报道：B站 UP 主「凯文不是大叔」利用 DLSS 5 技术，将互动电影标杆《底特律:化身为人》重制为时长近 6 小时的「纯享版」电影，串联大量剧情内容让玩家以接近电影的方式完整体验故事。该视频获 Quantic Dream 官方在评论区致谢：「非常感谢@凯文不是大叔 的匠心制作」。这是「互动电影 3A 标杆」被二次创作再传播的社区信号——说明「选择即命运」的品类认知仍具长尾传播力，也印证互动影视的「可切片、可二创」内容属性是获客富矿。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">17173 韩系 FMV 盘点：Storytaco 年末 3 新作 + 王涵出演，国产恋爱向空窗期预警</span><span class="delta">媒体信号</span></div>
+    <div class="note">17173(9/25) 十三款韩国互动影游盘点透出的供给节奏信号：Storytaco（阿西团队）10-12 月一口气推 3 款新作（含知名艺人王涵出演），叠加办公室/老师题材另 2 款，共 5 部有望改写国内恋爱互动影游偏好。反衬出「今年国产恋爱向互动影游新作数量偏少」的空窗。这是「海外供给集中 + 国产供给空窗」的错位竞争窗口，值得自有项目关注档期选择。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.11</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · Tech Times/今日头条/游民星空/腾讯新闻/中金在线/Next-Gen Gaming Blog | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

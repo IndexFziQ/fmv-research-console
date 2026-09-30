@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动叙事前沿论文 · 2026-09-23</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+header .meta a{color:var(--a);text-decoration:none}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .v{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted)}
+.kpi-card .s{font-size:10px;color:var(--muted);margin-top:2px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.paper-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.paper-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.paper-card h3{font-size:14px;font-weight:600;color:var(--a);flex:1;min-width:0}
+.paper-card .head-meta{display:flex;gap:6px;flex-shrink:0}
+.tag{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.paper-card .authors{font-size:11px;color:var(--muted);margin-bottom:8px}
+.paper-card .authors .pdf{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--r);color:#fff;text-decoration:none;margin-left:8px;font-weight:500}
+.paper-card .authors .pdf:hover{background:#a32d34}
+.paper-card .abstract{font-size:12px;color:var(--s);line-height:1.55;margin-bottom:8px;padding:8px 10px;background:var(--al);border-radius:6px}
+.paper-card .line{font-size:12px;line-height:1.6;margin-bottom:6px;padding-left:10px;border-left:3px solid var(--border)}
+.paper-card .line.r{border-left-color:var(--r);color:var(--s)}
+.paper-card .line.b{border-left-color:var(--b);color:var(--s)}
+.paper-card .line.g{border-left-color:var(--g);background:var(--gl);padding:8px 10px;border-radius:0 6px 6px 0;color:var(--text)}
+.paper-card .line strong{color:var(--text)}
+.paper-card .footer-line{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.relevance-bar{display:flex;gap:1px;align-items:center}
+.relevance-bar .seg{width:6px;height:10px;background:var(--border);border-radius:1px}
+.relevance-bar .seg.on{background:var(--a)}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+footer a{color:var(--a);text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>互动叙事前沿论文 · 每日 Top 10</h1>
+  <div class="meta">
+    <span>2026-09-23 周三</span>
+    <span>从 arXiv 精选</span>
+    <a href="https://arxiv.org/list/cs.AI/recent">arXiv 源</a>
+    <a href="index.html">返回归档</a>
+  </div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">10</div><div class="l">今日收录</div></div>
+  <div class="kpi-card"><div class="v">342</div><div class="l">累计论文</div></div>
+  <div class="kpi-card"><div class="v">10/10</div><div class="l">PDF 完整率</div><div class="s">实际可访问</div></div>
+</div>
+
+<div class="section-title">今日精选</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>World State Generator</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">世界状态</span>
+    </div>
+  </div>
+  <div class="authors">Sungheon Jeong, Sanggeon Yun, Ryozo Masukawa, Haleh Alimohamadi, Mahdi Imani, Mohsen Imani
+    <a href="https://arxiv.org/pdf/2609.24744.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Language agents solve complex tasks through plans and actions. A single step the world refuses puts the goal out of reach, and what the agent does next decides the task. Prompted planners fail at exactly this point, rewriting the refused step in new words, meeting the same refusal, and burning the attempt budget without moving. They fail because the plan was never tied to the world, so a refusal has nothing in the plan to attach to. A world is where a task runs, and it has its own rules, its own admissible actions, and its own constraints. We build synthetic worlds across 7 domains and extract training data from them. A program enforces each world's rules and grades its goal, and every world is admitted only if its goal is reachable from its initial state. Agents run inside and leave verified failures paired with repairs that carried the run to a state the world certified, a record of about 226K trajectories. On this record we train the World State Generator, a model that writes a plan as checkable states of the world and keeps that plan aligned with the world it runs in. That alignment is what a plan written in language lacks, since the world it runs in has physical limits, logical dependencies, and required orders the language never states, and the plan encounters these rules only when a state fails. WSG takes that failure as the rule the world has stated and rewrites the remaining states to obey it, so the plan bends to the world as the run goes on. Across 7 public benchmarks, WSG raises end-to-end success for two open models near 30B parameters over prompting and brings to the level of proprietary model.</div>
+  <div class="line r"><strong>核心问题：</strong>语言 agent 靠「计划+行动」解题，但计划一旦被世界拒绝（某步不合规/不可行），prompt 型 planner 只会「换个说法重试」，撞上同样的拒绝、烧光尝试次数——因为计划从来没和「世界」绑定，拒绝发生时计划里没有可附着的东西。</div>
+  <div class="line b"><strong>解决方案：</strong>建 7 个领域的合成世界、从中抽取约 22.6 万条轨迹（含「被验证的失败 + 带它走到被认证状态的修复」），训练 World State Generator：把计划写成「可检验的世界状态」，并在运行中不断与世界对齐——遇到状态失败就把「失败当世界刚说的规则」，重写剩余状态去遵守。7 个公开基准上，让两个约 30B 开源模型端到端成功率超过 prompting、追平闭源。</div>
+  <div class="line g"><strong>对你有什么用：</strong>互动影游的「世界」就是天然的规则约束源。别让 LLM 用自然语言自由发挥剧情/行动，而是把计划/分支写成「可被世界校验的状态」，让模型在「世界拒绝」时把失败转成规则、就地修正——这是「防穿帮」的一条工程化新路径：世界模型既当裁判又当纠错信号。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.24744 · 2026-09-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>Synthesizing Reactive Character Behaviors for Continuous Games via Programmatic Policy Search</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">游戏角色AI</span>
+    </div>
+  </div>
+  <div class="authors">Maxim Gumin, Hsueh-Ti Derek Liu, Victor Zordan, Daniel Ritchie
+    <a href="https://arxiv.org/pdf/2609.24025.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">We present a method for synthesizing reactive character behaviors for continuous games as compact, human-readable programs. Game AI practice still relies heavily on manually authored behavior trees, state machines, and scripts, while academic reinforcement learning typically produces opaque neural controllers that are expensive to train and difficult to edit. Our approach bridges this gap by searching directly over a domain-specific language for continuous-space game policies. The language is designed around reactive geometric decisions and includes higher-order constructs such as direction maximization. These constructs help discretize a continuous behavior space into enumerable program structures. To make program search practical, we introduce a large set of synthesis antipatterns that remove redundant program forms while preserving behavioral coverage. We further combine bottom-up symbolic enumeration with top-down guidance from a coding agent. Our resulting method, agentic sketching, has the agent propose high-level policy structure and call an enumerator to complete local program slots. We evaluate the method on a benchmark of 14 continuous games, ranging from classic control tasks to multi-agent football. We find that pure enumeration is often more efficient than using a coding agent alone, while the combined method substantially outperforms both. Our results suggest that programmatic policy search can be a practical authoring tool for game AI: designers specify reward functions, and the system discovers editable behaviors that are effective, portable, and often surprising.</div>
+  <div class="line r"><strong>核心问题：</strong>游戏 AI 现在还是靠人手工写行为树/状态机/脚本，学术 RL 又产出「黑箱神经网络控制器」，训练贵、难编辑——中间缺一条「可读、可编辑、又高效」的路。</div>
+  <div class="line b"><strong>解决方案：</strong>直接在「面向连续空间游戏策略的领域专用语言」上搜索，围绕「反应式几何决策」设计语言，含「方向最大化」等高阶构造；引入大量「合成反模式」剪掉冗余程序、保留行为覆盖；再结合「自底向上符号枚举 + 自顶向下编码 agent 引导」的 agentic sketching。在 14 个连续游戏（经典控制到多 agent 足球）上，纯枚举常比单用编码 agent 更高效，组合法显著更强。</div>
+  <div class="line g"><strong>对你有什么用：</strong>给影游「角色行为/动作 AI」一条可落地路径：让策划只写奖励函数，系统自动搜出「可读可编辑、还能跑出意外惊喜」的角色行为。对需要「大量 NPC/角色做出类人反应」的场景（追逐、躲避、多角色对抗），是替代手工行为树的可工业化候选，且产出人类可读、便于改。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.24025 · 2026-09-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>AI Persona, Service Consumption, and User Intent Entropy: Field Experimental Evidence from an LLM Platform</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">人设运营</span>
+    </div>
+  </div>
+  <div class="authors">Junjie Li, Xiaofan Li, Lauren Xiaoyuan Lu, Yiwei Wang, Bruce Yang
+    <a href="https://arxiv.org/pdf/2609.23274.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Problem definition: Firms deploying large language model services must decide how their AI communicates, not just what it can do. We examine how a relational persona - warmer, more empathetic and more engaging than a non-relational persona - affects service consumption and the evolution of user objectives. Methodology/results: In a randomized field experiment with 9,586 newly registered users, we hold the underlying model and service capabilities constant. The relational persona increases interactions (sessions, +8.1%; duration, +10.6%; chat rounds, +24.2%; intent entropy, +5.8%) and outputs (files, +12.3%; distinct goals, +12.1%). Effects vary by entry intent. First-session effects are insignificant for Task Execution users. Socialization and Knowledge Exploration users show similar increases in chat rounds: Socialization increases intent entropy without more outputs, whereas Knowledge Exploration increases outputs without higher intent entropy. Modeling intent dynamics as a transition process, we find higher intent transition entropy for Socialization (+11.8%) but higher intent continuation probability for Knowledge Exploration (+12.8%), suggesting greater conversational breadth and persistence, respectively. In subsequent use, the relational persona increases aggregate chat rounds and outputs across all entry intents. Session count rises by 12.2% for Task Execution and 49.4% for Socialization, but not significantly for Knowledge Exploration. Effects on session count and intent entropy strengthen over time, whereas output effects remain stable. Managerial implications: AI persona is an operational design lever, not merely a presentation feature. Because more interactions do not uniformly generate more outputs, firms should evaluate interactions and outputs separately and consider matching persona to user intent, especially when added interactions consume costly computing resources.</div>
+  <div class="line r"><strong>核心问题：</strong>部署 LLM 服务的公司要决定「AI 怎么说」，而不只是「能做什么」——「关系型人设」（更暖、更共情、更投入）到底会不会带来更多消耗与产出？对不同意图用户有何差异？此前无因果证据。</div>
+  <div class="line b"><strong>解决方案：</strong>9586 名新注册用户的随机现场实验，固定底层模型与服务能力不变，对比关系型 vs 非关系型人设。结果：关系型人设提升互动（会话 +8.1%、时长 +10.6%、聊天轮次 +24.2%、意图熵 +5.8%）与产出（文件 +12.3%、不同目标 +12.1%）；效应随「进入意图」分化——任务执行用户首会话不显著，社交用户升意图熵但不加产出，知识探索用户加产出但不升意图熵；后续使用中关系型人设提升各意图的累计轮次与产出。</div>
+  <div class="line g"><strong>对你有什么用：</strong>直接可用的「人设=运营杠杆」证据：① 人设是运营设计杠杆，不只是皮肤——暖人设显著拉高互动与产出；② 但「更多互动≠更多产出」，要分意图匹配人设（任务用户别硬套暖人设浪费算力）；③ 尤其「社交/情感」意图用户对关系型人设最敏感，影游的情感角色正是该把暖人设拉满、但要单独盯「产出 vs 算力」的账。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.23274 · 2026-09-20</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>Prompting Against Persona Drift: Comparing Intervention Timing and Content in LLM-Simulated Conversations</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">人设漂移</span>
+    </div>
+  </div>
+  <div class="authors">Nicolas Leins, Jennifer Haase, Varvara Geronimus, Jana Gonnermann-Müller, Sebastian Pokutta
+    <a href="https://arxiv.org/pdf/2609.24532.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Simulating student personas with large language models (LLMs) enables scalable evaluation of educational systems. However, behavioral drift, a progressive decline in persona consistency, can emerge over extended conversations, limiting the validity of such simulations. We evaluate five prompt-level mechanisms using separate monitoring and intervention pipelines. Across 1,200 28-turn conversations spanning four LLMs and two ADHD persona intensities, we varied when to intervene (static vs. adaptive) and what to inject (reinjection vs. reflective reminder), plus a novel adaptive condition in which a monitor generates behavior-specific instructions. Relative to no intervention, reinjection reduced the modeled rate of LLM-rated drift by 35-38%, reflective reminders by 22-27%, and behavior-specific instruction by 87%. None eliminated drift. We found no evidence that adaptive timing outperformed static scheduling. Monitoring therefore appears more useful for deciding what to correct than when to intervene, although behavior-specific instruction requires component-level testing.</div>
+  <div class="line r"><strong>核心问题：</strong>用 LLM 仿真「人设」可规模化评估系统，但长对话里人设一致性会渐进漂移（behavioral drift），威胁仿真效度。到底什么时候干预、注入什么内容最有效，缺乏实证对比。</div>
+  <div class="line b"><strong>解决方案：</strong>在 1200 段 28 轮对话（4 个 LLM × 两种人设强度）上，用「监控+干预」分离管道对比 5 种 prompt 级机制：干预时机（静态 vs 自适应）× 注入内容（重注入 vs 反思提醒 vs 由监控生成「行为特定指令」）。结果：重注入降漂移 35-38%、反思提醒 22-27%、行为特定指令降 87%；没有一种能消除漂移；自适应时机并不优于静态。</div>
+  <div class="line g"><strong>对你有什么用：</strong>给影游「角色人设一致性」一个直接可用的结论：① 用「行为特定指令」（监控器针对当前漂移生成具体纠偏指令）最有效，能砍掉近九成漂移；② 关键在「纠什么」而非「何时纠」——别在干预时机上过度设计；③ 但任何 prompt 级手段都消不掉漂移，长程剧情仍需结构层兜底（预写分支/状态约束）。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.24532 · 2026-09-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>Identity Continuity in Long-Term Embodied AI Relationships: From Agent-Specific Identity Representation to Identity-Continuity Appraisal</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">身份连续</span>
+    </div>
+  </div>
+  <div class="authors">Zijian Ru
+    <a href="https://arxiv.org/pdf/2609.23356.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Long-term embodied AI will undergo learning, model updates, memory compression, hardware repair, and migration across embodiments. For users who have formed sustained relationships with such systems, these changes raise not only a problem of product consistency but also one of identity continuity: whether the changed system is still experienced as the same particular agent. Existing research suggests that human-AI relationships may develop relational particularity, that robotics and artificial-identity research has identified identity and migration signals across embodiments, and that major updates or platform disruptions can be accompanied by relational loss and restoration desire. This article proposes a user-side framework in which long-term embodied AI is represented through an agent-specific identity representation organized by at least three open identity-content domains: embodied-perceptual, psychological-behavioral, and relational-autobiographical. Information from these domains is not equally weighted; shared history, relational roles, and contingent responsiveness may make some information more identity-diagnostic than others. After system change, users may integrate continuity and discontinuity evidence in a weighted manner, yielding judgments along a continuum from relatively strong identity continuity through ambiguity or partial continuity to clear identity discontinuity. Causal-historical provenance and user participation are treated as contextual evidence rather than a fourth identity-content domain. The framework also proposes identity continuity as a psychological objective for lifecycle design, including memory selection, model updating, and migration across embodiments, under constraints of privacy and user control.</div>
+  <div class="line r"><strong>核心问题：</strong>长期具身 AI 会经历学习、模型更新、记忆压缩、硬件维修、跨载体迁移，用户与之建立的长期关系面临的不只是「产品一致性」，更是「身份连续性」——改了之后的系统还算不算「同一个 agent」？</div>
+  <div class="line b"><strong>解决方案：</strong>提出用户侧框架：用「agent 专属身份表征」表示长期具身 AI，至少含三个开放身份内容域（具身-感知、心理-行为、关系-自传）；信息权重不等，共享历史/关系角色/条件响应更「诊断身份」；系统变更后用户按权重整合「连续/断裂」证据，得到从强连续到明确断裂的连续判断；把身份连续列为生命周期设计的心理目标（记忆选择、模型更新、跨载体迁移），受隐私与用户控制约束。</div>
+  <div class="line g"><strong>对你有什么用：</strong>做长期陪伴型影游/虚拟角色的「身份」设计原则：用户在乎的不是参数一致，而是「它还是不是它」。① 把角色的「关系-自传记忆」当作身份最重的锚点（比外表/语气更判身份）；② 版本更新/换模型时主动给「连续性证据」，避免「更新后像换了个人」的流失；③ 记忆选择与迁移要可被用户感知和控制。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.23356 · 2026-09-20</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>"MeBo Leaves a Piece of You Behind": Designing a Relational Voice-Based Memory Companion for Older Adults</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">应用参考</span>
+      <span class="tag tag-p">记忆伴侣</span>
+    </div>
+  </div>
+  <div class="authors">Hasibur Rahman, Mahsa Nasri, Manasi Vaidya, Melika Vafafar, Jessie Chin, Smit Desai
+    <a href="https://arxiv.org/pdf/2609.24706.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Autobiographical remembering supports identity, well-being, and social connection in later life, yet voice-based memory technologies largely rely on isolated prompts. We designed and built MeBo, a fully functional relational voice-based memory companion, through participatory design with 11 older adults. Their accounts shaped four Design Strategies that guided MeBo's interaction design and multi-agent implementation. In a mixed-methods evaluation with 20 older adults, participants found MeBo exceptionally usable (SUS = 87.75), enjoyable, sociable, emotionally responsive, and trustworthy. Participants reported higher positive affect and momentary social connection and lower negative affect after the session than before. Participants described how MeBo followed their stories, returned to earlier memories, adapted to their preferences, and made its growing memory visible and controllable. MeBo's relational framing surfaces tensions around what it should remember, who may access memories produced through interaction, and what becomes of them when the user or MeBo is no longer present.</div>
+  <div class="line r"><strong>核心问题：</strong>自传式回忆支撑晚年身份/幸福感/社会联结，但现有语音记忆技术大多靠「孤立提示」——缺一个「关系式、能跟着你的故事走」的记忆伴侣。</div>
+  <div class="line b"><strong>解决方案：</strong>与 11 位老人参与式设计，做出全功能的关系式语音记忆伴侣 MeBo，总结四条设计策略、多 agent 实现；20 位老人混合评估显示极高可用性（SUS=87.75）、愉悦、社交、情绪回应、可信；会话后正向情绪与即时社会联结升高、负向情绪降低；MeBo 会跟故事、回访早期记忆、适应用户偏好，并让「生长中的记忆」可见可控；同时浮出「该记什么/谁能访问/人机都不在后记忆去哪」的张力。</div>
+  <div class="line g"><strong>对你有什么用：</strong>给「陪伴/记忆型角色」的体验与治理双重参考：① 关系式记忆的杀手锏是「让记忆生长可见、可控」，并主动「回访旧记忆」制造连续性；② 设计上要先厘清「该记什么、谁能访问、关系结束后记忆如何处置」——这是信任与合规的硬边界，不能后置；③ 多 agent 实现是落地语音记忆伴侣的可行工程路线。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.24706 · 2026-09-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>DolphinBench: Mapping the Pareto Frontier of Agent Memory</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">记忆评测</span>
+    </div>
+  </div>
+  <div class="authors">Soumil Rathi, Deshraj Yadav, Taranjeet Singh
+    <a href="https://arxiv.org/pdf/2609.24971.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Agents today often take real-world actions that depend on long-term memory and context recall over time. However, most current memory benchmarks are built for a conversational question-answer format, where the question itself signals that some fact must be retrieved, and often which one. Moreover, benchmarks rarely require anything beyond accuracy from submissions, allowing memory systems to make unreasonable cost/time tradeoffs to achieve higher scores. We present DolphinBench, a benchmark that evaluates memory directly through an agent's task completion. DolphinBench includes three knowledge-work personas with roughly 500k tokens of user messages per persona and evaluates agents on tasks that depend on information from that history. We verify all 200 tasks per persona by running an agent with and without the relevant history, requiring success with it and failure without it. Finally, we require all evaluations to report total cost and latency alongside accuracy, which enables us to evaluate agent memory systems holistically. No existing memory benchmark combines all three. The dataset and evaluation code are available.</div>
+  <div class="line r"><strong>核心问题：</strong>现在 agent 记忆基准大多做成「对话问答」格式——问题本身就暗示「要查某事实、甚至查哪个」，且只要求准确率，允许记忆系统靠「不合理成本/时延换分」，测不出真实任务里的记忆能力。</div>
+  <div class="line b"><strong>解决方案：</strong>DolphinBench 通过「任务完成」直接评记忆：3 个知识工作人设、每人设约 50 万 token 用户消息，每个 200 个任务都验证「带历史必过、不带历史必挂」（确认信息确实来自历史）；并要求所有评测同时上报成本与时延，才能整体评估记忆系统。三者（任务完成验证 + 成本 + 时延）此前无基准同时具备。</div>
+  <div class="line g"><strong>对你有什么用：</strong>给「角色长时记忆」选型一个更靠谱的尺子：别只看问答准确率，要看「任务完成 + 成本 + 时延」三者。落地：① 选记忆系统时把「无历史必挂、有历史必过」当有效性判据；② 把成本/时延纳入硬指标（否则会被「堆 token 刷分」骗到）；③ 人设驱动、50 万 token 的设定，贴近影游角色「长期记得玩家」的真实体量。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.24971 · 2026-09-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>MSI-Bench: Evaluating Multi-Speaker Voice Interaction for Collaborative AI Agents</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">多人语音</span>
+    </div>
+  </div>
+  <div class="authors">Chenxu Xiong, Dongming Shen, Yuzhi Tang, Wentao Ma, Mu Li, Alex Smola
+    <a href="https://arxiv.org/pdf/2609.24812.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Voice provides a natural and immediate interface for AI agents. Many settings in which voice agents could be useful, including meetings, households, and collaborative work, are inherently multi-speaker. Supporting these settings introduces challenges that are largely absent from one-on-one interaction. We introduce the Multi-Speaker Interaction Benchmark (MSI-Bench) for evaluating multi-speaker voice interaction. Each test case is a short multi-party multi-turn audio scene with participant context, expected tool calls, and atomic rubrics. The benchmark targets three capability families: multi-speaker memory, multi-speaker instruction following, and multi-speaker reasoning. It comprises 1,152 test cases, evenly split between Mandarin Chinese and English (576 each). The strongest configuration on each split passes all rubrics on only 66.8% of English and 54.5% of Mandarin cases, and the strongest open-weight configuration on 34.0% and 19.3%. Failure analysis separates perception from reasoning: open-weight models are bottlenecked by the multi-speaker audio front-end, while frontier systems still fail speaker-scoped decision making on clean transcripts---and models across the board often respond when no one has addressed them. These results identify speaker-grounded perception, speaker-scoped decision making, and conversational restraint as concrete targets for future voice agents.</div>
+  <div class="line r"><strong>核心问题：</strong>语音是 agent 自然接口，但会议/家庭/协作等真实场景天然是「多说话人」的，带来的挑战（谁在说、对谁回、何时别插嘴）在 1 对 1 里几乎不存在，也缺统一评测。</div>
+  <div class="line b"><strong>解决方案：</strong>提出 Multi-Speaker Interaction Benchmark（MSI-Bench）：每个用例是一段多人多轮音频场景 + 参与人上下文 + 预期工具调用 + 原子 rubric，覆盖「多说话人记忆 / 指令跟随 / 推理」三类能力，共 1152 用例（中英各 576）。最强配置英文全对 66.8%、中文 54.5%，最强开源 34.0%/19.3%；失败分析把感知与推理分开：开源模型卡在多说话人音频前端，前沿系统在干净转写上仍做错「说话人范围决策」，且普遍「没人喊它也答」。</div>
+  <div class="line g"><strong>对你有什么用：</strong>做多人语音互动影游，这是「当前能力天花板」的体检单：① 多人场景下「谁在说、只对谁回、什么时候闭嘴」是硬瓶颈，前沿系统也在说话人归属决策上翻车；② 中英差距明显（中文更难），国产语音角色要单独压测中文多人；③ 把「对话克制（不被点名就不插话）」列为显性指标，是让 AI 角色「有礼貌、不抢戏」的关键。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.24812 · 2026-09-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>SocioVerse2: A Longitudinal Dynamic Social Simulation Framework under a Human-AI Co-evolutionary Paradigm</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-p">社会仿真</span>
+    </div>
+  </div>
+  <div class="authors">Xinnong Zhang, Jiayu Lin, Jia Wang, Yixu Huang, Xinyi Mou, Yingqian Wu, Jingcong Liang, Shijun Lei, Jianing Shi, Guanying Li, Siyuan Wang, Hanjia Lyu, Zhenfei Yin, Yunlu Yin, Siming Chen, Yulan He, Jiebo Luo, Xuanjing Huang, Liyin Jin, Baohua Zhou, Hanqi Yan, Zhongyu Wei
+    <a href="https://arxiv.org/pdf/2609.24911.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Social simulation offers the social sciences an experimental instrument that the real world cannot supply, and generative agents have transformed it by acting as silicon samples that unite agent-based modeling with real behavioral data. Existing platforms verify collective behavior, align simulated populations with real societies in cross-sections, and employ autonomous agents for the research process. However, two social science requirements remain without systematic support: intervention in the content of a simulation and the researcher's control over the process that produces it. We present SocioVerse2, which extends SocioVerse 1.0 into a human-AI co-evolutionary paradigm built from two loops and one infrastructure. The longitudinal simulation loop simulates the target population with evolving environments and forks counterfactual branches via interventions. The controllable research loop takes the study itself as an editable state and updates state versions via controllable editing. The social science agentic infrastructure carries both loops through composable skills with researcher checkpoints, a population service over five persona pools, and an environment service over 21 real-world signal sources with point-in-time guarantees. We validate SocioVerse2 across three case families and seven case studies, from reproducing canonical agent-based models to modeling policy processes on real records and nowcasting macro-economic indices beyond the response model's knowledge cutoff.</div>
+  <div class="line r"><strong>核心问题：</strong>社会仿真给了「现实给不了的实验手段」，但两大需求仍缺系统支持：对「仿真内容」的干预，以及研究者对「产生过程」的控制。</div>
+  <div class="line b"><strong>解决方案：</strong>SocioVerse2 把 SocioVerse 1.0 扩展成「人机共进化范式」：纵向仿真循环（进化环境 + 通过干预分叉反事实分支）+ 可控研究循环（把研究本身当可编辑状态、可版本化编辑）+ 社科 agent 化基础设施（可组合技能 + 研究者检查点 + 五个人设池的人群服务 + 21 个真实信号源的环境服务，带时间点保证）。用 3 个案例族、7 个案例验证，从复现经典 ABM 到真实记录上建模政策过程、nowcast 宏观经济指标。</div>
+  <div class="line g"><strong>对你有什么用：</strong>对影游「世界观/社会仿真」是可借鉴的工程蓝图：要支持「干预（改分支/改人设）」和「过程可控（版本化、检查点）」，否则仿真只能看不能改。其「人设池 + 环境信号源 + 时间点保证」的架构，可直接迁移到「多 NPC 世界随时间演化、可插拔干预」的影游世界观构建。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.24911 · 2026-09-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>Deciphering the Babel of Play: A Human-AI Collaborative Approach for Large-Scale Cross-Language Analysis of Game Reviews</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">市场洞察</span>
+      <span class="tag tag-p">玩家心声</span>
+    </div>
+  </div>
+  <div class="authors">Zixiaofan Yang, Chang Xiao
+    <a href="https://arxiv.org/pdf/2609.23104.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">We present a large-scale cross-language analysis of game reviews using a human-AI collaborative framework that combines quantitative screening with multilingual large language models (LLMs). Starting from 17 million Steam reviews across 30 languages and 2,000 top-selling titles, we select 28 games with notable cross-language rating patterns. We then apply LLM-assisted content analysis to 442,162 reviews spanning 17 languages, with human researchers guiding codebook development and interpreting the results. Our findings reveal differences in both the aspects language communities prioritize and how they evaluate them, highlighting the roles of narrative expectations, game mechanics and stability, localization quality, cultural proximity, and perceptions of developers and publishers. We also identify rare cases of cross-language consensus. This work offers empirical insights into cross-cultural game evaluation and a scalable methodological approach to multilingual content analysis that preserves human interpretation.</div>
+  <div class="line r"><strong>核心问题：</strong>不同语言社区的玩家到底在关注、评价什么？是否一致？此前跨语言游戏评论分析缺规模化、可解释的方法，尤其本地化质量、文化亲近度如何影响口碑缺乏实证。</div>
+  <div class="line b"><strong>解决方案：</strong>人机协同框架（量化筛选 + 多语言 LLM），从 1700 万条 Steam 评论（30 语言、2000 款热销）中选 28 款评分模式显著的游戏，对 17 语言 44.2 万条评论做 LLM 辅助内容分析，人类研究者主导编码与解读。发现不同语言社区在「关注哪些方面 + 如何评价」上都不同，涉及叙事预期、玩法/稳定性、本地化质量、文化亲近度、对开发商/发行商的感知，也识别出罕见的跨语言共识。</div>
+  <div class="line g"><strong>对你有什么用：</strong>出海影游的「玩家心声」要分语种听：① 不同市场玩家关注的维度、评价标准都不同——本地化质量、文化亲近度、叙事预期会直接改变口碑，别用单一语言样本下结论；② 这套「人机协同跨语言评论分析」是可复用的方法论，能规模化扒多语种 Steam 差评/好评、又保留人工解读；③ 找「跨语言共识」的少数维度，往往就是产品的普适硬伤或普适卖点。</div>
+  <div class="footer-line">
+    <span>arXiv:2609.23104 · 2026-09-19</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">互动叙事论文机器人 v1.0</span> 生成 · 2026-09-23</p>
+  <p style="margin-top:4px">数据源：arXiv · 关键词：world state / game character AI / persona drift / AI companion / agent memory / social simulation / voice interaction / identity continuity / game reviews / AI persona</p>
+  <p style="margin-top:8px">
+    <a href="index.html">← 归档首页</a>
+  </p>
+</footer>
+</div>
+</body>
+</html>

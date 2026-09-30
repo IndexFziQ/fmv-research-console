@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品调研机器人 · 控制台</title>
+<style>
+:root{--bg:#f4f4f2;--card:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#8a8890;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text)}
+.app{display:flex;flex-direction:column;height:100vh}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;white-space:nowrap}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--a);display:inline-block}
+.brand .sub{font-weight:400;font-size:11px;color:var(--muted)}
+.spacer{flex:1}
+.date{font-size:12px;color:var(--muted)}
+.refresh{font-size:12px;padding:5px 12px;border:1px solid var(--border);border-radius:6px;background:var(--card);color:var(--s);cursor:pointer;font-family:inherit}
+.refresh:hover{border-color:var(--a);color:var(--a)}
+.tabs{display:flex;gap:4px;padding:0 20px;background:var(--card);border-bottom:1px solid var(--border);overflow-x:auto}
+.tab{position:relative;display:flex;align-items:center;gap:7px;padding:11px 16px;border:none;background:none;font-size:13px;color:var(--s);cursor:pointer;font-family:inherit;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.12s}
+.tab:hover{color:var(--a)}
+.tab.active{color:var(--a);font-weight:600;border-bottom-color:var(--a)}
+.tab .swatch{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.tab .tab-date{font-size:10px;color:var(--muted)}
+.tab .dot-new{width:6px;height:6px;border-radius:50%;background:#1D9E75;flex-shrink:0}
+.tab.active .tab-date{color:var(--a)}
+.frame{flex:1;width:100%;border:none;background:var(--bg)}
+.loading{flex:1;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px}
+@media(max-width:700px){.topbar{gap:8px}.brand .sub{display:none}.tabs{padding:0 8px}.tab{padding:10px 12px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>产品调研机器人控制台<span class="sub">论文 · 竞品 · 玩家心声 · 情报 · 行业调研</span></div>
+    <div class="spacer"></div>
+    <div class="date" id="updatedAt">加载中…</div>
+    <button class="refresh" id="refreshBtn" title="重新加载清单">刷新</button>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+  <iframe class="frame" id="frame" title="报告预览"></iframe>
+</div>
+<script>
+(function(){
+  var tabsEl = document.getElementById('tabs');
+  var frame = document.getElementById('frame');
+  var updatedAtEl = document.getElementById('updatedAt');
+  var MANIFEST = '_manifest.json';
+  var today = new Date().toISOString().slice(0,10);
+
+  function render(tabs, updated_at){
+    updatedAtEl.textContent = '清单更新 ' + updated_at;
+    tabsEl.innerHTML = '';
+    var defaultId = 'index';
+    var hasDefault = tabs.some(function(t){return t.id === defaultId;});
+    var activeId = hasDefault ? defaultId : (tabs[0] && tabs[0].id);
+    tabs.forEach(function(t){
+      var btn = document.createElement('button');
+      btn.className = 'tab';
+      btn.dataset.id = t.id;
+      var isNew = t.date === today;
+      var swatch = '<span class="swatch" style="background:' + t.color + '"></span>';
+      var date = t.kind === 'live' ? '<span class="tab-date">持续更新</span>' : '<span class="tab-date">' + t.date + '</span>';
+      var dot = (isNew && t.kind !== 'live') ? '<span class="dot-new"></span>' : '';
+      btn.innerHTML = swatch + '<span>' + t.label + '</span>' + date + dot;
+      btn.addEventListener('click', function(){
+        setActive(t.id, t.latest, tabs);
+      });
+      tabsEl.appendChild(btn);
+    });
+    // 默认激活
+    var def = tabs.find(function(t){return t.id === activeId;});
+    setActive(def.id, def.latest, tabs, true);
+  }
+
+  function setActive(id, src, tabs, isInit){
+    Array.prototype.forEach.call(tabsEl.children, function(b){
+      b.classList.toggle('active', b.dataset.id === id);
+    });
+    if(!isInit || frame.dataset.src !== src){
+      frame.dataset.src = src;
+      frame.src = src;
+    }
+  }
+
+  function load(){
+    fetch(MANIFEST, {cache:'no-store'})
+      .then(function(r){ return r.json(); })
+      .then(function(m){ render(m.tabs || [], m.updated_at || ''); })
+      .catch(function(){ updatedAtEl.textContent = '加载清单失败'; });
+  }
+
+  document.getElementById('refreshBtn').addEventListener('click', load);
+  load();
+})();
+</script>
+</body>
+</html>

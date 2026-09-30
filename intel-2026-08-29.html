@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-08-29</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-08-29</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">45</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">100%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+
+  <div class="signal-card">
+    <h4>① 艺画开天《凡应》二测——「动画工业能力」跨界互动影游，供给侧第二条技术路线成型</h4>
+    <div class="src">来源：17173(8/29) · 北青网文化(8/28) · 新浪财经(8/28)</div>
+    <ul>
+      <li>国产头部动画公司艺画开天(灵笼/白玉兰奖)跨界打造的互动式电影游戏《凡应》8/29开启二测，UE5东方神话+动作战斗+QTE+多分支叙事</li>
+      <li>首支PV登顶B站全站榜，被玩家对标《黑神话:悟空》；8/28亮相科隆Gamescom获海外玩家好评</li>
+      <li>媒体已明确把「好看vs好玩」的平衡列为口碑成败关键，与绍宋的「互动剧vs游戏」定位之痛形成呼应</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>《凡应》代表互动影游供给侧的第二条技术路线——不再走「真人实拍」，而是把动画工业的电影化叙事、动捕、场景构建能力「迁移」到游戏。对自有项目是双刃剑式的启示：① 威胁面：动画大厂用「高工业规格」入场，会抬高玩家对互动影游「画面/演出」的预期，真人实拍小团队若没有演员IP和电影质感，生存空间进一步被挤压；② 机会面：恰恰印证了「真情实感+演员IP」是动画工业流水线也难复制的护城河——真人实拍的情感真实感是《凡应》这类动画渲染作品给不了的。同时《凡应》被媒体点名的「好看vs好玩」平衡问题，正是绍宋口碑裂缝的同款命题：立项第一天必须想清楚「互动剧观众」还是「游戏玩家」，两者的付费动机不可兼得。</div>
+    <div class="links"><a class="link-btn" href="https://news.17173.com/content/08292026/053208238.shtml" target="_blank">17173</a><a class="link-btn" href="https://culture.ynet.com/2026/08/28/4038383t467.html" target="_blank">北青网</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>② AI互动影游「世界模型」落地（PixVerse R2）+ 爱诗科技秘交招股书——AI影游从「降本工具」跨入「实时生成玩法」</h4>
+    <div class="src">来源：澎湃号·湃客(8/28) · 今日头条·极客电影(8/28) · 网易·i黑马(8/28) · 搜狐·AI周报(8/28)</div>
+    <ul>
+      <li>死亡空间2制作人JadeWu等用PixVerse R2世界模型做了3个AI互动影游样板间(Zero Mark/畸变回声/月之战)，支持WSAD/文字/语音/QTE实时交互</li>
+      <li>R2能记住修改、角色容纳变化并继续推演，玩家可实时改变剧情走向——交互自由度天花板远超预制分支的真人FMV</li>
+      <li>爱诗科技(PixVerse母公司)8/28秘交招股书，有望「视频生成第一股」，累计融资超50亿、估值超20亿美元，R系列8/25迭代至R2</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>这是「AI互动影游」从量变到质变的关键节点：过去AI影游是「用AI生成素材/降本」(兑吧、字节小云雀那类)，现在世界模型能「实时响应玩家输入生成连续世界」，等于把互动影游的「交互上限」直接拉到了真人实拍FMV到不了的高度——玩家不再是在预制的几十条分支里选，而是能实时改变剧情走向。对自有项目三点启示：① 防御：真人实拍FMV必须死守「真情实感+演员IP+电影质感」这个AI短期最难复制的护城河，别去拼交互自由度；② 进攻：世界模型是「交互形态向前看」的具体抓手，可探索「真人实拍主线+AI世界模型支线/探索」的混合形态，既保留真人情感又拓展交互；③ 成本：爱诗科技IPO+50亿融资意味着AI影游工具链进入资本军备竞赛，降本曲线会继续陡峭，「AI辅助降本+真人点睛」路线要尽快固化，否则窗口期被资本碾压。</div>
+    <div class="links"><a class="link-btn" href="https://www.thepaper.cn/newsDetail_forward_33965490" target="_blank">澎湃专访</a><a class="link-btn" href="https://www.163.com/dy/article/L5ECNTUF05118I96.html" target="_blank">爱诗IPO</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>③ 绍宋「影游→原著」反哺闭环成立——IP方最想要的「拉新漏斗」跑通了</h4>
+    <div class="src">来源：什么值得买(8/28) · 凤凰游戏商城(8/28) · B站/微博/小红书(社区)</div>
+    <ul>
+      <li>某幻君视频《这一次,岳飞活下来!》播放接近240万，B站官方账号公开感谢周星驰鼓励</li>
+      <li>影游只改编原著前段(主线10h)，通关玩家被勾回看原著小说/漫画/有声书——「影游拉新→原著承接留存」闭环</li>
+      <li>绍宋峰值在线12933(凤凰游戏商城)，为8/20新作中历史题材最高</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>绍宋满9天，给出了一条比「销量/好评率」更重要的结论：影游改编能反哺原著IP。10小时影游只是原著260万字的「开场」，通关玩家被勾回小说/漫画/有声书——这正是IP方(起点/猫眼/腾讯)最想要的闭环：影游不是终点，是IP的「拉新漏斗」。对自有项目两点启示：① 若做IP改编，立项时就把「影游↔原著↔衍生(漫画/有声书)」的闭环设计进去，影游承载「拉新+沉浸体验」，原著承载「留存+续费」，把「看完切片想补原著」设计成主动导流而非偶然；② 但绍宋「只改编前段」也带来「故事没讲完」的差评——IP改编的篇幅取舍是双刃剑，要么改编完整弧线给完整体验，要么像绍宋一样明确「这是序章」并设计好「续作/原著」的承接钩子，把「没讲完」从槽点变成「钩子」。</div>
+    <div class="links"><a class="link-btn" href="https://post.m.smzdm.com/p/a4qd6mnk" target="_blank">口碑盘点</a><a class="link-btn" href="http://shop.ali213.com/zt/ranking/" target="_blank">销量榜</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>④ 8月新作红利期第10次坐实 + 《盛世天下》500万套/女性向榜第9 + 云游戏双账本争议</h4>
+    <div class="src">来源：Steam评测API · 什么值得买(8/28) · 游戏新知·今日头条(8/28)</div>
+    <ul>
+      <li>绍宋+0.7%、花满楼+0.9%、不心动+0.2%、恶校+0.8%，已追踪31款竞品无一达+30%爆款阈值，「5天首发红利期」第10次坐实</li>
+      <li>《盛世天下》系列销量破500万套(全球真人互动影视纪录)，女帝篇7月女性向收入榜第9(买断制罕见)，刘晓庆上手玩带动话题</li>
+      <li>START云游戏「买断88元+会员29元15小时」双账本付费摩擦引发争议，云游戏分发扩大触达但付费规则不透明</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>两条独立的商业线索在本日交汇：① 国内「5天红利期」第10次坐实，说明「首日爆量→长尾回落」是结构性规律，立项收入预期必须按「红利期+长尾」两段建模；② 《盛世天下》证明「买断制真人互动影游」的天花板在女性向赛道能到500万套+收入榜第9，但START云游戏的「双账本」(买断+会员时长)暴露了「云游戏分发」的付费摩擦——玩家搞不清到底要花多少钱，二次付费争议会反噬口碑。对自有项目启示：① 买断制影游的「多端+云游戏」分发能扩大触达(Mac/电视/低配玩家)，但付费规则必须透明，避免「买断后又收会员费」的双重收费争议；② 「名人/明星上手玩」是影游最有效的种草杠杆(刘晓庆5次武则天+上手玩切片自带传播)，自有项目要主动设计「名人/头部UP主试玩切片」的传播钩子；③ 供给侧「动画工业(凡应)+AI世界模型(PixVerse)+上市公司矩阵(欢瑞/电广/儒意)」三路并进，小团队唯一护城河仍是「真情实感+强情绪题材+降本盈利」。</div>
+    <div class="links"><a class="link-btn" href="https://post.m.smzdm.com/p/al3x4r6e" target="_blank">盛世天下</a><a class="link-btn" href="https://www.toutiao.com/a7678887785423454760" target="_blank">女性向榜</a><a class="link-btn" href="https://store.steampowered.com/app/4292950" target="_blank">绍宋Steam</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 近24h）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">83.5%</span></div><div class="dl">+20 (+0.7%)</div><div class="nt">2690条 · 48h 38 · 满9天口碑稳定</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">98.0%</span></div><div class="dl">+13 (+0.9%)</div><div class="nt">1478条 · 好评如潮 · 攻略生态</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">95.7%</span></div><div class="dl">+3 (+0.2%)</div><div class="nt">1273条 · 二次起量长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">94.0%</span></div><div class="dl">+6 (+0.8%)</div><div class="nt">732条 · 7d中文60条仍有回流</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100%</span></div><div class="dl">+5 (+5.6%)</div><div class="nt">95条 · 百合AVG零差评 · 增速最高小样本</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">小小吸血姬</span><span class="pct">86.3%</span></div><div class="dl">+2 (+2.2%)</div><div class="nt">95条 · 8/14乙女互动小说</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">女帝篇(盛世天下)</span><span class="pct">83.4%</span></div><div class="dl">+11</div><div class="nt">8156条 · 48h 21老作最高 · 500万套</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">媚娘篇</span><span class="pct">82.9%</span></div><div class="dl">+3</div><div class="nt">9413条 · 海外86.6%更高</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.4%</span></div><div class="dl">+4</div><div class="nt">6186条 · 欢瑞主投 · 多平台</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">88.2%</span></div><div class="dl">+3 (+21.4%)</div><div class="nt">17条 · 8/21新作小样本</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">灭寇1939</span><span class="pct">83.4%</span></div><div class="dl">+2</div><div class="nt">560条 · 谍战长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">无言之林(海外FMV)</span><span class="pct">52.2%</span></div><div class="dl warn">+2(all)</div><div class="nt">全语言46条 · ⚠️ Mixed · 中文1条差评</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">1000王子(AI乙女)</span><span class="pct">40.0%</span></div><div class="dl warn">样本极小</div><div class="nt">全语言5条 · ⚠️ 2正3负 · 无统计意义</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.6%</span></div><div class="dl">+2</div><div class="nt">1069条 · 欢瑞矩阵 · 热度平稳</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.7%</span></div><div class="dl">+1</div><div class="nt">2767条 · 欢瑞矩阵 · 长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">冰点之下</span><span class="pct">93.8%</span></div><div class="dl">持平</div><div class="nt">2769条 · 欢瑞矩阵 · 长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.9%</span></div><div class="dl">+2</div><div class="nt">806条 · intiny长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">天平游戏1:抉择</span><span class="pct">86.6%</span></div><div class="dl">持平</div><div class="nt">937条 · 7/25密闭囚笼FMV长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">67.5%</span></div><div class="dl">0</div><div class="nt">40条 · ⚠️ 全语言58.2%口碑最弱</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">退婚后宗主马甲</span><span class="pct">26.8%</span></div><div class="dl">0</div><div class="nt">41条 · ⚠️ 免费差评警示样本</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl">0</div><div class="nt">927条 · ⚠️ 中英偏差6.6pp</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">艺画开天《凡应》第二轮测试</span><span class="delta hot">动画工业跨界</span></div>
+    <div class="meta">艺画开天(灵笼) · UE5东方神话 · 2026-08-29 二测 · 2027发售</div>
+    <div class="note">国产头部动画公司跨界打造的互动式电影游戏，动作战斗+QTE+多分支叙事，首支PV登顶B站全站榜，被对标黑神话悟空。8/28亮相科隆Gamescom。影游供给侧「真人实拍→动画电影级」的第二条技术路线。</div>
+    <div class="tags"><span class="tag tag-p">动画工业</span><span class="tag tag-b">互动式电影</span><span class="tag tag-a">新供给</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">AI互动影游「世界模型」落地（PixVerse R2）</span><span class="delta hot">技术跃迁+IPO</span></div>
+    <div class="meta">爱诗科技(PixVerse) · 死亡空间2制作人JadeWu等 · 8/28澎湃专访</div>
+    <div class="note">3个AI互动影游样板间(Zero Mark/畸变回声/月之战)，支持WSAD/文字/语音/QTE实时交互，玩家可实时改变剧情走向。爱诗科技8/28秘交招股书，有望「视频生成第一股」，累计融资超50亿。AI影游交互自由度天花板已超预制分支真人FMV。</div>
+    <div class="tags"><span class="tag tag-b">AI</span><span class="tag tag-p">世界模型</span><span class="tag tag-a">IPO</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">绍宋「影游→原著」反哺长尾</span><span class="delta hot">IP闭环</span></div>
+    <div class="meta">互动之星×猫眼娱乐 · 峰值在线12933 · 某幻君播放240万</div>
+    <div class="note">影游只改编原著前段(10h)，通关玩家被勾回看小说/漫画/有声书(漫画腾讯动漫+有声书1650集)。B站官方账号公开感谢周星驰鼓励。「影游拉新→原著承接留存」闭环跑通。</div>
+    <div class="tags"><span class="tag tag-r">历史</span><span class="tag tag-g">IP反哺</span><span class="tag tag-p">大IP</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">《盛世天下》500万套 + START云游戏争议</span><span class="delta warn">双账本</span></div>
+    <div class="meta">New One Studio · 系列销量500万套 · 女性向收入榜第9</div>
+    <div class="note">官方6/30宣布系列销量破500万套(全球真人互动影视纪录)，女帝篇7月女性向收入榜第9(买断制罕见)。刘晓庆(5次武则天)上手玩带话题。但START云游戏「买断88+会员29/15h」双账本付费摩擦引发争议。</div>
+    <div class="tags"><span class="tag tag-g">女性向</span><span class="tag tag-b">买断制</span><span class="tag tag-a">云游戏</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">《晨昏线》（儒意景秀缉毒互动影像）</span><span class="delta hot">上市公司入局</span></div>
+    <div class="meta">儒意景秀 × Enter Games · Steam预约可加愿望单</div>
+    <div class="note">缉毒题材互动影像，公安作家+一线警员指导、改编真实卷宗、双线叙事。继欢瑞、湖南电广之后，又一家上市公司(儒意/景秀游戏)以游戏子公司身份切入互动影游赛道，供给侧资本化再添一员。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-a">上市公司</span><span class="tag tag-r">缉毒</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">海外叙事冒险两连发</span><span class="delta">新供给</span></div>
+    <div class="meta">《与狼同行 重制版》10/29 · MAGES.《覗怪》2026冬</div>
+    <div class="note">Telltale《与狼同行 重制版》(DC Vertigo《Fables》)确认10/29发售+黑白电影滤镜，续作仍在开发；命运石之门团队MAGES. 公布灵异悬疑视觉小说《覗怪》。海外choice-based叙事赛道持续活跃。</div>
+    <div class="tags"><span class="tag tag-b">海外</span><span class="tag tag-g">叙事冒险</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望</span><span class="delta">8.7分</span></div>
+    <div class="meta">木焱工作室 · 关注 6.7万 · 评价 637条 · v1.3.4(6/29)</div>
+    <div class="note">评分8.7稳定(互动电影榜前列)，更新日志停留在v1.3.4(修结局黑屏bug)。玩家讨论：正面「剧情饱满、家国情怀、网状抉择」；负面「玩法创新有限、大场面调度欠缺(村里械斗)、支线触发隐晦」。</div>
+    <div class="tags"><span class="tag tag-g">历史</span><span class="tag tag-b">真人</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">艺画开天《凡应》二测（互动式电影）</span><span class="delta hot">新供给</span></div>
+    <div class="note">17173 8/29：UE5东方神话互动式电影游戏开启二测，动作战斗+QTE+多分支，2027发售，首支PV登顶B站全站榜，被对标黑神话悟空。动画大厂跨界互动影游头部新供给。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">《盛世天下》女性向收入榜第9（买断制罕见）</span><span class="delta">500万套</span></div>
+    <div class="note">游戏新知/今日头条 8/28：买断制真人互动影游进入7月女性向收入榜第9(APP端)，系列销量破500万套。买断制在女性向赛道持续释放潜力。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">《晨昏线》Steam预约（儒意景秀缉毒互动影像）</span><span class="delta">新供给</span></div>
+    <div class="note">ZOL/新浪财经 8/28：儒意景秀×Enter Games缉毒题材互动影像Steam开启预约，公安作家+一线警员指导、改编真实卷宗、双线叙事。上市公司儒意切入互动影游赛道。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">AI互动影游「世界模型」落地（PixVerse R2）</span><span class="delta hot">技术跃迁</span></div>
+    <div class="note">澎湃号·湃客 8/28：死亡空间2制作人JadeWu等用PixVerse R2世界模型做了3个AI影游样板间，支持WSAD/语音/QTE实时交互。爱诗科技8/28秘交招股书(有望视频生成第一股)。AI影游交互自由度天花板已超预制分支真人FMV。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">《与狼同行 重制版》10/29发售——海外choice-based头部</span><span class="delta">新供给</span></div>
+    <div class="note">3DM/网易 8/28-29：Telltale×PM Studios《与狼同行 重制版》(DC Vertigo《Fables》)10/29发售+黑白电影滤镜，续作仍在开发。海外叙事冒险赛道头部IP重制。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">MAGES.《覗怪》灵异悬疑视觉小说</span><span class="delta">名团队新作</span></div>
+    <div class="note">3DM 8/27：命运石之门团队MAGES.公布「非科学」灵异悬疑视觉小说《覗怪》，源于YouTube怪谈《红屋顶房子》，涉及meta第四面墙，命运石之门0编剧安本了执笔。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">绍宋「影游→原著」反哺长尾——IP闭环跑通</span><span class="delta hot">IP反哺</span></div>
+    <div class="note">什么值得买 8/28：某幻君视频播放接近240万，B站官方账号感谢周星驰鼓励；影游只改编原著前段，通关玩家回流看小说/漫画/有声书。绍宋峰值在线12933。影游作为IP拉新漏斗的闭环成立。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.9</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · 17173/澎湃/什么值得买/游戏新知/ZOL/新浪财经/3DM/北青网/凤凰游戏商城 | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动叙事前沿论文 · 2026-08-12</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+header .meta a{color:var(--a);text-decoration:none}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .v{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted)}
+.kpi-card .s{font-size:10px;color:var(--muted);margin-top:2px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.paper-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.paper-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.paper-card h3{font-size:14px;font-weight:600;color:var(--a);flex:1;min-width:0}
+.paper-card .head-meta{display:flex;gap:6px;flex-shrink:0}
+.tag{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.paper-card .authors{font-size:11px;color:var(--muted);margin-bottom:8px}
+.paper-card .authors .pdf{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--r);color:#fff;text-decoration:none;margin-left:8px;font-weight:500}
+.paper-card .authors .pdf:hover{background:#a32d34}
+.paper-card .abstract{font-size:12px;color:var(--text-secondary);line-height:1.55;margin-bottom:8px;padding:8px 10px;background:var(--al);border-radius:6px}
+.paper-card .line{font-size:12px;line-height:1.6;margin-bottom:6px;padding-left:10px;border-left:3px solid var(--border)}
+.paper-card .line.r{border-left-color:var(--r);color:var(--s)}
+.paper-card .line.b{border-left-color:var(--b);color:var(--s)}
+.paper-card .line.g{border-left-color:var(--g);background:var(--gl);padding:8px 10px;border-radius:0 6px 6px 0;color:var(--text)}
+.paper-card .line strong{color:var(--text)}
+.paper-card .footer-line{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.relevance-bar{display:flex;gap:1px;align-items:center}
+.relevance-bar .seg{width:6px;height:10px;background:var(--border);border-radius:1px}
+.relevance-bar .seg.on{background:var(--a)}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+footer a{color:var(--a);text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>互动叙事前沿论文 · 每日 Top 10</h1>
+  <div class="meta">
+    <span>2026-08-12 周三</span>
+    <span>从 arXiv 精选</span>
+    <a href="https://arxiv.org/list/cs.AI/recent">arXiv 源</a>
+    <a href="index.html">返回归档</a>
+  </div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">10</div><div class="l">今日收录</div><div class="s">累计 15 篇</div></div>
+  <div class="kpi-card"><div class="v">10/10</div><div class="l">PDF 完整率</div><div class="s">100%</div></div>
+  <div class="kpi-card"><div class="v">3</div><div class="l">可商用方案</div><div class="s">Fabula / Rushes / 用户画像</div></div>
+</div>
+
+<div class="section-title">今日精选</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>From Personas to Plot: 角色驱动的多智能体长故事生成</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">多Agent</span>
+    </div>
+  </div>
+  <div class="authors">Aayush Aluru, Chloe Ho, Muhammad Hammouri, Kerry Luo, Myra Malik, Ryan Lagasse, Arjun Bahuguna, Vasu Sharma
+    <a href="https://arxiv.org/pdf/2607.00918.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">MAGNET 多智能体叙事引擎：每个角色是独立 agent，基于共享世界状态 + 动态故事目标驱动行动。ATLAS 图管道检测幻觉。100 页长文，幻觉减少 50%，标注减少 41%。</div>
+  <div class="line r"><strong>核心问题：</strong>LLM 写长故事容易角色崩盘、情节脱轨——单模型写到 100 页几乎必穿帮。</div>
+  <div class="line b"><strong>解决方案：</strong>MAGNET（多智能体叙事引擎）：每个角色独立 agent，基于共享世界状态 + 动态故事目标驱动。外加 ATLAS 幻觉检测图管道做质量把关。</div>
+  <div class="line g"><strong>对你有什么用：</strong>把每个角色做成独立 agent，让它们像跑团一样互相碰撞——这比让一个 LLM 包揽所有角色靠谱得多。你的互动影游可以给每个 NPC 分配独立 agent。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.00918 · 2026-07-01</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Staying In Character: 视角隔离的角色扮演记忆系统</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">记忆系统</span>
+    </div>
+  </div>
+  <div class="authors">Xushuo Tang, Junhe Zhang, Zihan Yang, Yifu Tang, Sichao Li, Longbin Lai, Zhengyi Yang
+    <a href="https://arxiv.org/pdf/2606.25632.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">REVERIEMEM 三层记忆架构：情节层（角色亲眼所见）、语义层（可见性标签标记的事实）、人格层（情境相关说话方式）。知识边界保真度提升 34.6pp，胜过最强 baseline。</div>
+  <div class="line r"><strong>核心问题：</strong>角色扮演 agent 两大死穴：记住不该知道的事（上帝视角），对话风格单一像复读机。</div>
+  <div class="line b"><strong>解决方案：</strong>REVERIEMEM 三层记忆：情节层（角色亲眼所见）、语义层（打上可见性标签的事实）、人格层（情境相关的说话方式）。角色只能引用自己层内的记忆。</div>
+  <div class="line g"><strong>对你有什么用：</strong>给 NPC 做「视角隔离」——他知道什么取决于他的记忆层权限。这样推理小说里侦探和凶手才不会共享情报。直接用于影游角色系统。</div>
+  <div class="footer-line">
+    <span>arXiv:2606.25632 · 2026-06-24</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Fabula: DeepMind 的叙事写作助手</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-g">可商用</span>
+    </div>
+  </div>
+  <div class="authors">Piotr Mirowski, Ben Wedin, Reinald Kim Amplayo, Rich Galt, et al. (DeepMind)
+    <a href="https://arxiv.org/pdf/2606.14411.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">基于叙事学理论的分层故事生成工具。故事分为场景→节拍层级，可在剧本层和计划层分别重新生成。42 位专业/业余作家参与设计。也识别了互动叙事的潜力。</div>
+  <div class="line r"><strong>核心问题：</strong>作家用 AI 写作工具觉得像开盲盒——AI 吐一段剧情你没法细粒度控制，改一句要重跑全篇。</div>
+  <div class="line b"><strong>解决方案：</strong>Fabula 把故事分成 场景→节拍 的层级结构，允许在剧本层和计划层分别 (重新) 生成。42 位专业/业余作家参与设计迭代。</div>
+  <div class="line g"><strong>对你有什么用：</strong>这是 DeepMind 团队做的写作工具，用叙事学理论做骨架。你的影游编辑器可以参考这种 计划→场景→节拍 的分层生成思路——让编剧在任一层次插入修改。</div>
+  <div class="footer-line">
+    <span>arXiv:2606.14411 · 2026-06-12</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>World-State Transformations: 神经符号互动叙事</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">神经符号</span>
+    </div>
+  </div>
+  <div class="authors">Santiago Góngora, Luis Chiruzzo, Gonzalo Méndez, Pablo Gervás
+    <a href="https://arxiv.org/pdf/2605.24719.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">LLM 预测世界状态变化，规则引擎执行合法性变换。Llama 3 70B + Gemini 1.5 Flash，英西双语测试。8 位参与者验证：世界一致性保持同时鼓励自由文本创意输入。</div>
+  <div class="line r"><strong>核心问题：</strong>纯 LLM 互动叙事一致性差，纯规则系统太僵硬——怎么两全？</div>
+  <div class="line b"><strong>解决方案：</strong>LLM 负责理解玩家的自由文本输入并预测世界状态变化，规则引擎负责执行预编的合法性变换。神经+符号混合，玩家可以自由输入但世界不会崩。</div>
+  <div class="line g"><strong>对你有什么用：</strong>让 LLM 做「意图理解 + 状态变化预测」，让规则引擎做「合法性检查 + 执行」。这是让你的互动影游支持自由输入但不出穿帮的最佳路线。</div>
+  <div class="footer-line">
+    <span>arXiv:2605.24719 · 2026-05-23</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Rushes: 互动叙事中的人类偏好数据集</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-r">微软</span>
+    </div>
+  </div>
+  <div class="authors">Michael Xu, Jorge Leandro, Sudha Rao, Weijia Xu, Nebojsa Jojic, Gabriel DesGarennes, Chris Quirk, Bill Dolan (Microsoft)
+    <a href="https://arxiv.org/pdf/2607.20767.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">44,226 次真实玩家的分支选择事件，6 款 AI 叙事游戏，8,167 个用户。连 GPT-5 都猜不准玩家选择（34.23% vs Popularity Baseline 36.4%），证明个体偏好差异极大。</div>
+  <div class="line r"><strong>核心问题：</strong>做 AI 互动叙事你根本不知道玩家到底喜欢什么——现有的偏好数据都是静态标注，不反映真实的连续选择行为。</div>
+  <div class="line b"><strong>解决方案：</strong>Rushes 数据集——44,226 次真实玩家的分支选择事件。发现连 GPT-5 都猜不准玩家选择，说明个体偏好差异极大。</div>
+  <div class="line g"><strong>对你有什么用：</strong>微软发布的数据集，可用于训练「能猜你偏好的叙事 AI」。如果做 A/B 分支测试或个性化剧情推荐，这是最好的基准。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.20767 · 2026-07-22</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Writer-Editor 多智能体协作故事框架</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">双Agent</span>
+    </div>
+  </div>
+  <div class="authors">Arturo Valdivia, Paolo Burelli
+    <a href="https://arxiv.org/pdf/2605.29625.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Writer-Editor 双 agent 模式：一个 LLM 写、另一个审并给修改意见。通过实体桌游做儿童共创场景验证。多轮迭代持续提升故事质量。</div>
+  <div class="line r"><strong>核心问题：</strong>AI 和人协作写故事——AI 写的质量不稳定，一次生成往往不够好。</div>
+  <div class="line b"><strong>解决方案：</strong>Writer-Editor 双 agent 模式：一个 LLM 写、另一个审并给修改意见，像编辑和作家的关系。通过实体桌游做儿童共创场景验证。</div>
+  <div class="line g"><strong>对你有什么用：</strong>Writer-Editor 双 agent 是最简单的「自我改进」范式。给影游的剧情生成加一个 Editor Agent 审稿——成本几乎为零，质量明显提升。</div>
+  <div class="footer-line">
+    <span>arXiv:2605.29625 · 2026-05-28</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>谁在游戏里拥抱 AI？玩家对游戏 AI 的 7 类画像</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">市场洞察</span>
+      <span class="tag tag-g">用户画像</span>
+    </div>
+  </div>
+  <div class="authors">Ting-Chen Hsu, Jiangxu Lin, Wenran Chen, Zheyuan Zhang, Fei Qin
+    <a href="https://arxiv.org/pdf/2605.09550.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">771 份问卷 + 原型分析 → 7 类玩家画像：AI 怀疑论者、AI 全面支持者、创意探索者、体验导向支持者、系统秩序倡导者、情感中心支持者、治理怀疑论者。画像与 AI 素养、游戏习惯、人格特质相关。</div>
+  <div class="line r"><strong>核心问题：</strong>做 AI 游戏前你根本不知道市场上什么人会买账——玩家对游戏 AI 的接受度差太多了。</div>
+  <div class="line b"><strong>解决方案：</strong>771 份问卷 + 原型分析 → 7 类玩家画像。AI-Skeptics 最排斥 AI 玩法，Creative-Play Explorers 最欢迎创意型 AI。</div>
+  <div class="line g"><strong>对你有什么用：</strong>如果你做互动影游投放，7 类画像就是你的用户分层框架。创意探索型玩家是你的核心种子用户，AI 怀疑论者需要弱化 AI 标签、强调故事体验。</div>
+  <div class="footer-line">
+    <span>arXiv:2605.09550 · 2026-05-10</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>MedGame: LLM 驱动的叙事游戏化医学教育</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">应用参考</span>
+    </div>
+  </div>
+  <div class="authors">Qian Wu, Xinrong Zhou, Zizhan Ma, Kai Chen, Zheyao Gao, et al.
+    <a href="https://arxiv.org/pdf/2607.21570.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">双引擎设计：Narrative Designer 把临床案例变成带决策节点的故事线，Story Director 转成可交互的多模态编排方案。5,000 案例基准。学生用户研究验证更吸引人。</div>
+  <div class="line r"><strong>核心问题：</strong>如何把静态案例变成可执行的叙事游戏？</div>
+  <div class="line b"><strong>解决方案：</strong>双引擎设计：Narrative Designer（把案例变成带决策节点的故事线）+ Story Director（转成可交互的多模态编排方案）。5000 案例基准。</div>
+  <div class="line g"><strong>对你有什么用：</strong>这个 叙事→决策节点→交互编排 的管线可以直接搬到你的互动影游——把「案例」换成「剧情大纲」，两引擎照用。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.21570 · 2026-07-23</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>蛋糕表示法：程序化生成随时间变化的关卡</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">技术参考</span>
+      <span class="tag tag-p">PCG</span>
+    </div>
+  </div>
+  <div class="authors">Emily Halina, Matthew Guzdial
+    <a href="https://arxiv.org/pdf/2607.12097.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">蛋糕表示法把关卡分成时间层，保留动态信息。PRP 算法跨品类通用，在推箱子验证击败 6 种 SOTA PCG 方法，不牺牲解多样性。</div>
+  <div class="line r"><strong>核心问题：</strong>现有程序化关卡生成把动态游戏压成静态快照——丢失了时间维度。</div>
+  <div class="line b"><strong>解决方案：</strong>蛋糕表示法——把关卡分成时间层，像切蛋糕一样保留动态信息。PRP 算法跨品类通用，在推箱子验证击败 6 种 SOTA。</div>
+  <div class="line g"><strong>对你有什么用：</strong>如果你的影游需要程序化生成「随时间变化」的场景（比如天气、季节、战损状态），蛋糕表示法可能比传统静态 PCG 更合适。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.12097 · 2026-07-13</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>CPM-MultiAgent: 角色情绪的动态演化框架</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">技术参考</span>
+      <span class="tag tag-p">情绪系统</span>
+    </div>
+  </div>
+  <div class="authors">Jingyao Cai, Shuaijun Liu, Abdul Rehman, Yutong Guo, Qin Tian, et al.
+    <a href="https://arxiv.org/pdf/2607.07824.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">基于心理学 CPM 理论的多 agent 情绪演化框架。从对话中提取情感触发器 → 多 agent 协作评估 → 更新角色情绪状态。应用于互动叙事、医疗、教育场景。</div>
+  <div class="line r"><strong>核心问题：</strong>现有角色扮演 agent 把情绪写成固定属性——开心就是开心，不会因为对话中的事件而变化。</div>
+  <div class="line b"><strong>解决方案：</strong>CPM-MultiAgent（心理学 CPM 理论驱动）：从对话中提取情感触发器 → 多 agent 协作评估 → 更新角色情绪状态。情绪是随时间演化的隐变量。</div>
+  <div class="line g"><strong>对你有什么用：</strong>让你的 NPC 有动态情绪弧线——玩家一句话可以让 NPC 从愤怒转向悲伤。这对影游中的情感驱动分支至关重要。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.07824 · 2026-07-08</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">互动叙事论文机器人 v1.0</span> 生成 · 2026-08-12</p>
+  <p style="margin-top:4px">数据源：arXiv API · cs.AI / cs.CL / cs.HC / cs.MA · 关键词：interactive narrative / multi-agent storytelling / PCG / LLM storytelling</p>
+  <p style="margin-top:8px">
+    <a href="index.html">← 归档首页</a> ·
+    <a href="papers-2026-08-11.html">昨日论文 →</a>
+  </p>
+</footer>
+</div>
+</body>
+</html>

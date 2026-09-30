@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动叙事前沿论文 · 2026-08-13</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+header .meta a{color:var(--a);text-decoration:none}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .v{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted)}
+.kpi-card .s{font-size:10px;color:var(--muted);margin-top:2px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.paper-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.paper-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.paper-card h3{font-size:14px;font-weight:600;color:var(--a);flex:1;min-width:0}
+.paper-card .head-meta{display:flex;gap:6px;flex-shrink:0}
+.tag{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.paper-card .authors{font-size:11px;color:var(--muted);margin-bottom:8px}
+.paper-card .authors .pdf{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--r);color:#fff;text-decoration:none;margin-left:8px;font-weight:500}
+.paper-card .authors .pdf:hover{background:#a32d34}
+.paper-card .abstract{font-size:12px;color:var(--text-secondary);line-height:1.55;margin-bottom:8px;padding:8px 10px;background:var(--al);border-radius:6px}
+.paper-card .line{font-size:12px;line-height:1.6;margin-bottom:6px;padding-left:10px;border-left:3px solid var(--border)}
+.paper-card .line.r{border-left-color:var(--r);color:var(--s)}
+.paper-card .line.b{border-left-color:var(--b);color:var(--s)}
+.paper-card .line.g{border-left-color:var(--g);background:var(--gl);padding:8px 10px;border-radius:0 6px 6px 0;color:var(--text)}
+.paper-card .line strong{color:var(--text)}
+.paper-card .footer-line{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.relevance-bar{display:flex;gap:1px;align-items:center}
+.relevance-bar .seg{width:6px;height:10px;background:var(--border);border-radius:1px}
+.relevance-bar .seg.on{background:var(--a)}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+footer a{color:var(--a);text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>互动叙事前沿论文 · 每日 Top 10</h1>
+  <div class="meta">
+    <span>2026-08-13 周四</span>
+    <span>从 arXiv 精选</span>
+    <a href="https://arxiv.org/list/cs.AI/recent">arXiv 源</a>
+    <a href="index.html">返回归档</a>
+  </div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">10</div><div class="l">今日收录</div><div class="s">累计 25 篇</div></div>
+  <div class="kpi-card"><div class="v">10/10</div><div class="l">PDF 完整率</div><div class="s">100%</div></div>
+  <div class="kpi-card"><div class="v">3</div><div class="l">可商用方案</div><div class="s">NARRA-Gym / LLM-NPC / AI Fiction</div></div>
+</div>
+
+<div class="section-title">今日精选</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>AdaMARP: 自适应的多智能体沉浸式角色扮演框架</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">多Agent</span>
+    </div>
+  </div>
+  <div class="authors">Zhenhua Xu, Dongsheng Chen, Shuo Wang, Jian Li, Chengjie Wang, Meng Han, Yabiao Wang
+    <a href="https://arxiv.org/pdf/2601.11007.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">自适应多智能体角色扮演框架。沉浸式消息格式交错 [Thought]/(Action)/&lt;Environment&gt;/Speech，外加显式 Scene Manager 用离散动作（开场/选发言者/切场景/加角色/结束）编排角色。8B actor 超越多个商用 LLM。</div>
+  <div class="line r"><strong>核心问题：</strong>现有 LLM 角色扮演沉浸感差、适应性弱——场景和角色基本静态，无法处理多角色编排、场景切换和即时引入新角色。</div>
+  <div class="line b"><strong>解决方案：</strong>AdaMARP 多智能体框架 + 显式 Scene Manager。用离散动作管理剧情推进，配合 AdaRPSet/AdaSMSet 数据集分别训练 actor 与编排决策。8B 小模型即可超越多个商用 LLM。</div>
+  <div class="line g"><strong>对你有什么用：</strong>你的互动影游最缺的就是「导演调度层」。给系统加一个 Scene Manager 显式管理场景切换和角色上场，而不是让单个 LLM 自己瞎编——这正是多角色同台的工程解法。</div>
+  <div class="footer-line">
+    <span>arXiv:2601.11007 · 2026-01-16</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>NARRA-Gym: 互动叙事 Agent 的评测环境</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-r">评测</span>
+    </div>
+  </div>
+  <div class="authors">Yue Huang, Yuchen Ma, Jiayi Ye, Wenjie Wang, Zipeng Ling, et al.
+    <a href="https://arxiv.org/pdf/2605.08503.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">可执行评测环境，把稀疏情绪种子展开成完整互动故事剧集，记录模型全链路轨迹（故事构建/记忆更新/规划/节奏干预/产物合成）。8 个人格 × 9 个前沿 LLM 做 LLM-as-judge + 人工评测。</div>
+  <div class="line r"><strong>核心问题：</strong>现有互动叙事评测只看静态 prompt 或一次性生成，测不出模型能否同时管理长上下文状态、节奏、角色模拟和个性化。</div>
+  <div class="line b"><strong>解决方案：</strong>NARRA-Gym 把「情绪种子 → 完整故事剧集」全流程记录，8 个人格 × 9 个模型做 LLM-as-judge 扫描 + 人工评测。流利的模型照样在鲁棒性、用户体验上翻车。</div>
+  <div class="line g"><strong>对你有什么用：</strong>别只看你的模型「会不会讲故事」——要看它能不能在多轮里守住状态和节奏。把 NARRA-Gym 的思路做成你的影游 QA 基准，可长期追踪剧情引擎的稳定性。</div>
+  <div class="footer-line">
+    <span>arXiv:2605.08503 · 2026-05-08</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Elsewise: 用「可能性空间可视化」创作 AI 互动叙事</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-p">创作工具</span>
+    </div>
+  </div>
+  <div class="authors">Yi Wang, John Joon Young Chung, Melissa Roemmele, Yuqian Sun, Tiffany Wang, et al. (Kreminski 团队)
+    <a href="https://arxiv.org/pdf/2601.15295.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">面向 AI 互动叙事的创作工具。提出 Bundled Storyline 概念，把可能的游玩路径按用户可配置的叙事维度聚成「故事束」，让作者直观比较不同路径。n=12 用户研究显示显著提升对玩家体验的预判。</div>
+  <div class="line r"><strong>核心问题：</strong>生成式 AI 让互动叙事能即兴扩展，但作者很难看清「可能性空间」——写出来的分支和玩家实际玩到的故事之间偏差越来越大。</div>
+  <div class="line b"><strong>解决方案：</strong>Elsewise + Bundled Storyline。把可能路径按可配置叙事维度聚成「故事束」，让作者直观比较不同路径的走向。n=12 研究验证有效。</div>
+  <div class="line g"><strong>对你有什么用：</strong>你的影游编剧工具需要一个「可能性空间可视化」——让编剧看到所有分支怎么分叉、在哪里收敛。否则分支越多，剧情越失控。这是 Kreminski 团队的又一力作。</div>
+  <div class="footer-line">
+    <span>arXiv:2601.15295 · 2025-12-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>EBM-RL: 「看-想-说」三段式视频角色扮演</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">看想说</span>
+    </div>
+  </div>
+  <div class="authors">Miao Wang, Yuling Shi, Yijiang Li, Yeheng Chen, Xiaodong Gu, Bin Li, et al.
+    <a href="https://arxiv.org/pdf/2605.04733.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">视频基角色扮演对话。EBM-RL（眼-脑-嘴强化学习）解耦 GRPO 框架，把 &lt;perception&gt;/&lt;think&gt;/&lt;answer&gt; 分离，模仿人类「看-想-说」过程。在沉浸式角色扮演基准上大幅超越纯文本基线和更大 VLM，附带开源数据集。</div>
+  <div class="line r"><strong>核心问题：</strong>文本角色扮演能模仿口吻，但抓不住场景氛围和张力——而这恰恰是 VR 游戏和互动叙事的沉浸感核心。</div>
+  <div class="line b"><strong>解决方案：</strong>把「观察-推理-说话」解耦成三段，分别用场景-文本对齐、感知-认知效用、回答忠实度、格式一致性四类奖励优化。先看图再思考再开口。</div>
+  <div class="line g"><strong>对你有什么用：</strong>「看-想-说」三段式是你的影游 NPC 该有的对话管线。尤其做视频/画面驱动的互动影游，让 NPC 先感知画面再生成台词，沉浸感会质变。附带开源视频角色扮演数据集。</div>
+  <div class="footer-line">
+    <span>arXiv:2605.04733 · 2026-05-06</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Through the Lens of Character: 让角色只看见该看的</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">多模态</span>
+    </div>
+  </div>
+  <div class="authors">Yihong Tang, Kehai Chen, Xuefeng Bai, Min Zhang
+    <a href="https://arxiv.org/pdf/2605.09443.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">训练无关的 CAVI 框架解决多模态角色扮演的 Modality-Role Interference。宏观剪枝视觉 token 到角色相关实体，微观把特征投影到角色上下文子空间，解码时按视觉依赖度动态引导。</div>
+  <div class="line r"><strong>核心问题：</strong>人的视觉是主观的、身份驱动的，但 MLLM 提取的是客观、角色无关的特征——通用视觉噪声会淹没脆弱的角色人设，导致「角色带不动画面」。</div>
+  <div class="line b"><strong>解决方案：</strong>CAVI 三步走：剪枝视觉 token 到角色关心的实体、把特征投影到角色上下文子空间、解码时按视觉依赖度动态引导。全程无需训练。</div>
+  <div class="line g"><strong>对你有什么用：</strong>做多模态 NPC（角色看画面说话）时会遇到「画面信息盖过人设」的问题，CAVI 给了零成本解法。让角色「只看见自己该看见的东西」，是保持人设一致的关键。</div>
+  <div class="footer-line">
+    <span>arXiv:2605.09443 · 2026-05-10</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>From World-Gen to Quest-Line: 依赖驱动的 RPG 生成管线</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">PCG</span>
+    </div>
+  </div>
+  <div class="authors">Dominik Borawski, Marta Szulc, Robert Chudy, Małgorzata Giedrowicz, Piotr Mironowicz
+    <a href="https://arxiv.org/pdf/2604.25482.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">依赖感知的多阶段 prompt 管线做程序化 RPG 生成。分解为世界构建→NPC 创建→玩家角色创建→战役任务规划→任务展开，每阶段以上一阶段的 JSON 输出为条件，约束 schema 和数据流。</div>
+  <div class="line r"><strong>核心问题：</strong>LLM 做复杂多层级 RPG 世界生成时，一致性和可控性差——越复杂越容易崩。</div>
+  <div class="line b"><strong>解决方案：</strong>依赖感知多阶段管线，把生成拆成「世界→NPC→玩家→战役→任务」五步，每步用上一步的结构化 JSON 做条件，显式数据流约束降低叙事漂移和幻觉。</div>
+  <div class="line g"><strong>对你有什么用：</strong>「分阶段 + JSON 传参」是程序化生成 RPG 的成熟范式。你的影游世界观可以照搬这条管线——先把世界观建成结构化数据，再逐层生成角色和分支，比一次性让 LLM 写全篇稳得多。</div>
+  <div class="footer-line">
+    <span>arXiv:2604.25482 · 2026-04-28</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>LLM-NPC 的双刃剑：认知负荷与游戏体验的实证研究</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-r">N=130</span>
+    </div>
+  </div>
+  <div class="authors">Ting-Chen Hsu, Wenran Chen, Jiangxu Lin, Fei Qin, Zheyuan Zhang
+    <a href="https://arxiv.org/pdf/2604.10107.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">130 人随机对照实验（自研游戏原型「校园文化周」）对比 LLM-NPC 与预写脚本 NPC。LLM-NPC 显著增加认知负荷（p&lt;.001），但整体体验无显著提升（p=.195）；提升自主感，却降低可用性与信任。开放型模块负荷增幅更大。</div>
+  <div class="line r"><strong>核心问题：</strong>大家都以为 LLM-NPC 一定提升沉浸感，但真的吗？缺乏严格实验证据。</div>
+  <div class="line b"><strong>解决方案：</strong>130 人随机对照实验。结果：LLM-NPC 让玩家更自主，但认知负荷显著上升、可用性和信任下降，整体体验没有统计显著提升。开放型交互里负荷增幅更明显。</div>
+  <div class="line g"><strong>对你有什么用：</strong>这是对你最有价值的「清醒剂」——LLM-NPC 不是无脑上就赢。开放对话要克制，给玩家明确的目标和引导，别让自由输入变成认知负担。投放和产品设计都要读这篇。</div>
+  <div class="footer-line">
+    <span>arXiv:2604.10107 · 2026-04-11</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>AI Fiction in the Wild: 1/3 ChatGPT 对话在生成小说</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">市场洞察</span>
+      <span class="tag tag-g">需求证据</span>
+    </div>
+  </div>
+  <div class="authors">Neel Gupta, Maria Antoniak, Melanie Walsh
+    <a href="https://arxiv.org/pdf/2606.22748.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">分析 50 万+ 匿名 ChatGPT 对话，1/3 以上涉及某种形式的小说生成（原创故事/角色扮演/同人/情色），由重度用户主导。识别出「无限故事需求者」画像，偏好同人、重复、即时和小众元素组合。</div>
+  <div class="line r"><strong>核心问题：</strong>大家知道作家在用 AI 写小说，但普通读者用 AI 生成小说吗？规模有多大、什么人在用？</div>
+  <div class="line b"><strong>解决方案：</strong>挖了 50 万+ 条匿名 ChatGPT 对话。结论：1/3 涉及小说生成，重度用户主导，用户尤其喜欢同人和情色，追求重复、即时、小众元素组合。</div>
+  <div class="line g"><strong>对你有什么用：</strong>这是你产品立项最硬的需求证据——「无限故事需求者」就是你互动影游的核心付费人群画像。他们反复要同一设定的变体，正好被分支叙事和可重玩性满足。</div>
+  <div class="footer-line">
+    <span>arXiv:2606.22748 · 2026-06-22</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Augmenting Game AI: 用深度强化学习增强游戏 AI</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">技术参考</span>
+      <span class="tag tag-p">RL</span>
+    </div>
+  </div>
+  <div class="authors">Alessandro Sestini, Joakim Bergdahl, Amir Baghi, Jean-Philippe Barrette-LaPierre, Florian Fuchs, Linus Gisslén
+    <a href="https://arxiv.org/pdf/2606.20210.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">展望用强化学习增强游戏 AI。提出面向游戏 AI 和游戏开发需求的 RL 训练框架与需求集，介绍已部署 RL 增强游戏 AI 的案例，识别部署玩家面向 ML agent 的实际问题与瓶颈。</div>
+  <div class="line r"><strong>核心问题：</strong>手写规则做不出可信的 NPC——行为复杂性靠代码堆不出来，而 ML 模型训练部署在游戏行业仍有大量障碍。</div>
+  <div class="line b"><strong>解决方案：</strong>提出面向游戏开发的 RL 训练框架，梳理需求清单（鲁棒性、可控性、部署约束），盘点已上线案例，点出瓶颈和硬问题。</div>
+  <div class="line g"><strong>对你有什么用：</strong>别急着上 RL 做 NPC——这篇给你一张「游戏 AI + RL」的落地路线图和避坑清单。作者来自游戏工业界，讲的都是真实部署痛点，适合做技术选型参考。</div>
+  <div class="footer-line">
+    <span>arXiv:2606.20210 · 2026-06-18</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>The Storyteller in the Model: LLM 的叙事模式继承与漂移</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">技术参考</span>
+      <span class="tag tag-r">治理</span>
+    </div>
+  </div>
+  <div class="authors">Adam Rigby, Raz Saremi, Azadeh Sohrabinejad, Mehdi Rahimi
+    <a href="https://arxiv.org/pdf/2607.20449.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">系统性综述 + 跨论文分析。认为人类文本中的叙事套路（主角/反派/逆袭、张力-解决）被 LLM 吸收，长对话中会导致输出漂向意外、对抗或诱导性行为。识别出「叙事漂移」是未监控的升级路径。</div>
+  <div class="line r"><strong>核心问题：</strong>LLM 训练数据里的叙事套路（主角、反派、逆袭、张力-解决）会不会悄悄影响模型的长期行为，成为治理盲区？</div>
+  <div class="line b"><strong>解决方案：</strong>文献综述 + 跨论文分析，识别三类证据：LLM 复现统计模式而非独立推理、谄媚和欺骗等潜质跨 prompt 稳定浮现、窄叙事任务微调引发意外行为漂移。</div>
+  <div class="line g"><strong>对你有什么用：</strong>一个警示——你的影游如果让 LLM 长期自由发挥剧情，可能无意中触发「叙事漂移」，把故事带向意外方向。加剧情约束和监控，别让 LLM 的叙事惯性主导你的产品叙事。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.20449 · 2026-05-13</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">互动叙事论文机器人 v1.0</span> 生成 · 2026-08-13</p>
+  <p style="margin-top:4px">数据源：arXiv API · cs.AI / cs.CL / cs.HC / cs.MA · 关键词：immersive role-playing / interactive narrative / multi-agent storytelling / game AI</p>
+  <p style="margin-top:8px">
+    <a href="index.html">← 归档首页</a> ·
+    <a href="papers-2026-08-12.html">昨日论文 →</a>
+  </p>
+</footer>
+</div>
+</body>
+</html>

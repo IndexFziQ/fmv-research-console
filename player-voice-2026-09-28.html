@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玩家心声报告 v1.1 | 2026-09-28</title>
+<style>:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.c{max-width:920px;margin:0 auto}
+header{text-align:center;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .sub{font-size:12px;color:var(--s)}
+.hero{background:linear-gradient(135deg,var(--a),#3C3489);color:#fff;border-radius:14px;padding:28px 28px 20px;margin-bottom:24px}
+.hero-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.18);margin-bottom:10px;letter-spacing:0.5px}
+.hero h2{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
+.hero .lead{font-size:13px;opacity:0.85;line-height:1.6;max-width:680px;margin-bottom:16px}
+.hero-stats{display:flex;gap:20px;flex-wrap:wrap}
+.hero-stat{display:flex;flex-direction:column;background:rgba(255,255,255,0.12);border-radius:8px;padding:10px 16px;min-width:90px}
+.hero-stat .hsv{font-size:26px;font-weight:700;line-height:1}
+.hero-stat .hsl{font-size:10px;opacity:0.7;margin-top:2px;white-space:nowrap}
+.quick-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
+.qcard{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px;transition:box-shadow 0.15s}
+.qcard:hover{box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.qcard-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.qcard .qicon{width:28px;height:28px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--border)}
+.qcard .qname{font-size:12px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qcard .qrating{font-size:18px;font-weight:700;line-height:1}
+.qcard .qrating.ok{color:var(--g)}.qcard .qrating.warn{color:var(--amb)}.qcard .qrating.bad{color:var(--r)}
+.qcard .qbar{display:flex;height:4px;border-radius:2px;overflow:hidden;margin-bottom:6px}
+.qcard .qbar .pos{background:var(--g)}.qcard .qbar .neg{background:var(--r)}
+.qcard .qtag{font-size:10px;color:var(--muted);line-height:1.4}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:14px;padding-bottom:6px;border-bottom:2px solid var(--al);display:flex;align-items:center;gap:8px}
+.section-title .st-num{font-size:10px;color:var(--muted);font-weight:400}
+.pcard{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;margin-bottom:18px;overflow:hidden;display:flex;flex-direction:column}
+.pcard-header{display:flex;gap:16px;padding:16px 20px;background:var(--bg);border-bottom:1px solid var(--border);align-items:center}
+.pcard-header .pcover{width:120px;height:68px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--border)}
+.pcard-header .pinfo{flex:1;min-width:0}
+.pcard-header .pinfo .ptitle{font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+.pcard-header .pinfo .pmeta{font-size:11px;color:var(--muted);margin-bottom:6px;display:flex;gap:12px;flex-wrap:wrap}
+.pcard-header .pinfo .pmeter{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:4px}
+.pcard-header .pinfo .pmeter .pos{background:var(--g)}.pmeter .neg{background:var(--r)}
+.pcard-header .pinfo .pmeter-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+.pcard-body{padding:18px 20px}
+.pcard-body .pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.pcard-body .pb-grid{grid-template-columns:1fr}.quick-strip{grid-template-columns:repeat(2,1fr)}}
+.pb-block{margin-bottom:2px}
+.pb-block h4{font-size:11px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.pb-block h4 .hdot{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.pb-block h4 .hdot.neg{background:var(--r)}.pb-block h4 .hdot.pos{background:var(--g)}
+.pb-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pb-list li{font-size:12px;color:var(--s);line-height:1.5;padding:4px 10px;border-radius:6px;transition:background 0.1s}
+.pb-list li:hover{background:var(--bg)}
+.pb-list .cnt{font-size:10px;color:var(--muted);background:var(--bg);padding:1px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.pb-list .q{display:block;font-size:10px;color:var(--muted);font-style:italic;margin-top:2px;line-height:1.4}
+.pb-en{grid-column:1 / -1;font-size:11px;color:var(--s);background:var(--bg);border-radius:6px;padding:8px 12px;line-height:1.6}
+.pb-en b{color:var(--a)}
+.pcard-actions{padding:0 20px 18px}
+.act-item{background:var(--al);border:1px solid var(--a);border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.act-item:last-child{margin-bottom:0}
+.act-item .prio{display:inline-block;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:700;flex-shrink:0;margin-top:1px}
+.prio.p0{background:var(--r);color:#fff}.prio.p1{background:var(--amb);color:#fff}.prio.p2{background:var(--b);color:#fff}
+.act-item .act-text{flex:1;min-width:0}
+.act-item h4{font-size:12px;font-weight:600;margin-bottom:2px;color:var(--a)}
+.act-item p{font-size:11px;color:var(--s);line-height:1.5}
+.pattern-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.pattern-grid{grid-template-columns:1fr}}
+.pat-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px;position:relative;overflow:hidden}
+.pat-card::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;border-radius:2px 0 0 2px}
+.pat-card:nth-child(1)::before{background:var(--a)}
+.pat-card:nth-child(2)::before{background:var(--g)}
+.pat-card:nth-child(3)::before{background:var(--amb)}
+.pat-card:nth-child(4)::before{background:var(--r)}
+.pat-card:nth-child(5)::before{background:var(--b)}
+.pat-card:nth-child(6)::before{background:var(--a)}
+.pat-card:nth-child(7)::before{background:var(--g)}
+.pat-card:nth-child(8)::before{background:var(--amb)}
+.pat-num{font-size:36px;font-weight:700;color:var(--border);line-height:1;margin-bottom:-10px}
+.pat-card h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.pat-card p{font-size:12px;color:var(--s);line-height:1.5;margin-bottom:8px}
+.pat-card .pat-tags{display:flex;gap:6px;flex-wrap:wrap}
+.pat-card .pat-tags .tag{font-size:9px;padding:1px 7px;border-radius:3px;font-weight:600}
+.tag.from{background:var(--rl);color:var(--r)}.tag.fix{background:var(--gl);color:var(--g)}
+.self-eval{background:var(--card-bg);border:1px solid var(--amb);border-radius:10px;padding:18px;margin-top:24px}
+.self-eval h4{font-size:14px;font-weight:600;color:var(--amb);margin-bottom:10px}
+.se-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px}
+@media(max-width:700px){.se-grid{grid-template-columns:1fr}}
+.se-item{text-align:center;padding:10px 8px;border-radius:8px;background:var(--bg)}
+.se-item .score{font-size:30px;font-weight:700;line-height:1}
+.se-item .score.r{color:var(--r)}.se-item .score.g{color:var(--g)}.se-item .score.a{color:var(--a)}
+.se-item .lbl{font-size:10px;color:var(--muted);margin-top:4px}
+.se-item .note{font-size:10px;color:var(--s);margin-top:6px;line-height:1.4}
+.next-steps{margin-top:12px;padding:12px 16px;background:var(--bl);border:1px solid var(--b);border-radius:8px;font-size:12px;color:var(--b);line-height:1.6}
+.next-steps strong{display:block;margin-bottom:2px}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}</style>
+</head>
+<body>
+<div class="c">
+
+<header>
+  <h1>玩家心声报告 v1.1</h1>
+  <div class="sub">互动影游竞品 · Steam 评测深读 · 2026-09-28（周一）· 池内 37 款 / 采集 36 款（Rescue the Hostages 月扫跳过，下期 10-23）· 第 30 期（72h 跨周末窗口）· 窗口 09-25 08:23 → 09-28 08:00 · 老池主语言净增 +85（正 66 / 负 19）+ 新世界：暗影成双首发周末放量 +214（全语言 91→305，本期首次正式采集）· 原文捕获 195 条（老池首遍 57 缺口 28 → 复探协议 v2 触发：num_per_page=100/day_range=7 查询形态命中新鲜分片补 34 → 老池捕获 86 ≥ 净增 85，窗口对账归零）· 数据口径：day_range=30 负面抽样 + 主语言全量抽样 + day_range=5 翻页捕获（中文游戏 schinese / 英文游戏 english，1000王子 补全语言口径）· 商店基线：intel0925 回退（今日 intel 08:00 尚未落盘，已标注；新世界另用全语言实时口径交叉验证）</div>
+</header>
+
+<!-- ═══ Hero ═══ -->
+<div class="hero">
+  <div class="hero-tag">⚡ CORE FINDING</div>
+  <h2>新世界：暗影成双首发周末口碑滑坡：全语言 91.2%→71.5%（91→305 条），双视角信息差玩法获「影游版双人成行」认证的同时，剧情逻辑硬伤（金库丢枪/日军基地装窃听器/中枪复活）+ 男主人设崩（「牺牲男主高光去塑造女主」）+ 强制双份购买无好友通行证三线并发——差评给出「抗日神剧+短剧结合」的定性句。同期幸存者笔记 AI 正名第二波（「原来我不是不喜欢AI短剧，只是不喜欢粗制滥造的」72h 内 3 条同构好评），但好感度系统 bug 复发（10.8h「所有加白沅好感的选项都选了一遍，好感还是3」）压住 89.2% 止跌叙事</h2>
+  <p class="lead">本期信号面：光与影之恋 109 条零差评纪录被众筹老粉主动终结（3.1h「评论区109篇测评均为好评…那这个恶人就让我来当吧」——深度批评堆料多但综合质量不高）；媚娘篇「48分钟断联十几次」把单机强制联网族推到第 N 日；东北往事「完美结局需要全部重新来一个选项都不能错」补全重播工程债族第五件套；恶校 10.8h 玩家给出复仇题材设计论（「让玩家带着恨出发，带着爱上路，最后带着愧疚回家」）；江山北望 13.5h 长评完成「选择算数」认证（「做对了有回报，选错了就要承担代价」）。零清洗状态延续（窗口内无批量移除）。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hsv">37</span><span class="hsl">池内产品（36 采集）</span></div>
+    <div class="hero-stat"><span class="hsv">195</span><span class="hsl">72h 新评测原文捕获</span></div>
+    <div class="hero-stat"><span class="hsv">+66/+19</span><span class="hsl">老库正/负净增</span></div>
+    <div class="hero-stat"><span class="hsv">11</span><span class="hsl">行动卡（P0+P1 = 7）</span></div>
+    <div class="hero-stat"><span class="hsv">8</span><span class="hsl">交叉模式（🆕×2）</span></div>
+  </div>
+</div>
+<div class="quick-strip">
+<div class="qcard">
+  <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3319700/71833548c0118e89eae809524f5a6b6a79dfe91c/header_schinese.jpg?t=1790154520" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">新世界：暗影成双</span><span class="qrating bad">71.5%</span></div>
+  <div class="qbar"><div class="pos" style="width:72%"></div><div class="neg" style="width:28%"></div></div>
+  <div class="qtag">🔴 首诊：全语言 91→305 条 71.5%（Mostly Positive），首发周末 72h +214 · 剧情逻辑/男主人设/强制双份购买三线差评 · 双视角信息差+匹配系统+演出形式多样获赞 · 官方凌晨 2:34 回复差评并获改评（7.8h「开发组在评论中解释是因为删减过大量剧本」）</div>
+</div>
+<div class="qcard">
+  <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354460/8c136db542f3c9ac30ea86cf105014b99206d2f5/header_schinese.jpg?t=1789289866" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">幸存者笔记</span><span class="qrating warn">89.2%</span></div>
+  <div class="qbar"><div class="pos" style="width:89%"></div><div class="neg" style="width:11%"></div></div>
+  <div class="qtag">🟠 +26（正 21/负 5）89.7→89.2%：放量续增但好评率续滑 · AI 正名第二波（4.5h「不是不喜欢AI短剧，只是不喜欢粗制滥造的」）· 🔴 好感度系统 bug 复发（10.8h 差评「所有加白沅好感的选项都选了一遍，好感还是3」）· 烂尾批评（3.9h「第九章更是被迫用很长时间看剧情」摄像头化）· 续作/DLC 呼声密集 ×5</div>
+</div>
+<div class="qcard">
+  <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">江山北望</span><span class="qrating ok">91.3%</span></div>
+  <div class="qbar"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+  <div class="qtag">🟢 +7（正 6/负 1）91.3% 持平 · 13.5h 长评「神级互动影游」完成「选择算数」认证（「你的每一次选择都算数」）· 27.4h「连龙套都不出戏」演技认证 · 6.4h「皇帝模拟器：只能拿到眼前的信息」信息差玩法 praise · 10.1h 差评「前妻必死/后宫硬塞/儿子必反」固定套路批评</div>
+</div>
+<div class="qcard">
+  <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4292950/dfd52caf6453e43b4d613a662064aca4924a7858/header.jpg?t=1787201131" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">绍宋</span><span class="qrating ok">80.9%</span></div>
+  <div class="qbar"><div class="pos" style="width:81%"></div><div class="neg" style="width:19%"></div></div>
+  <div class="qtag">🟢 +10（正 7/负 3）80.9% 平台期稳定 · 12.0h「今年目前最佳影游」+ AI 良性使用认证（「ai已经使用的很好了…重点位置也都是真人真物」）· 14.4h「弥补了小说不能影视化的遗憾」· 负面：13.5h「后期剧情开始压缩赶工」+ 3.6h「AI粗制滥造」两极并存</div>
+</div>
+<div class="qcard">
+  <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4148240/ad47878cf250027da631c4678102b8167fd166c1/capsule_616x353_schinese.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">女帝篇</span><span class="qrating ok">82.5%</span></div>
+  <div class="qbar"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+  <div class="qtag">🟢 +8（正 7/负 1）82.5% 持平 · 妆造叙事获赞：6.7h「小伍的妆造变化…从清纯到凌厉，能看出身份和心境一点点变了」（角色成长可视化）· 6.3h「四十多集本来还担心会注水，结果越玩越上头」· 负面单点：8.2h「不如第一部」+ 10.2h「选项描述太简略，选了之后发现做法和理解不一样」（选项语义模糊）</div>
+</div>
+<div class="qcard">
+  <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4412960/3432e6210f9eed1a09d9e58024cf5c88079b3faf/header.jpg?t=1787018357" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">光与影之恋</span><span class="qrating ok">99.1%</span></div>
+  <div class="qbar"><div class="pos" style="width:99%"></div><div class="neg" style="width:1%"></div></div>
+  <div class="qtag">🟠 109 条零差评纪录终结（+1neg → 99.1%）· 3.1h 众筹老粉主动当「恶人」：「都已经到第六部作品了，剧本质量还是这么拉胯…堆料很多，但综合质量并不高…国配端着架子不贴角色」——好评堆砌的满分纪录反而招致深度差评，零差评≠零批评</div>
+</div>
+</div>
+<div class="section">
+<div class="section-title">逐款分析 <span class="st-num">37 款池 · 36 款采集 · 按信号强度排序 · 好评率为 API 抽样（已与商店页基线比对，基线取 intel0925 回退——今日 intel 未落盘，恢复后下期校正；新世界另附全语言实时口径交叉验证）</span></div>
+<div class="pcard" style="border-left:4px solid var(--r)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3319700/71833548c0118e89eae809524f5a6b6a79dfe91c/header_schinese.jpg?t=1790154520" alt="新世界：暗影成双" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">新世界：暗影成双 <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">🔴 首诊：首发周末滑坡 91.2→71.5%（全语言 91→305 条），剧情/人设/门槛三线死因显形</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 72.6% / 实时全语言 71.5%（+1.1 ✓，池快照 91.2% 陈旧已标注）</span></div>
+      <div class="pmeta"><span>互影科技 × 上影 · 2026-09-22 · 全球首款双人联机互动影游</span><span>30天差评 80（中文口径）</span><span>评测池 292（中文）/ 305（全语言）</span></div>
+      <div class="pmeter"><div class="pos" style="width:72%"></div><div class="neg" style="width:28%"></div></div>
+      <div class="pmeter-labels"><span>好评 72.6%（API 中文口径）</span><span>差评 27.4%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（窗口 109 条原文中 👎 27 条，三线死因）</h4><ul class="pb-list"><li>剧情逻辑硬伤 / 智斗降智（差评第一驱动） <span class="cnt">×8</span><span class="q">「在日本人的基地能直接引开人给人家车上装窃听器…智斗仿佛在闹着玩，感觉不如番茄小说」（6.9h）／「男主和敌人在四手对抗，女主非要把枪丢给男主…搞不懂在这么紧张的环境下为什么不在说话的时候直接毙了」（8.3h）／「被女主一枪头的赤木在几分钟后从地上爬起来，额头完好无损，伤口神奇地转移到了胸口」（6.4h）——金库丢枪、日军基地如入无人之境、中枪复活三大名场面被多条评测反复点名，被定性为「抗日神剧和短剧的结合」（7.1h）</span></li><li>男主人设崩 / 高光让位（女频文指控） <span class="cnt">×4</span><span class="q">「男主作为兵王级别的特务，几乎看不到特务的素质…傻乎乎的拿着枪和敌人谈判。你手里是枪啊大哥」（9.8h）／「是不是牺牲了男主的高光去塑造女主，我玩完了也有这样的感觉」（9.8h）／「剧情弱智而且明显是女频文」（2.2h）——男主专业素养缺失+感情线硬转，被指为服务双人浪漫定位牺牲谍战正剧性</span></li><li>强制双份购买 / 无好友通行证（门槛死因） <span class="cnt">×5</span><span class="q">「强制双人合作，单人并不能游玩，但同时本作游戏也没有提供好友通行证…我更相信官方想要多卖出几份游戏」（2.2h）／「独狼玩家慎入，这游戏极难匹配到路人玩家」（0.6h）／「PC和移动端不互通，不能拿电脑加手机自己双开单刷」（12.5h）——买断制×2 成本+匹配质量参差构成硬门槛</span></li><li>联机稳定性 + bug <span class="cnt">×4</span><span class="q">「你他妈的服务器的钱都不肯花，千兆网二连坐动不动掉线，做个本地连接很难吗？」（1.6h）／「徽章收集也出现问题…结尾结算却显示只有10个，导致《荣耀玩家》成就我们重新读档好多次」（6.9h）／「很严重的卡顿」（6.1h）</span></li><li>宣传口径 / AI 画面 <span class="cnt">×3</span><span class="q">「宣传说上百种结局，实际基本上都是即死结局，真正的结局只有四种」（6.9h）／「部分结局画面是ai生成的，一眼看着就假的要死」（6.9h）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（窗口 👍 82 条，玩法创新为主轴）</h4><ul class="pb-list"><li>双视角信息差玩法（品类创新认证） <span class="cnt">×7</span><span class="q">「两块屏幕、两种视角，你看见的线索对方不知道…堪称影游版的双人成行」（60.9h）／「这个双人设计还是挺有意思的…玩的时候确实会有一种两个人一起破案的感觉」（9.5h）／「双人互动玩法上，我目前可以说，这部作品是独一档」（60.9h）——信息差+语音协作的核心机制获得「独一档」定位</span></li><li>演出形式多样（皮影/默片/Q版） <span class="cnt">×4</span><span class="q">「演出形式真的多样！有皮影戏，有黑白默片，有q版小人」（2.7h）／「很喜欢黑白影像的快速铺垫与结局延申，也暗爽于部分结局对《给阿嬷的情书》的致敬」（19.0h）——十余种视觉风格承诺兑现</span></li><li>运营响应（凌晨回复差评获改评） <span class="cnt">×2</span><span class="q">「凌晨02:34收到了开发组团队的回复…我改评价70%是因为不希望自己随意打出的差评会影响任何人…30%是因为伸手不打笑脸人」（7.8h 差转好）——官方逐条回复+删减剧本解释的转化实证</span></li><li>价格/体量/双人社交价值 <span class="cnt">×5</span><span class="q">「我跟对象都在感叹这是花30块钱就能够体验的剧情吗」（10.8h）／「买了这个游戏让对方走进我的世界…现在感觉人生真美好」（4.4h 情侣叙事）／「两位搭档互评与互贴标签趣味十足」（60.9h）</span></li><li>匹配系统正面证据 <span class="cnt">×3</span><span class="q">「可以随机队友挺有意思…最开始支持不开麦，特别符合陌生人相遇」（9.4h）／「靠联机大厅混了好几天，简直像开盲盒…遇到合拍的搭子，体验立马升级」（6.2h）</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp0">P0</span><div class="act-text"><h4>好友通行证 / 低门槛双人准入（产品策略级）</h4><p>「必须两份游戏本体+无好友通行证+独狼难匹配+PC/移动不互通」四重门槛叠加——买断制双人品类的准入设计直接决定口碑基本盘。对自家：若做双人影游，1 份本体+1 份通行证（或家庭共享白名单）是底线；联机质量差时必须有本地连接/同屏兜底；「官方想多卖几份」的动机一旦被玩家识破即转化为差评。</p></div></div><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>严肃题材的剧情逻辑审校流程（史实+智斗双轨）</h4><p>差评第一驱动是可枚举的逻辑硬伤（金库丢枪/基地装窃听器/中枪复活/青帮站马路中间枪战），且被 7.1h 玩家逐条考据（「赤木台词里出现地下党这个说法，日本人只会叫共匪」）。沉重历史题材玩家的审视标准是史实级——对自家：谍战/历史本立项即配剧情逻辑审校清单（战斗逻辑、时代称谓、机构行为模式），硬伤一处即「抗日神剧」标签全片连坐。</p></div></div><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>宣传口径管理：「上百种结局」类承诺的兑付审计</h4><p>「宣传说上百种结局，实际基本上都是即死结局，真正的结局只有四种」——即死结局灌水结局数与金宵「东野圭吾风格PV诈骗」同构：宣传承诺与实际体验的错位是差评放大器。对自家：结局数口径应区分「真结局/差分结局/即死结局」分别计数，商店页宣传用真结局数。</p></div></div><div class="act-item"><span class="prio pp2">P2</span><div class="act-text"><h4>双人品类的角色权重平衡</h4><p>「牺牲男主高光去塑造女主」（9.8h 双女生玩家视角）+「男主更像女主的跟班，缺少属于自己的高光时刻」——双主角产品两方玩家各持一半体验，任何一方的角色降智/边缘化都直接减半口碑。对自家：双主角各自独立高光场次做对称审计（本场次谁的决策推动了剧情）。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354460/8c136db542f3c9ac30ea86cf105014b99206d2f5/header_schinese.jpg?t=1789289866" alt="幸存者笔记" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">幸存者笔记 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">🟠 +26（正 21/负 5）89.2% 续滑：AI 正名第二波 vs 好感度 bug 复发对冲</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 89.2% / 商店 90.5%（-1.3 pool0925 陈旧）</span></div>
+      <div class="pmeta"><span>MYSTERY CROWN · YESPLAY · 2026-09-11 · 全 AI 虚拟真人末日丧尸 FMV</span><span>30天差评 49（中文口径）</span><span>评测池 455（中文，72h +26）</span></div>
+      <div class="pmeter"><div class="pos" style="width:89%"></div><div class="neg" style="width:11%"></div></div>
+      <div class="pmeter-labels"><span>好评 89.2%（API 中文口径）</span><span>差评 10.8%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（72h 5 条新差评，好感度 bug + 烂尾双信号）</h4><ul class="pb-list"><li>🔴 好感度系统 bug 复发（09-18 同族事故残留？） <span class="cnt">×1</span><span class="q">「为什么我所有加白沅好感的选项都选了一遍，好感还是3」（10.8h 差评）——09-18 好感度更新回归 bug 曾制造 9+ 差评，修复后 09-25 报告判定「未二次发酵」；本条是同部位复发信号，需复核是否为边缘场景（特定章节组合好感不计入）</span></li><li>后段参与感下降 / 烂尾批评 <span class="cnt">×2</span><span class="q">「越到后面玩家的参与感就越低，彻底成为了摄像头，第九章更是被迫用很长时间看剧情…极度烂尾」（3.9h 差评）／「前几章不错，可以让人接受AI影游…但是极度烂尾」（3.9h）——「摄像头化」与 09-25 期女帝「红果短剧」批评同构：选项密度后段衰减</span></li><li>剧情降智链（军设专业性） <span class="cnt">×1</span><span class="q">「从我部队服过役的角度来说，真的无语…冷兵器一把不带闯丧尸聚集区？知道丧尸靠声音识别方位，枪械不装消音器么？」（8.1h 差评）——军迷玩家用专业标准审计，与末日题材的硬核受众期待错位</span></li><li>QTE/优化/性价比杂项 <span class="cnt">×1</span><span class="q">「重新选择的时候不能快速跳到选择选项而是要等几秒钟的演出…qte有bug…20多的价格性价比偏低」（6.9h 差评）——重选等待演出=重播层工程债新证</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（72h 21 条新好评，AI 正名第二波）</h4><ul class="pb-list"><li>AI 正名三连同构再现（完成度决定论固化） <span class="cnt">×4</span><span class="q">「原来我不是不喜欢AI短剧，只是不喜欢粗制滥造的」（4.5h）／「AI味很浓但是真人配音很好的弥补了AI画面没有真情实感这一点」（10.6h）／「AI现在虽然还不成熟，但是弄点真人拍不了的题材还是优势区」（12.3h）／「很难相信如此完成度的作品竟出自AI之手，其水准已远超市面上绝大多数互动影游」（18.4h）——「真人配音护航+真人拍不了的题材」两条规格被玩家自发总结，AI 混合公式进一步固化</span></li><li>续作 / DLC 呼声密集 <span class="cnt">×5</span><span class="q">「希望还有第二部或者DLC」（10.6h）／「十分期待续作」（20.4h）／「期待第二季，希望能有预算做出来」（0.3h 补票玩家）／「为什么没有保留记忆的设定呢，希望有个DLC或番外出个合家欢的结局」（10.4h 玩家主动给 DLC 规格）——续作预期成为长尾好评的主驱动</span></li><li>纯享模式 + 双视角惊喜 <span class="cnt">×2</span><span class="q">「最大优点就是提供纯享版，不需要任何操作直接看剧」（7.8h）／「单章里面竟然还是双视角，我这种玩的少的第一次见还挺惊艳」（0.3h）——纯享模式被点名为最大优点（AI 影游=可看可玩双形态）</span></li><li>伏笔/后段质量反转 <span class="cnt">×2</span><span class="q">「后半段内容质量陡然提升，远超预期」（11.8h）／「还有伏笔！」（10.8h）——与烂尾批评并存的两极（不同章节体验差异大）</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp0">P0</span><div class="act-text"><h4>好感度系统复发复核（边缘场景测试）</h4><p>09-18 好感度事故修复后同部位再现「选项选满好感不涨」——对自家：好感度/好感度类状态机的回归测试必须覆盖「全选项遍历」路径而非单点抽查；此类数值 bug 直接攻击多周目玩家的核心资产（好感收集），差评杀伤力大于画面问题。</p></div></div><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>后段章节的选项密度审计（防「摄像头化」）</h4><p>「第九章被迫用很长时间看剧情，彻底成为了摄像头」+ 女帝「红果短剧」同构——选项密度随章节衰减是通病（前密后疏的叙事惯性）。对自家：每章选项数做分布看板，后段章节选择间隔超过 N 分钟即报警；长演出段落中插入轻量反应选择（哪怕只影响一句台词）维持参与感。</p></div></div><div class="act-item"><span class="prio pp2">P2</span><div class="act-text"><h4>纯享模式：AI 影游的双形态资产</h4><p>「最大优点就是提供纯享版」+ 玩家「玩到后面我都直接开纯享看电影了」——AI 影游兼具游戏与短剧双重形态，纯享模式（可看）+ 交互模式（可玩）的双轨设计被验证为差异化资产；升级方向：纯享模式支持选择起始章节（玩家点名「不能选开始的阶段」）。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--g)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" alt="江山北望" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">江山北望 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 +7（正 6/负 1）91.3%：「选择算数」获 13.5h 长评认证，演技全员在线</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 91.3% / 商店 91.0%（+0.3 ✓）</span></div>
+      <div class="pmeta"><span>木焱工作室 · 2025-11-19 · 历史 FMV（隐形守护者原班）</span><span>30天差评 17</span><span>评测池 6284（中文，72h +7）</span></div>
+      <div class="pmeter"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+      <div class="pmeter-labels"><span>好评 91.3%（API 中文口径）</span><span>差评 8.7%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 负面观测（72h 1 条新差评）</h4><ul class="pb-list"><li>固定套路批评（三连排比句式） <span class="cnt">×1</span><span class="q">「一般，前妻是必死的，后宫是硬塞的，儿子是必反的。北伐主线还可以，就是逻辑硬伤」（10.1h）——家庭线/继承线的套路化被玩家用排比句一次性打包，与主线获得认可形成内外两极</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（72h 6 条新好评，两条认证级长评）</h4><ul class="pb-list"><li>「选择算数」认证（互动影游存在意义级） <span class="cnt">×2</span><span class="q">「序章里一个看似不起眼的选择，就能影响到最终的结局…你的每一次选择都算数：做对了有回报，选错了就要承担代价。这种实打实的成就感，是互动影游独有的」（13.5h）／「最大的乐趣，在于身处的位置，就如主角一般，只能拿到眼前的信息，做出看似合理的选择」（6.4h）——选择-后果闭环+信息不对称被同时点名为品类核心价值</span></li><li>演技全员认证（龙套级） <span class="cnt">×1</span><span class="q">「这里面大多数角色…哪怕是只有几句台词的龙套，都不出戏，都能看出是在很认真的去演」（27.4h）——「认真」是龙套层的验收词</span></li><li>人物弧光 praise <span class="cnt">×2</span><span class="q">「刘大刀…逃兵的愧疚/义军领袖的担当/忠臣的热忱/爷爷的柔软…这个小人物，也有属于自己的高光时刻」（13.5h）／「朱元之…郭子仪的影子+安禄山的野心」（13.5h）——单一角色多面性被逐一拆解认证，历史人物原型复用获赞</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp2">P2</span><div class="act-text"><h4>「选择算数」的验收标准（跨产品校准用）</h4><p>江山 13.5h 玩家给出互动影游的品类级定义：「做对了有回报，选错了就要承担代价」——对照新世界「即死结局灌水」与媚娘「路线定死」，同一体验的三档呈现。对自家：每个关键选择节点用此双问句自检（选对得到什么回报？选错付出什么代价？），双空白的选择即应删除。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--g)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4292950/dfd52caf6453e43b4d613a662064aca4924a7858/header.jpg?t=1787201131" alt="绍宋：还我河山" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">绍宋：还我河山 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 +10（正 7/负 3）80.9% 平台期：AI 良性使用首次获对标级认证</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 80.9% / 商店 80.1%（+0.8 ✓）</span></div>
+      <div class="pmeta"><span>互动之星 · 猫眼娱乐 · 2026-08-20 · 历史正剧 FMV</span><span>30天差评 20</span><span>评测池 2786（中文，72h +10）</span></div>
+      <div class="pmeter"><div class="pos" style="width:81%"></div><div class="neg" style="width:19%"></div></div>
+      <div class="pmeter-labels"><span>好评 80.9%（API 中文口径）</span><span>差评 19.1%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 负面观测（72h 3 条新差评，后期压缩为主）</h4><ul class="pb-list"><li>后期赶工 / 剧情压缩 <span class="cnt">×2</span><span class="q">「可惜后其明显有赶工痕迹也许是预算不足…剧情开始压缩，很多精彩内容也用文字一笔带过」（13.5h 好评内嵌）／「整体剧情太宏大而讲述太碎片…一些具体情节也较为平淡，分支少」（12.0h 好评内嵌）——「文字一笔带过」= 影游降级为图文小说的体验劣化</span></li><li>AI/漫画填充批评（两极并存） <span class="cnt">×1</span><span class="q">「拉完了，很无聊，AI粗制滥造」（3.6h）vs 同窗口 12.0h「ai已经使用的很好了…甚至有时候我都不知道是不是用了ai」——同一产品的 AI 评价两极化：与幸存者「完成度决定论」互证，AI 用得好坏的评价分歧大于用不用 AI 本身</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（72h 7 条新好评）</h4><ul class="pb-list"><li>对标级好评（年度排位语境） <span class="cnt">×2</span><span class="q">「今年目前的最佳影游了…比江山北望差…在今年这样一个影游都差的环境下，比下是非常有余的」（12.0h）——玩家自发建立年度排位坐标系（绍宋 vs 江山 vs 盛世天下），比价心智从短剧升级为品类内对标</span></li><li>AI 良性使用认证（规格级） <span class="cnt">×1</span><span class="q">「这个影游的ai已经是使用的很好的了…我觉得这种是很良性的，节省很多成本和时间，但在重点位置也都是真人真物」（12.0h）——「AI 管过渡 + 真人管重点」的混合公式获得正向表述，与幸存者公式互补</span></li><li>IP 影视化价值 / 制作 praise <span class="cnt">×3</span><span class="q">「弥补了小说不能影视化的遗憾」（14.4h）／「没有金手指和现代技术的钻漏洞。没有对主战、主和派脸谱化」（12.6h 繁体字玩家）／「收復河山，是我喜歡的主題」（12.6h）</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp2">P2</span><div class="act-text"><h4>AI 两极评价的分诊机制（对照样本）</h4><p>同窗口同产品 3.6h「AI粗制滥造」vs 12.0h「AI 使用很好」——游玩时长与 AI 容忍度正相关（长时长玩家看到更多重点真人场面）。对自家：AI 素材投放遵循「重点场景零 AI + 过渡场景可跳过」双规则，并把 AI 披露放在过渡层而非重点层，可同时服务两极人群。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4148240/ad47878cf250027da631c4678102b8167fd166c1/capsule_616x353_schinese.jpg" alt="女王的游戏：盛世天下 女帝篇" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">女王的游戏：盛世天下 女帝篇 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">🟠 +8（正 7/负 1）82.5% 持平：妆造叙事成新 praise 锚点，选项语义模糊新证</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 82.5% / 商店 82.3%（+0.2 ✓）</span></div>
+      <div class="pmeta"><span>New One Studio · 2026-06-08 · 宫廷权谋 FMV</span><span>30天差评 20</span><span>评测池 7845（中文，72h +8）</span></div>
+      <div class="pmeter"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+      <div class="pmeter-labels"><span>好评 82.5%（API 中文口径）</span><span>差评 17.5%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 负面观测（72h 1 条新差评 + 好评内嵌批评）</h4><ul class="pb-list"><li>续作对比退步批评 <span class="cnt">×1</span><span class="q">「不如第一部 亏我还期待这么久！」（8.2h 差评）——系列化产品的跨作比价惯性：上线 110 天后仍被拿来与第一部对照</span></li><li>选项语义模糊（选择误解风险） <span class="cnt">×1</span><span class="q">「有些选项感觉描述得太简略了 选了之后我发现我的做法和我理解的选项不一样」（10.2h 好评内嵌）——与 The Complex 在池「选项语义模糊」同族：选项文案的理解偏差制造「非本意选择」挫败</span></li><li>历史美化批评 <span class="cnt">×1</span><span class="q">「还行，有点太美化武则天和李义府了」（36.6h 好评内嵌）——长时长玩家对历史人物立场修正的敏感度</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（72h 7 条新好评，妆造叙事双证）</h4><ul class="pb-list"><li>妆造叙事（角色成长可视化） <span class="cnt">×2</span><span class="q">「小伍的妆造变化我特别喜欢，从才人到女帝，妆容从清纯到凌厉，能看出身份和心境一点点变了」（6.7h）／「小伍从感业寺的尼姑服到再次入宫的宫女服，再到后面的凤袍…都很符合当时的处境同时又都很美」（5.8h）——服化道从「精致」升级为「叙事载体」：妆造随身份演进而变化被玩家解读为角色弧光</span></li><li>体量良心（注水恐惧消解） <span class="cnt">×1</span><span class="q">「四十多集本来还担心会注水，结果越玩越上头，每集都有新剧情，业界良心啊」（6.3h）——「集数多≠注水」的反预期好评</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>选项文案的语义测试（防「非本意选择」）</h4><p>「选了之后我发现我的做法和我理解的选项不一样」——选项文案歧义直接制造选择挫败（玩家承担了非本意选择的后果）。对自家：关键分支选项做 A/B 语义测试（5 人盲读选项文案，预测结果与实际一致率 ≥80% 才上线）；歧义高发场景（道德灰区选择）加结果预览或事后确认。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3478050/0e3d390564332c03dd980d0b295cb533d0ecb7a7/capsule_616x353_schinese.jpg" alt="女王的游戏：盛世天下 媚娘篇" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">女王的游戏：盛世天下 媚娘篇 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 +11（正 11/负 0）全库增量第一：短好评长尾供给健康，但断联批评再现</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 82.9% / 商店 86.7%（-3.8 口径差：中文 vs 全语言）</span></div>
+      <div class="pmeta"><span>New One Studio · 2025-09-08 · 宫廷生存 FMV 上部</span><span>30天差评 16</span><span>评测池 9475（中文，72h +11）</span></div>
+      <div class="pmeter"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+      <div class="pmeter-labels"><span>好评 82.9%（API 中文口径）</span><span>差评 17.1%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 负面观测（72h 零新差评，但好评内嵌断联批评）</h4><ul class="pb-list"><li>单机强制联网 / 断线（族内第 N 日） <span class="cnt">×1</span><span class="q">「神了，48分钟断联十几次。单机游戏这么玩是吧。剧情很好…老是断联太扫兴了」（2.9h 好评内嵌）——单机强制联网族再+1 证：断线频率从「偶发」升级为「48 分钟十几次」，剧情好评被联网体验对冲；该批评自 09-16 首次成族至今未获修复回应</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（72h 11 条全好评，长尾供给）</h4><ul class="pb-list"><li>妆造 + 武则天知识杠杆 <span class="cnt">×2</span><span class="q">「演员的妆造和表演都很棒，如果是本来就看过武则天相关影视剧或者史料的基本上不太会死」（7.2h）——历史知识作为玩法杠杆（降低死亡率的先验知识），是历史题材的独特设计资产</span></li><li>短好评层（爽/上头/代入） <span class="cnt">×9</span><span class="q">「贱人都给我死，我就是后宫的唯一」（6.7h 代入式）/「非常好玩，哈哈哈哈」（10.6h）——上线 55 周后周末仍 11 连正，短好评长尾供给健康</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp0">P0</span><div class="act-text"><h4>单机强制联网族的修复优先级校准</h4><p>媚娘「48 分钟断联十几次」自 09-16 成族至今未修复且频率升级——单机买断产品的联网依赖是差评长期资产（每天都在累积新的不满）。对自家：立项即定「可离线」原则；若必须联网（防盗版/云存档），断线自动本地缓存+重连无感恢复是底线工程。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4412960/3432e6210f9eed1a09d9e58024cf5c88079b3faf/header.jpg?t=1787018357" alt="光与影之恋" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">光与影之恋 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">🟠 +1neg 99.1%：109 条零差评纪录被众筹老粉主动终结</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 99.1% / 商店 100.0%（-0.9 基线为纪录期）</span></div>
+      <div class="pmeta"><span>琉璃花糖 · 2026-08-17 · 百合 AVG</span><span>30天差评 1</span><span>评测池 109（中文，72h +2）</span></div>
+      <div class="pmeter"><div class="pos" style="width:99%"></div><div class="neg" style="width:1%"></div></div>
+      <div class="pmeter-labels"><span>好评 99.1%（API 中文口径）</span><span>差评 0.9%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 负面观测（首条差评，深度批评）</h4><ul class="pb-list"><li>零差评纪录终结 + 堆料批评 <span class="cnt">×1</span><span class="q">「作为国gal/国百的死忠走狗…本作也是众筹入了cdk…但是都已经到第六部作品了，剧本质量还是这么拉胯，我也没办法再豁免包容了。评论区109篇测评均为好评，没有一个差评，那这个恶人就让我来当吧」（3.1h 首差评）——「堆料很多，但是综合质量并不高」：全配音/OP/ED/角色曲/CG 数量足够（大制作档）vs 国配端着架子不贴角色、立绘 CG 精度不高——忠诚度最高的众筹玩家反而是质量门槛最高的人</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 正面观测（同窗口 1 条新好评对照）</h4><ul class="pb-list"><li>相对进步 praise <span class="cnt">×1</span><span class="q">「这个剧本如果是其他百合组做的，我只能说差点意思。但他是琉璃花糖的作品，那就还不错，巨大进步了说是」（10.3h）——与 3.1h 差评形成「绝对质量 vs 相对进步」的双标尺对照：老粉群体内部对同一作品的评价坐标系分裂</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>零差评≠零批评：满分纪录的脆弱性与价值</h4><p>109 条全好评纪录被一条深度差评终结且立刻获得传播位（「这个恶人就让我来当吧」）——好评堆砌的满分反而积蓄了「谁先说不谁获得声望」的批评势能。对自家：与其追求零差评，不如主动邀请深度批评（核心粉丝定向测试+匿名反馈通道）；满分纪录期的产品更需要内部红队。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--b)">
+  <div class="pcard-header">
+    <div class="pinfo">
+      <div class="ptitle">其余 30 款 · 72h 窗口观测简报 <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">零增长 15 款 · 微量增长 15 款 · 零清洗延续（窗口内无批量移除）</span></div>
+      <div class="pmeta"><span>恶校 +2pos（10.8h「遗憾有余的良作」给出复仇题材设计论）· 东北 +1pos/+1neg（完美结局全对重刷批评）· 警察 +1pos 内嵌 Deck 死机批评 · 灭寇 +2pos（23.6h「影游史上剧情树最复杂」）· 代号三国 +2pos · 雪落 +1pos · 花满楼 +1pos（22.2h「8月最佳影游」）· 盛夏 +1pos/+1neg（粉丝向批评「只有三章玩得睡着」）· 金宵 +1neg（PV 口径批评）· 请去Bar +1neg（骰子劝退）· 列车 +1neg（86.1→84.9）· 不心动 +1pos/+1neg · The Complex +1pos/+1neg · Libera +1pos（n=4）· 1000王子/Five Dates/Bloodholic/Cage of Roses/The Run/DeepWeb/无言之林/你好你配吗/天平/冰点/心之岛/退婚后/末日降临/阴三国 0 增长</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池要点 + 新增批评</h4><ul class="pb-list">
+<li>东北往事：完美结局重刷债——「头一次见完美结局需要全部重新来一个选项都不能错的影游」（9.1h 差评）重播工程债族+1 证；选择层交互 bug（选「不给钱」被改走「给钱」线）在池第 11 日仍未修复回应 <span class="cnt">在池+新</span></li>
+<li>金宵公寓：宣传口径批评——「堪比一根成年香蕉的推理能力还要用东野圭吾风格做pv诈骗」（11.3h 差评）与新世界「上百种结局」虚标同族 <span class="cnt">×1</span></li>
+<li>请去Bar：骰子玩法劝退——「成功率太低了 托管了还是失败 人是干不过电脑的…这部影游被骰子毁了」（0.4h 差评）随机性玩法与叙事向产品的适配风险 <span class="cnt">×1</span></li>
+<li>警察：Steam Deck 死机 + 剧本批评——「直接照抄无间道…第一章我就猜到谁是刘德华和结局了…就是STEAM DECK会经常死机」（8.6h 好评内嵌）平台兼容族+1 证 <span class="cnt">×1</span></li>
+<li>列车怪谈：86.1→84.9 续跌——「内容都几乎偏离原轨了」（1.0h）解谜设计偏离主线批评 <span class="cnt">×1</span></li>
+<li>不心动：演员状态批评——「王星辰也瘦脱相脸没法看」（13.4h 差评）真人产品的演员状态进入口碑变量 <span class="cnt">×1</span></li>
+<li>1000王子：中文口径 n=2 全差评（⚠️ -22.2 不可信） <span class="cnt">⚠️</span></li>
+</ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 微信号</h4><ul class="pb-list">
+<li>恶校 10.8h 复仇题材设计论：「让玩家带着恨出发，带着爱上路，最后带着愧疚回家」——玩家自发的题材方法论，可直接作为复仇系产品的大纲验收句 <span class="cnt">×1</span></li>
+<li>灭寇 23.6h：「这恐怕是影游史上剧情树最复杂的一部，或许只有ED才能自我超越！多分支+好感度+地图探索+金钱系统」——爆率差评阴影下的最强好评，剧情树复杂度获认证 <span class="cnt">×1</span></li>
+<li>代号三国 10.3h：「期待续作，一定不要换演员」——真人产品演员=IP 资产的直接表述 <span class="cnt">×1</span></li>
+<li>雪落 10.7h：街边小吃内容 praise——「中国小吃博大精深」日常细节成为内容资产 <span class="cnt">×1</span></li>
+<li>Rescue the Hostages：月扫降频中，下期 10-23 <span class="cnt">月扫</span></li>
+</ul></div></div></div>
+</div>
+</div>
+<div class="section">
+<div class="section-title">交叉模式 <span class="st-num">跨产品信号 · 2+ 款共现才成立 · 本期 8 条（🆕×2：强制双人门槛族 / 宣传口径错位族）</span></div>
+<div class="pattern-grid">
+<div class="pat-card">
+  <div class="pat-num">01</div>
+  <h4>🆕 强制双人门槛族（买断×2 + 匹配 + 跨端不互通）</h4>
+  <p>新世界「必须两份游戏本体…我更相信官方想要多卖出几份游戏」（2.2h）+「独狼玩家慎入，极难匹配到路人」（0.6h）+「PC和移动端不互通，不能拿电脑加手机自己双开单刷」（12.5h）——全球首款双人联机影游的门槛设计成为差评主驱动之一：强制双人品类的准入成本（金钱×2 + 社交资本 + 平台一致）每加一层，口碑基本盘掉一档。双人成行/胡闹厨房的「1 份本体+1 份通行证」是品类验证过的解。</p>
+  <div class="pat-tags"><span class="tag from">1 款首发（3 重门槛）</span><span class="tag fix">好友通行证 + 本地连接兜底</span></div>
+</div>
+<div class="pat-card">
+  <div class="pat-num">02</div>
+  <h4>🆕 宣传口径错位族（承诺与体验的落差=差评放大器）</h4>
+  <p>新世界「宣传说上百种结局，实际基本上都是即死结局，真正的结局只有四种」（6.9h）+ 金宵「堪比一根成年香蕉的推理能力还要用东野圭吾风格做pv诈骗」（11.3h）+ 无言之林在池「marketing it as an interactive film would have been more accurate」——三款三形态同一结构：商店页承诺（结局数/推理深度/品类标签）与实际体验错位时，差评不是批评产品本身而是指控「被骗」。对自家：结局数口径分层计数（真结局/差分/即死分开说），宣传词过不了「玩家复述测试」就不要写。</p>
+  <div class="pat-tags"><span class="tag from">3 款共现</span><span class="tag fix">承诺兑付审计</span></div>
+</div>
+<div class="pat-card">
+  <div class="pat-num">03</div>
+  <h4>AI 完成度正名（第二波固化：混合公式双向证据）</h4>
+  <p>幸存者「原来我不是不喜欢AI短剧，只是不喜欢粗制滥造的」（4.5h）+「真人配音很好的弥补了AI画面没有真情实感」（10.6h）+「弄点真人拍不了的题材还是优势区」（12.3h）vs 绍宋「AI 粗制滥造」（3.6h）与「AI 使用很好…重点位置都是真人真物」（12.0h）同产品两极 + 新世界「AI 生成的结局画面一眼假」（6.9h）——正名公式三要素固化：① 题材适配（真人拍不了的）② 真人配音护航 ③ 重点场景零 AI。三要素缺一则滑向「粗制滥造」叙事。</p>
+  <div class="pat-tags"><span class="tag from">3 款双向</span><span class="tag fix">AI 三要素自检</span></div>
+</div>
+<div class="pat-card">
+  <div class="pat-num">04</div>
+  <h4>重播/跳过层工程债族（第五件套补全）</h4>
+  <p>东北「完美结局需要全部重新来一个选项都不能错」（9.1h 本期新证）+ 新世界「选错即死的单线结局，中间缺少过渡，反复重刷的动力会打折扣」（5.5h 首诊）+ 幸存者「重新选择的时候不能快速跳到选择选项而是要等几秒钟的演出」（6.9h）+ 新世界「故事线划动有待优化，每次回溯也经常快进跳过不了只能看完」（11.4h）——重播工程债的新维度：重刷路径的成本（时间/操作/精确度）直接决定多结局产品的二周目完成率。正例：绍宋战棋默认跳过（已做）、幸存者纯享模式。</p>
+  <div class="pat-tags"><span class="tag from">4 款本期</span><span class="tag fix">重刷成本量化</span></div>
+</div>
+<div class="pat-card">
+  <div class="pat-num">05</div>
+  <h4>单机强制联网族（断线频率升级）</h4>
+  <p>媚娘「48分钟断联十几次。单机游戏这么玩是吧」（2.9h 本期新证，族内批评自 09-16 延续至今）+ 新世界「千兆网二连坐动不动掉线，做个本地连接很难吗」（1.6h）+ 在池女帝/江山/绍宋（已修复对照）——两条新证据显示：联网依赖问题在老产品（断线累积）与新产品（服务器投入不足）中各自恶化；「单机游戏要联网」的批评没有时效衰减，每天产生新的不满存量。</p>
+  <div class="pat-tags"><span class="tag from">5 款在池</span><span class="tag fix">可离线原则</span></div>
+</div>
+<div class="pat-card">
+  <div class="pat-num">06</div>
+  <h4>选项语义模糊族（非本意选择挫败）</h4>
+  <p>女帝「有些选项感觉描述得太简略了，选了之后我发现我的做法和我理解的选项不一样」（10.2h）+ The Complex 在池「选项语义模糊」+ 新世界「陷阱选择没有预知导致体验感不太好」（6.9h 好评内嵌）——选项文案歧义/描述简略/陷阱无预兆三种形态同一后果：玩家承担了非本意选择的代价。与「选择算数」（江山 praise）互为反面：选择有后果的前提是选择可理解。</p>
+  <div class="pat-tags"><span class="tag from">3 款共现</span><span class="tag fix">选项 A/B 语义测试</span></div>
+</div>
+<div class="pat-card">
+  <div class="pat-num">07</div>
+  <h4>Steam 平台功能兼容族（Deck/overlay/录像/云存档延续）</h4>
+  <p>警察「STEAM DECK 会经常死机」（8.6h 本期新证）+ 幸存者在池「Deck 玩了到电脑上没有存档」+ 花满楼/代号三国在池「录像声音和飞机起飞一样」+ 江山在池「F12 截图失效」——Deck 场景首次进入族内（死机型 vs 云存档型两种形态）；FMV 产品的视频解码链与 Steam 平台集成的隐性雷区持续扩容，Steamworks 回归清单（overlay/录像/截图/云存档/Deck）价值再确认。</p>
+  <div class="pat-tags"><span class="tag from">5 款在池</span><span class="tag fix">Steamworks 回归清单</span></div>
+</div>
+<div class="pat-card">
+  <div class="pat-num">08</div>
+  <h4>零清洗延续 + 后段参与感衰减族（新观察）</h4>
+  <p>零清洗状态自 09-11 起延续 17 天（超历史波间期 7-10 天），窗口内无批量移除——Steam 侧审计行为持续静默，维持每日对账。同时注意到后段「摄像头化」批评跨产品显形：幸存者「第九章被迫用很长时间看剧情，彻底成为了摄像头」（3.9h）+ 新世界「中段开始剧情占比过高」（多款好评内嵌同构）+ 女帝在池「红果短剧」——选项密度后段衰减可能是品类级通病（叙事收束期制作重心从交互转向演出），值得单独立项跟踪。</p>
+  <div class="pat-tags"><span class="tag from">3 款显形</span><span class="tag fix">章节选项密度看板</span></div>
+</div>
+</div>
+</div>
+<div class="self-eval">
+  <h4>自评 · 第 30 期（72h 跨周末窗口 + 新世界首诊）</h4>
+  <div class="se-grid">
+    <div class="se-item"><div class="score g">36/37</div><div class="lbl">评测覆盖</div><div class="note">72h 老库净增 +85（正 66/负 19）+ 新世界首发周末 +214（全语言）；原文捕获 195（复探协议 v2：num_per_page=100/d7 查询形态补 34 → 老库捕获 86 ≥ 净增 85，对账归零）；Rescue 月扫占位</div></div>
+    <div class="se-item"><div class="score g">100%</div><div class="lbl">数据完整性（偏差标注率）</div><div class="note">36/36 全标注；⚠️×2：新世界 -18.6（池快照陈旧，已用全语言实时口径 71.5% 交叉验证——真实滑坡非 API 误差）、1000王子 -22.2（n=2 不可信）；临界 5 款：Bloodholic +9.8 / 心之岛 +8.3 / Libera +8.3（n=4）/ 退婚后 -7.1 / Five Dates -5.3；基线 intel0925 回退（今日 intel 未落盘，已标注）</div></div>
+    <div class="se-item"><div class="score a">7</div><div class="lbl">可行动建议（P0+P1）</div><div class="note">P0×3（好友通行证 / 好感度复核 / 断联修复）+ P1×4（剧情逻辑审校 / 宣传口径 / 选项语义测试 / 零差评红队）≥ 3 合格；另 P2×4</div></div>
+    <div class="se-item"><div class="score g">8</div><div class="lbl">交叉模式</div><div class="note">🆕×2（强制双人门槛族 / 宣传口径错位族）≥ 2 合格；AI 完成度正名第二波 + 后段参与感衰减新观察；每条标签均附原文引用，无编造</div></div>
+  </div>
+  <div class="next-steps">
+    <strong>明日盯守（下期 09-29，24h 工作日窗口）</strong>
+    ① 新世界 71.5% 止跌与否：剧情逻辑批评是否继续主导差评池、官方回复差评的转化率（凌晨 2:34 回复已获 1 条改评）、好友通行证舆情是否升级 · ② 幸存者好感度 bug 复发定性（边缘场景 or 回归）：差评作者是否补充细节、同部位新差评增样 · ③ 媚娘断联批评增样与修复回应 · ④ 光与影首差评后口碑走向（满分纪录终结的连锁反应）· ⑤ 恶校复仇方法论/灭寇剧情树认证的增样 · ⑥ 东北选择层 bug 第 12 日 + 完美结局重刷批评扩散 · ⑦ intel 09-28 落盘后基线校正（本日 08:00 未落盘）· ⑧ 零清洗第 18 天对账
+  </div>
+</div>
+
+<footer>
+  <div class="rn">玩家心声机器人 · 第 30 期（72h 跨周末窗口 + 新世界首诊）</div>
+  <div>2026-09-28 · 数据源：Steam appreviews API（neg30 负面抽样 + 主语言全量 + d5all 翻页捕获 + num_per_page=100/d7 复探）· 窗口 09-25 08:23 → 09-28 08:00 · 每条标签均附原文引用，无编造</div>
+</footer>
+
+</div>
+</body>
+</html>

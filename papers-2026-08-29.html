@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动叙事前沿论文 · 2026-08-29</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+header .meta a{color:var(--a);text-decoration:none}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .v{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted)}
+.kpi-card .s{font-size:10px;color:var(--muted);margin-top:2px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.paper-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.paper-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.paper-card h3{font-size:14px;font-weight:600;color:var(--a);flex:1;min-width:0}
+.paper-card .head-meta{display:flex;gap:6px;flex-shrink:0}
+.tag{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.paper-card .authors{font-size:11px;color:var(--muted);margin-bottom:8px}
+.paper-card .authors .pdf{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--r);color:#fff;text-decoration:none;margin-left:8px;font-weight:500}
+.paper-card .authors .pdf:hover{background:#a32d34}
+.paper-card .abstract{font-size:12px;color:var(--s);line-height:1.55;margin-bottom:8px;padding:8px 10px;background:var(--al);border-radius:6px}
+.paper-card .line{font-size:12px;line-height:1.6;margin-bottom:6px;padding-left:10px;border-left:3px solid var(--border)}
+.paper-card .line.r{border-left-color:var(--r);color:var(--s)}
+.paper-card .line.b{border-left-color:var(--b);color:var(--s)}
+.paper-card .line.g{border-left-color:var(--g);background:var(--gl);padding:8px 10px;border-radius:0 6px 6px 0;color:var(--text)}
+.paper-card .line strong{color:var(--text)}
+.paper-card .footer-line{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.relevance-bar{display:flex;gap:1px;align-items:center}
+.relevance-bar .seg{width:6px;height:10px;background:var(--border);border-radius:1px}
+.relevance-bar .seg.on{background:var(--a)}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+footer a{color:var(--a);text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>互动叙事前沿论文 · 每日 Top 10</h1>
+  <div class="meta">
+    <span>2026-08-29 周六</span>
+    <span>从 arXiv 精选</span>
+    <a href="https://arxiv.org/list/cs.AI/recent">arXiv 源</a>
+    <a href="index.html">返回归档</a>
+  </div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">10</div><div class="l">今日收录</div></div>
+  <div class="kpi-card"><div class="v">185</div><div class="l">累计论文</div></div>
+  <div class="kpi-card"><div class="v">10/10</div><div class="l">PDF 完整率</div><div class="s">实际可访问</div></div>
+</div>
+
+<div class="section-title">今日精选</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Do LLMs Understand Personality? Rethinking Persona Fidelity Evaluation through Structured Behavioral Inference</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">角色保真度</span>
+    </div>
+  </div>
+  <div class="authors">Mengfan Li, Zesheng Wei, Xuanhua Shi, Yang Deng
+    <a href="https://arxiv.org/pdf/2608.26674.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Ensuring persona fidelity—whether an agent's behavior consistently reflects a target persona's psychological and stylistic traits—is critical for role-play. Existing evaluation uses holistic LLM judges (prone to 'holistic appraisal hallucination') or static psychometric inventories (which miss context-dependent fidelity). PRISM reformulates persona fidelity as a structured inverse-inference task grounded in Systemic Functional Linguistics, decomposing it into Task Framing, Interpersonal Stance, and Linguistic Style.</div>
+  <div class="line r"><strong>核心问题：</strong>角色扮演评测要么靠 LLM 打一个「整体分」（容易拍脑袋产生幻觉式好评），要么靠静态心理量表（抓不住动态对话里随上下文变化的保真度）。到底「像不像这个人」没有一个可信、可解释的测法。</div>
+  <div class="line b"><strong>解决方案：</strong>PRISM 用系统功能语言学（SFL）把「角色保真度」拆成三个功能维度：任务框架（Task Framing）、人际姿态（Interpersonal Stance）、语言风格（Linguistic Style），把评测改造成「结构化反向推理」——在 persona 条件化标签空间上估计逐维证据再聚合，得到可解释、可审计的结果。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游角色「像不像」别只打一个总分。把角色拆成「怎么接任务、什么态度对人、什么说话风格」三个维度分别量化，人设崩了才知道崩在哪一维，也能给调 prompt 一个明确抓手。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.26674 · 2026-08-27</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>GameWAM: A World Action Model for Video Games</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">世界动作模型</span>
+    </div>
+  </div>
+  <div class="authors">Yuncheng Guo, Zhanqiu Zhang, Yiwen Guo, Weijia Li
+    <a href="https://arxiv.org/pdf/2608.26200.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Existing game agents map visual/task context directly to actions but lack explicit world dynamics; interactive game world models predict visual futures but don't output task policies. GameWAM is the first World-Action Model for native closed-loop gameplay and GUI control, jointly generating future visual observations and executable keyboard-mouse trajectories via parallel visual/action processes with block-causal conditioning and flow matching.</div>
+  <div class="line r"><strong>核心问题：</strong>游戏 agent 直接把「画面+任务」映射成动作，缺对世界动态的显式建模；反过来，游戏世界模型只预测「未来画面」却给不出可执行操作。两者一直没打通。</div>
+  <div class="line b"><strong>解决方案：</strong>GameWAM 是首个面向原生闭环游戏/GUI 的 World-Action Model：并行跑「视觉生成 + 动作生成」两条流程（block-causal conditioning + flow matching），同时输出未来画面和可执行的键鼠轨迹；block-cycle 控制预测超出承诺范围、只执行短前缀再重规划，长程保持时序连贯。</div>
+  <div class="line g"><strong>对你有什么用：</strong>互动影游的「世界模型」要能既预测剧情分支画面、又给出下一步可执行操作，一步到位。这套「世界+动作」统一建模，是「实时可玩的分支叙事」从概念走向可落地的关键底座。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.26200 · 2026-08-25</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>One Model, Many Minds: Unlocking Multi-Agent Synergy in a Single Agent via Mixture of Roles</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">单模型多角色</span>
+    </div>
+  </div>
+  <div class="authors">Zhichen Zeng, Huiyuan Chen, Jingru Cheng, Juan Zha, Ming Liu, Ying Chen, Xiyuan Yang, Chaosheng Dong, Haiyang Zhang, Hanghang Tong
+    <a href="https://arxiv.org/pdf/2608.27338.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Single-agent paradigms impose one fixed specialization; multi-agent systems (MAS) fuse distinct roles but need multi-turn interactions that inflate context and cost. MoRe (Mixture of Roles) learns a codebook of steering vectors, each encoding a latent role, and a query-aware router dynamically fuses them into one steering vector for single-turn inference—matching MAS while cutting token cost 20x.</div>
+  <div class="line r"><strong>核心问题：</strong>单 agent 只能锁定一种固定人设，遇到多样问题就抓瞎；多 agent 系统靠「分角色多轮交互」来融合视角，但上下文和推理成本暴涨。</div>
+  <div class="line b"><strong>解决方案：</strong>MoRe 学一个「steering vector 码本」，每个向量编码一个潜在角色；query-aware router 按问题动态把多个角色向量融合成一个 steering vector，冻结主干模型、单轮推理就实现多视角专业化。平均比单 agent 基线高 2.2%，效果对齐多 agent 系统、token 成本降 20 倍。</div>
+  <div class="line g"><strong>对你有什么用：</strong>一个影游底座模型可以同时「扮演多个角色/多视角」而不必开一堆 agent 多轮来回。对「一个模型要撑起整场戏里所有 NPC」的场景，省 20 倍 token 成本是实打实的。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.27338 · 2026-08-27</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>Why did My Robot Just Change Personality? Prompting Guidelines for a Grounded Robot Persona in LLM-Based HRI</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">落地</span>
+      <span class="tag tag-p">人设一致性</span>
+    </div>
+  </div>
+  <div class="authors">Ashita Ashok, Franziska Babel, Patrick Holthaus, Rucha Khot, Karla Bransky, Fethiye Irmak Dogan, Karsten Berns, Silvia Rossi, Minha Lee, Guy Laban
+    <a href="https://arxiv.org/pdf/2608.26182.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Prompt design in LLM-based human-robot interaction remains underspecified, causing hallucinated capabilities, unclear behavioral boundaries, and misleading personas. This paper develops a structured prompt template with eight functional components for specifying, bounding, and adapting robot behavior, grounded in prior work and IEEE RO-MAN 2025 Robo-Identity workshop data (N=27 experts).</div>
+  <div class="line r"><strong>核心问题：</strong>LLM 驱动的机器人/虚拟角色 prompt 写得随意，导致「能力幻觉」「行为边界不清」「人设误导」——用户最直接的体感就是「它怎么突然变了个人」。</div>
+  <div class="line b"><strong>解决方案：</strong>提出 8 个功能组件的结构化 prompt 模板（指定、约束、适应角色行为），基于前人工作 + IEEE RO-MAN 2025 Robo-Identity workshop 27 位专家调研与讨论。结论：prompt 设计是「社会技术问题」而非实现细节，需显式的能力边界、透明的行为假设、上下文敏感的安全护栏。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游 NPC 的 system prompt 要当成正经工程来写——8 个组件把「能力边界 + 行为假设 + 安全护栏」框死，才能防人设漂移、防角色越界。这套模板可直接套到你的角色设定上。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.26182 · 2026-08-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>When Text Misleads: Inconsistent-Aware Reasoning for Audio-Grounded Dialogue</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">语气 vs 文字</span>
+    </div>
+  </div>
+  <div class="authors">Yen-Ju Lu, Yuzhe Wang, Yaohan Guan, Xiluo He, Jiarui Hai, Mingrui Liang, Kaavya Chaparala, Thomas Thebaud, Laureano Moro-Velazquez, Najim Dehak, Jesus Villalba
+    <a href="https://arxiv.org/pdf/2608.27176.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Spoken dialogue understanding must jointly reason over lexical content and paralinguistic acoustic cues (emotion, intent). ContraTalk is a benchmark of 501 questions across five discourse dimensions targeting 'cross-modal disagreement'—where transcripts suggest plausible but wrong surface readings while prosody supports different answers. Strong text-only LLMs drop from >90% (consistent) to 33-48% (conflict); an Audio Twin framework aggregates acoustic evidence to improve conflict-case accuracy.</div>
+  <div class="line r"><strong>核心问题：</strong>语音对话理解里，文字转写可能误导：转写给一个「看着合理」的解释，但语气/韵律/说话方式其实指向另一个答案。现有评测允许只靠转写走捷径，模型到底有没有「真听懂语气」无从判断。</div>
+  <div class="line b"><strong>解决方案：</strong>把这种失败形式化为「跨模态冲突」，做成 ContraTalk 基准（501 题、5 个语篇维度）。强文本 LLM 在一致场景 >90% 正确，冲突场景掉到 33-48%。再用 Audio Twin 框架把局部声学线索转成可读表征喂给推理模型，提升冲突题准确率。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游语音角色要「听语气」而非只「读字幕」。当文字和语气打架时（嘴上说好、语气是拒绝），必须按声学证据走——这正是玩家「口是心非」时角色能不能接住的关键。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.27176 · 2026-08-27</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>EmoSay: Artificial Intelligence-Driven Text-to-Emotional-Speech System for Affective Communication in Extended Reality</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">落地</span>
+      <span class="tag tag-p">情绪配音</span>
+    </div>
+  </div>
+  <div class="authors">Sikiru Ademola Adewale, Sunday D. Ubur, Nikitha Donekal Chandrashekar, Onyeka Emebo, Denis Gračanin
+    <a href="https://arxiv.org/pdf/2608.26566.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Neural TTS is intelligible but often lacks the emotional nuance needed for authentic affective communication, which is critical in XR immersion. EmoSay modulates a neural synthesis pipeline with discrete emotional prompts and delivers output through a Unity interface with spatialized audio. A user study shows SUS 74.76, and regression identifies vocal naturalness as the strongest predictor of satisfaction.</div>
+  <div class="line r"><strong>核心问题：</strong>神经 TTS 清晰但缺「情绪」，在 XR 等沉浸式场景里没有情绪化音频，用户在场感和空间沉浸感都会被削弱——「能听懂」不等于「有感染力」。</div>
+  <div class="line b"><strong>解决方案：</strong>EmoSay 用离散情绪提示调制神经合成管线，通过 Unity 高保真空间音频输出。用户研究发现：SUS 可用性 74.76、情绪表现力与参与度强正相关，且「声学自然度」是用户满意度的最强预测因子。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游/XR 语音角色的「情绪化配音」直接拉沉浸感和好感，其中「声音自不自然」是第一驱动因素。做角色语音时，先保自然度、再叠情绪，别本末倒置。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.26566 · 2026-08-27</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>SpeechGym: An Audio-Native Gym for Training Voice Agents via Reinforcement Learning</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-p">语音训练</span>
+    </div>
+  </div>
+  <div class="authors">Jiajun Fan, Jingyuan Li, Prashanth Gurunath Shivakumar, Jia-Hong Huang, Qi Luo, M. Maruf, Ivan Bulyko, Ge Liu, Roger Ren
+    <a href="https://arxiv.org/pdf/2608.26432.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Voice agents must call tools and hold multi-turn dialogue through speech, yet the dominant paradigm trains them in text. SpeechGym is an audio-native environment where two omni-modal models converse in native audio with no ASR/TTS boundary, so the loop stays end-to-end trainable. Speech failures are perceptual (misheard arguments) rather than reasoning; a per-turn process reward restores gradient variance and doubles task success.</div>
+  <div class="line r"><strong>核心问题：</strong>语音 agent 大多在文本里训练，一旦接上真实语音就露馅——语音引入的失败是「感知错误」（把参数听错），而不是推理错误；听错一个词就级联成调用失败、重试、浪费步数。</div>
+  <div class="line b"><strong>解决方案：</strong>SpeechGym 是音频原生训练环境：两个全模态模型直接用音频对话，无 ASR/TTS 边界、无 API 墙，端到端可训练。关键在奖励设计——结果级奖励梯度稀疏，改成「每一步成功工具调用给过程奖励」就能恢复几乎所有 rollout 组的方差，训练后任务成功率翻倍。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游语音角色的训练要「音频原生」——别先转文本再转语音，那会把听错、口音、语气这些真实问题全抹掉。过程奖励（每步做对就赏）是语音 agent 训练能收敛的关键。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.26432 · 2026-08-26</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>A Multi-Framework Comparison of Outline Stages in Long-Form Generation with LLMs</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">长故事大纲</span>
+    </div>
+  </div>
+  <div class="authors">Yifan Song
+    <a href="https://arxiv.org/pdf/2608.26177.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Long-form generation shows length collapse and 'lost-in-the-middle' attribute drift in multi-chapter stories. The 'outline-first, write-later' paradigm is widely used but research evaluates the final writing, not the outline. This paper builds a benchmark of 7 frameworks x 3 granularities (single/multi-chapter/whole-book) and an anchor-based judge that assesses outlines directly, finding no framework dominates and outline-side ranking correlates only moderately with writing-side ranking.</div>
+  <div class="line r"><strong>核心问题：</strong>长文生成里「先大纲后正文」已成主流，但研究只评正文、不评大纲，把两个该分开的评估对象混为一谈。多章故事还常触发「中间丢失」导致的属性漂移。</div>
+  <div class="line b"><strong>解决方案：</strong>构造 7 个代表性长文框架 × 3 粒度（单章/多章/整书）共 21 格的统一评测 + anchor-based LLM judge 直接评大纲质量。结论：没有框架通吃，大纲排名与正文排名只中度相关——印证了「大纲与正文应解耦评估」。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游长剧情要「大纲质量」和「正文质量」分开评，选生成框架要看目标粒度（单章拼短剧 vs 整本拼长线）。先验证大纲对不对，再谈文笔好不好，能省大量返工。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.26177 · 2026-08-13</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>AffectOmni: RL-Verifiable People-Centric Grounded Affective Reasoning for Social and Art-Related Scenes</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">情感推理</span>
+    </div>
+  </div>
+  <div class="authors">Yibo Wang, Rui Yang, Jisheng Dang, Bimei Wang, Yitao Wu, Pengfei Cao, Wencan Zhang, Hong Peng, Bin Hu, Tat-Seng Chua
+    <a href="https://arxiv.org/pdf/2608.26193.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">MLLMs achieve strong VQA but affective reasoning is vulnerable to shortcuts—predicting correct answers while ignoring people-centric cues (micro-expressions, body language). AffectOmni is a GRPO framework with People Focus and Temporal Order rewards, within-group comparative scoring, and a Thinking Summarizer that converts rationales into executable evidence instructions grounded to pixel-level regions via SAM3. It gains 4.66% on emotion recognition and +14.29% on temporally sensitive tasks.</div>
+  <div class="line r"><strong>核心问题：</strong>多模态模型情感推理爱「走捷径」——答案猜对了，但根本没看微表情、肢体语言这些人本线索，缺乏可追溯性；LLM judge 打分又爱扎堆，奖励信号区分度差。</div>
+  <div class="line b"><strong>解决方案：</strong>AffectOmni 用 GRPO 训练：People Focus + Temporal Order 奖励强制模型关注「人」的证据和时序结构，组内对比打分让奖励更稳，Thinking Summarizer 把推理转成可执行证据指令、再用 SAM3 定位到像素级证据区，做到训练环路外可审计。情绪识别 +4.66%，时序敏感任务 +14.29%。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游角色「读情绪」要能指认证据——回答「TA 为什么难过」时得具体指出是哪个微表情/动作，而不是猜对说不出理由。可审计的情感推理，是角色可信度和后续可调优的前提。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.26193 · 2026-08-24</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+<div class="paper-card">
+  <div class="head">
+    <h3>Emotional Preferences as Goal-Priority Regulation</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">情绪决策</span>
+    </div>
+  </div>
+  <div class="authors">Shiqi Liu, Yihua Tan, Hu Fu, Guanyu Qi
+    <a href="https://arxiv.org/pdf/2608.27072.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Whether an agent's competing lower-level objectives should be prioritized by 'emotional preferences' autonomously generated from higher-level goals (rather than externally prespecified) is an open question. This paper realizes it via reinforcement learning: an inner multi-objective controller provides a preference-conditioned behavioral repertoire, while an outer preference generator learns a state-to-preference mapping. The emergent preference function shows contextual priority switching, graded trade-offs, and temporal persistence.</div>
+  <div class="line r"><strong>核心问题：</strong>agent 做决策时，多个底层目标谁先谁后，能不能由高层目标自发产生的「情绪偏好」来决定，而不是靠外部硬编码预设？</div>
+  <div class="line b"><strong>解决方案：</strong>双层强化学习：内层多目标控制器提供一个「偏好条件化的行为库」，外层偏好生成器学「当前状态 → 目标偏好」的映射。学到的情绪偏好函数表现出上下文切换优先级、分级权衡、时间持续性，且优于固定偏好和手工偏好策略。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游角色的「情绪」可以当作行为选择的调节器——让情绪自动决定「此刻该优先保命还是救同伴、是讨好还是反抗」，而不是写一堆 if-else。情绪驱动目标优先级，是角色「活起来」的底层机制。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.27072 · 2026-08-27</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">互动叙事论文机器人 v1.0</span> 生成 · 2026-08-29</p>
+  <p style="margin-top:4px">数据源：arXiv API · 关键词：persona fidelity / world action model / character consistency / emotional speech / voice agent</p>
+  <p style="margin-top:8px">
+    <a href="index.html">← 归档首页</a>
+  </p>
+</footer>
+</div>
+</body>
+</html>

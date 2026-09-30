@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动叙事前沿论文 · 2026-08-18</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+header .meta a{color:var(--a);text-decoration:none}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .v{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .l{font-size:11px;color:var(--muted)}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.paper-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}
+.paper-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.paper-card h3{font-size:14px;font-weight:600;color:var(--a);flex:1;min-width:0}
+.paper-card .head-meta{display:flex;gap:6px;flex-shrink:0}
+.tag{font-size:9px;padding:2px 7px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.paper-card .authors{font-size:11px;color:var(--muted);margin-bottom:8px}
+.paper-card .authors .pdf{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--r);color:#fff;text-decoration:none;margin-left:8px;font-weight:500}
+.paper-card .authors .pdf:hover{background:#a32d34}
+.paper-card .abstract{font-size:12px;line-height:1.55;margin-bottom:8px;padding:8px 10px;background:var(--al);border-radius:6px;color:var(--s)}
+.paper-card .line{font-size:12px;line-height:1.6;margin-bottom:6px;padding-left:10px;border-left:3px solid var(--border)}
+.paper-card .line.r{border-left-color:var(--r);color:var(--s)}
+.paper-card .line.b{border-left-color:var(--b);color:var(--s)}
+.paper-card .line.g{border-left-color:var(--g);background:var(--gl);padding:8px 10px;border-radius:0 6px 6px 0;color:var(--text)}
+.paper-card .line strong{color:var(--text)}
+.paper-card .footer-line{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);font-size:10px;color:var(--muted)}
+.relevance-bar{display:flex;gap:1px;align-items:center}
+.relevance-bar .seg{width:6px;height:10px;background:var(--border);border-radius:1px}
+.relevance-bar .seg.on{background:var(--a)}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+footer a{color:var(--a);text-decoration:none;margin:0 6px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>互动叙事前沿论文 · 每日 Top 10</h1>
+  <div class="meta">
+    <span>2026-08-18 周二</span>
+    <span>从 arXiv 精选</span>
+    <a href="https://arxiv.org/list/cs.AI/recent">arXiv 源</a>
+    <a href="index.html">返回归档</a>
+  </div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="v">10</div><div class="l">今日收录</div></div>
+  <div class="kpi-card"><div class="v">10/10</div><div class="l">互动叙事相关</div></div>
+  <div class="kpi-card"><div class="v">3</div><div class="l">可商用方案</div></div>
+</div>
+
+<div class="section-title">今日精选</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>The Story Shapes the Agent: Narrative Priors in LLM Behavior</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">叙事先验</span>
+    </div>
+  </div>
+  <div class="authors">Yixuan Wang, James Lester, Shashank Srivastava
+    <a href="https://arxiv.org/pdf/2607.18566.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">通过三个结构同构的文本调查游戏（疾病调查 / IT 排障 / 谋杀谜案）隔离出「叙事先验」——故事框架激活的系统性行为倾向。1890 局 × 3 模型 × 10 人设显示，叙事框架解释的方差是人设的 5-31 倍；人设需锚定到具体动作才能跨场景迁移。</div>
+  <div class="line r"><strong>核心问题：</strong>用 persona 提示词引导 LLM 行为是主流，但任务的故事框架可能比人设更能左右行为——却没人量化过这两者谁更关键。</div>
+  <div class="line b"><strong>解决方案：</strong>构造三个结构同构的文本调查游戏（疾病调查/IT 排障/谋杀谜案），只换叙事外壳、不换决策结构，跑 1890 局 × 3 模型 × 10 人设。发现「叙事先验」——故事框架激活的系统性行为倾向，解释方差是人设的 5-31 倍；人设要「锚定到具体动作」才能跨场景一致。</div>
+  <div class="line g"><strong>对你有什么用：</strong>你的影游里，故事背景设定比角色人设更能决定 NPC 怎么行动。设计分支时优先打磨叙事框架；人设描述要绑定具体动作，否则换个场景就崩（删掉锚点词，跨叙事一致性暴跌 95%）。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.18566 · 2026-07-20</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>The Garden of Forking Paths: Narrative Arc-Conditioned Gameplay Planning</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">分支生成</span>
+    </div>
+  </div>
+  <div class="authors">Yunge Wen, Chenliang Huang, Hangyu Zhou, Zhuo Zeng, Chun Ming Louis Po, Julian Togelius, Timothy Merino, Sam Earle
+    <a href="https://arxiv.org/pdf/2605.01245.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Forking Garden：叙事弧线引导的玩法规划，从用户故事线生成分支游戏。先生成独立节点池，再用弧线约束算法组装成关卡图，每个节点做玩法多模态对齐，端到端交互系统。</div>
+  <div class="line r"><strong>核心问题：</strong>英雄之旅、三幕式等叙事原型在游戏里百试百灵，但现有 LLM 程序化生成游戏的方法根本不显式使用这些原型。</div>
+  <div class="line b"><strong>解决方案：</strong>Forking Garden 框架：先生成独立节点池，再用「叙事弧线引导的约束算法」组装成关卡图，每个节点做玩法元素的多模态对齐，端到端把用户给的故事线变成可玩的分支游戏。</div>
+  <div class="line g"><strong>对你有什么用：</strong>把「叙事原型」直接接到「关卡生成」的现成方案。影游做多分支玩法时，先定叙事弧线，再用它约束分支图的生成，避免分支散乱、结构塌陷。</div>
+  <div class="footer-line">
+    <span>arXiv:2605.01245 · 2026-05-02</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Scaling Creative Writing Beyond Story-Centric Data with Attribute-Guided Genre Expansion</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-p">多体裁语料</span>
+    </div>
+  </div>
+  <div class="authors">Hwan Chang, Yongil Kim, Heuiyeen Yeen, Yireun Kim, Jinsik Lee, Hwanhee Lee
+    <a href="https://arxiv.org/pdf/2608.13947.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">属性引导的体裁扩展框架，把创意写作从「故事」扩展到 13 种体裁。构建 5 万条多体裁语料（故事/说唱/歌词/剧本/游戏设计/角色设计等），微调模型在 OOD 基准上全面超越基线与写作专用模型。</div>
+  <div class="line r"><strong>核心问题：</strong>高质量创意写作数据几乎全是「故事」体裁，导致 LLM 只会写故事，不会写剧本、游戏设计、角色设定等其他体裁。</div>
+  <div class="line b"><strong>解决方案：</strong>属性引导的体裁扩展框架：把「主题广度」和「体裁形式控制」解耦，用人写的故事 prompt 当创意种子，用人工整理的体裁属性约束结构/风格/格式，蒸馏出 13 种体裁、5 万条多体裁语料，微调后全面超越基线与写作专用模型。</div>
+  <div class="line g"><strong>对你有什么用：</strong>别只用「故事」数据训练你的影游写作模型。补上剧本、游戏设计、角色卡等体裁数据能显著提升多体裁创作能力——这 13 体裁分类可直接当你的数据采购清单。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.13947 · 2026-08-14</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>CraftAlign: Feature-Grounded Evaluation and Revision Guidance for AI Stories</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-p">AI味改写</span>
+    </div>
+  </div>
+  <div class="authors">Yang Yang, Boyun Xu, Shaofeng Liang, Yun Han, Zining Zhong, Songning Lai, Kaishen Yuan, Yutao Yue
+    <a href="https://arxiv.org/pdf/2608.01377.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">CraftAlign 让 AI 故事对齐人类写作技艺：304 个显式写作特征 + 条件能量模型判 Human/AI 模式，结构化扰动生成自然语言改写指引，整篇重写去「AI 味」，改写质量优于基线。</div>
+  <div class="line r"><strong>核心问题：</strong>LLM 写的故事流畅但「AI 味」重——陈词滥调、过度解释、线性因果、套路结尾。现有评测只给整体分，改写只做局部修补，无法支撑故事级改写。</div>
+  <div class="line b"><strong>解决方案：</strong>CraftAlign 框架：304 个显式写作特征（风格 + 叙事）做特征估计器，条件能量模型判 Human/AI 写作模式，推理时用结构化扰动把故事往「人写模式」拉，再转成自然语言指引交给编辑器整篇重写。人类研究证实改写质量优于基线。</div>
+  <div class="line g"><strong>对你有什么用：</strong>想给 AI 生成的影游剧本「去 AI 味」，这套 304 特征 + 引导改写是可落地的质检/润色管线。别只打总分，要看它判出的具体「写作特征偏差」。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.01377 · 2026-08-02</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>FIERO: Empowering Creative Writing Through Collaborative Game Play</h3>
+    <div class="head-meta">
+      <span class="tag tag-g">应用参考</span>
+      <span class="tag tag-p">协作玩法</span>
+    </div>
+  </div>
+  <div class="authors">Chu Zhang, XiaoKe Zeng, Jin Zhang, Ruoyu Wen, Vince Siu, Richard William Allen, Ray LC
+    <a href="https://arxiv.org/pdf/2607.11837.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">FIERO：多人网页卡牌游戏，用实体卡牌提供脚手架与社交互动，数字界面生成情境视觉、辅助群体决策、合成不同想法。N=60 实验证明想法流畅度、新颖度、剧情连贯度全面提升。</div>
+  <div class="line r"><strong>核心问题：</strong>协作讲故事容易卡在「对剧情有分歧」或「想法碎片化」，现有协作工具只做在线文本同步，忽略了线下社交互动带来的创意协同。</div>
+  <div class="line b"><strong>解决方案：</strong>FIERO——多人网页卡牌游戏。实体卡牌提供有形脚手架 + 社交互动，数字界面生成情境视觉、辅助群体决策、保证叙事连贯、用生成式 AI 合成不同想法。N=60 实验证明直觉刺激、想法流畅度、新颖度、剧情连贯度全面优于纯在线协作写作。</div>
+  <div class="line g"><strong>对你有什么用：</strong>社交玩法是激发协作创意的杠杆——卡牌 + AI 辅助能同时保住「玩家能动性」和「叙事连贯」。做多人影游/共创玩法时可借鉴这套卡牌脚手架设计。</div>
+  <div class="footer-line">
+    <span>arXiv:2607.11837 · 2026-07-13</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Floor Raiser or Ceiling Limiter? Differential Storytelling Outcomes with a Child-Centric GenAI System</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">受众分层</span>
+    </div>
+  </div>
+  <div class="authors">Min Fan, Wanqing Ma, Xinyue Cui, Xiaolu Dai, Shengyu Huang
+    <a href="https://arxiv.org/pdf/2606.27067.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">面向 7-12 岁儿童的 GenAI 故事系统（N=40）：GenAI 呈「地板抬升」收敛，质量差距缩小 83.5%，但只提升创意/丰富度，连贯性与叙事结构仍绑定基线，提出机制依赖型脚手架设计原则。</div>
+  <div class="line r"><strong>核心问题：</strong>GenAI 号称普及创作素养，但对不同能力的孩子是否一视同仁？没人验证过它是「抬地板」还是「压天花板」。</div>
+  <div class="line b"><strong>解决方案：</strong>面向 7-12 岁儿童的 GenAI 故事系统，40 人组内实验对比 GenAI 辅助 vs 传统分镜。发现「地板抬升」收敛——质量差距缩小 83.5%，低分段被托起、高分段被压低；但只提升创意和丰富度，连贯性和叙事结构仍绑定基线水平。</div>
+  <div class="line g"><strong>对你有什么用：</strong>生成式 AI 对用户是「抬地板」还是「压天花板」取决于维度——它能补创意短板，但补不了叙事结构硬功夫。做影游辅助创作工具时，要按用户分层做「机制依赖型脚手架」。</div>
+  <div class="footer-line">
+    <span>arXiv:2606.27067 · 2026-06-25</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>CASPER in the Machine: Insights into Character Variety in LLM-Generated Stories</h3>
+    <div class="head-meta">
+      <span class="tag tag-r">硬数据</span>
+      <span class="tag tag-p">角色多样性</span>
+    </div>
+  </div>
+  <div class="authors">Anneliese Brei, Abhisheik Sharma, Nicholas Sanaie, Lu Wang, Snigdha Chaturvedi
+    <a href="https://arxiv.org/pdf/2606.22454.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">CASPER 用叙事学 8 个角色维度（风格化、完整性等）对比 LLM 与人类故事的角色，回答「角色是否相似」「是否多样」，给出系统性的异同与设计启示。</div>
+  <div class="line r"><strong>核心问题：</strong>LLM 写的小说和人类写的小说，角色到底差在哪？只有叙事学视角的深入对比才知道差距。</div>
+  <div class="line b"><strong>解决方案：</strong>借用叙事学定义，从风格化、完整性等 8 个角色维度，自动推断 LLM 故事与人类故事中的角色类别，做系统性对比，回答「角色是否相似」「角色是否多样」两个核心问题。</div>
+  <div class="line g"><strong>对你有什么用：</strong>直接告诉你 LLM 生成的角色在哪些叙事学维度上跟真人作品有差距。做角色多样性时，这 8 维度可当你的角色设计检查清单，避免 AI 角色千人一面。</div>
+  <div class="footer-line">
+    <span>arXiv:2606.22454 · 2026-06-21</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Steering Emotional Dynamics for Art Therapy: Controllable Narrative Script Generation through Hierarchically Guided LLM Agents</h3>
+    <div class="head-meta">
+      <span class="tag tag-a">架构</span>
+      <span class="tag tag-p">情绪曲线</span>
+    </div>
+  </div>
+  <div class="authors">Suqing Wang, Qinghai Miao, Chao Guo, Yisheng Lv
+    <a href="https://arxiv.org/pdf/2606.16481.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">EC-Script：分层引导的 LLM 智能体做可控叙事脚本生成——情感轨迹规划 + 角色驱动场景生成 + 情绪控制脚本写作，逐场景输出严格贴合预设情感轨迹的脚本。</div>
+  <div class="line r"><strong>核心问题：</strong>LLM 能写通顺文本，但写不出「按指定情感弧线波动」的叙事，无法满足情绪疗愈对情感轨迹的精确要求。</div>
+  <div class="line b"><strong>解决方案：</strong>EC-Script 框架：情感轨迹规划定总方向、角色驱动场景生成推剧情、情绪控制脚本写作调局部情绪，逐场景输出严格贴合预设情感轨迹的脚本，情感轨迹贴合度显著优于基线。</div>
+  <div class="line g"><strong>对你有什么用：</strong>影游最值钱的「情绪曲线控制」这里有现成分层方案。想精确控制玩家在每场戏的情绪起伏，可照搬「轨迹规划 → 场景 → 逐句情绪控制」三层结构。</div>
+  <div class="footer-line">
+    <span>arXiv:2606.16481 · 2026-06-15</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>GraphStory: Collaborative Story Writing through Event-Based Narrative Editing</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-p">剧情树</span>
+    </div>
+  </div>
+  <div class="authors">Xuan-Vu Le, Minh-Loi Nguyen, Khanh-Duy Le, Minh-Triet Tran, Trung-Nghia Le
+    <a href="https://arxiv.org/pdf/2606.16102.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">GraphStory：基于图结构的交互式写作系统，用事件节点组织/连接情节点、探索分支、验证演进叙事，专业与半专业作者研究证实能降低组织结构负担、增强创意探索。</div>
+  <div class="line r"><strong>核心问题：</strong>现有 AI 写作助手专注生成连贯长文，却很少支持「头脑风暴、连接想法、验证不同叙事流向」这种早期构思需求。</div>
+  <div class="line b"><strong>解决方案：</strong>GraphStory——基于图结构的交互式写作系统，用节点组织/连接情节点、探索分支、验证演进叙事。用户研究（专业 + 半专业作者）证明能降低组织结构负担、增强创意探索。</div>
+  <div class="line g"><strong>对你有什么用：</strong>分支叙事别用线性文档写，用「图」。事件节点 + 分支 + 实时验证的工作流，比纯 AI 续写更能保住你的多结局结构——这是影游剧情树工具的现成交互参考。</div>
+  <div class="footer-line">
+    <span>arXiv:2606.16102 · 2026-06-15</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<div class="paper-card">
+  <div class="head">
+    <h3>Collascope: Supporting Serendipitous Asset Exploration for Collage-Based Storytelling</h3>
+    <div class="head-meta">
+      <span class="tag tag-b">工具</span>
+      <span class="tag tag-p">视觉素材</span>
+    </div>
+  </div>
+  <div class="authors">Jiayi Zhou, Longji Huang, Lvmin Zhang, Yun Wang, Zeyu Wang, Maneesh Agrawala, Huamin Qu, Anyi Rao
+    <a href="https://arxiv.org/pdf/2608.01267.pdf" target="_blank" class="pdf">PDF ↗</a>
+  </div>
+  <div class="abstract">Collascope：拼贴叙事的意外式视觉素材探索系统，属性感知检索 + 维度投影，让创作者通过意外结果和素材空白来改叙事、转基调，N=12 组内实验验证。</div>
+  <div class="line r"><strong>核心问题：</strong>拼贴叙事需要能激发叙事的视觉素材，但现有工具只做关键词/图像检索，难以在既有素材之外做「意外发现式」探索。</div>
+  <div class="line b"><strong>解决方案：</strong>Collascope——交互系统：用交互元素组落实故事意图、沿概念/抠图扩展探索空间、属性感知检索做维度投影，让创作者通过「意外结果和素材空白」来改叙事、转基调。N=12 组内实验验证。</div>
+  <div class="line g"><strong>对你有什么用：</strong>分镜/视觉叙事阶段，别只做关键词搜图。给用户「意外的视觉关联」和「素材留白」反而能引导故事转向——做影游前期概念探索工具可借鉴。</div>
+  <div class="footer-line">
+    <span>arXiv:2608.01267 · 2026-08-02</span>
+    <div class="relevance-bar"><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg on"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div></div>
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">互动叙事论文机器人 v1.0</span> 生成 · 2026-08-18</p>
+  <p style="margin-top:4px">数据源：arXiv API · 关键词：interactive narrative / game AI / procedural generation / LLM storytelling</p>
+  <p style="margin-top:8px">
+    <a href="index.html">← 归档首页</a> ·
+    <a href="dashboard.html">本周产品调研 →</a>
+  </p>
+</footer>
+</div>
+</body>
+</html>

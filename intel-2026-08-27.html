@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-08-27</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-08-27</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">44</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">97.7%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+
+  <div class="signal-card">
+    <h4>① 欢瑞世纪矩阵化布局——A股上市公司正式入局，竞品从「单款爆款」升级为「公司矩阵」</h4>
+    <div class="src">来源：欢瑞世纪半年报(8/26) · 东方财富(8/26) · 证券时报(8/26) · 同花顺(8/26) · 上证报(8/26)</div>
+    <ul>
+      <li>欢瑞世纪(000892.SZ) 8/26 披露半年报(营收2.48亿+25.24%)，首次系统披露互动影游矩阵：《完蛋!2》《我的机器人女友》《代号三国:龙起》《冰点之下》《主角》《隐藏侦探试玩版》《江山北望》《盛世天下》</li>
+      <li>江山北望(主投主控)Steam累计近6000条评价、好评率超90%，已打通 PC+TapTap+腾讯视频+iOS 多平台</li>
+      <li>此前追踪的代号三国/冰点之下/主角/江山北望/女帝篇，实为同一上市公司(凤麟工作室)的矩阵化布局</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>本月最重要的产业级认知跃迁：竞品的「基本单元」从「单款游戏」变成「公司矩阵」。欢瑞用「影视工业化+艺人经纪+多题材多平台矩阵」把多款产品串成一个持续供血的内容机器。启示：① 竞品分析框架必须升级，要画「公司-矩阵-题材-平台」四维图谱，识别真正的对手是「公司产能」而非「单款产品」；② 欢瑞的艺人经纪协同说明「演员资产」正成为上市公司护城河，印证「爆款演员跨作品复利」判断；③ 湖南电广传媒(上海久之润)也在跟进，供给侧「上市公司化」加速，小团队空间被挤压——自有项目必须尽快在「真情实感+强情绪题材」这一上市公司难复制的情感护城河上建立壁垒。</div>
+    <div class="links"><a class="link-btn" href="https://static.cninfo.com.cn/finalpage/2026-08-27/1225513506.PDF" target="_blank">半年报PDF</a><a class="link-btn" href="https://finance.eastmoney.com/a/202608263855138345.html" target="_blank">东方财富</a><a class="link-btn" href="https://stcn.com/article/detail/4131566.html" target="_blank">证券时报</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>② 绍宋进Steam国区销量榜第11——「评测增速回落≠销量回落」，红利期规律的重要修正</h4>
+    <div class="src">来源：IT之家(8/26) · 新浪(8/26) · 网易(8/26)</div>
+    <ul>
+      <li>Steam新一周销量榜(8/18-8/25)国区榜单：《绍宋:还我河山》位列第11</li>
+      <li>同期绍宋中文评测增速已五连降至+1.0%(2628→2654)，48h增量264→72</li>
+      <li>首发8折窗口(¥47.2，至9/3)内仍保持国区畅销，说明销量长尾可持续</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>对「5天红利期」规律的关键修正：此前7次验证观察的都是「评测增量增速」，但绍宋进销量榜说明「评测增量回落 ≠ 销量回落」。真正衰减的是「首日口碑爆发的评测洪峰」，销量(折扣窗口+长尾+攻略生态)仍在持续。启示：① 收入模型要区分「评测增量曲线」和「销量曲线」两个独立指标，前者是口碑热度、后者才是真实收入；② 绍宋首发8折拉到9/3，说明「首发折扣窗口」是撬动长尾销量的关键杠杆，定价策略要把折扣窗口长度纳入设计；③ 花满楼(+2.7%增速小幅回升)证明「口碑结构+攻略生态」才是长尾发动机，而非首日冲量。</div>
+    <div class="links"><a class="link-btn" href="https://k.sina.com.cn/article_1826017320_6cd6d02802001vzeq.html" target="_blank">销量榜</a><a class="link-btn" href="https://store.steampowered.com/app/4292950" target="_blank">绍宋Steam</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>③ 隐藏真探=隐藏侦探，出品方纠偏——上市公司半年报戳破媒体「洗稿式报道」</h4>
+    <div class="src">来源：欢瑞世纪半年报(8/26) · 3DM(8/25) · ZOL(8/25) · 网易号(8/25)</div>
+    <ul>
+      <li>欢瑞世纪半年报明确：凤麟工作室已上线《隐藏侦探试玩版》(民国谍战题材)，出品方为欢瑞世纪，非此前记忆中「百纳千成(公告补拍)」</li>
+      <li>正式名称《隐藏侦探》非《隐藏真探》——这解释了Steam搜索「隐藏真探」为何连续多日命中为空</li>
+      <li>网易号8/25仍将演员/角色名写错(潘婕=顾可心 vs 官方潘铭允=顾可卿等)，媒体以讹传讹持续</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>信息质量管理的活案例：同一产品出现三个口径(隐藏真探/隐藏侦探/百纳千成出品)，且演员名被系统性写错。教训：① 品类热度导致「洗稿式报道」泛滥，官方信源(上市公司定期报告、Steam商店页、开发商公告)是唯一可信锚点，所有情报必须交叉核验；② 自有项目PR要主动、反复提供「可核实的官方口径」(标准名、出品方、演员表)，避免被低质转载反噬——一旦起错名字/写错出品方，纠偏成本极高；③ 也侧面印证欢瑞矩阵体量——它连「谍战FMV」细分题材都已提前布局，竞争是全方位的。</div>
+    <div class="links"><a class="link-btn" href="https://static.cninfo.com.cn/finalpage/2026-08-27/1225513506.PDF" target="_blank">半年报PDF</a><a class="link-btn" href="https://www.3dmgame.com/news/202608/3951302.html" target="_blank">3DM</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>④ 8月新作红利期第8次坐实 + 供给侧「上市公司矩阵 vs 低质内卷」两端分化加剧</h4>
+    <div class="src">来源：Steam评测API · Steam搜索 · 欢瑞世纪半年报 · 湖南电广传媒(8/26)</div>
+    <ul>
+      <li>绍宋+1.0%、花满楼+2.7%(小幅回升)、不心动+0.5%，已追踪31款竞品无一达+30%爆款阈值，「5天首发红利期」第8次坐实</li>
+      <li>低质挣扎：无言之林全语言42条/52.4% Mixed(中文1条差评)、1000王子AI原生乙女4条/25%(持续崩坏)</li>
+      <li>头部升级：欢瑞世纪矩阵化(江山北望6000条/90%+) + 湖南电广传媒(上海久之润)跟进，供给侧「上市公司化」加速</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>供给侧正从「玩家散兵」转向「资本矩阵」：顶端是欢瑞、湖南电广用「影视工业化+艺人经纪+矩阵打法」系统化进场，底端是一人FMV和AI原生的低质内卷。双刃剑：① 危险面——上市公司矩阵的产能和艺人资源无法正面硬拼，欢瑞已连谍战/历史/恋爱全占；② 机会面——上市公司难复制「真情实感+强情绪题材+玩法强耦合」的情感护城河，这正是自有项目唯一能卡位、且工业化流水线最难做的地带。务必死守「AI辅助降本+真人点睛情感」混合路线，卡位「资本矩阵」与「低质内卷」之间的中间地带。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/3978240" target="_blank">无言之林Steam</a><a class="link-btn" href="https://store.steampowered.com/app/4846800" target="_blank">1000王子Steam</a><a class="link-btn" href="https://static.cninfo.com.cn/finalpage/2026-08-26/1225513821.PDF" target="_blank">电广传媒PDF</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 近24h）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">83.7%</span></div><div class="dl">+26 (+1.0%)</div><div class="nt">2654条 · 48h 72 · 国区销量榜第11</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">98.1%</span></div><div class="dl">+38 (+2.7%)</div><div class="nt">1453条 · 增速小幅回升 · 攻略生态</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">95.8%</span></div><div class="dl">+6 (+0.5%)</div><div class="nt">1265条 · 二次起量彻底熄火</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">94.3%</span></div><div class="dl">+7 (+1.0%)</div><div class="nt">723条 · 7d中文88条仍有回流</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100%</span></div><div class="dl">持平</div><div class="nt">87条 · 48h 5 · 3DM 9.0分</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">女帝篇(盛世天下)</span><span class="pct">83.4%</span></div><div class="dl">+7</div><div class="nt">8134条 · 欢瑞旗下艺人 · 长青</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">媚娘篇</span><span class="pct">82.9%</span></div><div class="dl">+1</div><div class="nt">9405条 · 海外86.7%更高</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.4%</span></div><div class="dl">+4</div><div class="nt">6177条 · 欢瑞主投 · 多平台</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">阴三国谋论</span><span class="pct">93.3%</span></div><div class="dl">持平</div><div class="nt">45条 · 8/12互动剧情微增</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">83.3%</span></div><div class="dl">+2 (+20%)</div><div class="nt">12条 · 8/21新作小样本</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">灭寇1939</span><span class="pct">83.8%</span></div><div class="dl">+1</div><div class="nt">557条 · 谍战长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">无言之林(海外FMV)</span><span class="pct">52.4%</span></div><div class="dl warn">+3(all)</div><div class="nt">全语言42条 · ⚠️ Mixed · 中文1条差评</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">1000王子(AI乙女)</span><span class="pct">25.0%</span></div><div class="dl warn">崩坏</div><div class="nt">全语言4条 · ⚠️ AI口碑持续崩坏</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.6%</span></div><div class="dl">持平</div><div class="nt">1066条 · 欢瑞矩阵 · 热度平稳</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.7%</span></div><div class="dl">+1</div><div class="nt">804条 · intiny长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.7%</span></div><div class="dl">持平</div><div class="nt">2763条 · 欢瑞矩阵 · 长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">冰点之下</span><span class="pct">93.8%</span></div><div class="dl">持平</div><div class="nt">2769条 · 欢瑞矩阵 · 长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">67.5%</span></div><div class="dl">0</div><div class="nt">40条 · ⚠️ 全语言58.2%口碑最弱</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">退婚后宗主马甲</span><span class="pct">26.8%</span></div><div class="dl">0</div><div class="nt">41条 · ⚠️ 免费差评警示样本</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl">0</div><div class="nt">927条 · ⚠️ 中英偏差6.6pp</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">欢瑞世纪互动影游矩阵（产业级信号）</span><span class="delta hot">上市公司入局</span></div>
+    <div class="meta">凤麟工作室 · 欢瑞世纪(000892.SZ) · 2026-08-26 半年报披露</div>
+    <div class="note">A股上市公司首次系统披露互动影游矩阵：《完蛋!2》《我的机器人女友》《代号三国:龙起》《冰点之下》《主角》《隐藏侦探试玩版》《江山北望》《盛世天下》。多题材+多平台(Steam/TapTap/腾讯视频/iOS)并行，江山北望近6000条评价/90%+好评。竞品格局从「单款爆款」升级为「公司矩阵打法」。</div>
+    <div class="tags"><span class="tag tag-p">产业级</span><span class="tag tag-a">上市公司</span><span class="tag tag-b">矩阵布局</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">绍宋:还我河山</span><span class="delta hot">国区销量榜第11</span></div>
+    <div class="meta">互动之星×猫眼娱乐 · ¥59/首发8折¥47.2 · 2026-08-20 全球发售</div>
+    <div class="note">Steam周销量榜(8/18-8/25)国区第11。评测增速回落(+1.0%)≠销量回落，首发8折窗口内仍保持国区畅销，验证「红利期回落的是评测增量、销量长尾仍可持续」。</div>
+    <div class="tags"><span class="tag tag-r">历史</span><span class="tag tag-a">大IP</span><span class="tag tag-g">销量长尾</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">隐藏侦探（隐形守护者原班）</span><span class="delta hot">97%特别好评</span></div>
+    <div class="meta">欢瑞世纪凤麟工作室 · 民国谍战全动态真人 · 2026-08-20 Demo</div>
+    <div class="note">出品方纠偏：正式名《隐藏侦探》(非《隐藏真探》)，欢瑞世纪凤麟工作室出品(此前媒体误传为百纳千成)。潘铭允/安泳畅/田倚凡原班，Steam Demo 97%特别好评。⚠️媒体洗稿导致名称/出品方/演员名混乱。</div>
+    <div class="tags"><span class="tag tag-r">谍战</span><span class="tag tag-a">原班IP</span><span class="tag tag-p">纠偏</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">名利场2:冒牌富少（The Fame Game II）</span><span class="delta hot">8/25上线</span></div>
+    <div class="meta">Interactive Films · 好莱坞班底 · 洛杉矶实景 · 双形态(游戏+短剧)</div>
+    <div class="note">海外英文源确认：发行方Interactive Films，主角何书涵，5段关系+数百分支。双重身份发行——既是FMV恋爱模拟、又是Salty TV竖屏短剧。20万+票选角，钟晨瑶+亚洲小姐田诗雨领衔。</div>
+    <div class="tags"><span class="tag tag-p">恋爱</span><span class="tag tag-a">好莱坞</span><span class="tag tag-b">双形态</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">无言之林 Wordless Forest</span><span class="delta warn">Mixed 52.4%</span></div>
+    <div class="meta">真人实拍FMV生存 · Dogus Cagrici 独立开发者 · 2026-08-24 上架 · $8.99</div>
+    <div class="note">全语言39→42条(+3/24h)、51.3%→52.4%仍Mixed，中文仍1条差评。一人团队FMV「影像有质感但玩法单薄」局限持续暴露。</div>
+    <div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-a">海外独立</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望</span><span class="delta">8.7分</span></div>
+    <div class="meta">欢瑞主投主控 · 关注 6.7万 · 2026-06-09上线</div>
+    <div class="note">欢瑞世纪半年报确认主投主控：Steam累计近6000条评价、好评率超90%，已打通PC(Steam)+移动端(TapTap/腾讯视频/iOS)多平台运营。TapTap评分8.7稳定(互动电影榜前列)。玩家讨论：正面「剧情饱满、家国情怀、网状抉择」；负面「玩法创新有限、大场面调度欠缺、支线触发隐晦」。</div>
+    <div class="tags"><span class="tag tag-g">历史</span><span class="tag tag-b">真人</span><span class="tag tag-a">欢瑞矩阵</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">欢瑞世纪互动影游矩阵 · 8/26半年报</span><span class="delta hot">产业级</span></div>
+    <div class="note">欢瑞世纪(000892.SZ)矩阵：《完蛋!2》《我的机器人女友》《代号三国》《冰点之下》《主角》《隐藏侦探试玩版》《江山北望》《盛世天下》，多题材+多平台并行。影视型选手以「影视工业化+艺人经纪+矩阵打法」领跑赛道。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">隐藏侦探(隐藏真探) · Demo 97%特别好评</span><span class="delta hot">纠偏</span></div>
+    <div class="note">民国谍战FMV，欢瑞世纪凤麟工作室出品(此前媒体误传为百纳千成)，隐形守护者原班，Steam Demo 97%特别好评。正式名《隐藏侦探》非《隐藏真探》。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">欢瑞世纪矩阵化布局——互动影游驶入快车道</span><span class="delta hot">产业级</span></div>
+    <div class="note">东方财富/证券时报/同花顺 8/26 多源报道：欢瑞世纪已形成规模化互动影游产品储备，覆盖历史/末日/科幻/恋爱/现实成长等多题材。报道点明行业核心矛盾：「爆款可复制性有限、发售平台匮乏」，竞争关键是「可持续可复制的内容供给能力」而非单款爆品。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">绍宋进Steam国区销量榜第11</span><span class="delta">修正</span></div>
+    <div class="note">IT之家/新浪/网易 8/26 报道Steam周销量榜(8/18-8/25)：绍宋国区第11。评测增速回落≠销量回落，首发8折窗口内销量长尾可持续。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">湖南电广传媒入局</span><span class="delta hot">新入局</span></div>
+    <div class="note">湖南电广传媒 8/26 投资者关系记录：上海久之润「真人互动影游等项目处起步阶段」。继欢瑞世纪之后又一家上市公司将真人互动影游列为新业务方向，供给侧「上市公司化」加速。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">花满楼攻略生态持续沉淀——18183全流程攻略</span><span class="delta">长尾</span></div>
+    <div class="note">18183 8/26 发布全流程攻略：主线约13小时、40+结局、6女主独立身世线，融合「真人影像分支+坊市经营+角色养成+约会羁绊」。花满楼「攻略经济/长尾运营」UGC生态进入第二阶段。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.8</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · 欢瑞世纪半年报/东方财富/证券时报/同花顺/上证报/湖南电广传媒/IT之家/游民星空/3DM/ZOL/18183 | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

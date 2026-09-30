@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-09-15</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .dl.warn{color:var(--amb)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-09-15</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">46</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">100%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+  <div class="signal-card">
+    <h4>① 《AKIBA LOST 秋叶原迷踪》本周 9/17 发售——顶级日系真人实拍群像剧 FMV 定档，但「重制作」能否扛住「地雷发行商 + 日剧崩盘」口碑风险</h4>
+    <div class="src">来源：Steam商店页(9/15核实) · 17173热点预告(9/14) · AsiaGameMaster评测(9/15) · Stage1st社区(9/2发酵) · GameLaunchHub(9/15)</div>
+    <ul><li>IzanagiGames×NTV×AX-ON 共同制作，9/17 登陆 Steam(4131220)/PS5/Switch/Switch 2，支持简繁中文，日本游戏大赏2025未来部门奖</li><li>体量惊人：约10万静帧+20小时实拍素材、7可玩角色、ZAPPING角色切换、FREEZE&amp;ACTIVATE路线解锁、360°视角、多结局，导演梅田慎介(前作《终结降临》)</li><li>Demo(4441050) 80%好评(35评测)，AsiaGameMaster 评分 8.0/10，赞「替群像剧设计出一套能玩的架构」</li><li>⚠️ 风险面：发行商 IzanagiGames 被硬核玩家贴「地雷发行商」标签；1月先行放送的6集NTV日剧被批「剧情崩、真凶剧透」</li><li>这是「重制作+大IP」路线 vs「口碑可持续性」的试金石——10万静帧能否救回崩掉的剧本，本周揭晓</li></ul>
+    <div class="act"><strong>行动建议：</strong>本周最值得盯的 FMV 供给信号，也是「制作 vs 剧情」的天然对照实验。三点启示：① 「内容为王」再次被验证——AKIBA LOST 有 10 万静帧/20 小时素材/豪华卡司，但 1 月日剧先行放送已「剧情崩 + 真凶剧透」，硬核玩家明确「重制作救不了烂剧本」，自有项目立项务必把「剧本质量」放第一位、而非堆素材时长；② 「多视角互连叙事」是差异化抓手——7 角色视角互为线索、A 的选择改 B 的命运，比单线程分支更接近群像剧本质，自有项目可借鉴「多视角信息差」提升重复游玩价值；③ 「发行商口碑」是隐形资产——IzanagiGames 被贴地雷标签会让玩家「看到大名就跑」，这是多年口碑欠账的代价，自有团队要像爱护生命一样爱护发行口碑。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/4131220/AKIBA_LOST/" target="_blank">来源</a><a class="link-btn" href="https://asiagamemaster.com/review-akiba-lost" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>② Storytaco《Five Hearts Under One Roof》Switch 实体版官宣——韩系 FMV 恋爱系列从「数字短命」走向「实体 IP 化」</h4>
+    <div class="src">来源：GamesPress/CFK(9/14)</div>
+    <ul><li>CFK 9/14 官宣《Five Hearts Under One Roof: Paradise Edition》Switch 实体版，第1季+第2季双季合辑，2027年初发售</li><li>TGS2026(9/17-21) Happinet 展台试玩，全真人实拍 FMV，多结局/隐藏终章/好感度路线</li><li>这是 9/8 STORYTACO 下半年路线图的兑现——韩系 FMV 正在把「恋爱模拟」沉淀成「可持续 IP + 实体 + 主机化」</li><li>印证韩系 FMV 已从「短命恋爱模拟」升级为「跨平台/实体/主机」的长线运营思路</li></ul>
+    <div class="act"><strong>行动建议：</strong>韩系 FMV 的「IP 化 + 实体化 + 主机化」路线值得借鉴。三点启示：① 「系列化 + 季播」是 FMV 恋爱模拟摆脱「短命」的解法——双季合辑成实体盒，把一次性恋爱模拟变成可持续 IP，自有项目立项时就应规划「季播 + 续作」而非单作；② 「实体 + 主机」带来渠道增量与品牌溢价——Switch 实体版意味着进入任天堂生态，是数字版之外的第二增长曲线，自有项目可在长尾期考虑主机移植；③ 韩系 FMV 的「机制差异化 + 系列化」双轮驱动已成型，竞争门槛正在抬高，纯「真人恋爱对话」的跟进者会越来越难。</div>
+    <div class="links"><a class="link-btn" href="https://www.gamespress.com/en-GB/Five-Hearts-Under-One-Roof-Paradise-Edition-Brings-Both-Seasons-to-Nin" target="_blank">来源</a></div>
+  </div><div class="signal-card">
+    <h4>③ 《幸存者笔记》升格「国内首款大体量 AI 互动影游」——地方政府 + 官媒密集背书，城市 IP 路径获官方认可</h4>
+    <div class="src">来源：奉化区政府(9/12) · 中国宁波网(9/14) · 宁波晚报(9/14) · 微博矩阵(9/12)</div>
+    <ul><li>奉化区人民政府 9/12 发文《我区本土团队打造 AI互动影游〈幸存者笔记〉上线Steam平台》，官方定性</li><li>中国宁波网/宁波晚报 9/14 续报：700分钟素材、双主角群像20+角色、4个月完成、90后/00后团队</li><li>城市 IP 叙事：溪口雪窦寺/东部新城实景选景 + 「大饼油条」彩蛋 + 传统神话元素，探索「传统文化年轻化表达 + 城市文化传播」新路径</li><li>短剧演员李柏言人脸授权 + 创作者式参与，B站/小黑盒投放预告片引发二创</li><li>这是 09-14 快照《幸存者笔记》信号的升级——从「Steam 口碑样本」升格为「地方政府背书的城市文创样本」</li></ul>
+    <div class="act"><strong>行动建议：</strong>互动影游首次拿到地方政府官方定调背书，是「城市 IP + 文旅资源」杠杆的验证。三点启示：① 「城市 IP + 传统文化 + 地方媒体」是可复制的宣发杠杆——绑定本土城市地标/文化元素能换来官方媒体自发背书(政府公信力)，自有项目可主动对接文旅资源做「城市定制」；② 「AI 互动影游」获得官方「大体量 + 年轻化表达」正面定性，说明官方对「AI 影游」的态度是「鼓励创新 + 弘扬文化」，而非一刀切，自有项目可借势讲好「科技 + 文化」故事；③ 「短剧演员人脸授权 + 创作者参与」是低成本获取「真人 IP」的正道——比盗脸/冒充真人安全，还能撬动演员自带流量。</div>
+    <div class="links"><a class="link-btn" href="https://www.fh.gov.cn/col/col1229045201/art/2026/art_7e8113bff73f421a941dc4b8c8b1e999.html" target="_blank">来源</a><a class="link-btn" href="http://news.cnnb.com.cn/system/2026/09/14/030814243.shtml" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>④ Steam 评测单日环比自然降温、头部好评率全线稳定——江山北望 +5 连续领涨，「去水分」后进入健康长尾态</h4>
+    <div class="src">来源：Steam评测API环比(9/14→9/15)</div>
+    <ul><li>单日环比(周二)，全线温和、无去水分、无爆款激增，符合「周二自然降温」节奏</li><li>领涨：江山北望 +5(连续多日领涨)、恶校游戏 +2、媚娘篇 +2；净减仅女帝篇/花满楼/天平游戏/雪落情书时各 -1(正常波动)</li><li>头部好评率全线稳定：女帝 82.5%、江山北望 91.3%、花满楼 97.5%、媚娘篇 82.9%、代号三国 91.2%、绍宋 80.9%(微降0.1pp)</li><li>无一款达 +30% 爆款阈值；金宵公寓(57.0%)仍低迷，是唯一差评风险样本</li><li>结论：「去水分」彻底结束后，头部竞品进入「自然长尾增长」健康态，江山北望是「小而稳」长尾标杆</li></ul>
+    <div class="act"><strong>行动建议：</strong>「去水分」彻底结束、进入健康长尾态，是可靠的对标基准。三点启示：① 江山北望连续多日领涨(Steam 91.3% + TapTap 8.7)，「小而稳」内容长尾路线反复被验证，是自有项目最值得深扒的对标样本——它靠「口碑稳定 + 持续修硬伤 + 不弃坑」而非「营销爆量」取胜；② 头部好评率在单日环比下纹丝不动，真实口碑压舱石牢固，自有项目应追求「真实好评率」而非刷量(刷量会被平台去水分反噬)；③ 唯一风险样本仍是金宵公寓(57.0%)——新上线竞品的「前 72h 口碑管理」比「老竞品去水分」更值得盯。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/3831120" target="_blank">来源</a><a class="link-btn" href="https://store.steampowered.com/app/4148240" target="_blank">旁证</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 自09-15前快照起）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.3%</span></div><div class="dl ">+5(+0.1%)</div><div class="nt">江山北望 +5，91.3% 稳定，连续多日领涨的最扎实长尾样本</div></div><div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">93.0%</span></div><div class="dl ">+2(+0.3%)</div><div class="nt">恶校游戏 +2，93.0% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">媚娘篇(盛世天下)</span><span class="pct">82.9%</span></div><div class="dl ">+2(+0.0%)</div><div class="nt">媚娘篇 +2，82.9% 稳定，盛世天下两篇合计仍领跑大盘</div></div><div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.7%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">盛夏离与合 +1，84.7% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">80.9%</span></div><div class="dl ">+1(+0.0%)</div><div class="nt">绍宋 +1，80.9%（较 81.0% 微降 0.1pp），口碑企稳</div></div><div class="review-cell"><div class="rn"><span class="nm">列车怪谈：虚像之境</span><span class="pct">86.6%</span></div><div class="dl ">+1(+1.5%)</div><div class="nt">列车怪谈 +1，86.6%，样本小(67)，新上线竞品口碑爬升</div></div><div class="review-cell"><div class="rn"><span class="nm">Bloodholic</span><span class="pct">98.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Cage of Roses</span><span class="pct">89.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Run</span><span class="pct">33.3%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文33.3% vs 全语言88.3%(差55.0pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.3%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.2%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">冰点之下</span><span class="pct">93.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">对不起我是警察</span><span class="pct">78.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">66.7%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Five Dates</span><span class="pct">85.6%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">95.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Libera Nos a Malo</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">灭寇1939:上川往事</span><span class="pct">83.2%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">阴三国谋论:徐州篇</span><span class="pct">91.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">退婚后,宗主马甲藏不住</span><span class="pct">26.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">Project DeepWeb</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">87.1%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">1000王子(AI原生乙女)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0.0% vs 全语言22.2%(差22.2pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">无言之林(海外一人FMV)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0.0% vs 全语言51.6%(差51.6pp，极小样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">金宵公寓事件</span><span class="pct">57.0%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">你好,你配吗?</span><span class="pct">96.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">东北往事</span><span class="pct">83.5%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">末日降临!被美女们关进避难所</span><span class="pct">81.8%</span></div><div class="dl ">持平</div><div class="nt">长尾/持平</div></div><div class="review-cell"><div class="rn"><span class="nm">夺命邂逅</span><span class="pct">—</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文0条，夺命邂逅=Demo试玩已排除竞品池</div></div><div class="review-cell"><div class="rn"><span class="nm">宗门最后的长老</span><span class="pct">97.1%</span></div><div class="dl ">持平</div><div class="nt">宗门最后的长老=修仙合成塔防非互动影游，已排除竞品池</div></div><div class="review-cell"><div class="rn"><span class="nm">Rescue the Hostages: Misaligned Fate</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">追踪中(9/3上架，中文仅1条，属性存疑待甄别)</div></div><div class="review-cell"><div class="rn"><span class="nm">雪落情书时</span><span class="pct">96.4%</span></div><div class="dl ">-1(-0.2%)</div><div class="nt">雪落情书时 -1，96.4% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">天平游戏1:抉择</span><span class="pct">85.6%</span></div><div class="dl ">-1(-0.1%)</div><div class="nt">天平游戏1:抉择 -1，85.6% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">97.5%</span></div><div class="dl ">-1(-0.1%)</div><div class="nt">花满楼 -1，97.5% 稳定</div></div><div class="review-cell"><div class="rn"><span class="nm">女帝篇(盛世天下)</span><span class="pct">82.5%</span></div><div class="dl ">-1(-0.0%)</div><div class="nt">女帝篇 -1，82.5% 稳定（单日 -1 属正常波动）</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">《AKIBA LOST》(秋叶原迷踪) 本周 9/17 发售——顶级日系真人实拍群像剧 FMV 定档，IzanagiGames×NTV×AX-ON</span><span class="delta">新供给·日系FMV</span></div>
+    <div class="meta">IzanagiGames · 日本电视台(NTV) · AX-ON 共同制作 · 2026-09-17 发售（Steam 显示 9/16）· 简中/繁中/日/英/韩</div>
+    <div class="note">日本真人实拍 FMV 本周最重磅供给：IzanagiGames(前作《Death Come True 终结降临》)× 日本电视台 NTV × AX-ON 共同制作《AKIBA LOST(秋叶原迷踪)》，9/17 登陆 Steam/PS5/Switch/Switch 2，支持简繁中文。体量：约 10 万张静帧 + 20 小时实拍素材(自称同类最野心之作)、7 个可玩角色(新城大辉 + 6 位女性)、ZAPPING 角色切换系统、FREEZE &amp; ACTIVATE 路线解锁、360° 视角观察、多结局，导演梅田慎介(前作《终结降临》)。获「日本游戏大赏 2025 未来部门奖」。Demo(4441050) 已有 80% 好评(35 评测)。⚠️ 但存在两大风险：① 发行商 IzanagiGames 被硬核玩家贴「地雷发行商」标签(前作《冤罪执行游戏》《世纪末俱乐部》口碑一般)；② 1 月先行放送的 6 集 NTV 日剧版被批「30 分钟×6 话太赶、剧情崩、真凶剧透」，Stage1st 论坛直言「剧情本身多半没救」。这是「重制作 + 大 IP」路线 vs 「口碑可持续性」的典型试金石。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">日系FMV</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Storytaco《Five Hearts Under One Roof: Paradise Edition》Switch 实体版官宣——韩系 FMV 恋爱系列 IP 化/主机化延续</span><span class="delta">新供给·韩系FMV</span></div>
+    <div class="meta">StoryTaco · 2027 年初 · Nintendo Switch 实体版 · TGS2026 试玩</div>
+    <div class="note">CFK 9/14 官宣《Five Hearts Under One Roof: Paradise Edition》(五个屋檐下的心) Nintendo Switch 实体版，把真人 FMV 恋爱系列第 1 季(5 女主)+第 2 季(6 女主) 双季合辑成单盒，2027 年初发售，将在 9/17-21 TGS2026 Happinet 展台试玩。多结局/隐藏终章/好感度路线，全真人实拍 FMV。这是韩系 FMV「恋爱模拟」从数字版走向「实体 + 主机」IP 化的信号——STORYTACO 路线图(9/8 公布)的跨平台/实体化兑现，印证韩系 FMV 正在把「短命恋爱模拟」沉淀成「可持续 IP」。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">韩系FMV</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《幸存者笔记》获「国内首款大体量 AI 互动影游」官方定调——奉化区政府 + 宁波网密集背书，城市 IP 路径受认可</span><span class="delta">新供给·AI影像</span></div>
+    <div class="meta">也玩文化科技(宁波)有限公司 · MYSTERY CROWN · YESPLAY · 2026-09-12 上线 · 政府/官媒 9/12-9/14 密集报道</div>
+    <div class="note">奉化区人民政府 9/12 + 中国宁波网/宁波晚报 9/14 + 微博矩阵连续发文，给《幸存者笔记》贴上「国内首款大体量 AI 互动影游」标签：700 分钟素材(远超国内同类)、双主角群像 20+ 角色、4 个月完成、90 后/00 后团队、溪口雪窦寺/东部新城实景 + 「大饼油条」彩蛋、短剧演员李柏言人脸授权(创作者式参与)。这是 09-14 快照《幸存者笔记》信号的延续升级——从「Steam 口碑样本」升格为「地方政府背书的城市文创样本」，印证「城市 IP + 传统文化 + 官方公信力」是可复制的互动影游宣发杠杆。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">AI影像</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">Steam 评测单日环比（9/14→9/15）——见下方「Steam 竞品评测环比」明细</span><span class="delta">机制·单日环比</span></div>
+    <div class="meta">Steam 评测系统（机制信号） · 2026-09-15 窗口</div>
+    <div class="note">本周二单日环比，自然降温、无去水分、无爆款激增。核心观察：头部好评率是否稳定、江山北望是否继续领涨、有无单款达 +30% 爆款阈值。</div>
+    <div class="tags"><span class="tag tag-p">机制</span><span class="tag tag-p">单日环比</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望（木焱工作室）</span><span class="delta">v1.3.4</span></div>
+    <div class="note">TapTap PC 端近期连发修复更新：v1.3.4 修「结局视频无法播放/黑屏」、v1.3.3 修「启动白屏」+「依次了解」回退故事线。Steam 侧 9/15 单日 +5 领涨(91.3% 稳定)，TapTap 与 Steam 双端「小而稳」长尾口碑相互印证。开发商木焱工作室(上海木焱网络，前作《名利游戏》)。信号：长尾口碑作持续修硬伤、不弃坑，重视体验闭环。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《幸存者笔记》双端热议延续：地方政府 + 官媒「国内首款大体量 AI 互动影游」定调</span><span class="delta">2026-09-12~15</span></div>
+    <div class="note">奉化区政府 9/12、中国宁波网/宁波晚报 9/14、微博矩阵连续报道，B站/小黑盒投放预告片引发二创。核心叙事：700 分钟素材 + 双主角群像 + 城市地标选景 + 短剧演员创作者式参与，探索「传统文化年轻化表达 + 城市文化传播」新路径。信号：互动影游首次拿到地方政府官方定调背书，「城市 IP + 文旅资源」是差异化宣发杠杆。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">Stage1st 社区：AKIBA LOST「地雷发行商」口碑预警——重制作救不了剧情，日剧先行放送已崩</span><span class="delta">媒体信号</span></div>
+    <div class="note">Stage1st 论坛 9/2 讨论(今日仍发酵)：AKIBA LOST 体验版「系统和文本味道挺正，玩法照搬 428、界面抄了不少，触发交叉剧情锁时挺感动」，但「看到知名地雷发行商伊邪那岐(前作终结降临/冤罪执行游戏/世纪末俱乐部)只会让人退缩」；1 月宣发先放送的 6 集连续剧「30 分钟×6 话很赶、剧情崩」，且有评价含真凶剧透风险。要点：日本 FMV 玩家对「制作体量」与「剧情可持续性」分开评价——10 万静帧救不了烂剧本，这与国内「真人+AI 拼接被骂」的「内容为王」共识同源。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">AsiaGameMaster 评测：AKIBA LOST Demo 8.0/10——群像剧「能玩的架构」是最大亮点，但节奏偏慢挑玩家</span><span class="delta">媒体信号</span></div>
+    <div class="note">AsiaGameMaster(亚洲电玩通) 9/15 评测 AKIBA LOST Demo：8.0/10，推荐喜欢悬疑日剧/真人互动影像/文字冒险/群像剧的玩家先下 Demo。亮点=「制作团队真的替群像剧设计出一套能玩的架构(角色切换/选项后果/360°观察/FREEZE 路线解锁都有明确目的)」，玩家从「被动观看」转向「主动沉浸」。缺点=「照片式叙事 + 大量文字」节奏偏慢、试玩太短、玩法深度待正式版验证。要点：日系 FMV 正在把「群像剧多视角」做成玩法层，而非只堆真人影像——与韩系「机制差异化」趋势合流。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">GameLaunchHub 海外解析：AKIBA LOST「多视角互连叙事」是差异化核心——7 角色视角互为线索</span><span class="delta">媒体信号</span></div>
+    <div class="note">GameLaunchHub 9/15 深度解析：AKIBA LOST 最大差异 = 「多视角互连叙事」——7 个角色各看同一段时间，A 角色的选择会改变 B 角色的命运，需探索所有视角才能拼出真相。对比表(Death Come True/428/Telling Lies/Her Story)显示其「角色切换 + 互连选择」是稀缺设计。要点：海外对「跨角色互连叙事」的 FMV 结构兴趣浓厚，这比「单线程分支」更接近「群像剧」的本质——自有项目可借鉴「多视角信息差」做叙事深度。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.11</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · Tech Times/今日头条/游民星空/腾讯新闻/中金在线/Next-Gen Gaming Blog | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

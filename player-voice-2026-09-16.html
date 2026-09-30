@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玩家心声报告 v1.1 | 2026-09-16</title>
+<style>:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.c{max-width:920px;margin:0 auto}
+header{text-align:center;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .sub{font-size:12px;color:var(--s)}
+.hero{background:linear-gradient(135deg,var(--a),#3C3489);color:#fff;border-radius:14px;padding:28px 28px 20px;margin-bottom:24px}
+.hero-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.18);margin-bottom:10px;letter-spacing:0.5px}
+.hero h2{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
+.hero .lead{font-size:13px;opacity:0.85;line-height:1.6;max-width:680px;margin-bottom:16px}
+.hero-stats{display:flex;gap:20px;flex-wrap:wrap}
+.hero-stat{display:flex;flex-direction:column;background:rgba(255,255,255,0.12);border-radius:8px;padding:10px 16px;min-width:90px}
+.hero-stat .hsv{font-size:26px;font-weight:700;line-height:1}
+.hero-stat .hsl{font-size:10px;opacity:0.7;margin-top:2px;white-space:nowrap}
+.quick-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px}
+.qcard{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px;transition:box-shadow 0.15s}
+.qcard:hover{box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.qcard-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.qcard .qicon{width:28px;height:28px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--border)}
+.qcard .qname{font-size:12px;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.qcard .qrating{font-size:18px;font-weight:700;line-height:1}
+.qcard .qrating.ok{color:var(--g)}.qcard .qrating.warn{color:var(--amb)}.qcard .qrating.bad{color:var(--r)}
+.qcard .qbar{display:flex;height:4px;border-radius:2px;overflow:hidden;margin-bottom:6px}
+.qcard .qbar .pos{background:var(--g)}.qcard .qbar .neg{background:var(--r)}
+.qcard .qtag{font-size:10px;color:var(--muted);line-height:1.4}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:14px;padding-bottom:6px;border-bottom:2px solid var(--al);display:flex;align-items:center;gap:8px}
+.section-title .st-num{font-size:10px;color:var(--muted);font-weight:400}
+.pcard{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;margin-bottom:18px;overflow:hidden;display:flex;flex-direction:column}
+.pcard-header{display:flex;gap:16px;padding:16px 20px;background:var(--bg);border-bottom:1px solid var(--border);align-items:center}
+.pcard-header .pcover{width:120px;height:68px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--border)}
+.pcard-header .pinfo{flex:1;min-width:0}
+.pcard-header .pinfo .ptitle{font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+.pcard-header .pinfo .pmeta{font-size:11px;color:var(--muted);margin-bottom:6px;display:flex;gap:12px;flex-wrap:wrap}
+.pcard-header .pinfo .pmeter{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:4px}
+.pcard-header .pinfo .pmeter .pos{background:var(--g)}.pmeter .neg{background:var(--r)}
+.pcard-header .pinfo .pmeter-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+.pcard-body{padding:18px 20px}
+.pcard-body .pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.pcard-body .pb-grid{grid-template-columns:1fr}.quick-strip{grid-template-columns:repeat(2,1fr)}}
+.pb-block{margin-bottom:2px}
+.pb-block h4{font-size:11px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.pb-block h4 .hdot{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.pb-block h4 .hdot.neg{background:var(--r)}.pb-block h4 .hdot.pos{background:var(--g)}
+.pb-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pb-list li{font-size:12px;color:var(--s);line-height:1.5;padding:4px 10px;border-radius:6px;transition:background 0.1s}
+.pb-list li:hover{background:var(--bg)}
+.pb-list .cnt{font-size:10px;color:var(--muted);background:var(--bg);padding:1px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.pb-list .q{display:block;font-size:10px;color:var(--muted);font-style:italic;margin-top:2px;line-height:1.4}
+.pb-en{grid-column:1 / -1;font-size:11px;color:var(--s);background:var(--bg);border-radius:6px;padding:8px 12px;line-height:1.6}
+.pb-en b{color:var(--a)}
+.pcard-actions{padding:0 20px 18px}
+.act-item{background:var(--al);border:1px solid var(--a);border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.act-item:last-child{margin-bottom:0}
+.act-item .prio{display:inline-block;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:700;flex-shrink:0;margin-top:1px}
+.prio.p0{background:var(--r);color:#fff}.prio.p1{background:var(--amb);color:#fff}.prio.p2{background:var(--b);color:#fff}
+.act-item .act-text{flex:1;min-width:0}
+.act-item h4{font-size:12px;font-weight:600;margin-bottom:2px;color:var(--a)}
+.act-item p{font-size:11px;color:var(--s);line-height:1.5}
+.pattern-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.pattern-grid{grid-template-columns:1fr}}
+.pat-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px;position:relative;overflow:hidden}
+.pat-card::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;border-radius:2px 0 0 2px}
+.pat-card:nth-child(1)::before{background:var(--a)}
+.pat-card:nth-child(2)::before{background:var(--g)}
+.pat-card:nth-child(3)::before{background:var(--amb)}
+.pat-card:nth-child(4)::before{background:var(--r)}
+.pat-card:nth-child(5)::before{background:var(--b)}
+.pat-card:nth-child(6)::before{background:var(--a)}
+.pat-card:nth-child(7)::before{background:var(--g)}
+.pat-num{font-size:36px;font-weight:700;color:var(--border);line-height:1;margin-bottom:-10px}
+.pat-card h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.pat-card p{font-size:12px;color:var(--s);line-height:1.5;margin-bottom:8px}
+.pat-card .pat-tags{display:flex;gap:6px;flex-wrap:wrap}
+.pat-card .pat-tags .tag{font-size:9px;padding:1px 7px;border-radius:3px;font-weight:600}
+.tag.from{background:var(--rl);color:var(--r)}.tag.fix{background:var(--gl);color:var(--g)}
+.self-eval{background:var(--card-bg);border:1px solid var(--amb);border-radius:10px;padding:18px;margin-top:24px}
+.self-eval h4{font-size:14px;font-weight:600;color:var(--amb);margin-bottom:10px}
+.se-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px}
+@media(max-width:700px){.se-grid{grid-template-columns:1fr}}
+.se-item{text-align:center;padding:10px 8px;border-radius:8px;background:var(--bg)}
+.se-item .score{font-size:30px;font-weight:700;line-height:1}
+.se-item .score.r{color:var(--r)}.se-item .score.g{color:var(--g)}.se-item .score.a{color:var(--a)}
+.se-item .lbl{font-size:10px;color:var(--muted);margin-top:4px}
+.se-item .note{font-size:10px;color:var(--s);margin-top:6px;line-height:1.4}
+.next-steps{margin-top:12px;padding:12px 16px;background:var(--bl);border:1px solid var(--b);border-radius:8px;font-size:12px;color:var(--b);line-height:1.6}
+.next-steps strong{display:block;margin-bottom:2px}
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+</style>
+</head>
+<body>
+<div class="c">
+
+<header>
+  <h1>玩家心声报告 v1.1</h1>
+  <div class="sub">互动影游竞品 · Steam 评测深读 · 2026-09-16（周三）· 池内 36 款（35 款采集 + Rescue the Hostages 周扫占位，下期采集 09-21）· 第 25 期 · 24h 窗口（09-15 08:10→09-16 08:37，CUTOFF 已对齐上期 fetch 完成时刻）：全库主语言净增 +29（正 25 / 负 4），其中老池 +9（正 7 / 负 2，零清洗波第三日）+ 幸存者笔记 +20（正 18 / 负 2，起量斜率确认）——全库新评测原文捕获 33 条（d2all 翻页通道，上期边界缺口修复生效）· 数据口径：day_range=30 负面抽样 + 主语言全量抽样 + day_range=2 翻页捕获（中文游戏 schinese / 英文游戏 english，1000王子 补全语言口径）· 商店基线：pool0915 快照回退（当日 intel 2026-09-16 未落盘，已标注；intel 落盘后下期校正）</div>
+</header>
+
+<!-- ═══ Hero ═══ -->
+<div class="hero">
+  <div class="hero-tag">⚡ CORE FINDING</div>
+  <h2>《幸存者笔记》第二日放量确认：313→333（+20）且差评结构健康（18 正 2 负，2 条负评均为工程质量非内容否定）——AI 影游双样本公式进入「斜率验证」阶段；女帝篇 4 条新好评全部由配角支线驱动（高扬×小伍和解 / 刘贵妃×礼忠 / 李泰 BE→HE 呼声），「配角支线=口碑引擎」第三日固化；媚娘新差评重启「单机强制联网+充值」指控，与女帝/江山/绍宋构成 4 款交叉的强制联网族；老池零清洗第三日，微移除噪声层 ~3-4 条，江山北望出现全成就玩家差评改好评翻转</h2>
+  <p class="lead">本期采集管线执行了上期承诺的 d1all×CUTOFF 边界修复（通道升级为 day_range=2 + CUTOFF 对齐上期 fetch 完成时刻 08:10），原文捕获 33 条、边界零缺口——上期漏捕的江山/恶校/媚娘类新增本期全部入账。信号面上：幸存者笔记 24h 净增 20 条，好评侧新增「真人 CV 配音」「电影运镜/导演语言」「期待第二部 ×4」三个 praise 锚点，差评侧出现全库首条「主播模式」诉求（「有些画面实在不适合拿出来直播，被害了两次」）与「好评太多只能先给差评让官方看见」的条件性差评——后者是「高好评率信任税」的全新变体：差评正在变成玩家唯一可触达的反馈通道。女帝篇的口碑引擎连续第三日由配角支线供给（本日 4/4 新好评无一条来自主线），「能不能出李泰好结局」的 DLC 需求呼声与江山全成就玩家差评转好评共同指向：深度玩家的 BE→HE 补完需求是被低估的商业信号。媚娘篇 2 条新差评（「垃圾游戏 还要联网…还有充值内容」/「唯心主义大女主味道」）与一条文风高度模板化的 6.3h 疑似营销好评并存，已标注监测。老池侧零清洗进入第三日（-929→-63→0→0→0 五点模型），金宵 57.0→56.6 续跌（新差评点名页面滚动卡死 bug）。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hsv">36</span><span class="hsl">池内产品（35 采集）</span></div>
+    <div class="hero-stat"><span class="hsv">33</span><span class="hsl">24h 新评测原文捕获</span></div>
+    <div class="hero-stat"><span class="hsv">+25/+4</span><span class="hsl">全库正/负净增</span></div>
+    <div class="hero-stat"><span class="hsv">10</span><span class="hsl">行动卡（P0+P1 = 6）</span></div>
+    <div class="hero-stat"><span class="hsv">7</span><span class="hsl">交叉模式（🆕×2）</span></div>
+  </div>
+</div>
+
+<!-- ═══ Quick Strip ═══ -->
+<div class="quick-strip">
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354460/8c136db542f3c9ac30ea86cf105014b99206d2f5/header_schinese.jpg?t=1789289866" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">幸存者笔记</span><span class="qrating ok">92.8%</span></div>
+    <div class="qbar"><div class="pos" style="width:93%"></div><div class="neg" style="width:7%"></div></div>
+    <div class="qtag">🟢 起量第二日：313→333（+20，正 18/负 2），92.8%（-0.2）· 新 praise 锚点：真人CV配音/电影运镜/期待第二部×4 · 🆕全库首条「主播模式」诉求 + 「好评太多只能先给差评」条件性差评 · 退出游戏 bug / 回看无进度条被点名</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4148240/ad47878cf250027da631c4678102b8167fd166c1/capsule_616x353_schinese.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">女帝篇</span><span class="qrating ok">82.5%</span></div>
+    <div class="qbar"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+    <div class="qtag">🟢 4 条新好评 100% 由配角支线驱动（第三日）：高扬×小伍和解泪目 / 刘贵妃×礼忠虐心 / 「能不能出李泰好结局」BE→HE 呼声 · posΔ+2 vs 4 新文本 → 微移除 ~2 条（噪声层）</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3478050/0e3d390564332c03dd980d0b295cb533d0ecb7a7/capsule_616x353_schinese.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">媚娘篇</span><span class="qrating warn">82.9%</span></div>
+    <div class="qbar"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+    <div class="qtag">🟠 +2neg：「垃圾游戏 还要联网 画质有差 还有充值内容」重启强制联网指控（与女帝/江山/绍宋构成 4 款交叉族）· 1 条 6.3h 长好评文风高度模板化疑似营销文，已标注监测 · 登录故障差评仍在池</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4143220/4925056509db1533da002335787556f640ac1a2e/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">金宵公寓事件</span><span class="qrating bad">56.6%</span></div>
+    <div class="qbar"><div class="pos" style="width:57%"></div><div class="neg" style="width:43%"></div></div>
+    <div class="qtag">⚪ 57.0→56.6 续跌：新差评（6.2h）点名「页面拉到上方就会卡住，得退出重进」bug + 主线凶手动机牵强 + 妹妹跳舞视频捧演员嫌疑——静默期结束，下滑通道重开</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">江山北望</span><span class="qrating ok">91.3%</span></div>
+    <div class="qbar"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+    <div class="qtag">🟢 91.3% 持平第 3 日；pos+1/neg-1 + 总量不变 = 差评改好评投票翻转（11.2h 全成就玩家 09-16 更新长评：全章节 100% 后转好评，但点名「单机搞实时联网，宿舍断网闪退」）</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top"><img class="qicon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4855450/32b18b2fd0dc505d38dd91500dfc359b771c37d0/header_schinese.jpg?t=1786671930" alt="" loading="lazy" onerror="this.style.display='none'"><span class="qname">不心动才有鬼</span><span class="qrating ok">95.0%</span></div>
+    <div class="qbar"><div class="pos" style="width:95%"></div><div class="neg" style="width:5%"></div></div>
+    <div class="qtag">🟠 95.1→95.0：新差评（8.0h）「好无聊 尺度也不大。。只值个5块钱」——福利向产品的尺度预期管理问题首次量化（¥39 定价 vs 玩家心理锚 ¥5）</div>
+  </div>
+</div>
+
+<div class="section">
+<div class="section-title">逐款分析 <span class="st-num">36 款 · 按信号强度排序 · 好评率为 API 抽样（已与商店页基线比对，基线取 pool0915 快照回退——当日 intel 未落盘，下期校正）</span></div>
+<div class="pcard" style="border-left:4px solid var(--g)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4354460/8c136db542f3c9ac30ea86cf105014b99206d2f5/header_schinese.jpg?t=1789289866" alt="幸存者笔记" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">幸存者笔记 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 起量第二日：+20（正 18/负 2），92.8%（-0.2）——AI 影游双样本进入斜率验证阶段</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 92.8% / 商店 93.4%（-0.6 ✓）</span></div>
+      <div class="pmeta"><span>MYSTERY CROWN · YESPLAY · 2026-09-11 · 全 AI 虚拟真人末日丧尸 FMV</span><span>30天差评 20</span><span>评测池 333（中文，24h +20）</span></div>
+      <div class="pmeter"><div class="pos" style="width:93%"></div><div class="neg" style="width:7%"></div></div>
+      <div class="pmeter-labels"><span>好评 92.8%（API 中文口径）</span><span>差评 7.2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨</h4><ul class="pb-list"><li>重播链路三件套：无进度条回看 + 不能快进 + 退出 bug <span class="cnt">×4</span><span class="q">「建一个加上进度条，因为当我想回去看不同选择带来的剧情，对话的时候，我必须把前置的片段全部看完才行」（13.9h 09-15 新好评内建议）/「剧情选项太长了，应该只有不同的地方进行播片，而不是一整段」（8.7h 09-15 新好评内缺点）/「昨天点退出游戏没反应，点了十几次才退出游戏」（1.0h neg30 池）——700 分钟体量放大重复观看成本，差评与好评内建议双向命中</span></li><li>AI 近景质感税延续（双样本公式确认项） <span class="cnt">×3</span><span class="q">「但AI感还是扑面而来2333这个无法解决」（19.6h 09-16 新好评）/「画质甚至没有2k、很多衔接画面被省略」（0.2h 09-15 新差评）/「AI质感太重，不是不能用AI，但是看着全程都是AI」（1.0h neg30 池）</span></li><li>剧情中段与配角设计批评（新叙事） <span class="cnt">×3</span><span class="q">「孔雀小队剧情突兀，人物形象丑的让我生理不适…人物击杀丧尸的手段不合理，带上丧尸面具就可以避免丧尸击杀，那是不是只要人人带上丧尸面具就好了」（13.9h 09-15）/「后面剧情又臭又长 男女主莫名其妙感情先 反派各种操作莫名其妙 到第七章玩不下去」（4.4h 09-15 新差评）/「孔雀小队却集体消失了，纯粹酱油党，很突兀」（11.8h 09-16 新好评内建议）</span></li><li>社群响应缺失（新信号） <span class="cnt">×1</span><span class="q">「进了你们的玩家交流群，本意想着提点意见…但是主创完全无视，只回复自己想回复的」（13.9h 09-15 新好评内）——与金宵「社媒回应不对称」、不心动「最装死的官方」构成运营响应交叉族</span></li><li>条件性差评（信任税新变体） <span class="cnt">×1</span><span class="q">「画质太模糊…可惜目前好评的太多了，只能先给差评让官方能够看见存在的缺点，当缺点修正后再修改好评！！」（5.9h neg30 池）——玩家明确把差评当反馈通道使用</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美</h4><ul class="pb-list"><li>期待第二部（系列化意愿，双样本首见） <span class="cnt">×4</span><span class="q">「期待第二部」（12.5h/11.5h/10.7h 三条独立新好评）/「剧情非常好，出乎意料，难道逻辑自洽的游戏啊」（12.5h）——发售第 5 日即形成续作预期，AI 路线的品牌资产信号</span></li><li>真人 CV 配音 + 配乐 + 电影运镜（新锚点） <span class="cnt">×3</span><span class="q">「而且是真人cv老师配音，配乐也很加分」（8.3h 09-15）/「影片一开场的运镜就很有意思，好像真的电影作品，证明有导演幕后指导，用拍摄真实电影的电影语言来制作AI电影，其实算是一个节省经费做出大制作的好方法」（0.1h 09-15）——「AI 画面 + 真人声音 + 电影语言」三层配方被玩家逐层点名</span></li><li>剧情反转与人物塑造延续 <span class="cnt">×3</span><span class="q">「后面多次的反转让我觉得很惊艳」（13.9h）/「人物塑造得非常用心，剧情厚度也够，不是肤浅的爽剧」（19.6h 09-16）/「有故事，有特效，还要什么自行车？」（11.8h 09-16）</span></li><li>🆕 主播模式诉求（好评内功能请求） <span class="cnt">×1</span><span class="q">「能不能，加个主播模式！！！有些画面实在不适合拿出来直播！！！！！！被害了两次了唉」（5.6h 09-15 新好评）——全库首条直播合规功能请求，AI 量产内容 + 直播传播场景的新需求</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp0">P0</span><div class="act-text"><h4>重播链路三件套补全：进度条 + 快进/跳过 + 退出 bug——AI 影游留存命门的第二日证据</h4><p>本日 4 条独立证据（好评内建议 ×2、差评 ×1、neg30 池 ×1）+ 女帝 24.4h 在池「快进也只有1.5倍速」+ 天平 92.4h「跳过键跟没有一样」——该族已是全库最强 P0。对自家：分段进度条（回看免重看前置）与跳过/倍速同权；退出无响应属 5 秒级 UX bug，不应存在于任何上线版本。</p></div></div><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>🆕 主播模式/直播合规：AI 影游的第一个直播时代功能请求样本</h4><p>幸存者笔记玩家因画面不适合直播「被害了两次」主动请求主播模式。AI 量产影游天然适配直播传播，但敏感画面无开关会直接损失主播侧免费流量。对自家：敏感片段标记 + 直播模式自动打码/替换，成本极低、先发无竞品。</p></div></div><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>社群响应 SOP：差评正在成为玩家唯一可触达的反馈通道</h4><p>「主创完全无视玩家群意见」+「好评太多只能先给差评让官方看见」+ 列车怪谈 U盘 bug 差评「修复了改评价」——三个样本共同指向：玩家用差评换响应。对自家：玩家群/社媒反馈分级响应（48h 内 Ack + 修复排期公开），把「差评当工单」的玩家行为转化为口碑修复机会。</p></div></div><div class="act-item"><span class="prio pp2">P2</span><div class="act-text"><h4>孔雀小队式「丑角配角」审美风险管理</h4><p>两条新评测独立点名孔雀小队「形象丑到生理不适 + 行为逻辑不合理 + 集体消失」。AI 路线省下的选角成本不等于可以用失控的 AI 角色填充支线——配角审美与叙事必要性需同等验收。对自家：AI 配角入片前过「删掉这条线是否更好」测试。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--g)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4148240/ad47878cf250027da631c4678102b8167fd166c1/capsule_616x353_schinese.jpg" alt="女帝篇" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">女王的游戏：盛世天下 女帝篇 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 4 条新好评 100% 配角支线驱动，「配角支线=口碑引擎」第三日固化</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 82.5% / 商店 82.3%（+0.2 ✓）</span></div>
+      <div class="pmeta"><span>New One Studio · 2026-06-08 · 宫廷权谋 FMV</span><span>30天差评 20</span><span>评测池 7800（中文，24h +1：pos+2/neg-1）</span></div>
+      <div class="pmeter"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+      <div class="pmeter-labels"><span>好评 82.5%（API 中文口径）</span><span>差评 17.5%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池延续）</h4><ul class="pb-list"><li>「宝宝权谋/剧情降智」主批评框架在池 <span class="cnt">×3</span><span class="q">「逻辑稀烂，无脑到极点，很多正确选项跟错误选项的本质上是一个意思，但就是会剧情杀…评价为8岁适龄儿童红果短剧水平」（10.3h neg30 池）/「游戏设计的太敷衍了，而且很多都用文字代替，没有剧情」（6.1h neg30 池）</span></li><li>BGM 消失 + 嘴型不同步（工程债在池） <span class="cnt">×2</span><span class="q">「戴耳机的时候bgm时不时消失只剩下台词，只能切换成扬声器才能正常」（12.5h neg30 池）/「配音很不错，但嘴型一堆对不上，这一部好明显」（3.8h neg30 池）</span></li><li>强制联网 + 登录故障（交叉族核心成员） <span class="cnt">×2</span><span class="q">「B游戏老要联网就算了，还一直出错一直网络异常，真把自己当网游了」（17.5h neg30 池）/「一直显示登录超时…单机游戏做成这样也是绝中绝」（6.5h neg30 池）</span></li><li>⚠️ posΔ+2 vs 4 条新好评文本 → 约 2 条好评微移除（零清洗波间期噪声层，归因为推断）</li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（本日新增）</h4><ul class="pb-list"><li>配角支线情感冲击（本日 4/4） <span class="cnt">×2</span><span class="q">「高扬和小伍和解那段我看得泪流满面，两个人终于把话说开的时候竟然是诀别」（6.3h 09-15 23:10）/「刘贵妃临死前礼忠在门外哭，那段也太虐了，权力的无情和强大被完美地诠释了出来」（10.2h 09-15 23:04）——配角死亡的留白处理是本作最强口碑资产，连续第三日验证</span></li><li>李泰 BE→HE 补完需求（DLC 信号） <span class="cnt">×1</span><span class="q">「能不能出李泰好结局？我没有更重要的事要做！有什么事不能一起做」（20.3h 09-15 19:47）——与在池 12.9h 长评「礼泰叔叔一个人孤独地离开了」形成连续两日同向需求，商业层可直接转化为 HE 篇 DLC/番外</span></li><li>在池：季怀衷/长孙太尉配角塑造好评链（09-11 起）、王皇后/萧舒妃形象鲜明（6.2h 在池）持续沉淀</li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>「配角支线=口碑引擎」方法论第三日固化 + BE→HE 补完需求的商业化路径</h4><p>本作好评侧连续 3 日由配角供给（季怀衷→高扬小伍→刘贵妃礼忠），主线批评与此完全解耦——说明玩家对「世界里的配角命运」的情感投注高于对主线逻辑的苛责。对自家：预算再紧也不砍配角支线的完成度；BE 角色的 HE 番外/DLC 是已被玩家公开喊话（「能不能出李泰好结局」）的低成本高情绪回报产品。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3478050/0e3d390564332c03dd980d0b295cb533d0ecb7a7/capsule_616x353_schinese.jpg" alt="媚娘篇" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">女王的游戏：盛世天下 媚娘篇 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">🟠 +2neg 重启「联网+充值」指控；1 条疑似营销文好评已标注监测</span> <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">API 82.9% / 商店 86.6%（-3.7 口径差：中文 vs 全语言）</span></div>
+      <div class="pmeta"><span>New One Studio · 2025-09-08 · 宫廷生存 FMV 上部</span><span>30天差评 18</span><span>评测池 9444（中文，24h +2neg）</span></div>
+      <div class="pmeter"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+      <div class="pmeter-labels"><span>好评 82.9%（API 中文口径）</span><span>差评 17.1%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨</h4><ul class="pb-list"><li>强制联网 + 内购充值（本日重启） <span class="cnt">×1</span><span class="q">「垃圾游戏 还要联网 画质有差 还有充值内容早日破产倒闭吧」（4.4h 09-15 20:10 新差评）——与女帝篇/江山/绍宋构成单机强制联网 4 款交叉族；「充值内容」为该族新变体（移动端内购模式反噬 Steam 端口碑）</span></li><li>大女主/价值观叙事批评（新样本） <span class="cnt">×1</span><span class="q">「身为一个略懂历史的人，有点难绷…为啥透露着一股唯心主义以及大女主的味道，可能本身就不是受众吧，这一点其实在女皇篇会更重」（0.9h 09-16 01:24 新差评，陪老婆游玩的男性玩家）——「宝宝权谋」批评的女性视角镜像版</span></li><li>登录故障差评仍在池 <span class="cnt">×1</span><span class="q">「一直显示登录超时，验证完整性和重新下载仍然无法登录游戏」（15.8h neg30 池）——与女帝篇同源，系列级工程债</span></li><li>选择无意义主批评框架在池 <span class="cnt">×3</span><span class="q">「大部分都是选错就死，且选择与所引向的结果基本没什么逻辑和关联性…你这剧情是单线的为什么要做成选择性影游呢」（7.4h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美</h4><ul class="pb-list"><li>服化道/影视级制作（在池 + 本日长评） <span class="cnt">×1</span><span class="q">「影视级的制作水准…完全是正规古装电视剧的质感。服化道称得上是同类互动游戏里的一流水准」（6.3h 09-15 16:35 新好评）——⚠️ 该好评文风高度模板化（「特此认真写个中肯评价」式营销腔、全维度无缺点式覆盖），疑似渠道投放软文，仅标注监测不下结论；其点名的高阳/辩机、韦贵妃三条支线与既有有机好评内容一致</span></li><li>配角情感线（在池沉淀） <span class="cnt">×2</span><span class="q">「李承乾的知己情与爱而不得…适配的主题曲和歌词完美贴合心境」（同上软文嫌疑样本）/「高阳公主和辩机那一段真的是意难平~！」（7.2h 在池男性玩家）——与女帝篇「配角引擎」同源，系列级方法论</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp2">P2</span><div class="act-text"><h4>疑似营销文好评的监测机制</h4><p>6.3h 新好评呈现「全维度覆盖 + 营销腔 + 零具体游戏细节错误但零个人痕迹」的软文特征。对自家：建立投放类好评识别清单（文风模板化 / 发布时间聚集 / 无个人化细节），区别于模板刷量——前者是渠道动作、后者是刷量风险，口径不同应对不同。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--r)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4143220/4925056509db1533da002335787556f640ac1a2e/capsule_616x353.jpg" alt="金宵公寓事件" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">金宵公寓事件 <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">🔴 57.0→56.6 续跌：静默期结束，下滑通道重开</span> <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">API 56.6% / 商店 58.7%（-2.1 ✓）</span></div>
+      <div class="pmeta"><span>Buddy Studio · 2026-08-25 · 监控推理 FMV</span><span>30天差评 20</span><span>评测池 122（中文，24h +1neg）</span></div>
+      <div class="pmeter"><div class="pos" style="width:57%"></div><div class="neg" style="width:43%"></div></div>
+      <div class="pmeter-labels"><span>好评 56.6%（API 中文口径）</span><span>差评 43.4%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨</h4><ul class="pb-list"><li>页面滚动卡死 bug（本日新增） <span class="cnt">×1</span><span class="q">「然后有bug，页面拉到上方就会卡住，得退出重进」（6.2h 09-15 22:55 新差评）——5 秒级 UX bug 直接贡献差评，与「改评价等修复」的列车怪谈样本同构</span></li><li>主线逻辑 + 妹妹捧演员嫌疑（本日新增） <span class="cnt">×1</span><span class="q">「主线凶手动机也很牵强。主角妹妹的存在是？还专门展示了跳舞视频，这是要靠影游捧某个演员吗？」（同上 6.2h）——「妹妹」角色在差评池的争议浓度进一步升高（在池另有 4 条独立点名）</span></li><li>解密引导差（核心死因在池） <span class="cnt">×4</span><span class="q">「任务引导做得很差几乎没有，搜集线索系统做得很僵硬死板…一定要点照片上的沙发才能搜集到关键词，把我气笑了」（7.3h neg30 池）/「97个关键词，第一遍打完我找到了96个，你们懂那种绝望吗」（5.3h neg30 池）</span></li><li>意识形态争议（在池） <span class="cnt">×3</span><span class="q">「贯穿整个游戏的那种DEI味真的很让人不适」（8.2h neg30 池）/「游戏男味很重，里面对女性的描写很片面」（2.7h neg30 池）——双向价值观批评并存，舆论场撕裂型产品</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>玩法融合探索价值（在池） <span class="cnt">×2</span><span class="q">「真人电影与填空破案的结合…代入感不错，故事线环环相扣，演员素质不错，谜题难度低」（4.6h all 池）/「自信选了困难模式，靠还真有点难…故事确实吸引住我了，一口气玩了近两个小时」（1.7h all 池）——推理+影游融合方向本身仍被认可，死因在执行层</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp0">P0</span><div class="act-text"><h4>页面滚动卡死 bug——「5 秒能修」级 UX 缺陷正在 56% 读数上继续放血</h4><p>新差评明确给出复现路径（页面拉到上方 → 卡死 → 退出重进）。对自家：上线前缺陷清单里，「已知复现路径的 UI 卡死」应视同崩溃处理；竞品已示范该类 bug 的差评转化率（列车怪谈 U盘 bug 曾两日连造差评并拖低读数 3pp）。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--g)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3831120/6a5af0317c2156f49b790588f09484e1f63cbbed/capsule_616x353.jpg" alt="江山北望" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">江山北望 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 差评改好评投票翻转（全成就玩家）；91.3% 持平第 3 日</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 91.3% / 商店 91.0%（+0.3 ✓）</span></div>
+      <div class="pmeta"><span>木焱工作室 / 凤麟互娱 · 2025-11-19 · 架空历史权谋 FMV</span><span>30天差评 19</span><span>评测池 6264（中文，pos+1/neg-1 翻转）</span></div>
+      <div class="pmeter"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+      <div class="pmeter-labels"><span>好评 91.3%（API 中文口径，稳定盘）</span><span>差评 8.7%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池）</h4><ul class="pb-list"><li>权谋深度批评（两极差评核心在池） <span class="cnt">×5</span><span class="q">「棋盘搭得很好，但游戏不太想让我下棋」（3.9h neg30 池）/「剧情看似有很多选择，实则都是死路」（4.1h neg30 池）</span></li><li>🆕 强制联网闪退（本日更新的长评点名） <span class="cnt">×1</span><span class="q">「单机剧情游戏，还搞实时联网游玩，正玩的投入呢，就因为网络波动，游戏就不动了，让人生气」（11.2h 09-16 更新评测，宿舍断网闪退亲历）——强制联网族第 4 名成员</span></li><li>回档导航债 + UI 小字（在池） <span class="cnt">×1</span><span class="q">「前面选错了，到后面过不去了还得跑到老前面改选项，改完还不能跳…ui做的太小太黑」（2.3h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（本日更新长评）</h4><ul class="pb-list"><li>皇帝视角后置章节设计（新锚点） <span class="cnt">×1</span><span class="q">「这游戏不是主角当皇帝后就结束，而是用6，7两个章节让玩家从第一章节皇帝的角度看问题，挺新颖的」（11.2h 09-16 更新，全章节 100% 后转好评）——「视角切换后置章节」被全成就玩家命名为差异化设计</span></li><li>竞品对比导流叙事（在池） <span class="cnt">×2</span><span class="q">「比绍宋做得好太多，绍宋看了20分钟实况就关了」（12.5h 在池）/「我也玩过名利游戏，整体来说我认为这一部比名利游戏更好玩」（同上 11.2h）——差评池竞品的玩家自发导流仍在持续</span></li><li>「微选择重拍」资产叙事在池延续（12.2h 09-13 长评）</li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp1">P1</span><div class="act-text"><h4>全成就玩家的「差评→好评」翻转是最强口碑资产——主动经营这一层</h4><p>本期翻转样本（11.2h 全成就 + 09-16 更新好评）与 09-08 「深度长评领跑」共同说明：10h+ 全成就玩家是本作口碑的决定性供给层。对自家：全成就/100% 探索玩家应获得专门运营（成就 milestones 回馈、深度玩家社群直连），他们的长评质量与改分行为对读数影响远大于普通好评。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4855450/32b18b2fd0dc505d38dd91500dfc359b771c37d0/header_schinese.jpg?t=1786671930" alt="不心动才有鬼" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">不心动才有鬼 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">🟠 尺度预期错配首次量化：玩家心理锚 ¥5 vs 定价 ¥39</span> <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">API 95.0% / 商店 95.5%（-0.5 ✓）</span></div>
+      <div class="pmeta"><span>SP Studio / PLSS · 2026-08-13 · 恋爱 FMV</span><span>30天差评 20</span><span>评测池 1319（中文，24h +1neg）</span></div>
+      <div class="pmeter"><div class="pos" style="width:95%"></div><div class="neg" style="width:5%"></div></div>
+      <div class="pmeter-labels"><span>好评 95.0%（API 中文口径）</span><span>差评 5.0%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨</h4><ul class="pb-list"><li>尺度预期错配（本日新样本） <span class="cnt">×1</span><span class="q">「好无聊 尺度也不大。。 只值个5块钱」（8.0h 09-15 23:58 新差评）——福利向产品首次出现明确心理锚（¥5）：擦边尺度在监管约束下无法升级，¥39 定价的「内容量补偿」逻辑未被该层玩家接受</span></li><li>剧情稀碎主批评（在池） <span class="cnt">×4</span><span class="q">「剧本是人写出来的吗？剧情乱七八糟，强行煽情强行90度转折」（6.2h neg30 池）/「剧情稀碎，莫名其妙，冲马倩倩买的」（10.2h neg30 池）——「演员阵容撑口碑、剧情拉后腿」结构未变</span></li><li>官方响应缺失（在池） <span class="cnt">×1</span><span class="q">「我见过最装死的官方了…朝令夕改，私信不回群里装死」（13.4h neg30 池）——运营响应不对称族成员</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>演员阵容 + 福利供给（在池核心资产） <span class="cnt">×3</span><span class="q">「为了马倩倩还是给个好评吧，这张脸太权威了」（11.2h all 池）/「老马一颦一笑都牵动我心弦」（25.1h all 池）——演员 IP 是本作 95% 读数的唯一支柱</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp2">P2</span><div class="act-text"><h4>福利向产品的尺度预期管理</h4><p>「只值 5 块」给出了福利向内容的玩家心理定价锚。对自家：若走演员/福利路线，定价必须与尺度承诺对齐——监管导致尺度上限固定时，要么降价对齐心理锚，要么用剧情/玩法补足「内容量补偿」叙事，避免两头落空。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--g)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4234260/8304dfd2458ffffd8ce94ce8e76a12c95f4f6cf5/capsule_616x353.jpg" alt="主角" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">主角 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 +1 好评（内含程序 bug 抱怨）；97.3% 稳定</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 97.3% / 商店 97.2%（+0.1 ✓）</span></div>
+      <div class="pmeta"><span>顶顶阳光 / 一相逢互动 · 2026-07-15 · 校园悬疑 FMV</span><span>30天差评 2</span><span>评测池 966（中文，24h +1pos）</span></div>
+      <div class="pmeter"><div class="pos" style="width:97%"></div><div class="neg" style="width:3%"></div></div>
+      <div class="pmeter-labels"><span>好评 97.3%（API 中文口径）</span><span>差评 2.7%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨</h4><ul class="pb-list"><li>程序卡顿 bug（本日新增于好评内） <span class="cnt">×1</span><span class="q">「剧本还可以，演员表演也算不错。但是程序bug比较严重，经常动不动卡住，导致没有动力去刷全成就」（8.1h 09-15 14:41 新好评）——bug 未阻止好评但明确抑制全成就行为（与江山「全成就玩家=口碑资产」结论互为反面注脚）</span></li><li>差评池极薄（30 天仅 2 条，均为 08-24 剧情批评），无新增</li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>题材差异化 + 演出不尬（在池） <span class="cnt">×2</span><span class="q">「反规训互动影游…玩多了市面上常见的恋爱擦边爽游的，可以来试一下换换口味」（2.6h all 池）——非恋爱题材的差异化定位持续被认可</span></li></ul></div></div></div>
+  <div class="pcard-actions"><div class="act-item"><span class="prio pp2">P2</span><div class="act-text"><h4>bug 对全成就转化率的隐性抑制</h4><p>「卡住导致没有动力刷全成就」说明：工程债不止制造差评，还在沉默地压低深度玩家转化。对自家：全成就路径的稳定性应纳入发布验收（成就党是长尾口碑供给层）。</p></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4292950/dfd52caf6453e43b4d613a662064aca4924a7858/header.jpg?t=1787201131" alt="绍宋" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">绍宋：还我河山 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 80.9% 持平，零新增（修复后平台期第 15 日）</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 80.9% / 商店 80.2%（+0.7 ✓）</span></div>
+      <div class="pmeta"><span>互动之星 / 猫眼娱乐 · 2026-08-20 · 历史权谋 FMV</span><span>30天差评 20</span><span>评测池 2748（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:81%"></div><div class="neg" style="width:19%"></div></div>
+      <div class="pmeter-labels"><span>好评 80.9%（API 中文口径）</span><span>差评 19.1%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池固化）</h4><ul class="pb-list"><li>杨沂真角色 + AI 过场 + 战棋系统（三连批评框架） <span class="cnt">×5</span><span class="q">「莫名其妙的杨怡真，凭空造人也是绝了…战棋系统真不如不做，一场战斗演到一半突然来个战棋再从头打一遍，机器割裂玩家情绪」（12.4h 09-07 neg30 池原著党长评）/「你在看红果吗？？」（0.4h neg30 池）</span></li><li>信任税指控（在池） <span class="cnt">×3</span><span class="q">「特别好评全是刷的」（9.3h neg30 池）/「退款时间是被卡死的」（13.1h neg30 池）</span></li><li>强制联网弹窗（已修复追评在池） <span class="cnt">×1</span><span class="q">「你一个单机游戏，为什么会跳弹窗说让我检查网络状态…2026.091，确实修复了能玩了」（11.8h neg30 池修复档案）——强制联网族的「已修复」对照组</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>IP 情怀 + 中老年新增用户好评（在池） <span class="cnt">×1</span><span class="q">「中老年人第一款影游，感觉还是挺好玩的，才40多块钱」（15.3h all 池）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4920100/aecf4db2323a4eebc76013235e0091fd07a600a2/header_schinese.jpg?t=1788225078" alt="列车怪谈" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">列车怪谈：虚像之境 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 86.6% 持平第 3 日，AI 双样本成员稳定</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 86.6% / 商店 87.3%（-0.7 ✓）</span></div>
+      <div class="pmeta"><span>司命工作室 · 2026-08-30 · AI 悬疑恐怖互动影游</span><span>30天差评 9</span><span>评测池 67（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:87%"></div><div class="neg" style="width:13%"></div></div>
+      <div class="pmeter-labels"><span>好评 86.6%（API 中文口径）</span><span>差评 13.4%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池）</h4><ul class="pb-list"><li>U盘证据链 bug「修复才改评价」（在池核心债） <span class="cnt">×1</span><span class="q">「跟姜夺取U盘时，夺取成功就会bug卡死…什么时候修复了这个恶心bug，什么时候改评价」（6.5h neg30 池）</span></li><li>AI 味 + 逻辑稀碎（在池） <span class="cnt">×2</span><span class="q">「ai味很冲…嘴和人物很怪，有一种恶心的感觉，很油」（1.9h neg30 池）/「这在红果上免费的都不带看的，还过来花钱买，水军也是有够误导人的」（1.9h 09-12 all 池）——红果参照系 + 信任税双命中</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>「AI 适合恐怖题材」共识（在池） <span class="cnt">×2</span><span class="q">「感觉AI就适合用来做恐怖游戏，这个游戏流程比较短，剧情中规中矩吧，对得起8.9的价格」（6.8h 09-13 all 池）/「规则不是随便贴墙上的摆设，而是真正会影响生存与结局的核心机制」（2.4h all 池）——与幸存者笔记双样本公式的恐怖端支柱</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3818020/f463d6f2fe1ab48704011f38680bdd02a8f2d6d5/header_schinese.jpg?t=1786676383" alt="恶校游戏" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">恶校游戏 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 93.0% 持平，零新增</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 93.0% / 商店 92.6%（+0.4 ✓）</span></div>
+      <div class="pmeta"><span>CineGame Interactive · 2026-08-13 · 反霸凌复仇 FMV</span><span>30天差评 20</span><span>评测池 761（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:93%"></div><div class="neg" style="width:7%"></div></div>
+      <div class="pmeter-labels"><span>好评 93.0%（API 中文口径）</span><span>差评 7.0%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池）</h4><ul class="pb-list"><li>「救孔鸢」强制共情争议（在池核心批评） <span class="cnt">×3</span><span class="q">「堪比美末二强行让玩家共情艾比环节…就硬救，没有任何充足的理由和动机」（5.4h neg30 池）/「孔鸢不救还不行」（8.6h neg30 池）</span></li><li>剧情逻辑漏洞 + 配音出戏（在池） <span class="cnt">×4</span><span class="q">「选项和剧情大部分都没啥逻辑，带脑玩感觉在侮辱我智商」（8.1h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>题材 + 沉浸感 + 750w 成本话题（在池） <span class="cnt">×2</span><span class="q">「摄影是专业级的，画面唯美。演员演技也不尬」（7.8h all 池）/「750万投资确实没想到，制作组输在了预算上解散也是无奈之举」（30.4h all 池）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3412900/231f644e9295928805d168098ba7000c7bf3f13f/capsule_616x353.jpg" alt="代号三国" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">代号三国:龙起 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 91.2% 持平，零新增</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 91.2% / 商店 90.0%（+1.2 ✓）</span></div>
+      <div class="pmeta"><span>玛奇阿朵互娱 / 凤麟工作室 · 2026-04-28 · 三国 FMV</span><span>30天差评 10</span><span>评测池 2676（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:91%"></div><div class="neg" style="width:9%"></div></div>
+      <div class="pmeter-labels"><span>好评 91.2%（API 中文口径）</span><span>差评 8.8%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池）</h4><ul class="pb-list"><li>AI 过场 + 黑化线设计（在池） <span class="cnt">×3</span><span class="q">「你要么就别弄，弄你妈一堆ai过场有意思？！」（4.3h neg30 池）/「要后宫结局一定要走黑化线」（7.4h neg30 池）——好感度系统与道德选择的耦合被点名为设计债</span></li><li>QTE 判定失灵（在池） <span class="cnt">×1</span><span class="q">「第五章 燕子坊那节点 连续点击s闪避无效，死了10多遍过不去」（4.8h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>三幻神选角 + 分支量（在池） <span class="cnt">×3</span><span class="q">「选角满分，三幻神演技都在线…2026最佳影游应该有代号的一席」（15.2h all 池）/「好玩 要福利有福利 要演技有演技 还有点深度」（12.5h 09-14 all 池）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3711170/9f5c70a0241948bc9c96a4af88a441afdeeabeb9/capsule_616x353.jpg" alt="冰点之下" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">冰点之下 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 93.5% 持平，零新增（「刷好评」指控差评在池）</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 93.5% / 商店 92.0%（+1.5 ✓）</span></div>
+      <div class="pmeta"><span>Joy Media / 凤麟工作室 · 2026-05-29 · 末日恋爱 FMV</span><span>30天差评 3</span><span>评测池 2629（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:94%"></div><div class="neg" style="width:6%"></div></div>
+      <div class="pmeter-labels"><span>好评 93.5%（API 中文口径）</span><span>差评 6.5%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池）</h4><ul class="pb-list"><li>信任税指控（09-14 差评在池） <span class="cnt">×1</span><span class="q">「好评都是刷的吧？根本玩不到后面，前面的弱智剧情和尴尬演绎」（1.3h neg30 池）</span></li><li>骰子机制打断叙事 + 内容量（在池） <span class="cnt">×2</span><span class="q">「剧情走到关键地方，来一发骰子判定…刚酝酿起来的气氛，全被打断了」（7.6h all 池）/「这完全是个半成品啊，就打倒感染者就结束了。戛然而止」（5.0h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>女主选角（在池） <span class="cnt">×1</span><span class="q">「这游戏也就女角色选的不错」（5.0h neg30 池差评内残余认可）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--g)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4412960/3432e6210f9eed1a09d9e58024cf5c88079b3faf/header.jpg?t=1787018357" alt="光与影之恋" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">光与影之恋 <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">🟢 第 107 条评测入池，100% 零差评延续</span> <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">API 100% / 商店 100%（0.0 ✓）</span></div>
+      <div class="pmeta"><span>琉璃花糖制作组 · 2026-08-17 · 百合 AVG</span><span>30天差评 0</span><span>评测池 107（中文，24h +1pos）</span></div>
+      <div class="pmeter"><div class="pos" style="width:100%"></div><div class="neg" style="width:0%"></div></div>
+      <div class="pmeter-labels"><span>好评 100%（API 中文口径）</span><span>差评 0%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（本日新增）</h4><ul class="pb-list"><li>结尾曲驱动的后劲（新样本） <span class="cnt">×1</span><span class="q">「后劲在四首中文结尾曲的加持下十分足，本质是追妻/替身/换身的合体短篇，但氛围渲染得蛮好且篇幅短小精悍，只要有其中一个点戳到就可以爽玩到通关」（4.9h 09-15 23:53 新好评）——「每结局专属曲」的音乐资产策略被玩家命名</span></li><li>「为了刀而刀」结局批评在池（09-10 命名化），无新增</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3987560/faeffae4a00fde7027c6a1124e88565156e7fdf0/header_schinese.jpg?t=1782476929" alt="盛夏离与合" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">盛夏离与合 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ +1 好评（低信息量）；84.7% 稳定</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 84.7% / 商店 84.5%（+0.2 ✓）</span></div>
+      <div class="pmeta"><span>intiny · 2026-06-24 · 完蛋 IP 新作</span><span>30天差评 6</span><span>评测池 810（中文，24h +1pos）</span></div>
+      <div class="pmeter"><div class="pos" style="width:85%"></div><div class="neg" style="width:15%"></div></div>
+      <div class="pmeter-labels"><span>好评 84.7%（API 中文口径）</span><span>差评 15.3%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评框架（无新增）</h4><ul class="pb-list"><li>全成就 99% 进度卡死 + 存档回滚丢失（09-13 P0 案例在池） <span class="cnt">×1</span><span class="q">「我游戏全结局都解锁了进度卡在了99%…按了ALT+F4结果再进游戏存档都给我干没了」（15.8h neg30 池）</span></li><li>系列质量批评 + 定价（在池） <span class="cnt">×1</span><span class="q">「这一款就是全完蛋最烂的…打折打到13块没准口碑还能逆转一下」（6.5h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 本日新增</h4><ul class="pb-list"><li>「给个大大的好评。」（3.7h 09-16 03:54，低信息量）——白月光情绪资产在池延续（「感谢完蛋感谢小有弥补了我心中的遗憾」8.7h all 池）</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3749320/912e382a3edc1ccd8f6f71e05317b0ff312b84af/header_schinese.jpg?t=1787291920" alt="花满楼" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">花满楼 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ +1 好评（「好玩」）；97.5% 稳定</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 97.5% / 商店 97.3%（+0.2 ✓）</span></div>
+      <div class="pmeta"><span>初域游戏 · 2026-08-20 · 女间谍谍战 FMV</span><span>30天差评 20</span><span>评测池 1487（中文，24h +1pos）</span></div>
+      <div class="pmeter"><div class="pos" style="width:98%"></div><div class="neg" style="width:2%"></div></div>
+      <div class="pmeter-labels"><span>好评 97.5%（API 中文口径）</span><span>差评 2.5%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评框架（无新增）</h4><ul class="pb-list"><li>风信楼抄袭指控 + 1080P/50G 工程债 + 存档读档不可用（在池三连） <span class="cnt">×4</span><span class="q">「剧本大体照搬游戏《风信楼》…希望花满楼能去找风信楼补授权吧」（1.2h neg30 池）/「只有1080p，2k、4k都不给一个还要占用50g的空间」（0.2h neg30 池）/「存档、读档、时间线功能都用不了」（0.3h neg30 池）</span></li><li>信任税（在池） <span class="cnt">×2</span><span class="q">「这游戏发售1天就有1000+评价…这好评刷的逗我呢吧」（0.5h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 本日新增</h4><ul class="pb-list"><li>「好玩」（9.1h 09-15 13:30，低信息量）——在池好评支柱（服化道/钱思怡/养成玩法）无变化</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4699920/f66f671768b02c66edbdae30743c5a5f6cad208c/header_schinese.jpg?t=1785634781" alt="天平游戏" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">天平游戏1:抉择 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 85.6% 持平，零新增（系列疲劳差评在池）</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 85.6% / 商店 83.5%（+2.1 ✓）</span></div>
+      <div class="pmeta"><span>MYSTERY CROWN · 2026-07-25 · 密闭囚笼 FMV</span><span>30天差评 20</span><span>评测池 936（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:86%"></div><div class="neg" style="width:14%"></div></div>
+      <div class="pmeter-labels"><span>好评 85.6%（API 中文口径）</span><span>差评 14.4%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池）</h4><ul class="pb-list"><li>同质化 + 无剧情 + UI 史上最烂（在池三连） <span class="cnt">×4</span><span class="q">「同样的剧本写8遍，除了擦边毫无看点…这种游戏放出来就是玩家的服从性测试」（1.4h neg30 池）/「就花钱把妞看一遍，每个人几乎一样的流程」（6.6h 09-11 neg30 池）</span></li><li>跳过键失效（重播链路族成员） <span class="cnt">×1</span><span class="q">「每个结局都需要我读档打啊？还有这个跳过键跟没有一样啊」（92.4h neg30 池全成就玩家）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>八女主阵容（在池唯一支柱） <span class="cnt">×2</span><span class="q">「演员阵容夯中夯，全是圈内带明星…最后一周目还是果断选择沈老师」（5.7h neg30 池差评内残余认可）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4384120/b1a75e132ea87533d6cb8a64206bc9eec0104676/header_schinese.jpg?t=1776751332" alt="你好你配吗" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">你好，你配吗？ <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 96.8% 持平，零新增</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 96.8% / 商店 95.9%（+0.9 ✓）</span></div>
+      <div class="pmeta"><span>MYSTERY CROWN · 2026-04-18 · 婚介模拟 FMV</span><span>30天差评 15</span><span>评测池 476（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:97%"></div><div class="neg" style="width:3%"></div></div>
+      <div class="pmeter-labels"><span>好评 96.8%（API 中文口径）</span><span>差评 3.2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池）</h4><ul class="pb-list"><li>无法倍速/快进（重播链路族成员，历史集中 6 条） <span class="cnt">×2</span><span class="q">「全是一大段一大段长的对话，无法倍速无法快进，纯纯坐牢」（0.3h neg30 池）/「选错了再读档重新选，还不能快进，硬硬熬着时间」（5.3h neg30 池）</span></li><li>说教味 + 互动缺失（在池） <span class="cnt">×2</span><span class="q">「感觉我不在玩一个轻松愉快的…影游，而是被按在课堂上听一个相亲学讲座」（0.4h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>题材共鸣（在池） <span class="cnt">×1</span><span class="q">「这个剧本还挺真实的…为制作组的勇气鼓掌」（0.9h all 池）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4108460/1fccc7802715bb0a984e303382b1762abb71e16/header_schinese.jpg?t=1785990890" alt="灭寇1939" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">灭寇1939：上川往事 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 83.2% 持平，零新增（宣发错配主批评在池）</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 83.2% / 商店 83.4%（-0.2 ✓）</span></div>
+      <div class="pmeta"><span>KARMAGAME HK / EpicDream Games · 2026-08-05 · 谍战互动叙事</span><span>30天差评 20</span><span>评测池 565（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:83%"></div><div class="neg" style="width:17%"></div></div>
+      <div class="pmeter-labels"><span>好评 83.2%（API 中文口径）</span><span>差评 16.8%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 高频抱怨（在池）</h4><ul class="pb-list"><li>「谍战皮恋爱骨」宣发错配（核心批评在池） <span class="cnt">×5</span><span class="q">「以为是硬核的抗日题材，结果…大量篇幅被恋爱情节占据」（32.4h neg30 池）/「本来预期是《隐形守护者》式的正剧风格，结果你来个《完蛋》式的颠剧」（1.1h 09-12 neg30 池）——品类承诺审判族成员</span></li><li>开箱付费设计（在池） <span class="cnt">×2</span><span class="q">「开了250个豪华箱子，近2000块只出4张印签0亲签这对吗」（50.4h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 高频赞美（在池）</h4><ul class="pb-list"><li>体量 + 演技 + 潜伏压迫感（在池） <span class="cnt">×2</span><span class="q">「白天要戴着面具做人…潜伏这两个字真正带来的压迫感」（24.6h all 池）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4056810/109610e006a4fb067c8f5a5633a6146f64e18790/header.jpg?t=1782196089" alt="东北往事" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">东北往事 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 83.5% 持平，零新增</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 83.5% / 商店 84.3%（-0.8 ✓）</span></div>
+      <div class="pmeta"><span>二狗科技 · 2026-06-22 · IP 改编互动剧情</span><span>30天差评 1</span><span>评测池 170（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:84%"></div><div class="neg" style="width:16%"></div></div>
+      <div class="pmeter-labels"><span>好评 83.5%（API 中文口径）</span><span>差评 16.5%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>体量偏短 + 改编保守（在池） <span class="cnt">×2</span><span class="q">「剧情很短…这游戏唯一亮点就是风韵犹存的毛琴了」（12.8h neg30 池）/「跟电视剧比拍得太保守了」（12.0h all 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>IP 复刻 + 全成就友好（在池） <span class="cnt">×2</span><span class="q">「由原著作者孔二狗执导…代入感拉满」（21.2h all 池）/「坏结局分支给的提示适当，我难得一次获得全成就」（12.7h all 池）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4104120/16dae4067058e25071f0af97e0b07f2d10829e8a/capsule_616x353.jpg" alt="对不起我是警察" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">对不起，我是警察 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 78.0% 持平，零新增</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 78.0% / 商店 78.4%（-0.4 ✓）</span></div>
+      <div class="pmeta"><span>intiny · 2026-04-27 · 港风粤语 FMV</span><span>30天差评 1</span><span>评测池 758（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:78%"></div><div class="neg" style="width:22%"></div></div>
+      <div class="pmeter-labels"><span>好评 78.0%（API 中文口径）</span><span>差评 22.0%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>流程短 + 布景廉价（在池） <span class="cnt">×1</span><span class="q">「剧情过于糟糕，玩法流程也很短真不值」（3.8h neg30 池）/「随便的布景画面和道具…台词过于简单」（4.1h all 池好评内）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>港风宿命感 + 演技（在池） <span class="cnt">×1</span><span class="q">「永远会为这类斗争中又带有宿命感的港风买单」（7.9h all 池）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4740420/2af65d3f87f03692ea5c480287a5899ff0165722/capsule_616x353.jpg" alt="雪落情书时" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">雪落情书时 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 96.4% 持平，零新增（单女主设计主张在池）</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 96.4% / 商店 95.2%（+1.2 ✓）</span></div>
+      <div class="pmeta"><span>Mountain&Sea Studio · 2026-07-23 · 单女主恋爱 FMV</span><span>30天差评 1</span><span>评测池 590（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:96%"></div><div class="neg" style="width:4%"></div></div>
+      <div class="pmeter-labels"><span>好评 96.4%（API 中文口径）</span><span>差评 3.6%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>结局情感交代不足（在池） <span class="cnt">×1</span><span class="q">「结局基本是相当于be，起码交代一下女主和男主确定关系的结局好吧，恋人未满？」（3.8h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>单女主真实感设计主张（在池，09-11 命名化） <span class="cnt">×2</span><span class="q">「真正好的恋爱影游就应该是单女主或双女主，再多了总有种不真实感没法代入和沉浸」（4.2h all 池）——与女帝配角引擎、江山深度长评同属「真实感>堆量」证据链</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4734650/c0e32760686baa7aa3ec93ea4142514a66e3428e/capsule_616x353_schinese.jpg" alt="请去Bar" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">请去Bar，恋爱吧！ <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 87.1% 持平，零新增（骰子核心机制争议在池）</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 87.1% / 商店 84.8%（+2.3 ✓）</span></div>
+      <div class="pmeta"><span>画往时文化 · 2026-08-21 · 酒吧恋爱 FMV</span><span>30天差评 4</span><span>评测池 31（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:87%"></div><div class="neg" style="width:13%"></div></div>
+      <div class="pmeter-labels"><span>好评 87.1%（API 中文口径）</span><span>差评 12.9%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>骰子机制无引导 + 存档损坏 + CDK 刷好评指控（在池三连） <span class="cnt">×3</span><span class="q">「一头雾水的就开始摇骰子…希望制作组能加入一个跳过摇骰子直接推进剧情的功能」（1.9h neg30 池）/「保存的存档也无法正常读取，要么点击读取没反应，要么读取的内容跟保存的不一致」（0.4h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>酒吧氛围实拍（在池） <span class="cnt">×1</span><span class="q">「灯光、布景、那种纸醉金迷的感觉很到位。配合第一人称视角」（1.9h neg30 池差评内残余认可）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3828610/98f74e2d4d0720fecf23d506b3f69574ad20e368/header_schinese.jpg?t=1787101417" alt="末日降临" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">末日降临！被美女们关进避难所!? <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 81.8% 持平，零新增</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 81.8% / 商店 79.9%（+1.9 ✓）</span></div>
+      <div class="pmeta"><span>storytaco · 2026-06-14 · 恋爱末日 FMV</span><span>30天差评 8</span><span>评测池 66（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:82%"></div><div class="neg" style="width:18%"></div></div>
+      <div class="pmeter-labels"><span>好评 81.8%（API 中文口径）</span><span>差评 18.2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>模板化剧情 + 成就不可达 bug（在池） <span class="cnt">×2</span><span class="q">「排行榜无法使用，导致某些成就无法达成…剧情套路好多部了吧，都一个模板」（3.6h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>跨物种情感题材（在池） <span class="cnt">×1</span><span class="q">「感情是否可以成为跨物种联系的纽带？」（6.5h 09-12 all 池长评标题）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3155310/cd5e94356d1beb03d49a7446efceedf0a72c7008/header_schinese.jpg?t=1787804515" alt="阴三国谋论" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">阴三国谋论: 徐州篇 <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">⚪ 91.8% 持平，零新增（pck 启动崩溃差评仍在池）</span> <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">API 91.8% / 商店 92.7%（-0.9 ✓）</span></div>
+      <div class="pmeta"><span>鹏砚 · 2026-08-12 · 三国策略互动剧情</span><span>30天差评 2</span><span>评测池 49（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:92%"></div><div class="neg" style="width:8%"></div></div>
+      <div class="pmeter-labels"><span>好评 91.8%（API 中文口径）</span><span>差评 8.2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增，修复追评第 6 日未出现）</h4><ul class="pb-list"><li>pck 启动崩溃（在池） <span class="cnt">×1</span><span class="q">「只进过一次游戏就进不去了，卸载了再装也不行，就一直显示 Error: Couldn't load project data」（0.4h neg30 池）</span></li><li>无云存档（在池） <span class="cnt">×1</span><span class="q">「甚是无趣且没有云存档」（0.6h neg30 池）——存档卫生族成员</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>士族权谋视角 + 怪谈融合（在池） <span class="cnt">×2</span><span class="q">「玩下来处处在暗示一件事：别信士族」（5.5h all 池）/「AI配音、动画、立绘的AI占比很重的游戏，其玩法上…」（11.3h all 池）——AI 参与型被包容的对照样本</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3794770/fdc921b966d6cae54eb098a27b722fa1fdfec5b7/capsule_616x353.jpg" alt="心之岛" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">心之岛 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">⚪ 66.7% 持平，零新增（临界偏差 +8.3）</span> <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">API 66.7% / 商店 58.4%（+8.3 ⚠️ 临界）</span></div>
+      <div class="pmeta"><span>Titan Digital Media · 2026-03-27 · 泰国实景恋爱 FMV</span><span>30天差评 1</span><span>评测池 42（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:67%"></div><div class="neg" style="width:33%"></div></div>
+      <div class="pmeter-labels"><span>好评 66.7%（API 中文口径，n=42）</span><span>差评 33.3%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>剧情差 + 本地化脱节（在池） <span class="cnt">×2</span><span class="q">「不推荐，剧情很差，真国外ABC做的游戏，完全不调研的」（3.3h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>「演员不错，剧情不行。」（3.4h all 池）——结构与不心动镜像：演员资产 + 剧本债</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1188710/capsule_616x353.jpg" alt="Bloodholic" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Bloodholic <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">⚪ 98.1% 持平，零新增（临界偏差 +9.8，n=54 小样本）</span> <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">API 98.1% / 商店 88.3%（+9.8 ⚠️ 临界）</span></div>
+      <div class="pmeta"><span>釉里红 · 2019-11-21 · 国产轻百合短篇</span><span>30天差评 1</span><span>评测池 54（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:98%"></div><div class="neg" style="width:2%"></div></div>
+      <div class="pmeter-labels"><span>好评 98.1%（API 中文口径，n=54）</span><span>差评 1.9%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>无语音代入感（在池） <span class="cnt">×1</span><span class="q">「没有语音，剧情没有将我带入，不推荐，虽然免费。」（0.5h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>「这是我玩到过最喜欢的视觉小说…剧情非常有深意」（2.9h all 池）</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2816920/capsule_616x353.jpg" alt="退婚后" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">退婚后，宗主马甲藏不住 <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">⚪ 26.8% 持平，零新增（临界偏差 -7.1；竖屏反面标本）</span> <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">API 26.8% / 商店 33.9%（-7.1 ⚠️ 临界）</span></div>
+      <div class="pmeta"><span>LoongCharm · 2024-03-14 · 竖屏龙王赘婿 F2P</span><span>30天差评 20</span><span>评测池 41（中文，24h ±0）</span></div>
+      <div class="pmeter"><div class="pos" style="width:27%"></div><div class="neg" style="width:73%"></div></div>
+      <div class="pmeter-labels"><span>好评 26.8%（API 中文口径）</span><span>差评 73.2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增，差评三连固化）</h4><ul class="pb-list"><li>竖屏直搬 PC + 章节内购吃相（在池） <span class="cnt">×3</span><span class="q">「进游戏竖屏把我惊呆了，我还以为设置错误！内置付费也是一绝！」（0.1h neg30 池）/「明明是免费，第二章开始收费6元」（0.2h neg30 池）——竖屏影游上 Steam 反面标本的差评结构长期稳定</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--r)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4846800/d19723e92c8b0a5ab090a9a5261643abeea1eaa/capsule_616x353.jpg" alt="1000王子" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">1000王子: ChouChou Condo <span style="font-size:11px;font-weight:400;color:var(--r);background:var(--rl);padding:2px 8px;border-radius:4px">⚠️ 数据不可信：中文池 n=2，API 0% vs 商店 22.2%（-22.2pp）</span></div>
+      <div class="pmeta"><span>琴研 Ginyan · 2026-08-21 · AI 驱动乙女线上游戏</span><span>30天差评 2</span><span>评测池 2（中文）/ 9（全语言）</span></div>
+      <div class="pmeter"><div class="pos" style="width:0%"></div><div class="neg" style="width:100%"></div></div>
+      <div class="pmeter-labels"><span>好评 0%（API 中文口径 n=2，不可信）</span><span>差评 100%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>AI 全链路质量 + 付费墙（在池） <span class="cnt">×2</span><span class="q">「ai文案ai美术ai音乐，要反映bug居然要先交30块」（0.2h neg30 池）/「AI slop (tries to make you into a pay piggy) for poor gaymers.」（17.6h neg30_en 池）——AI 路线反面样本（对照幸存者/列车正样本）：AI 无叙事骨架 + 付费前置 = 口碑死刑</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--b)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3447920/123aa17f56acb1209e393de707600c9396c1dc6f/capsule_616x353.jpg" alt="The Run" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">The Run <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">⚪ 88.9% 持平，零新增（英文组）</span> <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">API 88.9% / 商店 88.3%（+0.6 ✓）</span></div>
+      <div class="pmeta"><span>PRM Games · 2026-02-05 · 末日逃杀 FMV</span><span>30天差评 3</span><span>评测池 45（english）</span></div>
+      <div class="pmeter"><div class="pos" style="width:89%"></div><div class="neg" style="width:11%"></div></div>
+      <div class="pmeter-labels"><span>好评 88.9%（API english 口径）</span><span>差评 11.1%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>时长短 + 无法跳转（重播链路族英文端） <span class="cnt">×1</span><span class="q">「the unexpectedly short duration and the inability to skip around in the storyline absolutely kill the amount of value you get out of your $10」（2.3h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>「I love it!! I could easily play it over and over again…would easily make for a great game on Netflix!!」（4.2h all 池）——重播性被点名，与 skip 缺失形成同作双向证据</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--b)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1353270/header_schinese.jpg?t=1780395695" alt="Five Dates" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Five Dates <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">⚪ 79.8% 持平，零新增（临界偏差 -5.3）</span> <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">API 79.8% / 商店 85.1%（-5.3 ⚠️ 临界）</span></div>
+      <div class="pmeta"><span>Wales Interactive · 2020-11-17 · FMV 标杆</span><span>30天差评 2</span><span>评测池 884（english）</span></div>
+      <div class="pmeter"><div class="pos" style="width:80%"></div><div class="neg" style="width:20%"></div></div>
+      <div class="pmeter-labels"><span>好评 79.8%（API english 口径）</span><span>差评 20.2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>「Wanted to like this more than I ended up doing, just not very good」（5.7h neg30 池）/「Cringe」（5.7h neg30 池）——约会题材英语口碑天花板有限</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--b)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1107790/header_schinese.jpg?t=1780398865" alt="The Complex" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">The Complex <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">⚪ 77.7% 持平，零新增</span> <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">API 77.7% / 商店 78.0%（-0.3 ✓）</span></div>
+      <div class="pmeta"><span>Wales Interactive · 2020-03-31 · 科幻惊悚 FMV</span><span>30天差评 3</span><span>评测池 1064（english）</span></div>
+      <div class="pmeter"><div class="pos" style="width:78%"></div><div class="neg" style="width:22%"></div></div>
+      <div class="pmeter-labels"><span>好评 77.7%（API english 口径）</span><span>差评 22.3%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>剧情 bug 致无法通关（09-10 Linux 加载卡死在池） <span class="cnt">×1</span><span class="q">「story is interesting up-to second episode, but it is unplayable beyond that due to bugs」（2.4h neg30 池）</span></li><li>选择无意义（在池） <span class="cnt">×1</span><span class="q">「The acting and production is great, but none of the choices felt especially meaningful」（1.4h neg30 池）</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>「Skip button when replaying」被列为优点（3.2h all 池）——重播链路族的双向证据（英文端）</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--b)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3756870/572dcbf1c182bfa9d65bfe51bb2b359841f0d70e/header.jpg?t=1787077015" alt="DeepWeb" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Project DeepWeb: Eternal Nightmare <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">⚪ 13 条 100% 持平，零新增（临界偏差 +5.3）</span> <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">API 100% / 商店 94.7%（+5.3 ⚠️ 临界，n=13）</span></div>
+      <div class="pmeta"><span>NightCat Studios · 2026-08-17 · 深网探索 FMV</span><span>30天差评 0</span><span>评测池 13（english）</span></div>
+      <div class="pmeter"><div class="pos" style="width:100%"></div><div class="neg" style="width:0%"></div></div>
+      <div class="pmeter-labels"><span>好评 100%（API english 口径，n=13）</span><span>差评 0%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评（无新增）</h4><ul class="pb-list"><li>「it is an absolute crime that this game has only 13 reviews as of writing」（33.5h all 池，09-10 命名化的求扩散型好评）——深度玩家的传播诉求仍在池，等待起量验证</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--b)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2993720/capsule_616x353.jpg" alt="Cage of Roses" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Cage of Roses <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">⚪ 87.8% 持平，零新增（英文组）</span> <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">API 87.8% / 商店 88.6%（-0.8 ✓）</span></div>
+      <div class="pmeta"><span>ebi-hime · 2025-02-16 · 百合哥特 VN</span><span>30天差评 1</span><span>评测池 172（english）</span></div>
+      <div class="pmeter"><div class="pos" style="width:88%"></div><div class="neg" style="width:12%"></div></div>
+      <div class="pmeter-labels"><span>好评 87.8%（API english 口径）</span><span>差评 12.2%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>「truly expositionslop. I don't know how you fumble the concept of vampire yuri this badly」（14.8h neg30 池）——设定浪费批评</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--b)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3978240/08eb60ff49ea804e40f6945b5a3183cf3df39cb2a/header.jpg?t=1787587217" alt="无言之林" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">无言之林 <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">⚪ 55.6% 持平，零新增（一人团队供给局限样本）</span> <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">API 55.6% / 商店 51.6%（+4.0 ✓）</span></div>
+      <div class="pmeta"><span>Dogus Cagrici · 2026-08-24 · 无对白生存惊悚 FMV</span><span>30天差评 12</span><span>评测池 27（english）</span></div>
+      <div class="pmeter"><div class="pos" style="width:56%"></div><div class="neg" style="width:44%"></div></div>
+      <div class="pmeter-labels"><span>好评 55.6%（API english 口径）</span><span>差评 44.4%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>互动密度不足（核心批评在池） <span class="cnt">×3</span><span class="q">「45 mins start to end, 6-8 choice in an interactive short film」（0.8h neg30 池）/「the 'interaction' in the whole game is less interaction than i normally spend in the setting menu」（0.1h neg30 池）——互动量定价争议（$10/45min）持续</span></li></ul></div><div class="pb-block"><h4><span class="hdot pos"></span> 在池好评</h4><ul class="pb-list"><li>一人实拍艺术性（在池） <span class="cnt">×1</span><span class="q">「2 and a half years of solo development with 40 days spent outdoors, alone, in the wilderness of Turkey」（1.5h all 池）</span></li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--b)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4902060/b7fdd85c1c1f2afc8229abe24876bff8af20c216/header.jpg?t=1786815678" alt="Libera Nos a Malo" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Libera Nos a Malo <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">⚪ 66.7% 持平，零新增（n=3 未起量）</span> <span style="font-size:11px;font-weight:400;color:var(--b);background:var(--bl);padding:2px 8px;border-radius:4px">API 66.7% / 商店 66.7%（0.0 ✓）</span></div>
+      <div class="pmeta"><span>Necronomicon Games · 2026-08-15 · QTE 恐怖</span><span>30天差评 1</span><span>评测池 3（english）</span></div>
+      <div class="pmeter"><div class="pos" style="width:67%"></div><div class="neg" style="width:33%"></div></div>
+      <div class="pmeter-labels"><span>好评 66.7%（API english 口径，n=3）</span><span>差评 33.3%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4><span class="hdot neg"></span> 在池差评（无新增）</h4><ul class="pb-list"><li>「For $1.99, it's an AI video slop fest lasting less than 15 minutes…possibly the worst set-up for QTEs imaginable」（0.1h neg30 池）</li></ul></div></div></div>
+</div>
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4619230/e0b1707f6489e76aeac996f9e9b0ebe7494c0b40/capsule_616x353.jpg?t=1788451229" alt="Rescue the Hostages" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Rescue the Hostages: Misaligned Fate <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--bg);padding:2px 8px;border-radius:4px">📅 周扫占位（按 09-09 决策：英文池连续 2 期为 0，降频每周一扫，本期跳过，下期采集 09-21）</span></div>
+      <div class="pmeta"><span>rescuethehostages.com · 2026-09-03 · FMV 恐怖解谜</span><span>—</span><span>评测池 1（商店快照，英文）</span></div>
+      <div class="pmeter"><div class="pos" style="width:100%"></div><div class="neg" style="width:0%"></div></div>
+      <div class="pmeter-labels"><span>好评 100%（商店快照，n=1）</span><span>差评 0%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body"><div class="pb-grid"><div class="pb-block"><h4>采集说明</h4><ul class="pb-list"><li>英文评测池上次采集（09-14）仍为 0 条新增，维持月扫观察。若 09-21 周扫仍为 0，执行月扫降频（下次 10-14）。</li></ul></div></div></div>
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">跨产品交叉模式 <span class="st-num">7 条 · 2+ 款游戏共现的问题/赞美（🆕×2）</span></div>
+<div class="pattern-grid">
+<div class="pat-card"><div class="pat-num">01</div><h4>「重播链路 P0 族」第三日扩容：进度条缺失成为快进/跳过之外的新成员</h4><p>幸存者笔记本日 4 条新证据：「我必须把前置的片段全部看完才行」（13.9h 好评内建议）、「应该只有不同的地方进行播片，而不是一整段」（8.7h 好评内缺点）、「看分支剧情需要重复看大量已经看过的剧情且无法跳过」（0.8h neg30 池）、「退出游戏点了十几次」（1.0h neg30 池）；女帝篇在池「这个游戏不能直接拉进度条，快进也只有1.5倍速」（24.4h）；天平 92.4h 全成就玩家「跳过键跟没有一样」；你好你配吗「无法倍速无法快进，纯纯坐牢」；The Run「inability to skip around」；The Complex 英文好评把「Skip button when replaying」列为优点。重播链路已形成「跳过/倍速 + 分段进度条 + 读档防剧透 + 存档卫生」四件套定义——分段进度条是本日新增的独立成员：AI 量产内容的长片体量使「回到某选择点」成为刚需。</p><div class="pat-tags"><span class="tag from">幸存者🆕·女帝·天平·你好你配吗·The Run·The Complex·无言之林</span><span class="tag fix">对自家：跳过/倍速 + 分段进度条 = 上线 P0 验收项（第 4 期延续，证据持续扩容）</span></div></div>
+<div class="pat-card"><div class="pat-num">02</div><h4>AI 影游口碑公式进入「斜率验证」阶段：双样本第二日，起量且读数稳</h4><p>幸存者笔记第二日数据：+20（正 18/负 2）、92.8%（-0.2），2 条新差评均为工程质量（画质无 2K/剧情又臭又长）而非 AI 路线否定；好评侧新增三个可复用锚点——真人 CV 配音（「真人cv老师配音，配乐也很加分」）、电影运镜（「用拍摄真实电影的电影语言，来制作AI电影」）、续作预期（「期待第二部」×4 独立出现）。列车怪谈 86.6% 持平三日提供恐怖端对照。差评侧「红果短剧」参照系持续在场（「这在红果上免费的都不带看的」）。反面样本 1000王子（AI 无叙事骨架 + 付费前置 = 0% n=2）与 Libera（AI slop fest）继续钉死边界：AI 是放大器，放大的是叙事完成度本身。</p><div class="pat-tags"><span class="tag from">幸存者笔记·列车怪谈·1000王子（反面）·Libera（反面）</span><span class="tag fix">对自家：公式 = 奇观层 AI + 真人声音 + 电影语言 + 有始有终剧本 + 低价锚；续作预期是品牌化信号</span></div></div>
+<div class="pat-card"><div class="pat-num">03</div><h4>「高好评率信任税」第三日 + 🆕 变体：「差评当反馈通道」被玩家明说</h4><p>幸存者笔记 neg30 池出现全库首个明示机制的条件性差评：「可惜目前好评的太多了，只能先给差评让官方能够看见存在的缺点，当缺点修正后再修改好评！！」（5.9h）——玩家在好评过密的环境里主动降级为差评以换取可见性。同作新差评「不知道为什么会有这么多好评」（0.2h）+ 在池「真不知道哪来的好评」（0.5h）+ CDKEY 14 元背刺（0.7h）；列车怪谈「水军也是有够误导人的」（1.9h 09-12）；冰点之下「好评都是刷的吧？」（1.3h 09-14）；金宵/花满楼/绍宋/恶校历史名单不变。结构性结论升级：<b>好评率越高，差评的「反馈通道价值」越大</b>——差评池本身成为产品修正机制的触发器。</p><div class="pat-tags"><span class="tag from">幸存者🆕·列车怪谈·冰点之下·金宵·花满楼·绍宋</span><span class="tag fix">对自家：差评响应 SLA（48h Ack）应作为口碑资产的防守性投资</span></div></div>
+<div class="pat-card"><div class="pat-num">04</div><h4>🆕 单机强制联网族成型：4 款共现，「联网验证」是单机影游最被憎恨的工程债</h4><p>媚娘篇本日新差评「垃圾游戏 还要联网 画质有差 还有充值内容」（4.4h 09-15）为该族新增「充值内容」变体；女帝篇在池「B游戏老要联网就算了，还一直出错一直网络异常，真把自己当网游了」（17.5h）+「一直显示登录超时…单机游戏做成这样也是绝中绝」（6.5h）；江山北望本日更新长评「单机剧情游戏，还搞实时联网游玩…宿舍断网而致游戏闪退」（11.2h）；绍宋在池「你一个单机游戏，为什么会跳弹窗说让我检查网络状态…确实修复了能玩了」（11.8h，已修复对照组）。四款共现 + 一款已修复样本，族的因果链完整：联网依赖 → 网络故障 → 差评 → 修复 → 差评保留（「修复就受着」）。</p><div class="pat-tags"><span class="tag from">媚娘🆕·女帝·江山·绍宋（已修复对照组）</span><span class="tag fix">对自家：单机产品联网验证必须可离线降级；登录故障属 P0 级（差评不可逆）</span></div></div>
+<div class="pat-card"><div class="pat-num">05</div><h4>🆕 运营响应不对称族：玩家群「装死」与差评反馈通道互为因果</h4><p>幸存者笔记本日新证据：「进了你们的玩家交流群，本意想着提点意见…但是主创完全无视，只回复自己想回复的」（13.9h 好评内）——AI 新贵同样掉进响应缺失坑；不心动在池「我见过最装死的官方了…私信不回群里装死」（13.4h）+ 官方签名照活动争议；金宵在池制作人社媒回应不对称（「辱男词积极回应/辱女词装看不见」，09-14）。与模式 #03 的「差评当反馈通道」互证：当正常反馈渠道失效，差评池成为唯一可触达通道，运营响应缺失直接转化为差评增量。</p><div class="pat-tags"><span class="tag from">幸存者🆕·不心动·金宵</span><span class="tag fix">对自家：反馈分级响应 SOP（48h Ack + 修复排期公开）是低成本差评防火墙</span></div></div>
+<div class="pat-card"><div class="pat-num">06</div><h4>零清洗波第三日 + 微移除噪声层 + 投票翻转：滚动审计模型补第五观测点</h4><p>清洗波轨迹：09-07（-929）→ 09-10（-63）→ 09-14（0）→ 09-15（0）→ 本期（0 宏观；微观层女帝 posΔ+2 vs 4 新好评文本、媚娘 posΔ0 vs 1 新好评文本 → 约 3 条好评微移除，属正常删除/退款范围）。本日新增「投票翻转」观测：江山北望 pos+1/neg-1 且总量不变 = 一条差评改为好评（11.2h 全成就玩家 09-16 更新长评转好评）。结论：波间期读数可信度高（连续 3 日）；微移除层需通过「文本捕获 vs 总量对账」差值识别（d2all 通道提供了这一能力）；下一次清洗波时间窗未知，女帝/绍宋/主角仍是重点盯守对象。</p><div class="pat-tags"><span class="tag from">全库 35 款老池（-929→-63→0→0→0）</span><span class="tag fix">对自家：波间期=可信分析窗口；清洗预警=单日 posΔ ≤ -10；微移除=对账差值法</span></div></div>
+<div class="pat-card"><div class="pat-num">07</div><h4>方法论：d1all→d2all 边界修复验证成功——上期 8 条漏捕缺口归零</h4><p>上期（09-15）记录的边界缺口（d1all 窗口与 CUTOFF 错开约 1h，12 条新增中 8 条原文缺失）本期修复并验证：通道升级为 day_range=2（48h 翻页 ≤6 页）+ CUTOFF 对齐上期 fetch 完成时刻（09-15 08:16:54 → 取 08:10 安全边距）。结果：本期捕获 33 条原文、窗口内新增对账无缺口（幸存者 +20 文本 = posΔ18+negΔ2 完全对齐）。残余发现：女帝 4 条新好评文本 vs posΔ+2 的差值暴露「文本捕获可见、总量对账不可见」的微移除层——两条通道互为补充，不可互相替代。工作日 SOP 已固化：d2all×CUTOFF 对齐。</p><div class="pat-tags"><span class="tag from">采集管线（d2all × CUTOFF 边界对齐）</span><span class="tag fix">对自家：已固化至 fetch_voice 脚本模板；对账差值法可反推微移除层</span></div></div>
+</div>
+
+<div class="self-eval">
+<h4>自评 · Self-Eval</h4>
+<div class="se-grid">
+<div class="se-item"><div class="score g">35/35</div><div class="lbl">评测覆盖（采集成功）</div><div class="note">35 款全采集（+1 Rescue 周扫占位）；SSL 超时重试全部自动恢复，零失败通道</div></div>
+<div class="se-item"><div class="score g">100%</div><div class="lbl">偏差标注率</div><div class="note">⚠️1 款不可信：1000王子 -22.2（n=2）；临界：Bloodholic +9.8 / 心之岛 +8.3 / 退婚后 -7.1 / DeepWeb +5.3 / Five Dates -5.3</div></div>
+<div class="se-item"><div class="score g">6</div><div class="lbl">P0+P1 可行动建议</div><div class="note">P0×2（幸存者重播链路三件套 / 金宵滚动卡死 bug）+ P1×4（主播模式 / 社群响应 / 配角支线方法论 / 全成就玩家经营）+ P2×4——合格线 3 条的 2 倍</div></div>
+<div class="se-item"><div class="score g">7</div><div class="lbl">交叉模式</div><div class="note">🆕×2（单机强制联网族、运营响应不对称族）+ 信任税「差评当反馈通道」新变体 + d2all 方法论修复验证——合格线 2 条</div></div>
+</div>
+<div class="next-steps"><strong>⚠️ 已知数据缺口与明日盯守</strong>① 基线回退：当日 intel 2026-09-16 未落盘（08:00 机器人延迟，已知问题），商店口径以 pool0915 快照代替——intel 落盘后下期校正（若明日 intel 补齐 09-16/09-17 两日则一并回补）；② 微移除归因为推断：女帝 ~2 条、媚娘 ~1 条好评移除系「文本捕获 vs 总量对账」差值推算，非直接观测；③ 媚娘 6.3h 疑似营销文好评仅作标注监测，未定性。明日盯守：幸存者笔记 333→? 斜率（+20/日能否持续）与 92.8% 守线、孔雀小队批评与主播模式诉求是否增样、女帝配角叙事第四日与李泰 DLC 呼声沉淀、媚娘「联网+充值」差评是否增样、金宵 56 底线、清洗波是否在波间期第 4 日重启、Rescue 周扫 09-21 恢复。</div>
+</div>
+
+<footer>
+  <div>玩家心声报告 · 第 25 期 · 2026-09-16 · 竞品池 36 款（35 采集 + 1 周扫占位）</div>
+  <div class="rn">数据来源：Steam appreviews API（day_range=30 负面抽样 + 主语言全量 + day_range=2 翻页捕获）· 采集窗口 09-15 08:10 → 09-16 08:37</div>
+</footer>
+
+</div>
+</div>
+</body>
+</html>

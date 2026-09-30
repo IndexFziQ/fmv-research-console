@@ -1,0 +1,947 @@
+{
+ "1188710": {
+  "appid": "1188710",
+  "title": "Bloodholic",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 1,
+    "total_positive": 53,
+    "total_negative": 1,
+    "total_reviews": 54,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 1,
+    "total_positive": 90,
+    "total_negative": 12,
+    "total_reviews": 102,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 53,
+    "total_negative": 1,
+    "total_reviews": 54,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "2993720": {
+  "appid": "2993720",
+  "title": "Cage of Roses",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 2,
+    "total_positive": 17,
+    "total_negative": 2,
+    "total_reviews": 19,
+    "desc": "Positive"
+   },
+   "all_all": {
+    "num_reviews": 5,
+    "total_positive": 185,
+    "total_negative": 23,
+    "total_reviews": 208,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 2,
+    "total_positive": 17,
+    "total_negative": 2,
+    "total_reviews": 19,
+    "desc": "Positive"
+   }
+  }
+ },
+ "3447920": {
+  "appid": "3447920",
+  "title": "The Run",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 1,
+    "total_positive": 1,
+    "total_negative": 2,
+    "total_reviews": 3,
+    "desc": "3 user reviews"
+   },
+   "all_all": {
+    "num_reviews": 6,
+    "total_positive": 98,
+    "total_negative": 12,
+    "total_reviews": 110,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 1,
+    "total_negative": 2,
+    "total_reviews": 3,
+    "desc": "3 user reviews"
+   }
+  }
+ },
+ "4234260": {
+  "appid": "4234260",
+  "title": "主角",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 1044,
+    "total_negative": 26,
+    "total_reviews": 1070,
+    "desc": "Overwhelmingly Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 1103,
+    "total_negative": 28,
+    "total_reviews": 1131,
+    "desc": "Overwhelmingly Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 2,
+    "total_positive": 1044,
+    "total_negative": 26,
+    "total_reviews": 1070,
+    "desc": "Overwhelmingly Positive"
+   }
+  }
+ },
+ "3412900": {
+  "appid": "3412900",
+  "title": "代号三国:龙起",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 2535,
+    "total_negative": 232,
+    "total_reviews": 2767,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 2729,
+    "total_negative": 286,
+    "total_reviews": 3015,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 6,
+    "total_positive": 2535,
+    "total_negative": 232,
+    "total_reviews": 2767,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "3711170": {
+  "appid": "3711170",
+  "title": "冰点之下",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 5,
+    "total_positive": 2597,
+    "total_negative": 171,
+    "total_reviews": 2768,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 11,
+    "total_positive": 2729,
+    "total_negative": 221,
+    "total_reviews": 2950,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 5,
+    "total_positive": 2597,
+    "total_negative": 171,
+    "total_reviews": 2768,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "4104120": {
+  "appid": "4104120",
+  "title": "对不起我是警察",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 10,
+    "total_positive": 590,
+    "total_negative": 167,
+    "total_reviews": 757,
+    "desc": "Mostly Positive"
+   },
+   "all_all": {
+    "num_reviews": 14,
+    "total_positive": 651,
+    "total_negative": 178,
+    "total_reviews": 829,
+    "desc": "Mostly Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 2,
+    "total_positive": 590,
+    "total_negative": 167,
+    "total_reviews": 757,
+    "desc": "Mostly Positive"
+   }
+  }
+ },
+ "3794770": {
+  "appid": "3794770",
+  "title": "心之岛",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 3,
+    "total_positive": 27,
+    "total_negative": 13,
+    "total_reviews": 40,
+    "desc": "Mixed"
+   },
+   "all_all": {
+    "num_reviews": 6,
+    "total_positive": 58,
+    "total_negative": 41,
+    "total_reviews": 99,
+    "desc": "Mixed"
+   },
+   "zh_7d": {
+    "num_reviews": 3,
+    "total_positive": 27,
+    "total_negative": 13,
+    "total_reviews": 40,
+    "desc": "Mixed"
+   }
+  }
+ },
+ "3831120": {
+  "appid": "3831120",
+  "title": "江山北望",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 5676,
+    "total_negative": 538,
+    "total_reviews": 6214,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 6035,
+    "total_negative": 591,
+    "total_reviews": 6626,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 5676,
+    "total_negative": 538,
+    "total_reviews": 6214,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "3987560": {
+  "appid": "3987560",
+  "title": "盛夏离与合",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 686,
+    "total_negative": 123,
+    "total_reviews": 809,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 743,
+    "total_negative": 135,
+    "total_reviews": 878,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 5,
+    "total_positive": 686,
+    "total_negative": 123,
+    "total_reviews": 809,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "4740420": {
+  "appid": "4740420",
+  "title": "雪落情书时",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 14,
+    "total_positive": 640,
+    "total_negative": 21,
+    "total_reviews": 661,
+    "desc": "Overwhelmingly Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 700,
+    "total_negative": 30,
+    "total_reviews": 730,
+    "desc": "Overwhelmingly Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 640,
+    "total_negative": 21,
+    "total_reviews": 661,
+    "desc": "Overwhelmingly Positive"
+   }
+  }
+ },
+ "1353270": {
+  "appid": "1353270",
+  "title": "Five Dates",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 2,
+    "total_positive": 461,
+    "total_negative": 77,
+    "total_reviews": 538,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 10,
+    "total_positive": 2409,
+    "total_negative": 421,
+    "total_reviews": 2830,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 2,
+    "total_positive": 461,
+    "total_negative": 77,
+    "total_reviews": 538,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "1107790": {
+  "appid": "1107790",
+  "title": "The Complex",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 2,
+    "total_positive": 661,
+    "total_negative": 265,
+    "total_reviews": 926,
+    "desc": "Mostly Positive"
+   },
+   "all_all": {
+    "num_reviews": 18,
+    "total_positive": 2777,
+    "total_negative": 784,
+    "total_reviews": 3561,
+    "desc": "Mostly Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 661,
+    "total_negative": 265,
+    "total_reviews": 926,
+    "desc": "Mostly Positive"
+   }
+  }
+ },
+ "3818020": {
+  "appid": "3818020",
+  "title": "恶校游戏",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 706,
+    "total_negative": 48,
+    "total_reviews": 754,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 1012,
+    "total_negative": 77,
+    "total_reviews": 1089,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 706,
+    "total_negative": 48,
+    "total_reviews": 754,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "4855450": {
+  "appid": "4855450",
+  "title": "不心动才有鬼",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 1228,
+    "total_negative": 58,
+    "total_reviews": 1286,
+    "desc": "Overwhelmingly Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 1452,
+    "total_negative": 63,
+    "total_reviews": 1515,
+    "desc": "Overwhelmingly Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 1228,
+    "total_negative": 58,
+    "total_reviews": 1286,
+    "desc": "Overwhelmingly Positive"
+   }
+  }
+ },
+ "4902060": {
+  "appid": "4902060",
+  "title": "Libera Nos a Malo",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 0,
+    "total_positive": 0,
+    "total_negative": 0,
+    "total_reviews": 0,
+    "desc": "No user reviews"
+   },
+   "all_all": {
+    "num_reviews": 3,
+    "total_positive": 2,
+    "total_negative": 1,
+    "total_reviews": 3,
+    "desc": "3 user reviews"
+   },
+   "zh_7d": {
+    "num_reviews": 0,
+    "total_positive": 0,
+    "total_negative": 0,
+    "total_reviews": 0,
+    "desc": "No user reviews"
+   }
+  }
+ },
+ "2816920": {
+  "appid": "2816920",
+  "title": "退婚后,宗主马甲藏不住",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 1,
+    "total_positive": 11,
+    "total_negative": 30,
+    "total_reviews": 41,
+    "desc": "Mostly Negative"
+   },
+   "all_all": {
+    "num_reviews": 1,
+    "total_positive": 20,
+    "total_negative": 39,
+    "total_reviews": 59,
+    "desc": "Mostly Negative"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 11,
+    "total_negative": 30,
+    "total_reviews": 41,
+    "desc": "Mostly Negative"
+   }
+  }
+ },
+ "3478050": {
+  "appid": "3478050",
+  "title": "女王的游戏:盛世天下 媚娘篇",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 7811,
+    "total_negative": 1611,
+    "total_reviews": 9422,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 11499,
+    "total_negative": 1770,
+    "total_reviews": 13269,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 7811,
+    "total_negative": 1611,
+    "total_reviews": 9422,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "4148240": {
+  "appid": "4148240",
+  "title": "女王的游戏:盛世天下 女帝篇",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 6846,
+    "total_negative": 1358,
+    "total_reviews": 8204,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 7899,
+    "total_negative": 1598,
+    "total_reviews": 9497,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 6846,
+    "total_negative": 1358,
+    "total_reviews": 8204,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "3756870": {
+  "appid": "3756870",
+  "title": "Project DeepWeb: Eternal Nightmare",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 1,
+    "total_positive": 1,
+    "total_negative": 0,
+    "total_reviews": 1,
+    "desc": "1 user reviews"
+   },
+   "all_all": {
+    "num_reviews": 17,
+    "total_positive": 16,
+    "total_negative": 1,
+    "total_reviews": 17,
+    "desc": "Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 1,
+    "total_negative": 0,
+    "total_reviews": 1,
+    "desc": "1 user reviews"
+   }
+  }
+ },
+ "4412960": {
+  "appid": "4412960",
+  "title": "光与影之恋",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 99,
+    "total_negative": 0,
+    "total_reviews": 99,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 100,
+    "total_negative": 0,
+    "total_reviews": 100,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 15,
+    "total_positive": 99,
+    "total_negative": 0,
+    "total_reviews": 99,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "4292950": {
+  "appid": "4292950",
+  "title": "绍宋:还我河山",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 2271,
+    "total_negative": 488,
+    "total_reviews": 2759,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 2280,
+    "total_negative": 517,
+    "total_reviews": 2797,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 2271,
+    "total_negative": 488,
+    "total_reviews": 2759,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "3749320": {
+  "appid": "3749320",
+  "title": "花满楼",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 1524,
+    "total_negative": 35,
+    "total_reviews": 1559,
+    "desc": "Overwhelmingly Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 1578,
+    "total_negative": 38,
+    "total_reviews": 1616,
+    "desc": "Overwhelmingly Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 1524,
+    "total_negative": 35,
+    "total_reviews": 1559,
+    "desc": "Overwhelmingly Positive"
+   }
+  }
+ },
+ "4734650": {
+  "appid": "4734650",
+  "title": "请去Bar,恋爱吧!",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 26,
+    "total_negative": 4,
+    "total_reviews": 30,
+    "desc": "Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 27,
+    "total_negative": 5,
+    "total_reviews": 32,
+    "desc": "Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 19,
+    "total_positive": 26,
+    "total_negative": 4,
+    "total_reviews": 30,
+    "desc": "Positive"
+   }
+  }
+ },
+ "4846800": {
+  "appid": "4846800",
+  "title": "1000王子: ChouChou Condo",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 1,
+    "total_positive": 0,
+    "total_negative": 1,
+    "total_reviews": 1,
+    "desc": "1 user reviews"
+   },
+   "all_all": {
+    "num_reviews": 6,
+    "total_positive": 2,
+    "total_negative": 4,
+    "total_reviews": 6,
+    "desc": "6 user reviews"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 0,
+    "total_negative": 1,
+    "total_reviews": 1,
+    "desc": "1 user reviews"
+   }
+  }
+ },
+ "3978240": {
+  "appid": "3978240",
+  "title": "无言之林",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 1,
+    "total_positive": 0,
+    "total_negative": 1,
+    "total_reviews": 1,
+    "desc": "1 user reviews"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 32,
+    "total_negative": 25,
+    "total_reviews": 57,
+    "desc": "Mixed"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 0,
+    "total_negative": 1,
+    "total_reviews": 1,
+    "desc": "1 user reviews"
+   }
+  }
+ },
+ "4143220": {
+  "appid": "4143220",
+  "title": "金宵公寓事件",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 60,
+    "total_negative": 45,
+    "total_reviews": 105,
+    "desc": "Mixed"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 65,
+    "total_negative": 45,
+    "total_reviews": 110,
+    "desc": "Mixed"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 60,
+    "total_negative": 45,
+    "total_reviews": 105,
+    "desc": "Mixed"
+   }
+  }
+ },
+ "4699920": {
+  "appid": "4699920",
+  "title": "天平游戏1:抉择",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 812,
+    "total_negative": 130,
+    "total_reviews": 942,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 852,
+    "total_negative": 157,
+    "total_reviews": 1009,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 7,
+    "total_positive": 812,
+    "total_negative": 130,
+    "total_reviews": 942,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "4384120": {
+  "appid": "4384120",
+  "title": "你好,你配吗?",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 1,
+    "total_positive": 480,
+    "total_negative": 15,
+    "total_reviews": 495,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 1,
+    "total_positive": 493,
+    "total_negative": 20,
+    "total_reviews": 513,
+    "desc": "Overwhelmingly Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 480,
+    "total_negative": 15,
+    "total_reviews": 495,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "4108460": {
+  "appid": "4108460",
+  "title": "灭寇1939:上川往事",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 471,
+    "total_negative": 92,
+    "total_reviews": 563,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 498,
+    "total_negative": 95,
+    "total_reviews": 593,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 10,
+    "total_positive": 471,
+    "total_negative": 92,
+    "total_reviews": 563,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "4056810": {
+  "appid": "4056810",
+  "title": "东北往事",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 18,
+    "total_positive": 139,
+    "total_negative": 28,
+    "total_reviews": 167,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 18,
+    "total_positive": 154,
+    "total_negative": 29,
+    "total_reviews": 183,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 1,
+    "total_positive": 139,
+    "total_negative": 28,
+    "total_reviews": 167,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "3828610": {
+  "appid": "3828610",
+  "title": "末日降临!被美女们关进避难所",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 1,
+    "total_positive": 53,
+    "total_negative": 12,
+    "total_reviews": 65,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 17,
+    "total_positive": 143,
+    "total_negative": 36,
+    "total_reviews": 179,
+    "desc": "Mostly Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 20,
+    "total_positive": 53,
+    "total_negative": 12,
+    "total_reviews": 65,
+    "desc": "Very Positive"
+   }
+  }
+ },
+ "3155310": {
+  "appid": "3155310",
+  "title": "阴三国谋论:徐州篇",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 20,
+    "total_positive": 43,
+    "total_negative": 3,
+    "total_reviews": 46,
+    "desc": "Positive"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 49,
+    "total_negative": 3,
+    "total_reviews": 52,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 4,
+    "total_positive": 43,
+    "total_negative": 3,
+    "total_reviews": 46,
+    "desc": "Positive"
+   }
+  }
+ },
+ "4867250": {
+  "appid": "4867250",
+  "title": "夺命邂逅",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 0,
+    "total_positive": 0,
+    "total_negative": 0,
+    "total_reviews": 0,
+    "desc": "No user reviews"
+   },
+   "all_all": {
+    "num_reviews": 20,
+    "total_positive": 27,
+    "total_negative": 0,
+    "total_reviews": 27,
+    "desc": "Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 0,
+    "total_positive": 0,
+    "total_negative": 0,
+    "total_reviews": 0,
+    "desc": "No user reviews"
+   }
+  }
+ },
+ "4898630": {
+  "appid": "4898630",
+  "title": "宗门最后的长老",
+  "samples": {
+   "zh_all": {
+    "num_reviews": 6,
+    "total_positive": 100,
+    "total_negative": 3,
+    "total_reviews": 103,
+    "desc": "Very Positive"
+   },
+   "all_all": {
+    "num_reviews": 5,
+    "total_positive": 100,
+    "total_negative": 3,
+    "total_reviews": 103,
+    "desc": "Very Positive"
+   },
+   "zh_7d": {
+    "num_reviews": 5,
+    "total_positive": 100,
+    "total_negative": 3,
+    "total_reviews": 103,
+    "desc": "Very Positive"
+   }
+  }
+ }
+}

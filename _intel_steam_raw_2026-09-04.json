@@ -1,0 +1,1592 @@
+{
+ "reviews": {
+  "1188710": {
+   "schinese": {
+    "total_reviews": 54,
+    "total_positive": 53,
+    "total_negative": 1,
+    "pct": 98.1,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 102,
+    "total_positive": 90,
+    "total_negative": 12,
+    "pct": 88.2,
+    "cnt_7d": 1,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "2993720": {
+   "schinese": {
+    "total_reviews": 19,
+    "total_positive": 17,
+    "total_negative": 2,
+    "pct": 89.5,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Positive"
+   },
+   "all": {
+    "total_reviews": 208,
+    "total_positive": 185,
+    "total_negative": 23,
+    "pct": 88.9,
+    "cnt_7d": 3,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "3447920": {
+   "schinese": {
+    "total_reviews": 3,
+    "total_positive": 1,
+    "total_negative": 2,
+    "pct": 33.3,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "3 user reviews"
+   },
+   "all": {
+    "total_reviews": 110,
+    "total_positive": 98,
+    "total_negative": 12,
+    "pct": 89.1,
+    "cnt_7d": 1,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "4234260": {
+   "schinese": {
+    "total_reviews": 1070,
+    "total_positive": 1044,
+    "total_negative": 26,
+    "pct": 97.6,
+    "cnt_7d": 1,
+    "cnt_48h": 0,
+    "review_score_desc": "Overwhelmingly Positive"
+   },
+   "all": {
+    "total_reviews": 1131,
+    "total_positive": 1103,
+    "total_negative": 28,
+    "pct": 97.5,
+    "cnt_7d": 2,
+    "cnt_48h": 0,
+    "review_score_desc": "Overwhelmingly Positive"
+   }
+  },
+  "3412900": {
+   "schinese": {
+    "total_reviews": 2768,
+    "total_positive": 2535,
+    "total_negative": 233,
+    "pct": 91.6,
+    "cnt_7d": 5,
+    "cnt_48h": 1,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 3016,
+    "total_positive": 2729,
+    "total_negative": 287,
+    "pct": 90.5,
+    "cnt_7d": 7,
+    "cnt_48h": 2,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "3711170": {
+   "schinese": {
+    "total_reviews": 2768,
+    "total_positive": 2597,
+    "total_negative": 171,
+    "pct": 93.8,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 2950,
+    "total_positive": 2729,
+    "total_negative": 221,
+    "pct": 92.5,
+    "cnt_7d": 2,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "4104120": {
+   "schinese": {
+    "total_reviews": 757,
+    "total_positive": 590,
+    "total_negative": 167,
+    "pct": 77.9,
+    "cnt_7d": 3,
+    "cnt_48h": 0,
+    "review_score_desc": "Mostly Positive"
+   },
+   "all": {
+    "total_reviews": 829,
+    "total_positive": 651,
+    "total_negative": 178,
+    "pct": 78.5,
+    "cnt_7d": 5,
+    "cnt_48h": 0,
+    "review_score_desc": "Mostly Positive"
+   }
+  },
+  "3794770": {
+   "schinese": {
+    "total_reviews": 40,
+    "total_positive": 27,
+    "total_negative": 13,
+    "pct": 67.5,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Mixed"
+   },
+   "all": {
+    "total_reviews": 99,
+    "total_positive": 58,
+    "total_negative": 41,
+    "pct": 58.6,
+    "cnt_7d": 1,
+    "cnt_48h": 0,
+    "review_score_desc": "Mixed"
+   }
+  },
+  "3831120": {
+   "schinese": {
+    "total_reviews": 6220,
+    "total_positive": 5681,
+    "total_negative": 539,
+    "pct": 91.3,
+    "cnt_7d": 37,
+    "cnt_48h": 11,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 6631,
+    "total_positive": 6039,
+    "total_negative": 592,
+    "pct": 91.1,
+    "cnt_7d": 39,
+    "cnt_48h": 12,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "3987560": {
+   "schinese": {
+    "total_reviews": 809,
+    "total_positive": 686,
+    "total_negative": 123,
+    "pct": 84.8,
+    "cnt_7d": 4,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 878,
+    "total_positive": 743,
+    "total_negative": 135,
+    "pct": 84.6,
+    "cnt_7d": 6,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "4740420": {
+   "schinese": {
+    "total_reviews": 661,
+    "total_positive": 640,
+    "total_negative": 21,
+    "pct": 96.8,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Overwhelmingly Positive"
+   },
+   "all": {
+    "total_reviews": 731,
+    "total_positive": 700,
+    "total_negative": 31,
+    "pct": 95.8,
+    "cnt_7d": 3,
+    "cnt_48h": 1,
+    "review_score_desc": "Overwhelmingly Positive"
+   }
+  },
+  "1353270": {
+   "schinese": {
+    "total_reviews": 539,
+    "total_positive": 462,
+    "total_negative": 77,
+    "pct": 85.7,
+    "cnt_7d": 1,
+    "cnt_48h": 1,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 2831,
+    "total_positive": 2410,
+    "total_negative": 421,
+    "pct": 85.1,
+    "cnt_7d": 6,
+    "cnt_48h": 4,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "1107790": {
+   "schinese": {
+    "total_reviews": 926,
+    "total_positive": 661,
+    "total_negative": 265,
+    "pct": 71.4,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Mostly Positive"
+   },
+   "all": {
+    "total_reviews": 3562,
+    "total_positive": 2778,
+    "total_negative": 784,
+    "pct": 78.0,
+    "cnt_7d": 3,
+    "cnt_48h": 1,
+    "review_score_desc": "Mostly Positive"
+   }
+  },
+  "3818020": {
+   "schinese": {
+    "total_reviews": 759,
+    "total_positive": 710,
+    "total_negative": 49,
+    "pct": 93.5,
+    "cnt_7d": 33,
+    "cnt_48h": 7,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 1096,
+    "total_positive": 1018,
+    "total_negative": 78,
+    "pct": 92.9,
+    "cnt_7d": 82,
+    "cnt_48h": 14,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "4855450": {
+   "schinese": {
+    "total_reviews": 1289,
+    "total_positive": 1230,
+    "total_negative": 59,
+    "pct": 95.4,
+    "cnt_7d": 19,
+    "cnt_48h": 6,
+    "review_score_desc": "Overwhelmingly Positive"
+   },
+   "all": {
+    "total_reviews": 1518,
+    "total_positive": 1454,
+    "total_negative": 64,
+    "pct": 95.8,
+    "cnt_7d": 23,
+    "cnt_48h": 6,
+    "review_score_desc": "Overwhelmingly Positive"
+   }
+  },
+  "4902060": {
+   "schinese": {
+    "total_reviews": 0,
+    "total_positive": 0,
+    "total_negative": 0,
+    "pct": null,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "No user reviews"
+   },
+   "all": {
+    "total_reviews": 3,
+    "total_positive": 2,
+    "total_negative": 1,
+    "pct": 66.7,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "3 user reviews"
+   }
+  },
+  "4108460": {
+   "schinese": {
+    "total_reviews": 563,
+    "total_positive": 471,
+    "total_negative": 92,
+    "pct": 83.7,
+    "cnt_7d": 6,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 593,
+    "total_positive": 498,
+    "total_negative": 95,
+    "pct": 84.0,
+    "cnt_7d": 8,
+    "cnt_48h": 1,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "4699920": {
+   "schinese": {
+    "total_reviews": 943,
+    "total_positive": 813,
+    "total_negative": 130,
+    "pct": 86.2,
+    "cnt_7d": 6,
+    "cnt_48h": 1,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 1010,
+    "total_positive": 853,
+    "total_negative": 157,
+    "pct": 84.5,
+    "cnt_7d": 7,
+    "cnt_48h": 2,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "4292950": {
+   "schinese": {
+    "total_reviews": 2768,
+    "total_positive": 2277,
+    "total_negative": 491,
+    "pct": 82.3,
+    "cnt_7d": 100,
+    "cnt_48h": 18,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 2807,
+    "total_positive": 2286,
+    "total_negative": 521,
+    "pct": 81.4,
+    "cnt_7d": 106,
+    "cnt_48h": 21,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "3749320": {
+   "schinese": {
+    "total_reviews": 1564,
+    "total_positive": 1529,
+    "total_negative": 35,
+    "pct": 97.8,
+    "cnt_7d": 99,
+    "cnt_48h": 11,
+    "review_score_desc": "Overwhelmingly Positive"
+   },
+   "all": {
+    "total_reviews": 1621,
+    "total_positive": 1583,
+    "total_negative": 38,
+    "pct": 97.7,
+    "cnt_7d": 104,
+    "cnt_48h": 11,
+    "review_score_desc": "Overwhelmingly Positive"
+   }
+  },
+  "3155310": {
+   "schinese": {
+    "total_reviews": 46,
+    "total_positive": 43,
+    "total_negative": 3,
+    "pct": 93.5,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Positive"
+   },
+   "all": {
+    "total_reviews": 52,
+    "total_positive": 49,
+    "total_negative": 3,
+    "pct": 94.2,
+    "cnt_7d": 1,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "3478050": {
+   "schinese": {
+    "total_reviews": 9423,
+    "total_positive": 7811,
+    "total_negative": 1612,
+    "pct": 82.9,
+    "cnt_7d": 17,
+    "cnt_48h": 3,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 13274,
+    "total_positive": 11503,
+    "total_negative": 1771,
+    "pct": 86.7,
+    "cnt_7d": 40,
+    "cnt_48h": 10,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "4148240": {
+   "schinese": {
+    "total_reviews": 8212,
+    "total_positive": 6853,
+    "total_negative": 1359,
+    "pct": 83.5,
+    "cnt_7d": 68,
+    "cnt_48h": 19,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 9515,
+    "total_positive": 7914,
+    "total_negative": 1601,
+    "pct": 83.2,
+    "cnt_7d": 99,
+    "cnt_48h": 30,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "2816920": {
+   "schinese": {
+    "total_reviews": 41,
+    "total_positive": 11,
+    "total_negative": 30,
+    "pct": 26.8,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Mostly Negative"
+   },
+   "all": {
+    "total_reviews": 59,
+    "total_positive": 20,
+    "total_negative": 39,
+    "pct": 33.9,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Mostly Negative"
+   }
+  },
+  "4412960": {
+   "schinese": {
+    "total_reviews": 99,
+    "total_positive": 99,
+    "total_negative": 0,
+    "pct": 100.0,
+    "cnt_7d": 8,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 100,
+    "total_positive": 100,
+    "total_negative": 0,
+    "pct": 100.0,
+    "cnt_7d": 10,
+    "cnt_48h": 2,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "3756870": {
+   "schinese": {
+    "total_reviews": 1,
+    "total_positive": 1,
+    "total_negative": 0,
+    "pct": 100.0,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "1 user reviews"
+   },
+   "all": {
+    "total_reviews": 17,
+    "total_positive": 16,
+    "total_negative": 1,
+    "pct": 94.1,
+    "cnt_7d": 3,
+    "cnt_48h": 0,
+    "review_score_desc": "Positive"
+   }
+  },
+  "4734650": {
+   "schinese": {
+    "total_reviews": 30,
+    "total_positive": 26,
+    "total_negative": 4,
+    "pct": 86.7,
+    "cnt_7d": 16,
+    "cnt_48h": 0,
+    "review_score_desc": "Positive"
+   },
+   "all": {
+    "total_reviews": 32,
+    "total_positive": 27,
+    "total_negative": 5,
+    "pct": 84.4,
+    "cnt_7d": 16,
+    "cnt_48h": 0,
+    "review_score_desc": "Positive"
+   }
+  },
+  "4846800": {
+   "schinese": {
+    "total_reviews": 1,
+    "total_positive": 0,
+    "total_negative": 1,
+    "pct": 0.0,
+    "cnt_7d": 1,
+    "cnt_48h": 0,
+    "review_score_desc": "1 user reviews"
+   },
+   "all": {
+    "total_reviews": 6,
+    "total_positive": 2,
+    "total_negative": 4,
+    "pct": 33.3,
+    "cnt_7d": 1,
+    "cnt_48h": 0,
+    "review_score_desc": "6 user reviews"
+   }
+  },
+  "3978240": {
+   "schinese": {
+    "total_reviews": 1,
+    "total_positive": 0,
+    "total_negative": 1,
+    "pct": 0.0,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "1 user reviews"
+   },
+   "all": {
+    "total_reviews": 59,
+    "total_positive": 32,
+    "total_negative": 27,
+    "pct": 54.2,
+    "cnt_7d": 13,
+    "cnt_48h": 2,
+    "review_score_desc": "Mixed"
+   }
+  },
+  "4143220": {
+   "schinese": {
+    "total_reviews": 108,
+    "total_positive": 63,
+    "total_negative": 45,
+    "pct": 58.3,
+    "cnt_7d": 22,
+    "cnt_48h": 0,
+    "review_score_desc": "Mixed"
+   },
+   "all": {
+    "total_reviews": 113,
+    "total_positive": 68,
+    "total_negative": 45,
+    "pct": 60.2,
+    "cnt_7d": 42,
+    "cnt_48h": 8,
+    "review_score_desc": "Mixed"
+   }
+  },
+  "4384120": {
+   "schinese": {
+    "total_reviews": 495,
+    "total_positive": 480,
+    "total_negative": 15,
+    "pct": 97.0,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 513,
+    "total_positive": 493,
+    "total_negative": 20,
+    "pct": 96.1,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Overwhelmingly Positive"
+   }
+  },
+  "4056810": {
+   "schinese": {
+    "total_reviews": 167,
+    "total_positive": 139,
+    "total_negative": 28,
+    "pct": 83.2,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 182,
+    "total_positive": 153,
+    "total_negative": 29,
+    "pct": 84.1,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "3828610": {
+   "schinese": {
+    "total_reviews": 65,
+    "total_positive": 53,
+    "total_negative": 12,
+    "pct": 81.5,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 180,
+    "total_positive": 144,
+    "total_negative": 36,
+    "pct": 80.0,
+    "cnt_7d": 2,
+    "cnt_48h": 1,
+    "review_score_desc": "Very Positive"
+   }
+  },
+  "4867250": {
+   "schinese": {
+    "total_reviews": 0,
+    "total_positive": 0,
+    "total_negative": 0,
+    "pct": null,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "No user reviews"
+   },
+   "all": {
+    "total_reviews": 27,
+    "total_positive": 27,
+    "total_negative": 0,
+    "pct": 100.0,
+    "cnt_7d": 6,
+    "cnt_48h": 0,
+    "review_score_desc": "Positive"
+   }
+  },
+  "4898630": {
+   "schinese": {
+    "total_reviews": 103,
+    "total_positive": 100,
+    "total_negative": 3,
+    "pct": 97.1,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   },
+   "all": {
+    "total_reviews": 103,
+    "total_positive": 100,
+    "total_negative": 3,
+    "pct": 97.1,
+    "cnt_7d": 0,
+    "cnt_48h": 0,
+    "review_score_desc": "Very Positive"
+   }
+  }
+ },
+ "details": {
+  "1188710": {
+   "name": "Bloodholic",
+   "developers": [
+    "釉里红"
+   ],
+   "publishers": [
+    "釉里红"
+   ],
+   "release": "2019 年 11 月 21 日",
+   "coming_soon": false,
+   "price": null,
+   "genres": [
+    "独立"
+   ]
+  },
+  "2993720": {
+   "name": "Cage of Roses",
+   "developers": [
+    "ebi-hime"
+   ],
+   "publishers": [
+    "Two and a Half Studios"
+   ],
+   "release": "2025 年 2 月 16 日",
+   "coming_soon": false,
+   "price": "$12.99",
+   "genres": [
+    "独立",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "3447920": {
+   "name": "The Run",
+   "developers": [
+    "PRM Games"
+   ],
+   "publishers": [
+    "PRM Games"
+   ],
+   "release": "2026 年 2 月 5 日",
+   "coming_soon": false,
+   "price": "$9.99",
+   "genres": [
+    "动作",
+    "冒险"
+   ]
+  },
+  "4234260": {
+   "name": "主角",
+   "developers": [
+    "顶顶阳光"
+   ],
+   "publishers": [
+    "一相逢互动娱乐",
+    "凤麟工作室"
+   ],
+   "release": "2026 年 7 月 15 日",
+   "coming_soon": false,
+   "price": "$7.99",
+   "genres": [
+    "休闲",
+    "独立",
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "3412900": {
+   "name": "代号三国：龙起",
+   "developers": [
+    "玛奇阿朵互娱科技",
+    "山与海工作室"
+   ],
+   "publishers": [
+    "凤麟工作室",
+    "一相逢互动娱乐"
+   ],
+   "release": "2026 年 4 月 28 日",
+   "coming_soon": false,
+   "price": "$19.99",
+   "genres": [
+    "冒险",
+    "休闲",
+    "独立",
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "3711170": {
+   "name": "冰点之下",
+   "developers": [
+    "Joy Media Limited"
+   ],
+   "publishers": [
+    "凤麟工作室",
+    "一相逢互动娱乐",
+    "Joy Media Limited"
+   ],
+   "release": "2026 年 5 月 29 日",
+   "coming_soon": false,
+   "price": "$9.99",
+   "genres": [
+    "冒险",
+    "模拟"
+   ]
+  },
+  "4104120": {
+   "name": "对不起，我是警察",
+   "developers": [
+    "intiny"
+   ],
+   "publishers": [
+    "intiny"
+   ],
+   "release": "2026 年 4 月 27 日",
+   "coming_soon": false,
+   "price": "$14.99",
+   "genres": [
+    "动作",
+    "冒险",
+    "角色扮演"
+   ]
+  },
+  "3794770": {
+   "name": "心之岛",
+   "developers": [
+    "Titan Digital Media",
+    "4Divinity"
+   ],
+   "publishers": [
+    "4Divinity"
+   ],
+   "release": "2026 年 3 月 27 日",
+   "coming_soon": false,
+   "price": "$14.99",
+   "genres": [
+    "冒险",
+    "休闲",
+    "独立",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "3831120": {
+   "name": "江山北望",
+   "developers": [
+    "木焱工作室"
+   ],
+   "publishers": [
+    "木焱工作室"
+   ],
+   "release": "2025 年 11 月 19 日",
+   "coming_soon": false,
+   "price": "$7.49",
+   "genres": [
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "3987560": {
+   "name": "盛夏离与合",
+   "developers": [
+    "intiny"
+   ],
+   "publishers": [
+    "intiny"
+   ],
+   "release": "2026 年 6 月 24 日",
+   "coming_soon": false,
+   "price": "$9.99",
+   "genres": [
+    "休闲",
+    "独立",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "4740420": {
+   "name": "雪落情书时",
+   "developers": [
+    "Mountain&Sea Studio"
+   ],
+   "publishers": [
+    "Mountain&Sea Studio",
+    "一相逢互动娱乐"
+   ],
+   "release": "2026 年 7 月 23 日",
+   "coming_soon": false,
+   "price": "$9.99",
+   "genres": [
+    "独立",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "1353270": {
+   "name": "Five Dates",
+   "developers": [
+    "Wales Interactive",
+    "Good Gate Media"
+   ],
+   "publishers": [
+    "Wales Interactive"
+   ],
+   "release": "2020 年 11 月 17 日",
+   "coming_soon": false,
+   "price": "$14.99",
+   "genres": [
+    "冒险"
+   ]
+  },
+  "1107790": {
+   "name": "The Complex",
+   "developers": [
+    "Wales Interactive",
+    "Good Gate Media",
+    "Little Jade Productions"
+   ],
+   "publishers": [
+    "Wales Interactive"
+   ],
+   "release": "2020 年 3 月 31 日",
+   "coming_soon": false,
+   "price": "$14.99",
+   "genres": [
+    "冒险"
+   ]
+  },
+  "3818020": {
+   "name": "恶校游戏",
+   "developers": [
+    "CineGame Interactive"
+   ],
+   "publishers": [
+    "CineGame Interactive"
+   ],
+   "release": "2026 年 8 月 13 日",
+   "coming_soon": false,
+   "price": "$7.99",
+   "genres": [
+    "冒险",
+    "独立",
+    "角色扮演",
+    "策略"
+   ]
+  },
+  "4855450": {
+   "name": "不心动才有鬼",
+   "developers": [
+    "SP Studio"
+   ],
+   "publishers": [
+    "PLSS"
+   ],
+   "release": "2026 年 8 月 13 日",
+   "coming_soon": false,
+   "price": "$6.99",
+   "genres": [
+    "冒险",
+    "休闲",
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "4902060": {
+   "name": "Libera Nos a Malo",
+   "developers": [
+    "Necronomicon Games"
+   ],
+   "publishers": [
+    "Necronomicon Games"
+   ],
+   "release": "2026 年 8 月 15 日",
+   "coming_soon": false,
+   "price": "$1.99",
+   "genres": [
+    "动作",
+    "冒险",
+    "独立",
+    "模拟"
+   ]
+  },
+  "4108460": {
+   "name": "灭寇1939：上川往事",
+   "developers": [
+    "KARMAGAME HK LIMITED"
+   ],
+   "publishers": [
+    "EpicDream Games"
+   ],
+   "release": "2026 年 8 月 5 日",
+   "coming_soon": false,
+   "price": "$15.58",
+   "genres": [
+    "冒险",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "4699920": {
+   "name": "天平游戏1:抉择",
+   "developers": [
+    "MYSTERY CROWN"
+   ],
+   "publishers": [
+    "MYSTERY CROWN"
+   ],
+   "release": "2026 年 7 月 25 日",
+   "coming_soon": false,
+   "price": "$6.99",
+   "genres": [
+    "冒险",
+    "休闲",
+    "独立",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "4292950": {
+   "name": "绍宋: 还我河山",
+   "developers": [
+    "互动之星",
+    "猫眼娱乐"
+   ],
+   "publishers": [
+    "猫眼娱乐",
+    "互动之星"
+   ],
+   "release": "2026 年 8 月 19 日",
+   "coming_soon": false,
+   "price": "$14.99",
+   "genres": [
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "3749320": {
+   "name": "花满楼",
+   "developers": [
+    "初域游戏"
+   ],
+   "publishers": [
+    "初域游戏"
+   ],
+   "release": "2026 年 8 月 20 日",
+   "coming_soon": false,
+   "price": "$10.99",
+   "genres": [
+    "休闲",
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "3155310": {
+   "name": "阴三国谋论: 徐州篇",
+   "developers": [
+    "鹏砚"
+   ],
+   "publishers": [
+    "鹏砚"
+   ],
+   "release": "2026 年 8 月 12 日",
+   "coming_soon": false,
+   "price": "$6.99",
+   "genres": [
+    "冒险",
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "3478050": {
+   "name": "女王的游戏：盛世天下 媚娘篇",
+   "developers": [
+    " New One Studio"
+   ],
+   "publishers": [
+    " New One Studio",
+    "Ariel"
+   ],
+   "release": "2025 年 9 月 8 日",
+   "coming_soon": false,
+   "price": "$8.49",
+   "genres": [
+    "冒险",
+    "休闲",
+    "独立",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "4148240": {
+   "name": "女王的游戏：盛世天下 女帝篇",
+   "developers": [
+    " New One Studio"
+   ],
+   "publishers": [
+    " New One Studio",
+    "Ariel"
+   ],
+   "release": "2026 年 6 月 8 日",
+   "coming_soon": false,
+   "price": "$18.00",
+   "genres": [
+    "冒险",
+    "休闲",
+    "独立",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "2816920": {
+   "name": "退婚后，宗主马甲藏不住",
+   "developers": [
+    "LoongCharm"
+   ],
+   "publishers": [
+    "LoongCharm"
+   ],
+   "release": "2024 年 3 月 14 日",
+   "coming_soon": false,
+   "price": null,
+   "genres": [
+    "冒险",
+    "角色扮演",
+    "免费开玩"
+   ]
+  },
+  "4412960": {
+   "name": "光与影之恋 Chiaroscuro Lovers",
+   "developers": [
+    "琉璃花糖制作组"
+   ],
+   "publishers": [
+    "北京黎羽科技有限公司"
+   ],
+   "release": "2026 年 8 月 17 日",
+   "coming_soon": false,
+   "price": "$6.99",
+   "genres": [
+    "休闲",
+    "独立",
+    "角色扮演"
+   ]
+  },
+  "3756870": {
+   "name": "Project DeepWeb: Eternal Nightmare",
+   "developers": [
+    "NightCat Studios"
+   ],
+   "publishers": [
+    "NightCat Studios"
+   ],
+   "release": "2026 年 8 月 17 日",
+   "coming_soon": false,
+   "price": "$9.99",
+   "genres": [
+    "冒险",
+    "独立",
+    "模拟"
+   ]
+  },
+  "4734650": {
+   "name": "请去Bar，恋爱吧！",
+   "developers": [
+    "画往时文化"
+   ],
+   "publishers": [
+    "画往时文化"
+   ],
+   "release": "2026 年 8 月 21 日",
+   "coming_soon": false,
+   "price": "$6.29",
+   "genres": [
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "4846800": {
+   "name": "1000王子: ChouChou Condo (甜心公寓)",
+   "developers": [
+    "琴研 Ginyan"
+   ],
+   "publishers": [
+    "琴研 Ginyan"
+   ],
+   "release": "2026 年 8 月 21 日",
+   "coming_soon": false,
+   "price": null,
+   "genres": [
+    "独立",
+    "模拟",
+    "免费开玩"
+   ]
+  },
+  "3978240": {
+   "name": "无言之林 Wordless Forest",
+   "developers": [
+    "Dogus Cagrici"
+   ],
+   "publishers": [
+    "Dogus Cagrici"
+   ],
+   "release": "2026 年 8 月 24 日",
+   "coming_soon": false,
+   "price": "$8.99",
+   "genres": [
+    "冒险",
+    "独立"
+   ]
+  },
+  "4143220": {
+   "name": "金宵公寓事件",
+   "developers": [
+    "Buddy Studio"
+   ],
+   "publishers": [
+    "Buddy Studio"
+   ],
+   "release": "2026 年 8 月 25 日",
+   "coming_soon": false,
+   "price": "$9.99",
+   "genres": [
+    "冒险",
+    "独立",
+    "角色扮演"
+   ]
+  },
+  "4384120": {
+   "name": "你好，你配吗？",
+   "developers": [
+    "MYSTERY CROWN"
+   ],
+   "publishers": [
+    "MYSTERY CROWN"
+   ],
+   "release": "2026 年 4 月 18 日",
+   "coming_soon": false,
+   "price": "$6.99",
+   "genres": [
+    "休闲",
+    "独立",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "4056810": {
+   "name": "东北往事",
+   "developers": [
+    "二狗科技"
+   ],
+   "publishers": [
+    "二狗科技"
+   ],
+   "release": "2026 年 6 月 22 日",
+   "coming_soon": false,
+   "price": "$8.99",
+   "genres": [
+    "角色扮演",
+    "模拟",
+    "策略"
+   ]
+  },
+  "3828610": {
+   "name": "末日降临！被美女们关进避难所!?",
+   "developers": [
+    "storytaco"
+   ],
+   "publishers": [
+    "storytaco"
+   ],
+   "release": "2026 年 6 月 14 日",
+   "coming_soon": false,
+   "price": "$15.99",
+   "genres": [
+    "冒险",
+    "角色扮演",
+    "模拟"
+   ]
+  },
+  "4867250": {
+   "name": "夺命邂逅",
+   "developers": [
+    "Kitico",
+    "LABORARE",
+    "Crybaby Studios"
+   ],
+   "publishers": [
+    "Kitico",
+    "LABORARE",
+    "Crybaby Studios"
+   ],
+   "release": "2026 年 7 月 13 日",
+   "coming_soon": false,
+   "price": null,
+   "genres": [
+    "休闲",
+    "独立"
+   ]
+  },
+  "4898630": {
+   "name": "宗门最后的长老",
+   "developers": [
+    "KUMA studio"
+   ],
+   "publishers": [
+    "KUMA studio"
+   ],
+   "release": "2026 年 7 月 24 日",
+   "coming_soon": false,
+   "price": "$2.99",
+   "genres": [
+    "休闲",
+    "独立",
+    "角色扮演",
+    "策略"
+   ]
+  }
+ },
+ "search": {
+  "FMV": [
+   {
+    "appid": "4619230",
+    "title": "Rescue the Hostages: Misaligned Fate"
+   },
+   {
+    "appid": "5048760",
+    "title": "Strange Tales from Republican China Demo"
+   },
+   {
+    "appid": "5020310",
+    "title": "Dub Together"
+   },
+   {
+    "appid": "4623520",
+    "title": "Bloodbath"
+   },
+   {
+    "appid": "4920100",
+    "title": "The Wraith Train: Illusory Domain"
+   },
+   {
+    "appid": "4996780",
+    "title": "BLACK STACK"
+   },
+   {
+    "appid": "4999190",
+    "title": "TOX-17 Demo"
+   },
+   {
+    "appid": "4299910",
+    "title": "Truck Manager Australia"
+   },
+   {
+    "appid": "4312540",
+    "title": "No One's Hero"
+   },
+   {
+    "appid": "3978240",
+    "title": "Wordless Forest"
+   },
+   {
+    "appid": "3756870",
+    "title": "Project DeepWeb: Eternal Nightmare"
+   },
+   {
+    "appid": "4902060",
+    "title": "Libera Nos a Malo"
+   },
+   {
+    "appid": "3818020",
+    "title": "Evil School"
+   },
+   {
+    "appid": "4855450",
+    "title": "不心动才有鬼"
+   },
+   {
+    "appid": "4824970",
+    "title": "Golden Retriever Simple Life Demo"
+   }
+  ],
+  "真人互动": [],
+  "互动影游": [
+   {
+    "appid": "4104120",
+    "title": "Undercover"
+   },
+   {
+    "appid": "4104130",
+    "title": "Undercover Demo"
+   }
+  ],
+  "interactive movie": [
+   {
+    "appid": "3601630",
+    "title": "Cosmo Tales"
+   },
+   {
+    "appid": "5084340",
+    "title": "DBR: Demon's Temptation - Urheil After Story"
+   },
+   {
+    "appid": "4846800",
+    "title": "1000 Princes: ChouChou Condo"
+   },
+   {
+    "appid": "3275750",
+    "title": "Last Drop"
+   },
+   {
+    "appid": "4762320",
+    "title": "Reel Room"
+   },
+   {
+    "appid": "4572730",
+    "title": "Box Office Mayhem: Theatre Tycoon"
+   },
+   {
+    "appid": "4740420",
+    "title": "A Love Letter in Snowfall"
+   },
+   {
+    "appid": "4500050",
+    "title": "A Totally Normal Love Story"
+   },
+   {
+    "appid": "4953320",
+    "title": "Yokai Crossing Demo"
+   },
+   {
+    "appid": "3685900",
+    "title": "Creepy Support"
+   },
+   {
+    "appid": "4815820",
+    "title": "The Ultimate USA Road Trip 2026"
+   },
+   {
+    "appid": "3296530",
+    "title": "The Rise of the New Han Prince 2"
+   },
+   {
+    "appid": "4056810",
+    "title": "东北往事"
+   },
+   {
+    "appid": "4711120",
+    "title": "BodyWalk VR Motion Mapper"
+   },
+   {
+    "appid": "4093630",
+    "title": "Crime Shadows: Stolen Spotlight Collector's Edition"
+   }
+  ],
+  "interactive fiction": [
+   {
+    "appid": "4573760",
+    "title": "Dissolution of My Self"
+   },
+   {
+    "appid": "5046370",
+    "title": "COSMOS VR"
+   },
+   {
+    "appid": "4962350",
+    "title": "Demon Slumber Party"
+   },
+   {
+    "appid": "4901420",
+    "title": "Autumn's end (Part 1)"
+   },
+   {
+    "appid": "3554220",
+    "title": "Funorbit"
+   },
+   {
+    "appid": "5146890",
+    "title": "Emberbound Demo"
+   },
+   {
+    "appid": "4425880",
+    "title": "God of Chaos"
+   },
+   {
+    "appid": "3971730",
+    "title": "Donutal"
+   },
+   {
+    "appid": "4018060",
+    "title": "Summer Delusion: The Girl Only I Can See"
+   },
+   {
+    "appid": "5048760",
+    "title": "Strange Tales from Republican China Demo"
+   },
+   {
+    "appid": "5096880",
+    "title": "RLG:Origins Demo"
+   },
+   {
+    "appid": "5164160",
+    "title": "Yeommae Demo"
+   },
+   {
+    "appid": "4900170",
+    "title": "Depths' Tale"
+   },
+   {
+    "appid": "5006380",
+    "title": "仙路烟尘 Demo"
+   },
+   {
+    "appid": "5173080",
+    "title": "Ashrose Manor - A Portrait of Forbidden Love Demo"
+   }
+  ],
+  "full motion video": [
+   {
+    "appid": "4937390",
+    "title": "Brilliante Capture"
+   },
+   {
+    "appid": "5011910",
+    "title": "Itinerant Rig"
+   },
+   {
+    "appid": "5045770",
+    "title": "Qq Media Studio"
+   },
+   {
+    "appid": "4762320",
+    "title": "Reel Room"
+   },
+   {
+    "appid": "4761210",
+    "title": "Overstimulacrum"
+   },
+   {
+    "appid": "4779680",
+    "title": "SUBSØNIC"
+   },
+   {
+    "appid": "4813240",
+    "title": "IKANDY: Music Visualizer"
+   },
+   {
+    "appid": "4919520",
+    "title": "MPE Insight"
+   },
+   {
+    "appid": "4813340",
+    "title": "俺が球審だ！Sharp-Eyed Umpire Simulator"
+   },
+   {
+    "appid": "4791010",
+    "title": "Desktop Mate MEIKO DLC"
+   },
+   {
+    "appid": "4791000",
+    "title": "Desktop Mate KAITO DLC"
+   },
+   {
+    "appid": "4592120",
+    "title": "Bravest!"
+   },
+   {
+    "appid": "4740860",
+    "title": "Desktop Waifu"
+   },
+   {
+    "appid": "4711120",
+    "title": "BodyWalk VR Motion Mapper"
+   },
+   {
+    "appid": "2907890",
+    "title": "Wizzerd Quest 2"
+   }
+  ]
+ }
+}

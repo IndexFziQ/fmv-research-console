@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-08-25</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-08-25</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">44</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">97.7%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+
+  <div class="signal-card">
+    <h4>① 隐藏真探 Demo 97%特别好评——隐形守护者原班谍战新作口碑验证</h4>
+    <div class="src">来源：游民星空(8/24) · 3DM(8/25) · 网易号(8/24-25)</div>
+    <ul>
+      <li>民国谍战全动态真人互动影游《隐藏真探》Steam Demo 免费试玩获 97% 特别好评，隐形守护者原班演员(潘铭允/安泳畅/田倚凡)加盟</li>
+      <li>玩家扮演特工「胡杨」，20世纪20年代民国乱世，家国/爱情/信仰抉择，全动态真人影像+多结局</li>
+      <li>谍战赛道继灭寇1939/花满楼/绍宋后再添强敌，且「隐形守护者血统」是2019年140万销量记录的强IP背书</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>「隐形守护者」团队血统的谍战新作97%特别好评，说明民国谍战FMV的「原班IP+电影质感」范式仍然有效、用户期待极高。但谍战赛道已极度拥挤(灭寇1939/花满楼/绍宋/隐藏真探四强并立)且头部都有强IP背书。自有项目若进谍战赛道，须避开与「隐形守护者血统」正面硬刚，改走差异化切口——题材细分(现代/境外谍战)或玩法强耦合(经营/调查而非纯选择分支)。</div>
+    <div class="links"><a class="link-btn" href="https://wap.gamersky.com/news/Content-2195006.html" target="_blank">游民星空</a><a class="link-btn" href="https://www.3dmgame.com/news/202608/3951302.html" target="_blank">3DM</a><a class="link-btn" href="https://www.163.com/dy/article/L55JT3T70526D8LR.html" target="_blank">网易号</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>② 刷评质疑连续第3天发酵：GGAMen社区综述接续新浪财经（绍宋+花满楼被点名）</h4>
+    <div class="src">来源：GGAMen(8/24) · 新浪财经(8/23) · 游民星空 · ZOL · Steam评测API</div>
+    <ul>
+      <li>GGAMen 8/24《国产影游好评暴涨,是真是假?》再次点名绍宋「褒贬不一→次日破千条→特别好评」、花满楼「发售一日好评如潮」为刷评质疑典型</li>
+      <li>质疑链路清晰：游民星空/ZOL(游戏媒体)→新浪财经(8/23财经媒体)→GGAMen(8/24社区自媒体)，连续第3天全网扩散</li>
+      <li>共性指控：好评时长集中2.1-3小时、内容趋同、鲜有深度反馈，与Steam「≥2小时才可评价+退款窗口」规则相关；均强调「无实锤证据」</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>刷评质疑连续第3天发酵，且从游戏媒体一路蔓延到财经媒体、社区自媒体，正演变为赛道级声誉风险。质疑的扩散速度超过任何单款游戏的澄清能力——「国产互动影游=刷好评」一旦成为大众默认认知，整个品类口碑都会被污染。自有项目必须把「真实性工程」前置为立项级要求：预设评测时长分布/文本多样性/退款率风控指标，主动引导主播实况、深度测评、真实长评，让好评有内容支撑而非趋同短评。</div>
+    <div class="links"><a class="link-btn" href="https://www.ggamen.com/a83621" target="_blank">GGAMen综述</a><a class="link-btn" href="https://finance.sina.com.cn/roll/2026-08-23/doc-iniphhca7080995.shtml" target="_blank">新浪财经综述</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>③ 8月新作首发红利期全线熄火：绍宋+9.6%→花满楼+2.9%→不心动+0.6%，无一达+30%阈值</h4>
+    <div class="src">来源：Steam评测API(中文口径)</div>
+    <ul>
+      <li>绍宋中文2356→2583(+9.6%)，增速四连降(+83%→+25.7%→+15.3%→+9.6%)，48h增量540再腰斩</li>
+      <li>花满楼+2.9%(增速从+7.1%回落)、不心动+0.6%(二次起量从+10.8%骤降熄火)、恶校+1.1%</li>
+      <li>已追踪30款竞品无一达+30%爆款阈值，「5天首发红利期」规律第6次坐实，8/13双雄+8/20双雄全部进入深度长尾</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>第6次验证：互动影游爆发是脉冲式的、红利期约5天，「首日爆量」不可持续。8月四款大新作全部进入深度长尾，连「演员IP+短视频宣发」的不心动二次起量也在约1周后熄火。立项测算必须用「首日放量→5天长尾→口碑留存」完整漏斗；「宣发脉冲」只能延后、不能阻止衰减，真正留存靠口碑和复玩价值(多结局/多周目)；反观女帝篇(发售第2月仍48h 27条)才是「长青型」目标。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/4292950" target="_blank">绍宋Steam</a><a class="link-btn" href="https://store.steampowered.com/app/3749320" target="_blank">花满楼Steam</a><a class="link-btn" href="https://store.steampowered.com/app/4855450" target="_blank">不心动Steam</a></div>
+  </div>
+
+  <div class="signal-card">
+    <h4>④ 新供给两极分化：海外一人FMV(Wordless Forest 47.8%) + AI乙女(1000王子 33.3%)口碑双双崩坏</h4>
+    <div class="src">来源：Steam搜索(FMV/interactive movie) · Steam评测API · 网易号</div>
+    <ul>
+      <li>海外独立开发者Dogus Cagrici一人实拍40天的FMV《无言之林》8/24上架，全语言23条/47.8%(Mixed)，中文仅1条差评「这他喵的是个什么玩意?」</li>
+      <li>首个AI原生乙女竞品《1000王子》全语言1→3条(33.3%，2负1正)口碑转差，中文0条——「AI生成+真人缺失」口碑是硬伤</li>
+      <li>两条信号叠加：供给「成本极端化」(一人FMV vs AI原生)同质化低质内卷，真人实拍「创意红利窗口」被AI工具链持续挤压</li>
+    </ul>
+    <div class="act"><strong>行动建议：</strong>供给侧「成本极端化」内卷：一人实拍FMV(影像有质感但玩法单薄、中文不买账)与AI原生乙女(口碑崩坏)的共同教训是——「只有影像、没有玩法/真情实感」的互动影游都会被用户投票否决。自有项目生存空间在「两端之间」：① 不做纯「点选电影」，必须有玩法与叙事强耦合；② 不跟AI拼「AI原生生成」(1000王子已证伪)，走「AI辅助降本+真人点睛情感」混合模式；③ 中文市场护城河是「真情实感+强情绪题材」，这是海外一人FMV和AI原生都无法复制的，务必死守。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/app/3978240" target="_blank">无言之林Steam</a><a class="link-btn" href="https://store.steampowered.com/app/4846800" target="_blank">1000王子Steam</a><a class="link-btn" href="https://www.163.com/dy/article/L55HTPA005561FY5.html" target="_blank">网易号</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 近24h）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">84.6%</span></div><div class="dl">+227 (+9.6%)</div><div class="nt">2583条 · 48h 540 · 增速四连降</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">98.3%</span></div><div class="dl">+40 (+2.9%)</div><div class="nt">1407条 · 全语言98.1%零偏差</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">95.9%</span></div><div class="dl">+8 (+0.6%)</div><div class="nt">1247条 · 48h 126 · 二次起量熄火</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">94.4%</span></div><div class="dl">+8 (+1.1%)</div><div class="nt">709条 · 解散发酵趋缓</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100%</span></div><div class="dl">+5 (+6.5%)</div><div class="nt">82条 · 百合AVG零差评</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">女帝篇</span><span class="pct">83.4%</span></div><div class="dl">+9</div><div class="nt">8115条 · 长青稳健 48h 27</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">媚娘篇</span><span class="pct">82.9%</span></div><div class="dl">+6</div><div class="nt">9401条 · 海外86.7%更高</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.4%</span></div><div class="dl">+3</div><div class="nt">6170条 · TapTap 8.8→8.7</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">小小吸血姬</span><span class="pct">85.2%</span></div><div class="dl">+2 (+2.3%)</div><div class="nt">88条 · 8/14乙女小幅起量</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">灭寇1939</span><span class="pct">83.9%</span></div><div class="dl">+4</div><div class="nt">554条 · 谍战长尾 48h 7</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.8%</span></div><div class="dl">持平</div><div class="nt">803条 · intiny长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.7%</span></div><div class="dl">-1</div><div class="nt">2761条 · 长尾</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.6%</span></div><div class="dl">-1</div><div class="nt">1066条 · 好评率最高·热度平稳</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">77.8%</span></div><div class="dl">+2</div><div class="nt">9条 · 8/21新作小样本</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">67.5%</span></div><div class="dl">0</div><div class="nt">40条 · ⚠️ 全语言58.2%口碑最弱</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">退婚后宗主马甲</span><span class="pct">26.8%</span></div><div class="dl">0</div><div class="nt">41条 · ⚠️ 免费差评警示样本</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">1000王子(AI乙女)</span><span class="pct">33.3%</span></div><div class="dl">转差</div><div class="nt">全语言3条 · ⚠️ AI口碑崩坏</div></div>
+    <div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl">0</div><div class="nt">927条 · ⚠️ 中英偏差6.6pp</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">隐藏真探（隐形守护者原班）</span><span class="delta hot">97%特别好评</span></div>
+    <div class="meta">民国谍战全动态真人互动影游 · 潘铭允/安泳畅/田倚凡原班 · 2026-08-20 Demo</div>
+    <div class="note">Steam Demo 免费试玩获97%特别好评，玩家扮演特工「胡杨」，家国/爱情/信仰抉择。「隐形守护者血统」强IP背书，谍战赛道四强并立(灭寇1939/花满楼/绍宋/隐藏真探)。</div>
+    <div class="tags"><span class="tag tag-r">谍战</span><span class="tag tag-a">原班IP</span><span class="tag tag-p">新供给</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">无言之林 Wordless Forest</span><span class="delta warn">Mixed 47.8%</span></div>
+    <div class="meta">真人实拍FMV生存 · Dogus Cagrici 独立开发者 · 2026-08-24 上架 · $8.99</div>
+    <div class="note">土耳其独立开发者一人实拍40天、无对白叙事、45分钟流程。全语言23条/47.8%(褒贬不一)，中文仅1条差评「这他喵的是个什么玩意?」。一人团队FMV「影像有质感但玩法单薄」的典型局限样本。</div>
+    <div class="tags"><span class="tag tag-b">FMV</span><span class="tag tag-a">海外独立</span></div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">1000王子:ChouChou Condo(甜心公寓)</span><span class="delta warn">口碑转差</span></div>
+    <div class="meta">AI原生乙女 · 琴研 Ginyan · 2026-08-21 免费开玩</div>
+    <div class="note">首个纳入追踪的AI驱动互动影游竞品。全语言1→3条(33.3%，2负1正)口碑转差，中文0条，印证「AI生成+真人缺失」的互动影游口碑是硬伤。</div>
+    <div class="tags"><span class="tag tag-r">AI原生</span><span class="tag tag-b">乙女</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望</span><span class="delta warn">8.7分</span></div>
+    <div class="meta">关注 6.7万 · 评价635条 · 版本1.3.4(6/29) · 2026-06-09上线</div>
+    <div class="note">TapTap评分8.8→8.7微降(互动电影榜前列)，评价633→635条(+2)，关注6.7万稳定。玩家讨论焦点：正面「剧情饱满、家国情怀拉满、网状抉择体系(八章主线/600分钟影像/上百分支)」；负面「玩法创新有限、大场面调度欠缺(两军交战像村里械斗)、场景复用、支线触发隐晦、需大量读档试错、部分认为『样样无』」。</div>
+    <div class="tags"><span class="tag tag-g">历史</span><span class="tag tag-b">真人</span><span class="tag tag-a">三端</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">刷评质疑连续第3天发酵</span><span class="delta hot">热点</span></div>
+    <div class="note">GGAMen 8/24社区综述接续新浪财经8/23，再点名绍宋+花满楼「短时好评激增」，质疑从游戏媒体→财经媒体→社区自媒体全网扩散，连续第3天发酵。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">隐藏真探 Demo 97%特别好评</span><span class="delta hot">新供给</span></div>
+    <div class="note">隐形守护者原班谍战新作口碑验证，游民星空/3DM/网易号三源报道，老玩家「原班演员下限有保障」。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">海外一人FMV：无言之林</span><span class="delta">Mixed</span></div>
+    <div class="note">土耳其独立开发者一人实拍40天的FMV生存游戏8/24上架，全语言47.8%褒贬不一，中文玩家不买账。</div>
+  </div>
+  <div class="item-card">
+    <div class="t"><span class="name">互动影游行业基线更新</span><span class="delta">数据</span></div>
+    <div class="note">百度百科8/24词条：2025年市场规模22.37亿→2026年预计26.53亿；行业亏损率高达90%；退款率部分项目达30%。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.7</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · 游民星空/3DM/网易号/新浪财经/GGAMen/百度百科 | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>

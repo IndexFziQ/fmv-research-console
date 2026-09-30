@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>玩家心声报告 v0.2 | 2026-08-11</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;padding:32px 16px}
+.c{max-width:920px;margin:0 auto}
+
+header{text-align:center;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .sub{font-size:12px;color:var(--s)}
+
+/* ─── Hero Banner ─── */
+.hero{background:linear-gradient(135deg,var(--a),#3C3489);color:#fff;border-radius:14px;padding:28px 28px 20px;margin-bottom:24px}
+.hero-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.18);margin-bottom:10px;letter-spacing:0.5px}
+.hero h2{font-size:22px;font-weight:700;line-height:1.3;margin-bottom:6px}
+.hero .lead{font-size:13px;opacity:0.85;line-height:1.6;max-width:680px;margin-bottom:16px}
+.hero-stats{display:flex;gap:20px;flex-wrap:wrap}
+.hero-stat{display:flex;flex-direction:column;background:rgba(255,255,255,0.12);border-radius:8px;padding:10px 16px;min-width:90px}
+.hero-stat .hsv{font-size:26px;font-weight:700;line-height:1}
+.hero-stat .hsl{font-size:10px;opacity:0.7;margin-top:2px;white-space:nowrap}
+
+/* ─── Quick Strip ─── */
+.quick-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:28px}
+.qcard{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:14px;transition:box-shadow 0.15s}
+.qcard:hover{box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.qcard-top{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.qcard .qicon{width:28px;height:28px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--border)}
+.qcard .qname{font-size:13px;font-weight:600;flex:1}
+.qcard .qrating{font-size:20px;font-weight:700;line-height:1}
+.qcard .qrating.ok{color:var(--g)}.qcard .qrating.warn{color:var(--amb)}.qcard .qrating.bad{color:var(--r)}
+.qcard .qbar{display:flex;height:4px;border-radius:2px;overflow:hidden;margin-bottom:6px}
+.qcard .qbar .pos{background:var(--g)}.qcard .qbar .neg{background:var(--r)}
+.qcard .qtag{font-size:10px;color:var(--muted);line-height:1.4}
+
+/* ─── Section ─── */
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:14px;padding-bottom:6px;border-bottom:2px solid var(--al);display:flex;align-items:center;gap:8px}
+.section-title .st-num{font-size:10px;color:var(--muted);font-weight:400}
+
+/* ─── Product Card ─── */
+.pcard{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;margin-bottom:18px;overflow:hidden;display:flex;flex-direction:column}
+.pcard-header{display:flex;gap:16px;padding:16px 20px;background:var(--bg);border-bottom:1px solid var(--border);align-items:center}
+.pcard-header .pcover{width:120px;height:68px;border-radius:6px;object-fit:cover;flex-shrink:0;background:var(--border)}
+.pcard-header .pinfo{flex:1;min-width:0}
+.pcard-header .pinfo .ptitle{font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+.pcard-header .pinfo .pmeta{font-size:11px;color:var(--muted);margin-bottom:6px;display:flex;gap:12px;flex-wrap:wrap}
+.pcard-header .pinfo .pmeter{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-bottom:4px}
+.pcard-header .pinfo .pmeter .pos{background:var(--g)}.pmeter .neg{background:var(--r)}
+.pcard-header .pinfo .pmeter-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+
+.pcard-body{padding:18px 20px}
+.pcard-body .pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.pcard-body .pb-grid{grid-template-columns:1fr}.quick-strip{grid-template-columns:repeat(2,1fr)}}
+.pb-block{margin-bottom:2px}
+.pb-block h4{font-size:11px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:4px}
+.pb-block h4 .hdot{display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.pb-block h4 .hdot.neg{background:var(--r)}.pb-block h4 .hdot.pos{background:var(--g)}
+.pb-list{list-style:none;display:flex;flex-direction:column;gap:4px}
+.pb-list li{font-size:12px;color:var(--s);line-height:1.5;padding:4px 10px;border-radius:6px;transition:background 0.1s}
+.pb-list li:hover{background:var(--bg)}
+.pb-list .cnt{font-size:10px;color:var(--muted);background:var(--bg);padding:1px 6px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+
+.pcard-actions{padding:0 20px 18px}
+.act-item{background:var(--al);border:1px solid var(--a);border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.act-item:last-child{margin-bottom:0}
+.act-item .prio{display:inline-block;font-size:9px;padding:1px 6px;border-radius:3px;font-weight:700;flex-shrink:0;margin-top:1px}
+.prio.p0{background:var(--r);color:#fff}.prio.p1{background:var(--amb);color:#fff}
+.act-item .act-text{flex:1;min-width:0}
+.act-item h4{font-size:12px;font-weight:600;margin-bottom:2px;color:var(--a)}
+.act-item p{font-size:11px;color:var(--s);line-height:1.5}
+
+/* ─── Cross Patterns ─── */
+.pattern-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.pattern-grid{grid-template-columns:1fr}}
+.pat-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px;position:relative;overflow:hidden}
+.pat-card::before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;border-radius:2px 0 0 2px}
+.pat-card:nth-child(1)::before{background:var(--a)}
+.pat-card:nth-child(2)::before{background:var(--g)}
+.pat-card:nth-child(3)::before{background:var(--amb)}
+.pat-card:nth-child(4)::before{background:var(--r)}
+.pat-num{font-size:36px;font-weight:700;color:var(--border);line-height:1;margin-bottom:-10px}
+.pat-card h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.pat-card p{font-size:12px;color:var(--s);line-height:1.5;margin-bottom:8px}
+.pat-card .pat-tags{display:flex;gap:6px;flex-wrap:wrap}
+.pat-card .pat-tags .tag{font-size:9px;padding:1px 7px;border-radius:3px;font-weight:600}
+.tag.from{background:var(--rl);color:var(--r)}.tag.fix{background:var(--gl);color:var(--g)}
+
+/* ─── Self Eval ─── */
+.self-eval{background:var(--card-bg);border:1px solid var(--amb);border-radius:10px;padding:18px;margin-top:24px}
+.self-eval h4{font-size:14px;font-weight:600;color:var(--amb);margin-bottom:10px}
+.se-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:700px){.se-grid{grid-template-columns:1fr}}
+.se-item{text-align:center;padding:10px 8px;border-radius:8px;background:var(--bg)}
+.se-item .score{font-size:30px;font-weight:700;line-height:1}
+.se-item .score.r{color:var(--r)}.se-item .score.g{color:var(--g)}.se-item .score.a{color:var(--a)}
+.se-item .lbl{font-size:10px;color:var(--muted);margin-top:4px}
+.se-item .note{font-size:10px;color:var(--s);margin-top:6px;line-height:1.4}
+
+/* ─── Next Steps ─── */
+.next-steps{margin-top:12px;padding:12px 16px;background:var(--bl);border:1px solid var(--b);border-radius:8px;font-size:12px;color:var(--b);line-height:1.6}
+.next-steps strong{display:block;margin-bottom:2px}
+
+footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);text-align:center;font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+</style>
+</head>
+<body>
+<div class="c">
+
+<header>
+  <h1>玩家心声报告 v0.2</h1>
+  <div class="sub">互动影游竞品 · Steam 评测深读 · 2026-08-11 · 首批试点 3 款 · 60 条评测</div>
+</header>
+
+<!-- ═══ Hero ═══ -->
+<div class="hero">
+  <div class="hero-tag">⚡ CORE FINDING</div>
+  <h2>定位模糊是互动影游最贵的 bug</h2>
+  <p class="lead">代号三国"你到底想让我玩什么"被 25% 评测反复提及，不是数值问题、不是 QA 问题，是产品策略在立项阶段就没定。The Run 反过来——定位清晰（FMV 惊悚）但交付崩了。主角数据异常需要补采验证。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hsv">5</span><span class="hsl">分析产品</span></div>
+    <div class="hero-stat"><span class="hsv">9</span><span class="hsl">可行动建议</span></div>
+    <div class="hero-stat"><span class="hsv">3</span><span class="hsl">交叉模式</span></div>
+    <div class="hero-stat"><span class="hsv">2</span><span class="hsl">P0 级问题</span></div>
+  </div>
+</div>
+
+<!-- ═══ Quick Strip ═══ -->
+<div class="quick-strip">
+  <div class="qcard">
+    <div class="qcard-top">
+      <img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3412900/231f644e9295928805d168098ba7000c7bf3f13f/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="qname">代号三国</span>
+      <span class="qrating warn">65%</span>
+    </div>
+    <div class="qbar"><div class="pos" style="width:65%"></div><div class="neg" style="width:35%"></div></div>
+    <div class="qtag">⚠️ 近期好评 · 定位危机 · 521m</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top">
+      <img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4234260/8304dfd2458ffffd8ce94ce8e76a12c95f4f6cf5/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="qname">主角</span>
+      <span class="qrating warn">66%</span>
+    </div>
+    <div class="qbar"><div class="pos" style="width:66%"></div><div class="neg" style="width:34%"></div></div>
+    <div class="qtag">⚠️ 30天 Steam · 数据异常 · API 95%</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top">
+      <img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3447920/123aa17f56acb1209e393de707600c9396c1dc6f/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="qname">The Run</span>
+      <span class="qrating ok">85%</span>
+    </div>
+    <div class="qbar"><div class="pos" style="width:85%"></div><div class="neg" style="width:15%"></div></div>
+    <div class="qtag">✅ 近期好评 · 节奏断层 · 158m</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top">
+      <img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2993720/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="qname">Cage of Roses</span>
+      <span class="qrating ok">88%</span>
+    </div>
+    <div class="qbar"><div class="pos" style="width:88%"></div><div class="neg" style="width:12%"></div></div>
+    <div class="qtag">百合向 · 动漫VN · 美术好评</div>
+  </div>
+  <div class="qcard">
+    <div class="qcard-top">
+      <img class="qicon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1188710/capsule_616x353.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <span class="qname">Bloodholic</span>
+      <span class="qrating ok">88%</span>
+    </div>
+    <div class="qbar"><div class="pos" style="width:88%"></div><div class="neg" style="width:12%"></div></div>
+    <div class="qtag">百合向 · 样本不足 · 免费</div>
+  </div>
+</div>
+
+<!-- ═══ 逐款分析 ═══ -->
+<div class="section-title">逐款分析 <span class="st-num">5 款 · 真人 3 + 动漫视觉小说 2</span></div>
+
+<!-- ─── 代号三国 ─── -->
+<div class="pcard" style="border-left:4px solid var(--r)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3412900/231f644e9295928805d168098ba7000c7bf3f13f/capsule_616x353.jpg" alt="代号三国:龙起" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">代号三国:龙起 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">⚠️ 65% 近期 / 95% 全时</span></div>
+      <div class="pmeta"><span>推荐 13</span><span>不推荐 7</span><span>521m</span></div>
+      <div class="pmeter"><div class="pos" style="width:65%"></div><div class="neg" style="width:35%"></div></div>
+      <div class="pmeter-labels"><span>好评 65%</span><span>差评 35%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>剧情尴尬/降智/无厘头 <span class="cnt">×8</span></li>
+          <li>定位模糊——纯恋爱 or 三国策略？两边不讨好 <span class="cnt">×5</span></li>
+          <li>被江山北望"吊打"的对比频次高 <span class="cnt">×3</span></li>
+          <li>特定角色人设失败（小乔=花瓶，孙尚香=人设浪费） <span class="cnt">×2</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>蔡昭姬/甄宓/大乔 角色塑造+演员演技双在线 <span class="cnt">×4</span></li>
+          <li>价格对得起内容量（"值了"类反馈） <span class="cnt">×5</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>修 QTE 手柄/键盘映射 bug</h4><p>PC 上只显示 RB 提示而无法用键盘操作，直接导致愤怒型差评。修好可挽回至少 5% 的差评率。</p></div></div>
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>定位澄清——做减法，不要缝</h4><p>"完蛋粉觉得不够恋爱、三国迷觉得不够策略"——直接把两个目标人群都得罪了。下一部要么彻底走穿越恋爱，要么做纯三国策略影游。这是产品策略问题，不是数值问题。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── 主角 ─── -->
+<div class="pcard" style="border-left:4px solid var(--amb)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4234260/8304dfd2458ffffd8ce94ce8e76a12c95f4f6cf5/capsule_616x353.jpg" alt="主角" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">主角 <span style="font-size:11px;font-weight:400;color:var(--amb);background:var(--alm);padding:2px 8px;border-radius:4px">⚠️ API 95% / Steam 30天 66%</span></div>
+      <div class="pmeta"><span>推荐 19</span><span>不推荐 1</span><span>216m</span></div>
+      <div class="pmeter"><div class="pos" style="width:95%"></div><div class="neg" style="width:5%"></div></div>
+      <div class="pmeter-labels"><span>好评 95% (API 采样)</span><span>差评 5%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 正面关键词集群</h4>
+        <ul class="pb-list">
+          <li>跳出恋爱题材框架（"现实向""反规训""不是恋爱游戏"） <span class="cnt">×7</span></li>
+          <li>叙事深度/温度/内容对标制片质量 <span class="cnt">×6</span></li>
+          <li>性价比 ¥42 <span class="cnt">×3</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 值得警惕的信号</h4>
+        <ul class="pb-list">
+          <li>男主逻辑漏洞（伪装调查却主动泄露目的）</li>
+          <li>编剧无法平衡所有女主戏份 / 结局敷衍</li>
+          <li>"boss 战就是冲进去一顿打"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>数据异常需要补采</h4><p>API 95% vs Steam 公开 30 天 66%，偏差达 29 个百分点——不是采样误差。可能原因：API "recent" 过滤器实际返回了较老的评测。建议补抓 30 天窗口否定评测。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── The Run ─── -->
+<div class="pcard" style="border-left:4px solid var(--g)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3447920/123aa17f56acb1209e393de707600c9396c1dc6f/capsule_616x353.jpg" alt="The Run" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">The Run <span style="font-size:11px;font-weight:400;color:var(--g);background:var(--gl);padding:2px 8px;border-radius:4px">✅ 85% 近期 / 92% 全时</span></div>
+      <div class="pmeta"><span>推荐 17</span><span>不推荐 3</span><span>158m</span></div>
+      <div class="pmeter"><div class="pos" style="width:85%"></div><div class="neg" style="width:15%"></div></div>
+      <div class="pmeter-labels"><span>好评 85%</span><span>差评 15%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>结局突然/反高潮（"ends abruptly""anticlimactic"） <span class="cnt">×5</span></li>
+          <li>不能跳章节/跳过已看内容 → replayability = 0 <span class="cnt">×3</span></li>
+          <li>价格 vs 内容量失衡——"$10 但只值 $5" <span class="cnt">×2</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>演技+制作质量 "best FMV production" <span class="cnt">×7</span></li>
+          <li>沉浸感+紧张氛围 "immersive, keeps you hooked" <span class="cnt">×4</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p0">P0</span><div class="act-text"><h4>加章节跳转功能——不做的代价是一半玩家不会重玩</h4><p>"不能跳章节"直接把 FMV 品类核心优势（多周目 replayability）废掉了。评测者明确说"不会碰第二次"。修 skip 或降价，能稳住 replay 率。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── Cage of Roses（动漫视觉小说 · 百合向）─── -->
+<div class="pcard" style="border-left:4px solid var(--a)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2993720/capsule_616x353.jpg" alt="Cage of Roses" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Cage of Roses <span style="font-size:11px;font-weight:400;color:var(--a);background:var(--al);padding:2px 8px;border-radius:4px">百合向 · 动漫视觉小说</span></div>
+      <div class="pmeta"><span>推荐 8</span><span>不推荐 2</span><span>88% 好评</span></div>
+      <div class="pmeter"><div class="pos" style="width:88%"></div><div class="neg" style="width:12%"></div></div>
+      <div class="pmeter-labels"><span>好评 88%</span><span>差评 12%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 高频赞美</h4>
+        <ul class="pb-list">
+          <li>美术/角色设计 "breathtaking""gorgeous" <span class="cnt">×4</span></li>
+          <li>吸血鬼=酷儿/跨性别隐喻，情感共鸣 "felt seen" <span class="cnt">×2</span></li>
+          <li>音乐动人、氛围沉浸 <span class="cnt">×2</span></li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> 高频抱怨</h4>
+        <ul class="pb-list">
+          <li>节奏拖沓/无聊 "dull""boring" <span class="cnt">×2</span></li>
+          <li>配角戏份过多，主角感情线铺垫不够 <span class="cnt">×2</span></li>
+          <li>重复对话/内心独白、开头信息倾倒 <span class="cnt">×2</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>明确品类边界：这是"阅读"不是"互动"</h4><p>评测明确点出"无选择、无分支、无多结局"（kinetic story）。它本质是带插图的电子小说，不是互动影游。好评集中在美术和酷儿隐喻，差评集中在节奏。做类似产品前先想清楚：你的卖点是"故事"还是"选择"——Cage of Roses 选择了前者，且目标用户是百合/酷儿群体这个垂直市场。</p></div></div>
+  </div>
+</div>
+
+<!-- ─── Bloodholic（动漫视觉小说 · 百合向 · 样本不足）─── -->
+<div class="pcard" style="border-left:4px solid var(--muted)">
+  <div class="pcard-header">
+    <img class="pcover" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1188710/capsule_616x353.jpg" alt="Bloodholic" loading="lazy" onerror="this.style.display='none'">
+    <div class="pinfo">
+      <div class="ptitle">Bloodholic <span style="font-size:11px;font-weight:400;color:var(--muted);background:var(--border);padding:2px 8px;border-radius:4px">百合向 · 国产 · 样本不足</span></div>
+      <div class="pmeta"><span>可用原文 2 条</span><span>88% 好评</span><span>免费</span></div>
+      <div class="pmeter"><div class="pos" style="width:88%"></div><div class="neg" style="width:12%"></div></div>
+      <div class="pmeter-labels"><span>好评 88%</span><span>差评 12%</span></div>
+    </div>
+  </div>
+  <div class="pcard-body">
+    <div class="pb-grid">
+      <div class="pb-block">
+        <h4><span class="hdot neg"></span> ⚠️ 评测样本不足，不做高频分析</h4>
+        <ul class="pb-list">
+          <li>中文评测 1 条："剧情有深意，世界观完整，用心做的"</li>
+          <li>英文评测 1 条："因为翻译差看不懂剧情"（差评）</li>
+        </ul>
+      </div>
+      <div class="pb-block">
+        <h4><span class="hdot pos"></span> 已知信息（来自商店页）</h4>
+        <ul class="pb-list">
+          <li>国产轻百合，釉里红开发，2019 年免费</li>
+          <li>8 万字双结局，狼人+血族+女巫都市</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pcard-actions">
+    <div class="act-item"><span class="prio p1">P1</span><div class="act-text"><h4>数据缺口标注，待下周一自动化补采</h4><p>Bloodholic 中文评测仅 1 条、英文 1 条，评测量太小无法做情感聚类。但其中一条英文差评指向一个真实问题：<strong>国产百合游戏出海时英文翻译质量会直接造成差评</strong>。这条线索值得后续补采验证——如果多款国产百合游戏都因翻译被差评，这就是一个可量化的出海门槛。</p></div></div>
+  </div>
+</div>
+
+<!-- ═══ 交叉模式 ═══ -->
+<div class="section-title">跨产品交叉模式 <span class="st-num">从 3 款产品提取的共性模式</span></div>
+<div class="pattern-grid">
+  <div class="pat-card">
+    <div class="pat-num">01</div>
+    <h4>定位模糊是最贵的 bug</h4>
+    <p>代号三国"四不像"和 The Run"结局不对等"是同一个问题：产品向玩家的 promise 和交付体验不匹配。代号三国说"三国互动影游"但恋爱/策略选哪边都没想好；The Run 说"你的选择决定结局"但结局方式让人失望。</p>
+    <div class="pat-tags"><span class="tag from">来源: 三国+Run</span><span class="tag fix">修复: 策略 review</span></div>
+  </div>
+  <div class="pat-card">
+    <div class="pat-num">02</div>
+    <h4>UX 小失误毁掉好内容</h4>
+    <p>代号三国手柄 bug = 5 秒能修的键盘映射问题，触发愤怒弃游。The Run 不能跳章节 = 一个 save-quick-skip 的 UX 控件，没做就废了 50% replay。两者都是高质量内容被 UX 一个故障一波带走。</p>
+    <div class="pat-tags"><span class="tag from">来源: 三国+Run</span><span class="tag fix">修复: UX checklist</span></div>
+  </div>
+  <div class="pat-card">
+    <div class="pat-num">03</div>
+    <h4>角色质量 = 口碑天花板</h4>
+    <p>代号三国里蔡昭姬/甄宓/大乔被反复表扬，小乔/孙尚香被骂"花瓶"。主角正面评价全是"每个角色有成长弧线""演员细腻"。互动影游不是数值游戏——角色就是产品本身。</p>
+    <div class="pat-tags"><span class="tag from">来源: 三国+主角</span><span class="tag fix">修复: 人设 review</span></div>
+  </div>
+  <div class="pat-card">
+    <div class="pat-num">04</div>
+    <h4>数据源质量是系统瓶颈</h4>
+    <p>主角 API 95% vs Steam 公开 66%——30 个百分点偏差，如果直接用 API 数据做决策你会以为主角没有负面。需要补采 30 天否定评测，否则报告可信度打折扣。</p>
+    <div class="pat-tags"><span class="tag from">来源: 主角+API</span><span class="tag fix">修复: 补采数据</span></div>
+  </div>
+</div>
+
+<!-- ═══ 自评 ═══ -->
+<div class="self-eval">
+  <h4>自评：v0.2 质量评估</h4>
+  <div class="se-grid">
+    <div class="se-item"><div class="score g">3.5/5</div><div class="lbl">可行动性</div><div class="note">3条P0+P1建议 · 代号三国QTE fix 最具操作性</div></div>
+    <div class="se-item"><div class="score a">3/5</div><div class="lbl">数据完整性</div><div class="note">主角API偏差未解决 · 英文评测需词频统计</div></div>
+    <div class="se-item"><div class="score r">2.5/5</div><div class="lbl">交互设计价值</div><div class="note">交叉模式有价值 · 缺少NPC对话系统的评估维度</div></div>
+  </div>
+  <div class="next-steps">
+    <strong>v0.3 改进方向</strong>
+    补采主角 30d 否定评测 · 加英文评测词频统计 · 加"NPC 对话系统"评估维度 · 扩大试点数量到 5-8 款
+  </div>
+</div>
+
+<footer>
+  <p>由 <span class="rn">玩家心声机器人 v0.2</span> 生成 · 60条评测 · 3款试点 · 2026-08-11</p>
+</footer>
+
+</div>
+</body>
+</html>

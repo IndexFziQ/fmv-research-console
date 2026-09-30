@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动影游情报日报 | 2026-09-03</title>
+<style>
+:root{--bg:#fafaf9;--card-bg:#fff;--text:#1a1a1a;--s:#5f5e5a;--muted:#888780;--border:#e5e5e0;--a:#534AB7;--al:#EEEDFE;--g:#1D9E75;--gl:#E1F5EE;--amb:#BA7517;--alm:#FAEEDA;--r:#E24B4A;--rl:#FCEBEB;--b:#378ADD;--bl:#E6F1FB}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px 16px}
+.container{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+header h1{font-size:24px;font-weight:600;margin-bottom:4px}
+header .meta{font-size:12px;color:var(--s);display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.kpi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center}
+.kpi-card .kpi-value{font-size:26px;font-weight:600;color:var(--a);line-height:1;margin-bottom:4px}
+.kpi-card .kpi-label{font-size:11px;color:var(--muted)}
+.section{margin-bottom:28px}
+.section-title{font-size:16px;font-weight:600;color:var(--a);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--al)}
+.tag{font-size:9px;padding:1px 5px;border-radius:3px;font-weight:500;display:inline-block}
+.tag-b{background:var(--bl);color:var(--b)}.tag-g{background:var(--gl);color:var(--g)}.tag-a{background:var(--alm);color:var(--amb)}.tag-r{background:var(--rl);color:var(--r)}.tag-p{background:var(--al);color:var(--a)}
+.signal-card{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--a);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.signal-card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.signal-card .src{font-size:10px;color:var(--muted);margin-bottom:8px}
+.signal-card ul{list-style:none;margin-bottom:8px}
+.signal-card ul li{font-size:12px;color:var(--s);padding:3px 0;padding-left:14px;position:relative;line-height:1.55}
+.signal-card ul li:before{content:"▸";position:absolute;left:0;color:var(--a)}
+.signal-card .act{font-size:12px;color:var(--text);background:var(--al);border-radius:6px;padding:8px 10px;line-height:1.6}
+.signal-card .act strong{color:var(--a)}
+.signal-card .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.link-btn{font-size:11px;padding:3px 9px;border-radius:5px;text-decoration:none;font-weight:500;border:1px solid var(--border);color:var(--s);transition:all 0.15s}
+.link-btn:hover{border-color:var(--a);color:var(--a);background:var(--al)}
+.item-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.item-card .t{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.item-card .t .name{font-size:13px;font-weight:600}
+.item-card .t .delta{font-size:12px;font-weight:600;color:var(--g)}
+.item-card .t .delta.warn{color:var(--amb)}
+.item-card .t .delta.hot{color:var(--r)}
+.item-card .meta{font-size:10px;color:var(--muted);margin-bottom:4px}
+.item-card .note{font-size:12px;color:var(--s);line-height:1.55}
+.item-card .tags{margin-top:6px;display:flex;gap:3px;flex-wrap:wrap}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-cell{background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:9px 11px;font-size:11px}
+.review-cell .rn{display:flex;justify-content:space-between;gap:6px;margin-bottom:2px}
+.review-cell .rn .nm{font-weight:600;font-size:11.5px}
+.review-cell .rn .pct{color:var(--a);font-weight:600}
+.review-cell .dl{color:var(--g);font-weight:600;font-size:11px}
+.review-cell .dl.hot{color:var(--r)}
+.review-cell .dl.warn{color:var(--amb)}
+.review-cell .nt{color:var(--muted);font-size:10.5px;line-height:1.5}
+footer{text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:11px;color:var(--muted)}
+footer .rn{font-weight:600;color:var(--a)}
+@media(max-width:700px){.kpi-row{grid-template-columns:repeat(2,1fr)}.review-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>互动影游 · 情报日报</h1>
+  <div class="meta"><span>2026-09-03</span><span>近24-48h增量</span><span>Steam · TapTap · Reddit/媒体</span><span style="color:var(--g)">链接已核实</span></div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-value">49</div><div class="kpi-label">今日情报条数</div></div>
+  <div class="kpi-card"><div class="kpi-value">4</div><div class="kpi-label">爆款信号</div></div>
+  <div class="kpi-card"><div class="kpi-value">100%</div><div class="kpi-label">数据完整率</div></div>
+</div>
+
+<section class="section">
+  <div class="section-title">今日爆款信号</div>
+  <div class="signal-card">
+    <h4>① 《Lilith Cunningham》官宣——真人FMV首次用「编辑胶片改写现实」突破被动观看范式，反AI立场成差异化卖点</h4>
+    <div class="src">来源：Tech Times(9/2) · dlheinz.com(9/1) · PAX West Rising Showcase(9/4-7)</div>
+    <ul><li>Causeway Studios官宣FMV侦探游戏《The Final Cut of Lilith Cunningham》，玩家编辑神秘胶片《The City of Dreams》，改变角色命运、性格与酒店现实世界状态</li><li>突破FMV「浏览固定录像」传统(Her Story/Telling Lies/Contradiction)，把胶片变成「可编辑的世界状态变量」，机制上更接近Outer Wilds/Braid的时间操纵</li><li>真人实拍FMV+人类作曲+人类编剧的「反AI」立场，在2026年AIGC争议(Clair Obscur被撤奖/Larian承诺无GenAI)背景下是明确的editorial定位</li><li>入选PAX West Rising Showcase(Celeste/Slay the Princess同展)，9/4-7西雅图首试玩demo，2027年Steam发售</li></ul>
+    <div class="act"><strong>行动建议：</strong>这是FMV品类「机制创新」的教科书级信号：过去FMV的想象力上限是「更长的视频素材+更多的分支选择」，Lilith Cunningham第一次把「胶片」本身变成玩家可编辑的世界状态变量。对自有项目三点启示：① 机制即差异化——在「真人实拍FMV」这条拥挤赛道上，靠演员阵容/题材已经拉不开差距，真正的护城河是「把真人素材做成可操作的机制」(编辑胶片/时间操纵/世界状态)，立项时要先想清楚「玩家对这段真人视频能做什么」，而不是「这段视频能播多久」；② 反AI立场已成卖点——2026年AIGC争议白热化，Causeway用「真人实拍+人类作曲+人类编剧」作为公开立场来营销，对主打「真人情感戏」的自有项目是天然利好：把「全真人、非AI」写进定位，反而能在AI浪潮里建立信任差异化；③ 素材复用范式——「编辑胶片改变世界」意味着真人素材要按「可被重组/可被改写」来拍摄规划，而非线性电影一次性拍法，这是FMV立项必须前置的制片决策。</div>
+    <div class="links"><a class="link-btn" href="https://www.techtimes.com/articles/326326/20260902/lilith-cunningham-fmv-game-opens-pax-west-edit-film-rewrite-characters-fates.htm" target="_blank">来源</a><a class="link-btn" href="http://dlheinz.com/en/news/90306/causeway-studios-announces-the-final-cut-of-lilith-cunningham.html" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>② 民国主旋律互动影游「密集上新」——《流火》第一人称上架Steam+4款盘点，未来3个月红海白热化</h4>
+    <div class="src">来源：今日头条·帅桃游戏(9/2) · 中金在线/网易(隐藏真探持续) · Steam搜索(9/3)</div>
+    <ul><li>今日头条9/2「谍战对决」盘点4款民国主旋律影游：隐藏真探(隐形守护者原班/十几小时视频体量/今年)、暗影成双(双人影游/10月前)、白纸星途(张柏芝/无日期)、流火(第一人称/刚上架Steam/10月左右)</li><li>流火是「目前唯一第一人称视角」民国互动影游，代入感强但叙事可能偏弱，PV制作在线、女主表现亮眼</li><li>隐形守护者(2019/300万销量/4.4万评价/86%)定义的「民国主旋律」赛道，未来3个月迎来史上最密集上新</li></ul>
+    <div class="act"><strong>行动建议：</strong>民国谍战/主旋律赛道正在从「隐形守护者一枝独秀」进入「4-5款扎堆」的红海阶段，这是后发者必须看清的拥挤度信号。对自有项目三点启示：① 选题拥挤度预警——「民国主旋律」是国民级共情题材(口碑纵深强)，但正因为被反复验证，未来3个月将有4款以上同类作品正面竞争，后发者若再进这个赛道，必须有更强的差异化钩子(如流火的「第一人称」、隐藏真探的「全动态实拍」)，否则容易被隐形守护者的情怀锚点压住；② 差异化方向已验证——流火的「第一人称」是赛道内第一个吃螃蟹的，说明「叙事视角」本身可以成为差异点，但第一人称牺牲了「演员对手戏的观赏性」，需谨慎权衡；③ 时机判断——这波民国影游集中到10月前后发售，正好卡在Steam新品节+秋季特卖窗口，自有项目若要切入，要么抢在10月前，要么避开这波扎堆期错峰。</div>
+    <div class="links"><a class="link-btn" href="https://www.toutiao.com/article/7680792625774903848" target="_blank">来源</a><a class="link-btn" href="https://www.163.com/dy/article/L5QKE1J405565EU3.html" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>③ 评测环比继续降温（花满楼+6/绍宋+9，昨日+16/+12）——玩家口碑发酵进一步让位给供给端定档宣发</h4>
+    <div class="src">来源：Steam评测API(9/3) · 今日头条(9/2) · 游民星空/腾讯新闻(9/2)</div>
+    <ul><li>35个追踪appid评测增量普遍回落：女帝+10、绍宋+9、江山北望+7、花满楼+6、金宵公寓+5，无一款达+30%爆款阈值</li><li>对比昨日花满楼+16、绍宋+12，玩家端讨论持续降温；供给端动作密集(流火上架/Lilith Cunningham官宣/不心动花絮/BUZZ or DIE公告)</li><li>绍宋中文好评率82.3%微降(昨日82.4%)，刷分争议后口碑仍未转正；江山北望+7条与TapTap v1.3.4修bug同步，属「修复拉动回流」而非情绪爆发</li></ul>
+    <div class="act"><strong>行动建议：</strong>连续第三天评测降温，趋势已经明确：玩家端「口碑发酵」让位于供给端「定档宣发」。对自有项目两点启示：① 别被单日评测数误导——今天唯一值得留意的是江山北望+7条背后是「v1.3.4修结局黑屏bug」拉动的回流，不是自然口碑，做竞品监测要把「版本更新/修复」与「自然口碑」分开看，修复型回流不构成持续性信号；② 关注「口碑转正」拐点——绍宋刷分争议后中文好评率连续微降(82.4%→82.3%)，尚未出现转正拐点，这类「大IP影游的信任裂缝」是很好的反面教材，自有项目上线后要警惕「刷分/口碑危机」一旦发生，好评率修复比自然增长难得多。</div>
+    <div class="links"><a class="link-btn" href="https://store.steampowered.com/appreviews/3749320?json=1&language=schinese&purchase_type=all" target="_blank">来源</a><a class="link-btn" href="https://www.toutiao.com/article/7680792625774903848" target="_blank">旁证</a></div>
+  </div><div class="signal-card">
+    <h4>④ 《不心动才有鬼》花絮营销常态化——王星辰+倩倩「吊威亚赚米哲学」，影游低成本二创获客打法成熟</h4>
+    <div class="src">来源：游民星空(9/2) · 腾讯新闻(9/2) · Steam商店(8/14发售)</div>
+    <ul><li>游民星空9/2转「奶茶妈妈」王星辰卧躺沙发大秀身材的花絮，腾讯新闻9/2转女主「倩倩」吊威亚前自曝「钱真的很难赚、想到卡进账就硬着头皮上」的励志花絮</li><li>连续多日发布演员花絮物料(昨日鹿蓝予「气球吓一激灵」+今日王星辰+倩倩)，用演员真实反应切片做二创传播</li><li>游戏8/14发售39元，中文1286条/95.5%好评持续，花絮营销带动长尾回流(+3条)</li></ul>
+    <div class="act"><strong>行动建议：</strong>《不心动才有鬼》把「演员花絮」打成了连续剧式的低成本获客节奏，这是影游区别于纯游戏的独特打法，值得自有项目直接借鉴。三点启示：① 素材复用最大化——影游拍摄时本就产出了海量演员幕后素材，把这些「边角料」剪成花絮做二创，边际成本几乎为零，却能持续维持热度，立项时就该把「花絮物料拍摄」纳入制片计划(吊威亚、对戏NG、片场日常都能剪)；② 「演员真实反应」是天然传播点——倩倩「赚米哲学」这种接地气、有反差萌的真实反应，比硬广更容易出圈，选角时除了看演技，还要看演员有没有「能传播的人格切片」；③ 长尾运营节奏——8/14发售至今快一个月，靠花絮把好评率稳在95.5%并维持每日+3条回流，说明影游的运营不是「上线一波流」，而是「上线后持续喂物料」的长期战。</div>
+    <div class="links"><a class="link-btn" href="https://www.gamersky.com/news/202609/2201667.shtml" target="_blank">来源</a><a class="link-btn" href="https://news.qq.com/rain/a/20260902A0DETX00" target="_blank">旁证</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 竞品评测环比（中文口径 · 自09-03前快照起）</div>
+  <div class="review-grid">
+    <div class="review-cell"><div class="rn"><span class="nm">女帝篇(盛世天下)</span><span class="pct">83.4%</span></div><div class="dl ">+10(+0.1%)</div><div class="nt">500万套系列，+10条为今日最高，老作长尾</div></div><div class="review-cell"><div class="rn"><span class="nm">绍宋:还我河山</span><span class="pct">82.3%</span></div><div class="dl ">+9(+0.3%)</div><div class="nt">满14天，+9条；中文82.3%微降，刷分争议后口碑未转正</div></div><div class="review-cell"><div class="rn"><span class="nm">江山北望</span><span class="pct">91.3%</span></div><div class="dl ">+7(+0.1%)</div><div class="nt">欢瑞主投多平台，Steam破6200条；TapTap同步v1.3.4修结局黑屏bug</div></div><div class="review-cell"><div class="rn"><span class="nm">花满楼</span><span class="pct">97.8%</span></div><div class="dl ">+6(+0.4%)</div><div class="nt">97.8%好评如潮持续，+6条攻略生态沉淀</div></div><div class="review-cell"><div class="rn"><span class="nm">金宵公寓事件</span><span class="pct">57.1%</span></div><div class="dl ">+5(+5.0%)</div><div class="nt">8/25新作，中文105条/57.1%Mixed微升，媒体称实为解谜探案</div></div><div class="review-cell"><div class="rn"><span class="nm">不心动才有鬼</span><span class="pct">95.5%</span></div><div class="dl ">+3(+0.2%)</div><div class="nt">95.5%稳定，+3条花絮营销带动长尾</div></div><div class="review-cell"><div class="rn"><span class="nm">光与影之恋</span><span class="pct">100.0%</span></div><div class="dl ">+2(+2.1%)</div><div class="nt">百合AVG 99条保持100%零差评（小样本）</div></div><div class="review-cell"><div class="rn"><span class="nm">恶校游戏</span><span class="pct">93.6%</span></div><div class="dl ">+1(+0.1%)</div><div class="nt">93.6%稳定，+1条仍有回流</div></div><div class="review-cell"><div class="rn"><span class="nm">媚娘篇(盛世天下)</span><span class="pct">82.9%</span></div><div class="dl ">+1(+0.0%)</div><div class="nt">⚠️ 全语言86.7%高于中文82.9%(差3.8pp，海外口碑更好)</div></div><div class="review-cell"><div class="rn"><span class="nm">Bloodholic</span><span class="pct">98.1%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文98.1% vs 全语言88.2%(差9.9pp)</div></div><div class="review-cell"><div class="rn"><span class="nm">Cage of Roses</span><span class="pct">89.5%</span></div><div class="dl ">持平</div><div class="nt">长尾</div></div><div class="review-cell"><div class="rn"><span class="nm">The Run</span><span class="pct">33.3%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文仅3条(33.3%)与全语言89.1%差55.8pp</div></div><div class="review-cell"><div class="rn"><span class="nm">主角</span><span class="pct">97.6%</span></div><div class="dl ">持平</div><div class="nt">欢瑞矩阵，好评率最高，热度平稳</div></div><div class="review-cell"><div class="rn"><span class="nm">代号三国:龙起</span><span class="pct">91.6%</span></div><div class="dl ">持平</div><div class="nt">欢瑞矩阵，长尾</div></div><div class="review-cell"><div class="rn"><span class="nm">冰点之下</span><span class="pct">93.8%</span></div><div class="dl ">持平</div><div class="nt">欢瑞矩阵，长尾</div></div><div class="review-cell"><div class="rn"><span class="nm">对不起我是警察</span><span class="pct">77.9%</span></div><div class="dl ">持平</div><div class="nt">长尾</div></div><div class="review-cell"><div class="rn"><span class="nm">心之岛</span><span class="pct">67.5%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文67.5% vs 全语言58.6%(差8.9pp)，口碑最弱</div></div><div class="review-cell"><div class="rn"><span class="nm">盛夏离与合</span><span class="pct">84.8%</span></div><div class="dl ">持平</div><div class="nt">intiny长尾</div></div><div class="review-cell"><div class="rn"><span class="nm">雪落情书时</span><span class="pct">96.8%</span></div><div class="dl ">持平</div><div class="nt">热度回落</div></div><div class="review-cell"><div class="rn"><span class="nm">Five Dates</span><span class="pct">85.7%</span></div><div class="dl ">持平</div><div class="nt">Wales Interactive(2020)低活跃</div></div><div class="review-cell"><div class="rn"><span class="nm">The Complex</span><span class="pct">71.4%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 中文71.4% vs 全语言78.0%(差6.6pp)</div></div><div class="review-cell"><div class="rn"><span class="nm">Libera Nos a Malo</span><span class="pct">—</span></div><div class="dl warn">极小样本</div><div class="nt">8/15 FMV恐怖，$1.99，全语言3条/66.7%(中文0条)</div></div><div class="review-cell"><div class="rn"><span class="nm">退婚后,宗主马甲藏不住</span><span class="pct">26.8%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 免费互动剧情，中文41条/26.8%差评为主，口碑最低警示样本</div></div><div class="review-cell"><div class="rn"><span class="nm">Project DeepWeb</span><span class="pct">100.0%</span></div><div class="dl ">持平</div><div class="nt">8/17新发售FMV冒险，全语言17条/94.1%(英文样本)</div></div><div class="review-cell"><div class="rn"><span class="nm">请去Bar,恋爱吧!</span><span class="pct">86.7%</span></div><div class="dl ">持平</div><div class="nt">8/21新作，中文30条/86.7%小样本</div></div><div class="review-cell"><div class="rn"><span class="nm">1000王子(AI原生乙女)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ AI原生乙女，中文1条差评，全语言6条(33.3%)口碑仍差</div></div><div class="review-cell"><div class="rn"><span class="nm">无言之林(海外一人FMV)</span><span class="pct">0.0%</span></div><div class="dl ">持平</div><div class="nt">⚠️ 全语言56条/56.1%Mixed；中文1条差评</div></div><div class="review-cell"><div class="rn"><span class="nm">天平游戏1:抉择</span><span class="pct">86.2%</span></div><div class="dl ">持平</div><div class="nt">7/25密闭囚笼FMV长尾</div></div><div class="review-cell"><div class="rn"><span class="nm">你好,你配吗?</span><span class="pct">97.0%</span></div><div class="dl ">持平</div><div class="nt">4/18恋爱互动，中文495条/97.0%好评</div></div><div class="review-cell"><div class="rn"><span class="nm">灭寇1939:上川往事</span><span class="pct">83.7%</span></div><div class="dl ">持平</div><div class="nt">谍战长尾，83.7%</div></div><div class="review-cell"><div class="rn"><span class="nm">东北往事</span><span class="pct">83.2%</span></div><div class="dl ">持平</div><div class="nt">6/22互动剧情，中文167条/83.2%</div></div><div class="review-cell"><div class="rn"><span class="nm">末日降临!被美女们关进避难所</span><span class="pct">81.5%</span></div><div class="dl ">持平</div><div class="nt">6/14恋爱末日FMV，中文65条/81.5%</div></div><div class="review-cell"><div class="rn"><span class="nm">阴三国谋论:徐州篇</span><span class="pct">93.5%</span></div><div class="dl ">持平</div><div class="nt">8/12互动剧情微增</div></div><div class="review-cell"><div class="rn"><span class="nm">夺命邂逅</span><span class="pct">—</span></div><div class="dl warn">极小样本</div><div class="nt">7/13免费FMV，全语言27条/100%好评(英文样本)，中文0条</div></div><div class="review-cell"><div class="rn"><span class="nm">宗门最后的长老</span><span class="pct">97.1%</span></div><div class="dl ">持平</div><div class="nt">7/24互动剧情，中文103条/97.1%好评</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Steam 爆款动态 / 新供给</div>
+  <div class="item-card">
+    <div class="t"><span class="name">《The Final Cut of Lilith Cunningham》官宣——真人FMV侦探游戏「编辑胶片改写现实」，反AI制作立场</span><span class="delta hot">新供给·FMV机制创新</span></div>
+    <div class="meta">Causeway Studios · 2027 PC/Steam · PAX West 9/4-7 试玩Demo</div>
+    <div class="note">★海外FMV机制创新信号：Causeway Studios 9/1官宣暗黑超自然侦探游戏《The Final Cut of Lilith Cunningham》，核心机制是玩家「编辑胶片」——通过改写一段名为《The City of Dreams》的神秘影片，改变角色命运、性格与酒店现实世界状态。这突破了FMV「被动浏览固定录像」的传统范式（Her Story/Telling Lies/Contradiction），把胶片变成「可编辑的世界状态变量」。制作上采用真人实拍FMV+人类作曲+人类编剧的「反AI」立场，在2026年AIGC争议背景下是明确的editorial定位。入选PAX West Rising Showcase（Celeste/Slay the Princess同展），9/4-7在西雅图首次可试玩demo，正式版2027年Steam发售。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">FMV机制创新</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《流火》上架Steam——民国主旋律「第一人称」互动影游，差异化切入</span><span class="delta">新供给·第一人称</span></div>
+    <div class="meta">背后家（与其他公司合作） · 近日上架 · 约2026-10月发售</div>
+    <div class="note">新供给：民国主旋律互动影游《流火》刚上架Steam，采用「目前唯一的『第一人称视角』」互动影游设计，与其他同类竞品明显区隔。第一人称代入感强，但剧情叙事可能偏弱；从PV看拍摄制作在线，几位女主表现亮眼，预计10月左右发售。这是继隐形守护者之后，「民国主旋律」赛道首次出现「第一人称」差异化打法。</div>
+    <div class="tags"><span class="tag tag-p">新供给</span><span class="tag tag-p">第一人称</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">「谍战对决」盘点4款民国主旋律互动影游——未来3个月迎来最密集上新</span><span class="delta">供给密集·赛道盘点</span></div>
+    <div class="meta">今日头条·帅桃游戏 · 2026-09-02 发布</div>
+    <div class="note">供给端信号：今日头条9/2「谍战对决」盘点4款即将发售的民国主旋律互动影游：① 隐藏真探（隐形守护者原班人马、十几小时视频体量、今年发售）；② 暗影成双（双人影游概念、双主角视角、10月前发售）；③ 白纸星途（张柏芝出演、旧片改编、无具体日期）；④ 流火（第一人称、刚上架Steam、10月左右）。隐形守护者（2019/300万销量）定义的「民国主旋律」赛道，将在未来3个月迎来史上最密集上新，红海竞争白热化。</div>
+    <div class="tags"><span class="tag tag-p">供给密集</span><span class="tag tag-p">赛道盘点</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《不心动才有鬼》花絮营销持续——王星辰「奶茶妈妈」+倩倩「吊威亚赚米哲学」</span><span class="delta">营销物料·花絮传播</span></div>
+    <div class="meta">SP Studio · 2026-09-02 花絮</div>
+    <div class="note">营销信号：国产真人互动影游《不心动才有鬼》9/2连续发布两段演员花絮——游民星空转「奶茶妈妈」王星辰卧躺沙发大秀身材的花絮，腾讯新闻转女主「倩倩」吊威亚前自曝「钱真的很难赚、想到卡进账就硬着头皮上」的励志花絮（中戏毕业梗）。连续多日发布演员花絮物料，用演员真实反应切片做二创传播，是影游区别于纯游戏的低成本获客打法，进入「花絮物料常态化」阶段。</div>
+    <div class="tags"><span class="tag tag-p">营销物料</span><span class="tag tag-p">花絮传播</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《BUZZ or DIE》——讲谈社游戏创作者实验室发行「致命综艺」选择向视觉小说</span><span class="delta">海外叙事·讲谈社</span></div>
+    <div class="meta">Bon（日本独立创作者） · 2026 PC/Steam（未定具体日期）</div>
+    <div class="note">海外选择向叙事信号：讲谈社Game Creators' Lab官宣发行科幻视觉小说《BUZZ or DIE》（Bon开发），英文/日文/简中三语。核心玩法是致命综艺直播——玩家挖掘对手黑历史、剪辑成「最具煽动性视频」争夺观众点赞，失败者被直播处决。聚焦数字声誉、公开羞辱、病毒式曝光的后果，是「选择导向叙事+公共舆论」题材的新供给，代表日本讲谈社体系切入互动叙事赛道。</div>
+    <div class="tags"><span class="tag tag-p">海外叙事</span><span class="tag tag-p">讲谈社</span></div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《街头霸王》电影「可玩预告片」——YouTube Playables 让预告片变成互动挑战</span><span class="delta">影游边界·互动营销</span></div>
+    <div class="meta">Paramount Pictures / Legendary · 2026-09-02 上线 · 电影10/16上映</div>
+    <div class="note">影游边界信号：派拉蒙+传奇影业9/2在YouTube Playables上线《街头霸王》「可玩预告片」Combo Challenge，把电影正片放进虚拟街机框，玩家跟随按键提示在预告片片段中打出连招（波动拳/升龙拳/百裂脚），结束获得评分鼓励重玩。官方称这是「首支可通过YouTube Playables游玩的完整电影预告片」。代表「电影营销向互动化」渗透——预告片不再是线性观看，而是可玩、可刷分的互动体验，是影游「边界模糊」的又一信号。</div>
+    <div class="tags"><span class="tag tag-p">影游边界</span><span class="tag tag-p">互动营销</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">TapTap 动态</div>
+  <div class="item-card">
+    <div class="t"><span class="name">江山北望</span><span class="delta">8.7</span></div>
+    <div class="note">TapTap评分8.7稳定(互动电影榜前列)，评价641条(较昨+4)。今日实抓页面增量：v1.3.4更新日志「紧急修复结局视频无法播放/黑屏bug」+v1.3.3修启动白屏bug，开发商木焱工作室(名利游戏同厂)。定价¥58。玩家讨论焦点延续：正面「剧情饱满、家国情怀、网状抉择」；负面「玩法创新有限、大场面调度欠缺」。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">「谍战对决」盘点4款民国主旋律影游（供给密集）</span><span class="delta">2026-09-02</span></div>
+    <div class="note">今日头条/帅桃游戏 9/2：盘点4款即将发售的民国主旋律互动影游——隐藏真探(今年)、暗影成双(10月前)、白纸星途(张柏芝/无日期)、流火(第一人称/10月左右)。移动端玩家对「民国谍战」题材的期待延续，隐形守护者情怀红利仍在。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《流火》第一人称民国影游上架Steam</span><span class="delta">约2026-10月</span></div>
+    <div class="note">今日头条 9/2：民国主旋律互动影游《流火》刚上架Steam，采用「唯一第一人称视角」设计，代入感强但叙事可能偏弱，PV制作在线、女主表现亮眼，约10月发售。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《The Final Cut of Lilith Cunningham》FMV机制创新（海外）</span><span class="delta">2027 PC/Steam</span></div>
+    <div class="note">Tech Times 9/2：Causeway Studios真人FMV侦探游戏，核心是「编辑胶片改写现实」——把FMV从被动浏览推向可编辑世界状态，真人实拍+反AI立场，PAX West 9/4-7试玩。海外移动/主机端对FMV机制创新的关注代表品类从「垂直小众」向「机制叙事」升级。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">Reddit / 社区讨论（媒体间接信号）</div>
+  <div class="item-card">
+    <div class="t"><span class="name">《Lilith Cunningham》FMV机制创新+反AI立场——海外社区讨论「FMV从被动观看走向可编辑世界」</span><span class="delta">媒体信号</span></div>
+    <div class="note">Tech Times 9/2 + dlheinz 9/1：Causeway Studios《The Final Cut of Lilith Cunningham》把FMV从「浏览固定录像」(Her Story/Telling Lies)推向「编辑胶片改写现实」的机制创新，真人实拍+人类作曲+人类编剧的反AI制作立场。Reddit直接帖子今日仍被限流(网络安全拦截)，以媒体信号替代。海外社区关注「FMV能否靠机制创新突破小众天花板」+「AIGC vs 人类实拍」之争。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">民国主旋律互动影游「密集上新」——海外对中国谍战影游赛道的关注</span><span class="delta">媒体信号</span></div>
+    <div class="note">今日头条/帅桃游戏 9/2：4款民国主旋律互动影游(隐藏真探/暗影成双/白纸星途/流火)未来3个月扎堆上新，流火首次用第一人称视角。Reddit直接帖子被限流，以媒体信号替代。海外社区对「中国式互动影游(谍战/家国情怀)」的关注延续，隐形守护者(300万销量)是海外认知锚点。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《不心动才有鬼》演员花絮营销——影游低成本二创获客打法</span><span class="delta">媒体信号</span></div>
+    <div class="note">游民星空 9/2 + 腾讯新闻 9/2：《不心动才有鬼》连续发布王星辰「奶茶妈妈」、倩倩「吊威亚赚米哲学」演员花絮，用演员真实反应切片做二创传播。Reddit直接帖子被限流，以媒体信号替代。海外社区对「真人影游的演员花絮营销」讨论代表影游区别于纯游戏的获客路径。</div>
+  </div><div class="item-card">
+    <div class="t"><span class="name">《BUZZ or DIE》讲谈社发行——选择向叙事与「公共舆论」题材的碰撞</span><span class="delta">媒体信号</span></div>
+    <div class="note">Next-Gen Gaming Blog 9/2：讲谈社Game Creators' Lab发行科幻VN《BUZZ or DIE》(Bon开发)，致命综艺+挖掘黑历史+剪辑视频争夺点赞，聚焦数字声誉与病毒曝光的后果，英/日/简中三语。Reddit直接帖子被限流，以媒体信号替代。海外社区关注「选择导向叙事+舆论操纵」的题材新意。</div>
+  </div>
+</section>
+
+<footer><p>由 <span class="rn">互动影游情报机器人 v0.11</span> 生成 · 全部链接已核实</p><p style="margin-top:4px">数据源：Steam评测API · Steam搜索 · TapTap · Tech Times/今日头条/游民星空/腾讯新闻/中金在线/Next-Gen Gaming Blog | 仅供内部参考</p></footer>
+</div>
+</body>
+</html>
